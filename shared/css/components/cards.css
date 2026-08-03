@@ -1,0 +1,540 @@
+/**
+ * SC Web Studio — Card Components
+ * ─────────────────────────────────────────────────────────────────────────────
+ * All 7 card variants: standard, product, feature, glass, story, lab, ecosystem.
+ * Based on: design/cards.md
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. STANDARD CARD
+   Default container for features, services, team items.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform var(--duration-slow) var(--ease-spring),
+    box-shadow var(--duration-slow) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
+}
+
+/* Top edge light on hover (studio default) */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: var(--gradient-edge-studio);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.card:hover::before { opacity: 1; }
+
+/* Non-interactive card (no hover) */
+.card-static {
+  transition: none;
+}
+.card-static:hover { transform: none; box-shadow: var(--shadow-card); }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2. PRODUCT CARD
+   Hero-weight card used on /products/ and home product teaser.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.card-product {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-10);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  transition:
+    transform var(--duration-slow) var(--ease-spring),
+    box-shadow var(--duration-slow) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
+}
+
+/* Shared top edge light */
+.card-product::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
+  z-index: 1;
+}
+
+.card-product:hover { transform: translateY(-6px); }
+.card-product:hover::before { opacity: 1; }
+
+/* Case Assistant OS */
+.card-product[data-product="case-assistant"]:hover {
+  box-shadow: var(--shadow-card-legal-hover);
+  border-color: rgba(14, 165, 233, 0.2);
+}
+.card-product[data-product="case-assistant"]::before {
+  background: var(--gradient-edge-legal);
+}
+
+/* Project Home */
+.card-product[data-product="project-home"]:hover {
+  box-shadow: var(--shadow-card-home-hover);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+.card-product[data-product="project-home"]::before {
+  background: var(--gradient-edge-home);
+}
+
+/* SC Tech */
+.card-product[data-product="sc-tech"]:hover {
+  box-shadow: var(--shadow-card-tech-hover);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+.card-product[data-product="sc-tech"]::before {
+  background: var(--gradient-edge-tech);
+}
+
+/* Product card internal layout */
+.card-product-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.card-product-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-surface-raised);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-product-logo svg,
+.card-product-logo img {
+  width: 28px;
+  height: 28px;
+}
+
+.card-product-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.card-product-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-snug);
+  color: var(--text-primary);
+  line-height: var(--leading-snug);
+}
+
+.card-product-description {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: none;
+}
+
+.card-product-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.card-product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+/* Background glow blob inside product card */
+.card-product-glow {
+  position: absolute;
+  bottom: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: var(--z-below);
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-out);
+}
+
+.card-product:hover .card-product-glow { opacity: 1; }
+
+.card-product[data-product="case-assistant"] .card-product-glow {
+  background: var(--legal-glow);
+}
+.card-product[data-product="project-home"] .card-product-glow {
+  background: var(--home-glow);
+}
+.card-product[data-product="sc-tech"] .card-product-glow {
+  background: var(--tech-glow);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3. FEATURE CARD
+   Used for features, philosophy pillars, service capabilities.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.card-feature {
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition:
+    background var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
+}
+
+.card-feature:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-default);
+}
+
+.card-feature-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--studio-glow);
+  border: 1px solid rgba(85, 104, 255, 0.2);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.card-feature-icon svg {
+  width: var(--icon-lg);
+  height: var(--icon-lg);
+  color: var(--studio-400);
+}
+
+/* Product-specific feature icon colors */
+[data-product="case-assistant"] .card-feature-icon {
+  background: var(--legal-badge-bg);
+  border-color: var(--legal-badge-border);
+}
+[data-product="case-assistant"] .card-feature-icon svg { color: var(--legal-500); }
+
+[data-product="project-home"] .card-feature-icon {
+  background: var(--home-badge-bg);
+  border-color: var(--home-badge-border);
+}
+[data-product="project-home"] .card-feature-icon svg { color: var(--home-500); }
+
+.card-feature-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  letter-spacing: var(--tracking-snug);
+}
+
+.card-feature-description {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: none;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   4. GLASS CARD
+   Navigation overlay, hero floating elements, panels.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.card-glass {
+  background: rgba(14, 15, 20, 0.72);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+}
+
+.card-glass-sm {
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   5. STORY CARD (formerly Journal)
+   Used on /stories/ page. Minimal, typography-led.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.card-story {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--border-subtle);
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.card-story:hover { opacity: 0.7; }
+
+.card-story:last-child { border-bottom: none; }
+
+.card-story-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.card-story-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  letter-spacing: var(--tracking-snug);
+  line-height: var(--leading-snug);
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.card-story:hover .card-story-title { color: var(--studio-300); }
+
+.card-story-description {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: none;
+}
+
+.card-story-read-time {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* Horizontal layout on larger screens */
+@media (min-width: 768px) {
+  .card-story {
+    grid-template-columns: 1fr auto;
+    column-gap: var(--space-12);
+  }
+
+  .card-story-content { grid-row: 1 / 3; }
+  .card-story-thumbnail {
+    grid-row: 1 / 3;
+    width: 140px;
+    height: 90px;
+    border-radius: var(--radius-lg);
+    background: var(--bg-surface-raised);
+    border: 1px solid var(--border-subtle);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .card-story-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   6. LAB EXPERIMENT CARD
+   Used on /labs/ page with 4-status system.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.card-lab {
+  padding: var(--space-8);
+  border-radius: var(--radius-xl);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition:
+    transform var(--duration-slow) var(--ease-spring),
+    border-color var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-slow) var(--ease-out);
+}
+
+.card-lab:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-default);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-lab-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.card-lab-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  letter-spacing: var(--tracking-snug);
+}
+
+.card-lab-problem {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  max-width: none;
+}
+
+/* Status-driven left border accent */
+.card-lab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  bottom: 20%;
+  width: 2px;
+  border-radius: 0 2px 2px 0;
+  background: var(--card-status-color, var(--border-subtle));
+}
+
+.card-lab[data-status="exploring"]   { --card-status-color: var(--text-tertiary); }
+.card-lab[data-status="prototyping"] { --card-status-color: var(--studio-400); }
+.card-lab[data-status="building"]    { --card-status-color: var(--studio-500); }
+.card-lab[data-status="incubating"]  { --card-status-color: var(--color-warning); }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   7. ECOSYSTEM NODE CARD
+   Used in /ecosystem/ and home ecosystem teaser.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.card-ecosystem {
+  padding: var(--space-6) var(--space-8);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-surface);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  transition:
+    border-color var(--duration-base) var(--ease-out),
+    transform var(--duration-slow) var(--ease-spring),
+    box-shadow var(--duration-slow) var(--ease-out);
+}
+
+.card-ecosystem:hover {
+  border-color: var(--border-default);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.card-ecosystem-mark {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-raised);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-ecosystem-name {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+}
+
+.card-ecosystem-status {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Parent node (SC Web Studio itself) */
+.card-ecosystem.is-parent {
+  border-color: var(--studio-glow);
+  background: linear-gradient(135deg, var(--bg-surface), rgba(85, 104, 255, 0.05));
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   EMPTY STATE CARD
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.card-empty {
+  border: 1px dashed var(--border-subtle);
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  text-align: center;
+  padding: var(--space-12);
+  border-radius: var(--radius-xl);
+}
+
+.card-empty svg {
+  width: var(--icon-xl);
+  height: var(--icon-xl);
+  color: var(--text-tertiary);
+}
+
+.card-empty p {
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  max-width: none;
+}

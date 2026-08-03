@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SC Labs — SC Web Studio</title>
+  <meta name="description" content="SC Labs is where SC Web Studio tests ideas before they become products. Experiments in AI, automation, and software for underserved markets. Building in public.">
+  <link rel="canonical" href="https://scwebstudio.com/labs/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://scwebstudio.com/labs/">
+  <meta property="og:title" content="SC Labs — SC Web Studio">
+  <meta property="og:description" content="Where ideas become experiments. Validating hypotheses before committing engineering resources.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SC Labs — SC Web Studio">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../shared/css/tokens.css">
+  <link rel="stylesheet" href="../shared/css/reset.css">
+  <link rel="stylesheet" href="../shared/css/typography.css">
+  <link rel="stylesheet" href="../shared/css/layout.css">
+  <link rel="stylesheet" href="../shared/css/utilities.css">
+  <link rel="stylesheet" href="../shared/css/components/nav.css">
+  <link rel="stylesheet" href="../shared/css/components/buttons.css">
+  <link rel="stylesheet" href="../shared/css/components/cards.css">
+  <link rel="stylesheet" href="../shared/css/components/badges.css">
+  <link rel="stylesheet" href="../shared/css/components/modals.css">
+
+  <style>
+    /* ── Hero ──────────────────────────────────────────────────────── */
+    .labs-hero {
+      padding: calc(var(--nav-height) + var(--space-20)) var(--space-6) var(--space-20);
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+    }
+
+    /* ── Philosophy pillars ─────────────────────────────────────────── */
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      margin-top: var(--space-12);
+    }
+    @media (min-width: 768px) {
+      .philosophy-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .philosophy-pillar {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .philosophy-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-lg);
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--studio-400);
+    }
+    .philosophy-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+    .philosophy-desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* ── Experiment cards ───────────────────────────────────────────── */
+    .experiments-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+    }
+    @media (min-width: 768px) {
+      .experiments-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .card-lab {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-7);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+      position: relative;
+      overflow: hidden;
+      transition:
+        border-color var(--duration-base) var(--ease-out),
+        transform var(--duration-slow) var(--ease-spring);
+    }
+    .card-lab::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      border-radius: var(--radius-full) 0 0 var(--radius-full);
+    }
+    .card-lab:hover {
+      border-color: var(--border-default);
+      transform: translateY(-3px);
+    }
+    .card-lab[data-status='prototyping']::before { background: var(--studio-500); }
+    .card-lab[data-status='building']::before    { background: var(--tech-500, #10B981); }
+    .card-lab[data-status='exploring']::before   { background: var(--home-500, #F59E0B); }
+    .card-lab[data-status='incubating']::before  { background: var(--border-default); }
+
+    .card-lab-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-4);
+    }
+    .card-lab-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--text-primary);
+      letter-spacing: -0.015em;
+    }
+    .card-lab-problem {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+    }
+    .card-lab-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+    .card-lab-note {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      color: var(--text-tertiary);
+      line-height: 1.6;
+      padding: var(--space-3) var(--space-4);
+      background: var(--bg-surface-raised);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+    }
+    .card-lab-note::before {
+      content: '// ';
+      opacity: 0.5;
+    }
+
+    /* ── Graduated section ──────────────────────────────────────────── */
+    .graduated-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-10);
+    }
+    @media (min-width: 768px) {
+      .graduated-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .graduated-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-7);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+      transition: border-color var(--duration-base) var(--ease-out);
+    }
+    .graduated-card:hover { border-color: var(--border-default); }
+    .graduated-label {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      color: var(--color-success, #10B981);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .graduated-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+    .graduated-desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      flex: 1;
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://scwebstudio.com/labs/#webpage",
+    "url": "https://scwebstudio.com/labs/",
+    "name": "SC Labs — SC Web Studio",
+    "description": "Where ideas become experiments. SC Web Studio's R&D lab for testing hypotheses before they become products.",
+    "isPartOf": { "@id": "https://scwebstudio.com/#website" },
+    "inLanguage": "en-US"
+  }
+  </script>
+</head>
+
+<body class="page-wrapper" data-base-path="../">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <div id="sc-header"></div>
+  <script src="../shared/js/core/shell.js" data-base="../"></script>
+
+  <main id="main-content" class="page-content">
+
+    <!-- ── §1 HERO ───────────────────────────────────────────────────── -->
+    <section aria-labelledby="labs-heading" class="reveal">
+      <div class="labs-hero">
+        <p class="sh-label">SC Labs</p>
+        <h1 class="display" id="labs-heading" style="max-width:18ch;">
+          Where ideas become experiments.
+        </h1>
+        <p class="lead" style="margin-top:var(--space-6);max-width:56ch;">
+          Not every idea is ready to be a product. SC Labs is where we validate, prototype, and sometimes abandon ideas before they consume real resources. This is the work before the work.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── §2 PHILOSOPHY ─────────────────────────────────────────────── -->
+    <section class="section section-surface" id="philosophy" aria-labelledby="philosophy-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="sh-label">How the Lab Works</p>
+          <h2 class="sh-heading" id="philosophy-heading">Three rules. No exceptions.</h2>
+        </div>
+
+        <div class="philosophy-grid reveal-group">
+
+          <div class="philosophy-pillar reveal">
+            <div class="philosophy-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+            </div>
+            <p class="philosophy-title">Validate before investing</p>
+            <p class="philosophy-desc">We test assumptions with minimal code before committing engineering resources. An experiment should answer one question clearly, then stop.</p>
+          </div>
+
+          <div class="philosophy-pillar reveal">
+            <div class="philosophy-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            </div>
+            <p class="philosophy-title">Abandon without guilt</p>
+            <p class="philosophy-desc">A failed experiment is a successful learning. We kill ideas that don't prove out. The goal is evidence, not sunken-cost protection.</p>
+          </div>
+
+          <div class="philosophy-pillar reveal">
+            <div class="philosophy-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <p class="philosophy-title">Graduate with evidence</p>
+            <p class="philosophy-desc">An experiment graduates to a product only when it has proven the hypothesis — not when it feels promising. Evidence over intuition.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── §3 CURRENT EXPERIMENTS ────────────────────────────────────── -->
+    <section class="section section-xl" id="experiments" aria-labelledby="experiments-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="sh-label">Active Experiments</p>
+          <h2 class="sh-heading" id="experiments-heading">What we're testing right now.</h2>
+          <p class="sh-lead">Four experiments across four different hypotheses. Each one has a clear question it's trying to answer.</p>
+        </div>
+
+        <div class="experiments-grid reveal-group">
+
+          <!-- LegalRAG -->
+          <div class="card-lab reveal" data-status="prototyping" aria-label="LegalRAG experiment">
+            <div class="card-lab-header">
+              <h3 class="card-lab-title">LegalRAG</h3>
+              <span class="badge badge-prototyping" role="status">Prototyping</span>
+            </div>
+            <p class="card-lab-problem">Applying retrieval-augmented generation to U.S. personal injury case law. Can AI surface relevant precedents for case managers without replacing their judgment — or creating false confidence?</p>
+            <div class="card-lab-tags">
+              <span class="tech-label">Python</span>
+              <span class="tech-label">Vector DB</span>
+              <span class="tech-label">LLM Integration</span>
+            </div>
+            <p class="card-lab-note">Testing with a curated dataset of PI case summaries. Evaluating relevance accuracy against attorney judgment on 50 test cases.</p>
+          </div>
+
+          <!-- Atlas -->
+          <div class="card-lab reveal" data-status="building" aria-label="Atlas experiment">
+            <div class="card-lab-header">
+              <h3 class="card-lab-title">Atlas</h3>
+              <span class="badge badge-building" role="status">Building</span>
+            </div>
+            <p class="card-lab-problem">Internal tooling for managing SC Web Studio's own client project pipeline, invoicing, and deliverable tracking. A dogfood product — we build it for ourselves first, then decide if it's worth productizing.</p>
+            <div class="card-lab-tags">
+              <span class="tech-label">Node.js</span>
+              <span class="tech-label">SQLite</span>
+              <span class="tech-label">Internal</span>
+            </div>
+            <p class="card-lab-note">Currently tracking 4 active projects through Atlas. Replacing the spreadsheet one row at a time. Hypothesis: replacing the spreadsheet reduces missed deadlines.</p>
+          </div>
+
+          <!-- Topo -->
+          <div class="card-lab reveal" data-status="exploring" aria-label="Topo experiment">
+            <div class="card-lab-header">
+              <h3 class="card-lab-title">Topo</h3>
+              <span class="badge badge-exploring" role="status">Exploring</span>
+            </div>
+            <p class="card-lab-problem">A structured client onboarding system that captures project context, stakeholder information, and success criteria before any contract is signed. Replaces the discovery call document with something more systematic.</p>
+            <div class="card-lab-tags">
+              <span class="tech-label">Forms</span>
+              <span class="tech-label">Structured Data</span>
+              <span class="tech-label">Automation</span>
+            </div>
+            <p class="card-lab-note">In exploration phase. Defining what structured onboarding actually needs to capture — and what it doesn't need to burden the client with.</p>
+          </div>
+
+          <!-- Ledger -->
+          <div class="card-lab reveal" data-status="incubating" aria-label="Ledger experiment">
+            <div class="card-lab-header">
+              <h3 class="card-lab-title">Ledger</h3>
+              <span class="badge badge-incubating" role="status">Incubating</span>
+            </div>
+            <p class="card-lab-problem">Simple financial tracking for small Bolivian businesses that operate informally. Not accounting software — just enough structure to understand where money goes and whether the business is growing.</p>
+            <div class="card-lab-tags">
+              <span class="tech-label">Mobile-First</span>
+              <span class="tech-label">Spanish</span>
+              <span class="tech-label">Bolivia</span>
+            </div>
+            <p class="card-lab-note">Early concept. Validating whether the problem is acute enough to build for. Conducting 15 informal interviews with small business owners in Cochabamba.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── §4 GRADUATED ──────────────────────────────────────────────── -->
+    <section class="section section-surface" id="graduated" aria-labelledby="graduated-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="sh-label">Graduated from the Lab</p>
+          <h2 class="sh-heading" id="graduated-heading">These experiments became products.</h2>
+          <p class="sh-lead">Not every experiment earns a product. These two did — because they answered their hypothesis with clear, positive evidence.</p>
+        </div>
+
+        <div class="graduated-grid reveal-group">
+
+          <div class="graduated-card reveal">
+            <p class="graduated-label">✓ Graduated · Now a Product</p>
+            <h3 class="graduated-title">Case Assistant OS</h3>
+            <p class="graduated-desc">Started as a single hypothesis: could a PI case manager's entire workflow fit in a local-first web app — no cloud, no subscription, no complexity? After 3 months of prototyping inside an active law firm, the answer was yes. It graduated to a product.</p>
+            <a href="../products/case-assistant-os/" class="btn btn-secondary btn-sm" id="labs-cao-link">View Product</a>
+          </div>
+
+          <div class="graduated-card reveal">
+            <p class="graduated-label">✓ Graduated · Now a Product</p>
+            <h3 class="graduated-title">Project Home</h3>
+            <p class="graduated-desc">Started as market research with one question: is Bolivia's rental market broken enough to warrant building a new platform? After 40 interviews with landlords and tenants across Cochabamba, the answer was unambiguous. Graduated to a product.</p>
+            <a href="../products/project-home/" class="btn btn-secondary btn-sm" id="labs-ph-link">Join Waitlist</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── §5 FOLLOW CTA ─────────────────────────────────────────────── -->
+    <section class="section" id="follow-labs" aria-labelledby="follow-heading">
+      <div class="container" style="max-width:600px;text-align:center;">
+        <div class="reveal">
+          <p class="sh-label">Follow Along</p>
+          <h2 class="sh-heading" id="follow-heading" style="text-align:center;margin-left:auto;margin-right:auto;">
+            We document our experiments publicly.
+          </h2>
+          <p class="sh-lead" style="text-align:center;margin:0 auto var(--space-8);">
+            Every significant finding, failure, and pivot is written up in Stories. If you want to see how a digital product studio actually thinks, that's where to look.
+          </p>
+          <a href="../stories/" class="btn btn-secondary btn-lg" id="labs-stories-link">Read our Stories</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="sc-footer"></div>
+
+  <script src="../shared/js/core/nav.js" defer></script>
+  <script src="../shared/js/core/scroll.js" defer></script>
+
+</body>
+</html>

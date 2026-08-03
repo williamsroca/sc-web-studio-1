@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── Primary SEO ────────────────────────────────────────────────────── -->
+  <title>Ecosystem — SC Web Studio</title>
+  <meta name="description" content="SC Web Studio operates as an interconnected ecosystem: professional services financing product R&amp;D, products informing service experience, and SC Labs exploring what comes next.">
+  <meta name="keywords" content="SC Web Studio, ecosystem, digital studio model, software services, Case Assistant OS, Project Home, SC Labs, Bolivia technology">
+  <meta name="author" content="SC Web Studio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://scwebstudio.com/ecosystem/">
+
+  <!-- ── Open Graph ──────────────────────────────────────────────────────── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://scwebstudio.com/ecosystem/">
+  <meta property="og:title"       content="Ecosystem — SC Web Studio">
+  <meta property="og:description" content="SC Web Studio operates as an interconnected ecosystem: professional services financing product R&amp;D, products informing service experience, and SC Labs exploring what comes next.">
+  <meta property="og:site_name"   content="SC Web Studio">
+  <meta property="og:locale"      content="en_US">
+  <meta property="og:image"       content="https://scwebstudio.com/shared/assets/og/ecosystem.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"   content="Ecosystem — SC Web Studio">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:site"        content="@scwebstudio">
+  <meta name="twitter:title"       content="Ecosystem — SC Web Studio">
+  <meta name="twitter:description" content="One studio. An expanding ecosystem. How services, products, and R&amp;D reinforce each other.">
+  <meta name="twitter:image"       content="https://scwebstudio.com/shared/assets/og/ecosystem.jpg">
+
+  <!-- ── PWA / App Shell ────────────────────────────────────────────────── -->
+  <meta name="theme-color"                       content="#060608">
+  <meta name="apple-mobile-web-app-capable"      content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title"        content="SC Web Studio">
+  <link rel="manifest"      href="../manifest.json">
+  <link rel="icon"          type="image/svg+xml" href="../shared/assets/favicons/favicon.svg">
+  <link rel="apple-touch-icon" href="../shared/assets/favicons/apple-touch-icon.png">
+
+  <!-- ── JSON-LD Schema ─────────────────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Ecosystem — SC Web Studio",
+    "url": "https://scwebstudio.com/ecosystem/",
+    "description": "Explaining the SC Web Studio interconnected ecosystem model: client services, core products, and experimental R&D labs.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SC Web Studio",
+      "url": "https://scwebstudio.com"
+    }
+  }
+  </script>
+
+  <!-- ── Font preconnect ────────────────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ── Design System CSS (canonical import order) ─────────────────────── -->
+  <link rel="stylesheet" href="../shared/css/tokens.css">
+  <link rel="stylesheet" href="../shared/css/reset.css">
+  <link rel="stylesheet" href="../shared/css/typography.css">
+  <link rel="stylesheet" href="../shared/css/layout.css">
+  <link rel="stylesheet" href="../shared/css/utilities.css">
+  <link rel="stylesheet" href="../shared/css/components/nav.css">
+  <link rel="stylesheet" href="../shared/css/components/buttons.css">
+  <link rel="stylesheet" href="../shared/css/components/cards.css">
+  <link rel="stylesheet" href="../shared/css/components/badges.css">
+  <link rel="stylesheet" href="../shared/css/components/mockups.css">
+  <link rel="stylesheet" href="../shared/css/components/modals.css">
+  <link rel="stylesheet" href="../shared/css/components/forms.css">
+
+  <!-- ── Page-Specific Styles ───────────────────────────────────────────── -->
+  <style>
+    /* Ecosystem Map Container */
+    .eco-map {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+      position: relative;
+    }
+
+    .eco-center {
+      margin: 0 auto var(--space-8);
+      padding: var(--space-6) var(--space-10);
+      border: 2px solid var(--studio-500);
+      border-radius: var(--radius-2xl);
+      background: var(--bg-surface-raised);
+      box-shadow: 0 0 32px var(--studio-glow);
+      text-align: center;
+      max-width: 380px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eco-grid-three {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      position: relative;
+    }
+    @media (min-width: 768px) {
+      .eco-grid-three {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-6);
+      }
+    }
+
+    .eco-node {
+      background: var(--bg-surface);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .eco-node-services {
+      border: 1px solid var(--border-default);
+    }
+    .eco-node-products {
+      border: 1px solid rgba(85, 104, 255, 0.4);
+      box-shadow: 0 0 20px rgba(85, 104, 255, 0.08);
+    }
+    .eco-node-labs {
+      border: 1px dashed var(--border-default);
+    }
+
+    .eco-sub-list {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-2) 0 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .eco-sub-item {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .eco-sub-item-legal {
+      color: var(--legal-500);
+      font-weight: var(--weight-medium);
+    }
+    .eco-sub-item-home {
+      color: var(--home-500);
+      font-weight: var(--weight-medium);
+    }
+    .eco-sub-item-tech {
+      color: var(--tech-500);
+      font-weight: var(--weight-medium);
+    }
+    .eco-sub-item-lab {
+      color: var(--text-tertiary);
+      font-style: italic;
+    }
+
+    /* Connectors visual */
+    .eco-connector-lines {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .eco-connector-lines {
+        display: block;
+        height: 36px;
+        position: relative;
+        margin-top: -16px;
+        margin-bottom: var(--space-4);
+      }
+      .eco-connector-main {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 2px;
+        height: 18px;
+        background: var(--studio-500);
+        transform: translateX(-50%);
+      }
+      .eco-connector-bar {
+        position: absolute;
+        top: 18px;
+        left: 16.66%;
+        right: 16.66%;
+        height: 2px;
+        background: var(--border-default);
+      }
+      .eco-connector-drop {
+        position: absolute;
+        top: 18px;
+        height: 18px;
+        width: 2px;
+        background: var(--border-default);
+      }
+      .eco-connector-drop-1 { left: 16.66%; }
+      .eco-connector-drop-2 { left: 50%; background: var(--studio-500); }
+      .eco-connector-drop-3 { right: 16.66%; }
+    }
+
+    /* Connective Tissue Footer */
+    .eco-stories-tissue {
+      margin-top: var(--space-10);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--border-subtle);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    /* Stacked Pillars Section */
+    .pillars-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pillar-row {
+      padding-block: var(--space-12);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .pillar-row:last-child {
+      border-bottom: none;
+    }
+
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+    @media (min-width: 1024px) {
+      .pillar-grid {
+        grid-template-columns: 4fr 8fr;
+        gap: var(--space-12);
+      }
+    }
+
+    .pillar-number {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 5vw, 4.5rem);
+      font-weight: var(--weight-bold);
+      color: var(--studio-500);
+      opacity: 0.25;
+      line-height: 1;
+      margin-bottom: var(--space-2);
+    }
+
+    .pillar-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+      margin-bottom: var(--space-1);
+    }
+
+    .pillar-sublabel {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+    }
+
+    .pillar-right {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      justify-content: center;
+    }
+
+    /* Final CTA Grid */
+    .cta-paths-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      max-width: 800px;
+      margin: var(--space-8) auto 0;
+    }
+    @media (min-width: 640px) {
+      .cta-paths-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .cta-path-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+      text-decoration: none;
+      transition: transform var(--duration-slow) var(--ease-spring),
+                  border-color var(--duration-base) var(--ease-out);
+    }
+    .cta-path-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--studio-500);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Header Shell Container -->
+  <div id="sc-header"></div>
+  <script src="../shared/js/core/shell.js" data-base="../"></script>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- 1. HERO SECTION -->
+    <section class="section-lg" id="hero" aria-labelledby="ecosystem-heading">
+      <div class="container reveal-group">
+        <p class="sh-label">The Ecosystem</p>
+        <h1 class="sh-heading" id="ecosystem-heading">One studio. An expanding ecosystem.</h1>
+        <p class="sh-lead">
+          SC Web Studio is not just a service company and not just a product company. It is a studio — a system where professional services, product development, and experimental R and D reinforce each other.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. ECOSYSTEM MAP SECTION -->
+    <section class="section-xl" id="map" aria-labelledby="map-heading">
+      <div class="container reveal-group">
+        <p class="sh-label">The Map</p>
+        <h2 class="sh-heading" id="map-heading">How it all connects.</h2>
+
+        <div class="eco-map mt-8 reveal">
+
+          <!-- Center Studio Box -->
+          <div class="eco-center">
+            <span class="text-2xs font-mono studio-500 uppercase tracking-widest block mb-1">Central Hub</span>
+            <h3 class="font-display text-xl text-primary font-bold">SC Web Studio</h3>
+            <p class="text-xs text-secondary mt-1">Core Architecture &amp; R&amp;D Engine</p>
+          </div>
+
+          <!-- Connector Lines for 768px+ -->
+          <div class="eco-connector-lines" aria-hidden="true">
+            <div class="eco-connector-main"></div>
+            <div class="eco-connector-bar"></div>
+            <div class="eco-connector-drop eco-connector-drop-1"></div>
+            <div class="eco-connector-drop eco-connector-drop-2"></div>
+            <div class="eco-connector-drop eco-connector-drop-3"></div>
+          </div>
+
+          <!-- Three Branches Grid -->
+          <div class="eco-grid-three">
+
+            <!-- LEFT: Professional Services -->
+            <div class="eco-node eco-node-services">
+              <span class="text-2xs font-mono text-tertiary uppercase tracking-wider block">Branch 01</span>
+              <h4 class="font-display text-lg text-primary font-semibold">Professional Services</h4>
+              <p class="text-xs text-secondary">Custom engineering engagements that fund runway and validate technology.</p>
+              
+              <ul class="eco-sub-list">
+                <li class="eco-sub-item">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  Software Dev
+                </li>
+                <li class="eco-sub-item">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  Automation Systems
+                </li>
+                <li class="eco-sub-item">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  SaaS Infrastructure
+                </li>
+                <li class="eco-sub-item">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  Product Design
+                </li>
+              </ul>
+            </div>
+
+            <!-- CENTER: Products -->
+            <div class="eco-node eco-node-products">
+              <span class="text-2xs font-mono studio-500 uppercase tracking-wider block">Branch 02</span>
+              <h4 class="font-display text-lg text-primary font-semibold">Products</h4>
+              <p class="text-xs text-secondary">Independent, long-term product platforms owned and built by the studio.</p>
+
+              <ul class="eco-sub-list">
+                <li class="eco-sub-item eco-sub-item-legal">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  Case Assistant OS
+                </li>
+                <li class="eco-sub-item eco-sub-item-home">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  Project Home
+                </li>
+                <li class="eco-sub-item eco-sub-item-tech">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  SC Tech
+                </li>
+              </ul>
+            </div>
+
+            <!-- RIGHT: SC Labs -->
+            <div class="eco-node eco-node-labs">
+              <span class="text-2xs font-mono text-tertiary uppercase tracking-wider block">Branch 03</span>
+              <h4 class="font-display text-lg text-primary font-semibold">SC Labs</h4>
+              <p class="text-xs text-secondary">Experimental hypotheses and early prototypes tested in real market environments.</p>
+
+              <ul class="eco-sub-list">
+                <li class="eco-sub-item eco-sub-item-lab">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  LegalRAG
+                </li>
+                <li class="eco-sub-item eco-sub-item-lab">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  Atlas
+                </li>
+                <li class="eco-sub-item eco-sub-item-lab">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  Topo
+                </li>
+                <li class="eco-sub-item eco-sub-item-lab">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                  Ledger
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Connective Tissue: SC Stories Layer -->
+          <div class="eco-stories-tissue">
+            <span class="badge badge-new">SC Stories</span>
+            <p class="text-xs font-mono text-tertiary">
+              Connective tissue — honest documentation of engineering decisions, product strategy, and market research across all branches.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. THREE PILLARS SECTION -->
+    <section class="section-surface" id="pillars" aria-labelledby="pillars-heading">
+      <div class="container">
+        <h2 id="pillars-heading" class="sr-only">The Three Pillars</h2>
+
+        <div class="pillars-container">
+
+          <!-- Pillar 1 -->
+          <div class="pillar-row reveal" id="pillar-services">
+            <div class="pillar-grid">
+              <div class="pillar-left">
+                <div class="pillar-number">01</div>
+                <h3 class="pillar-title">Professional Services</h3>
+                <span class="pillar-sublabel">The engine that funds everything else.</span>
+              </div>
+              <div class="pillar-right">
+                <p class="text-secondary text-base leading-relaxed">
+                  Client engagements in software development, automation, SaaS, and design generate the revenue that funds product R and D. We take on a limited number per year to maintain quality and focus.
+                </p>
+                <div>
+                  <a href="../services/" class="btn btn-text">
+                    See our services
+                    <span class="btn-arrow">&rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="pillar-row reveal" id="pillar-products">
+            <div class="pillar-grid">
+              <div class="pillar-left">
+                <div class="pillar-number">02</div>
+                <h3 class="pillar-title">Products</h3>
+                <span class="pillar-sublabel">The reason the studio exists.</span>
+              </div>
+              <div class="pillar-right">
+                <p class="text-secondary text-base leading-relaxed">
+                  Our own products — Case Assistant OS, Project Home, and what comes next — are not side projects. They are the primary mission. Professional services exist to finance them.
+                </p>
+                <div>
+                  <a href="../products/" class="btn btn-text">
+                    Explore our products
+                    <span class="btn-arrow">&rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="pillar-row reveal" id="pillar-labs">
+            <div class="pillar-grid">
+              <div class="pillar-left">
+                <div class="pillar-number">03</div>
+                <h3 class="pillar-title">SC Labs</h3>
+                <span class="pillar-sublabel">Where the next product begins.</span>
+              </div>
+              <div class="pillar-right">
+                <p class="text-secondary text-base leading-relaxed">
+                  SC Labs is where we test hypotheses before investing engineering resources. Some experiments graduate to products. Most teach us something valuable and end.
+                </p>
+                <div>
+                  <a href="../labs/" class="btn btn-text">
+                    Enter the Lab
+                    <span class="btn-arrow">&rarr;</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. STORIES LAYER -->
+    <section class="section-lg" id="stories-layer" aria-labelledby="stories-layer-heading">
+      <div class="container text-center reveal-group">
+        <p class="sh-label justify-center">Documentation</p>
+        <h2 class="sh-heading" id="stories-layer-heading">Stories ties it all together.</h2>
+        <p class="sh-lead mx-auto">
+          We document the work — the products we are building, the clients we are helping, the experiments we are running.
+        </p>
+
+        <div class="mt-8">
+          <a href="../stories/" class="btn btn-secondary">Read our Stories</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. FINAL CTA SECTION -->
+    <section class="section-xl" id="final-cta" aria-labelledby="cta-heading">
+      <div class="container reveal-group">
+        <h2 class="display text-center mb-4" id="cta-heading">Want to be part of the ecosystem?</h2>
+        <p class="lead text-center max-w-xl mx-auto text-secondary mb-8">
+          Whether you need software engineering services or want to partner on one of our product platforms.
+        </p>
+
+        <div class="cta-paths-grid">
+          <a href="../contact/" class="cta-path-card reveal">
+            <div class="w-12 h-12 rounded-full bg-studio-glow flex items-center justify-center border border-studio-500/30 text-studio-400">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <h3 class="font-display text-xl text-primary">Start a Project</h3>
+            <p class="text-xs text-secondary">Hire SC Web Studio to build custom software, automation, or SaaS tools.</p>
+            <span class="btn btn-primary btn-sm mt-2">Get in Touch</span>
+          </a>
+
+          <a href="../products/" class="cta-path-card reveal">
+            <div class="w-12 h-12 rounded-full bg-studio-glow flex items-center justify-center border border-studio-500/30 text-studio-400">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+            </div>
+            <h3 class="font-display text-xl text-primary">Explore Products</h3>
+            <p class="text-xs text-secondary">Discover Case Assistant OS, Project Home, and SC Tech.</p>
+            <span class="btn btn-secondary btn-sm mt-2">View Catalog</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Shell Container -->
+  <div id="sc-footer"></div>
+
+  <!-- Core Scripts -->
+  <script src="../shared/js/core/nav.js" defer></script>
+  <script src="../shared/js/core/scroll.js" defer></script>
+
+  <!-- Modal System Stub -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      window.openModal = function(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.classList.add('is-open');
+          document.body.classList.add('modal-open');
+        }
+      };
+
+      window.closeModal = function(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.classList.remove('is-open');
+          document.body.classList.remove('modal-open');
+        }
+      };
+    });
+  </script>
+</body>
+</html>

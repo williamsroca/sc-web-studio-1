@@ -1,0 +1,177 @@
+/**
+ * SC Web Studio — Modern CSS Reset
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Based on Josh Comeau's modern reset, enhanced for dark-first design.
+ * Import order: 1 of 8 (first, before all other stylesheets)
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+/* ── Box Sizing ────────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ── Core Resets ───────────────────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ── HTML & Body ───────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Media Elements ────────────────────────────────────────────────────────── */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+  font-style: italic; /* Styles alt text as accessible fallback */
+}
+
+/* ── Form Elements ─────────────────────────────────────────────────────────── */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ── Text Elements ─────────────────────────────────────────────────────────── */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* Prevent widow words in headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* ── Lists ─────────────────────────────────────────────────────────────────── */
+ul,
+ol {
+  list-style: none;
+}
+
+/* ── Anchors ───────────────────────────────────────────────────────────────── */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ── Tables ────────────────────────────────────────────────────────────────── */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* ── SVG ───────────────────────────────────────────────────────────────────── */
+svg {
+  overflow: visible;
+  flex-shrink: 0;
+}
+
+/* ── Selection ─────────────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(85, 104, 255, 0.3);
+  color: var(--text-primary);
+}
+
+/* ── Focus Visible ─────────────────────────────────────────────────────────── */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── Scrollbar (Webkit) ────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-default);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--bg-page);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+/* ── Horizontal Rule ───────────────────────────────────────────────────────── */
+hr {
+  border: none;
+  border-top: 1px solid var(--border-subtle);
+  margin: 0;
+}
+
+/* ── Media Queries ─────────────────────────────────────────────────────────── */
+/* Reduce motion at OS level */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

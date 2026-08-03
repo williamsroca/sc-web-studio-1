@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Home — The Rental Marketplace Bolivia Has Been Waiting For — SC Web Studio</title>
+    
+    <meta name="description" content="Project Home connects landlords and long-term tenants in Bolivia through verified listings, digital lease agreements, and a transparent process that replaces the handshake economy.">
+    <link rel="canonical" href="https://scwebstudio.com/products/project-home/">
+    
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://scwebstudio.com/products/project-home/">
+    <meta property="og:title" content="Project Home — The Rental Marketplace Bolivia Has Been Waiting For">
+    <meta property="og:description" content="Project Home connects landlords and long-term tenants in Bolivia through verified listings, digital lease agreements, and a transparent process that replaces the handshake economy.">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- CSS Imports (Order Mandatory) -->
+    <link rel="stylesheet" href="../../shared/css/tokens.css">
+    <link rel="stylesheet" href="../../shared/css/reset.css">
+    <link rel="stylesheet" href="../../shared/css/typography.css">
+    <link rel="stylesheet" href="../../shared/css/layout.css">
+    <link rel="stylesheet" href="../../shared/css/utilities.css">
+    <link rel="stylesheet" href="../../shared/css/components/nav.css">
+    <link rel="stylesheet" href="../../shared/css/components/buttons.css">
+    <link rel="stylesheet" href="../../shared/css/components/cards.css">
+    <link rel="stylesheet" href="../../shared/css/components/badges.css">
+    <link rel="stylesheet" href="../../shared/css/components/mockups.css">
+    <link rel="stylesheet" href="../../shared/css/components/modals.css">
+    <link rel="stylesheet" href="../../shared/css/components/forms.css">
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Project Home",
+      "applicationCategory": "RealEstateApplication",
+      "description": "Modern rental marketplace for Bolivia connecting landlords and tenants through verified listings, digital lease agreements, and transparent processes.",
+      "availableLanguage": ["es", "en"],
+      "offers": { 
+        "@type": "Offer", 
+        "availability": "https://schema.org/PreOrder", 
+        "priceCurrency": "BOB" 
+      },
+      "author": { 
+        "@type": "Organization", 
+        "name": "SC Web Studio", 
+        "url": "https://scwebstudio.com" 
+      }
+    }
+    </script>
+
+    <!-- Page Specific Styles -->
+    <style>
+        :root {
+            --home-500: #F59E0B;
+            --home-500-rgb: 245, 158, 11;
+        }
+        
+        .text-home {
+            color: var(--home-500);
+        }
+
+        /* Hero Aurora */
+        .hero-aurora {
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 80vw;
+            height: 80vw;
+            max-width: 800px;
+            max-height: 800px;
+            background: radial-gradient(circle, rgba(var(--home-500-rgb), 0.15) 0%, rgba(var(--home-500-rgb), 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+            filter: blur(60px);
+        }
+
+        /* Browser Mockup */
+        .mockup-browser {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--text-tertiary);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .mockup-header {
+            background-color: var(--bg-surface-raised);
+            padding: var(--space-4) var(--space-6);
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            gap: var(--space-4);
+        }
+
+        .mockup-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .mockup-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--text-tertiary);
+            opacity: 0.5;
+        }
+
+        .mockup-url {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-md);
+            padding: var(--space-2) var(--space-4);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            flex: 1;
+            text-align: center;
+            font-family: var(--font-mono);
+        }
+
+        .mockup-body {
+            padding: var(--space-6);
+            background-color: #0B0D12; /* slightly darker inner bg */
+        }
+
+        .mockup-search {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            background-color: var(--bg-surface);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--space-3) var(--space-4);
+            border-radius: var(--radius-lg);
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: var(--space-6);
+        }
+
+        .mockup-listings {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+
+        .listing-card {
+            background-color: var(--bg-surface-raised);
+            border-radius: var(--radius-lg);
+            padding: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            border: 1px solid rgba(255,255,255,0.02);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .listing-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(var(--home-500-rgb), 0.3);
+        }
+
+        .listing-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(var(--home-500-rgb), 0.1);
+            color: var(--home-500);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .listing-content {
+            flex: 1;
+        }
+
+        .listing-content h4 {
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            margin-bottom: var(--space-2);
+            font-weight: 500;
+        }
+
+        .listing-meta {
+            display: flex;
+            gap: var(--space-2);
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .badge-location {
+            background-color: rgba(var(--home-500-rgb), 0.15);
+            color: var(--home-500);
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: var(--radius-sm);
+        }
+
+        .badge-verified-green {
+            background-color: rgba(16, 185, 129, 0.15);
+            color: #10B981;
+            font-size: 0.65rem;
+            padding: 2px 6px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .listing-price {
+            font-family: var(--font-mono);
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Specific Grids */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-6);
+            margin-top: var(--space-12);
+        }
+        @media (min-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--space-8);
+            }
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-8);
+            margin-top: var(--space-12);
+        }
+        @media (min-width: 768px) {
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-12) var(--space-8);
+            }
+        }
+
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-4);
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: rgba(var(--home-500-rgb), 0.1);
+            color: var(--home-500);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .market-split {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-12);
+            margin-top: var(--space-8);
+        }
+        @media (min-width: 1024px) {
+            .market-split {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--space-16);
+                align-items: center;
+            }
+        }
+
+        /* Typography extensions */
+        .quote-large {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            line-height: 1.3;
+            color: var(--text-primary);
+            border-left: 4px solid var(--home-500);
+            padding-left: var(--space-6);
+            max-width: 40ch;
+        }
+        @media (min-width: 768px) {
+            .quote-large {
+                font-size: 2.25rem;
+            }
+        }
+
+        /* Modifiers */
+        .bg-tint-home {
+            background: linear-gradient(180deg, var(--bg-page) 0%, rgba(var(--home-500-rgb), 0.03) 50%, var(--bg-page) 100%);
+        }
+        
+        .sh-label-home {
+            color: var(--home-500);
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-4);
+        }
+        .sh-label-home::before {
+            content: '';
+            width: 32px;
+            height: 1px;
+            background-color: var(--home-500);
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+    <div id="sc-header"></div>
+    <script src="../../shared/js/core/shell.js" data-base="../../"></script>
+
+    <main id="main-content">
+        <!-- 1. HERO -->
+        <section class="section-xl relative overflow-hidden" aria-labelledby="hero-heading">
+            <div class="hero-aurora" aria-hidden="true"></div>
+            <div class="container grid-hero-split">
+                <div class="hero-content reveal-group z-10">
+                    <p class="sh-label-home">Project Home &middot; Bolivia &middot; Long-Term Rentals</p>
+                    <h1 class="display" id="hero-heading">A rental market that works for everyone.</h1>
+                    <p class="lead">Project Home is a modern rental marketplace connecting landlords and long-term tenants through a cleaner, faster, more transparent experience. Built for Bolivia &mdash; where trust, data, and process have been absent for too long.</p>
+                    
+                    <div class="flex gap-4 mt-8 flex-wrap">
+                        <button class="btn btn-home btn-lg" data-modal="modal-waitlist">Join the Waitlist</button>
+                        <a href="#the-problem" class="btn btn-ghost btn-lg">Learn our approach</a>
+                    </div>
+                    
+                    <p class="font-mono text-2xs text-tertiary mt-8">
+                        Bolivia-first &middot; Cochabamba, Santa Cruz and La Paz &middot; Spanish and English &middot; Launching 2025
+                    </p>
+                </div>
+                
+                <div class="hero-visual reveal reveal-right z-10 relative">
+                    <div class="mockup-browser">
+                        <div class="mockup-header">
+                            <div class="mockup-dots"><span></span><span></span><span></span></div>
+                            <div class="mockup-url">projecthome.bo</div>
+                        </div>
+                        <div class="mockup-body">
+                            <div class="mockup-search">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                <span>Search Cochabamba, CBBA...</span>
+                            </div>
+                            <div class="mockup-listings">
+                                <!-- Card 1 -->
+                                <div class="listing-card">
+                                    <div class="listing-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                    </div>
+                                    <div class="listing-content">
+                                        <h4>Torre Norte Apt 4B</h4>
+                                        <div class="listing-meta">
+                                            <span class="badge-location">Cochabamba</span>
+                                            <span class="badge-verified-green">
+                                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                                Verified
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="listing-price">Bs. 3,500/mo</div>
+                                </div>
+                                <!-- Card 2 -->
+                                <div class="listing-card">
+                                    <div class="listing-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                                    </div>
+                                    <div class="listing-content">
+                                        <h4>Casa en Cala Cala</h4>
+                                        <div class="listing-meta">
+                                            <span class="badge-location">Cochabamba</span>
+                                            <span class="badge-verified-green">
+                                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                                Verified
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="listing-price">Bs. 5,000/mo</div>
+                                </div>
+                                <!-- Card 3 -->
+                                <div class="listing-card">
+                                    <div class="listing-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                                    </div>
+                                    <div class="listing-content">
+                                        <h4>Estudio Central</h4>
+                                        <div class="listing-meta">
+                                            <span class="badge-location">Cochabamba</span>
+                                            <span class="badge-verified-green">
+                                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                                Verified
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="listing-price">Bs. 2,100/mo</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. THE PROBLEM -->
+        <section class="section-surface" id="the-problem" aria-labelledby="problem-heading">
+            <div class="container reveal-group">
+                <p class="sh-label-home">The Market</p>
+                <h2 class="sh-heading" id="problem-heading">Bolivia's rental market runs on word of mouth and handshakes.</h2>
+                <p class="sh-lead">Landlords do not verify tenants. Tenants cannot verify landlords. Agreements are informal. Disputes are ugly.</p>
+                
+                <div class="features-grid">
+                    <div class="card-feature reveal">
+                        <div class="card-icon text-home">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="18" y1="8" x2="23" y2="13"></line><line x1="23" y1="8" x2="18" y2="13"></line></svg>
+                        </div>
+                        <h3 class="text-xl mb-3">No Tenant Verification</h3>
+                        <p class="text-secondary text-sm">Landlords rent to strangers based on gut feeling. Payment history, references, and identity are rarely checked.</p>
+                    </div>
+                    
+                    <div class="card-feature reveal">
+                        <div class="card-icon text-home">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                        </div>
+                        <h3 class="text-xl mb-3">No Listing Verification</h3>
+                        <p class="text-secondary text-sm">Tenants browse listings with no guarantee they are real, accurate, or still available.</p>
+                    </div>
+
+                    <div class="card-feature reveal">
+                        <div class="card-icon text-home">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+                        </div>
+                        <h3 class="text-xl mb-3">Informal Agreements</h3>
+                        <p class="text-secondary text-sm">Most leases are handshake deals or loose paper contracts. When something goes wrong, there is nothing to stand on.</p>
+                    </div>
+                </div>
+
+                <div class="mt-16 reveal">
+                    <blockquote class="quote-large">
+                        Bolivia ranks in the bottom quartile of Latin American countries for rental market transparency. Project Home is building the infrastructure that market needs.
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. FOR LANDLORDS -->
+        <section class="section-lg" id="for-landlords" aria-labelledby="landlords-heading">
+            <div class="container reveal-group">
+                <p class="sh-label-home">For Landlords</p>
+                <h2 class="sh-heading" id="landlords-heading">Rent with confidence.</h2>
+                <p class="sh-lead">Know who you are renting to. Have a contract that protects you. Track payments without chasing anyone.</p>
+
+                <div class="features-grid">
+                    <div class="card-feature reveal">
+                        <div class="card-icon text-home">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                        </div>
+                        <h3 class="text-xl mb-3">Verified Tenant Profiles</h3>
+                        <p class="text-secondary text-sm">Background-checked, identity-verified tenant profiles. Rental history, employment verification, and references &mdash; all in one place.</p>
+                    </div>
+
+                    <div class="card-feature reveal">
+                        <div class="card-icon text-home">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                        <h3 class="text-xl mb-3">Digital Lease Management</h3>
+                        <p class="text-secondary text-sm">Draft, sign, and store rental agreements digitally. Compliant with Bolivian law. Accessible anywhere, anytime.</p>
+                    </div>
+
+                    <div class="card-feature reveal">
+                        <div class="card-icon text-home">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                        </div>
+                        <h3 class="text-xl mb-3">Payment Tracking</h3>
+                        <p class="text-secondary text-sm">Track rent payments, security deposits, and maintenance costs. Automatic reminders before payment dates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FOR TENANTS -->
+        <section class="section-lg bg-tint-home" id="for-tenants" aria-labelledby="tenants-heading">
+            <div class="container reveal-group">
+                <p class="sh-label-home">For Tenants</p>
+                <h2 class="sh-heading" id="tenants-heading">Find a home you can trust.</h2>
+                <p class="sh-lead">See verified listings. Understand your lease. Build a rental history that opens more doors.</p>
+
+                <div class="features-grid">
+                    <div class="card-feature reveal">
+                        <div class="card-icon text-home">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        </div>
+                        <h3 class="text-xl mb-3">Verified Listings Only</h3>
+                        <p class="text-secondary text-sm">Every property on Project Home has been verified for accuracy and legitimacy. No ghost listings. No bait and switch.</p>
+                    </div>
+
+                    <div class="card-feature reveal">
+                        <div class="card-icon text-home">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                        </div>
+                        <h3 class="text-xl mb-3">Build Your Rental History</h3>
+                        <p class="text-secondary text-sm">Every positive tenancy builds your verified rental profile. The longer you use Project Home, the easier it is to find your next home.</p>
+                    </div>
+
+                    <div class="card-feature reveal">
+                        <div class="card-icon text-home">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </div>
+                        <h3 class="text-xl mb-3">Transparent Terms</h3>
+                        <p class="text-secondary text-sm">Clear lease terms, plain language, no hidden clauses. You know exactly what you are committing to before you sign.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. HOW IT WORKS -->
+        <section class="section-xl" id="how-it-works" aria-labelledby="how-it-works-heading">
+            <div class="container reveal-group">
+                <p class="sh-label-home">How It Works</p>
+                <h2 class="sh-heading" id="how-it-works-heading">From search to signed lease in one place.</h2>
+                <p class="sh-lead">Project Home handles the full rental journey &mdash; not just the listing.</p>
+
+                <div class="steps-grid">
+                    <div class="step-item reveal">
+                        <div class="step-number">1</div>
+                        <h3 class="text-2xl font-display">Create your profile</h3>
+                        <p class="text-secondary">Landlords list properties with verified details. Tenants build a verified rental profile.</p>
+                    </div>
+                    
+                    <div class="step-item reveal">
+                        <div class="step-number">2</div>
+                        <h3 class="text-2xl font-display">Search and connect</h3>
+                        <p class="text-secondary">Tenants browse verified listings. Landlords receive applications from verified renters.</p>
+                    </div>
+
+                    <div class="step-item reveal">
+                        <div class="step-number">3</div>
+                        <h3 class="text-2xl font-display">Review and select</h3>
+                        <p class="text-secondary">Compare applicants with full profiles. Schedule viewings through the platform.</p>
+                    </div>
+
+                    <div class="step-item reveal">
+                        <div class="step-number">4</div>
+                        <h3 class="text-2xl font-display">Sign and move in</h3>
+                        <p class="text-secondary">Digital lease, digital signature, digital record. Everything documented.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. MARKET CONTEXT -->
+        <section class="section-surface" id="market" aria-labelledby="market-heading">
+            <div class="container reveal-group">
+                <p class="sh-label-home">Why Now</p>
+                <h2 class="sh-heading" id="market-heading">The opportunity is a market that no one has built for.</h2>
+                
+                <div class="market-split reveal">
+                    <div>
+                        <blockquote class="quote-large">
+                            The rental market is not broken by bad intentions. It is broken by the absence of the right tools.
+                        </blockquote>
+                    </div>
+                    <div>
+                        <p class="text-lg text-secondary leading-relaxed">
+                            Project Home is not just a listings website. It is the verification infrastructure, the digital agreements layer, and the reputation system that Bolivia's rental market has never had. We are building it from the ground up, starting in Cochabamba, expanding to Santa Cruz and La Paz.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. WAITLIST CTA -->
+        <section class="section-xl relative" id="waitlist" aria-labelledby="waitlist-heading">
+            <div class="container text-center reveal-group">
+                <p class="sh-label-home justify-center">Get Early Access</p>
+                <h2 class="display text-center mb-6" id="waitlist-heading">Be there when we launch.</h2>
+                <p class="lead text-center max-w-2xl mx-auto mb-10">Project Home launches in Cochabamba first. The waitlist is how we validate the market and select our first users.</p>
+                
+                <button class="btn btn-home btn-xl mb-6" data-modal="modal-waitlist">Join the Waitlist</button>
+                <p class="text-sm text-tertiary">Join the landlords and tenants already waiting for a better rental experience.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="sc-footer"></div>
+
+    <!-- Waitlist Modal -->
+    <div class="modal-overlay" id="modal-waitlist" role="dialog" aria-modal="true" aria-labelledby="modal-waitlist-title">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-waitlist-title" class="text-xl font-display">Join the Project Home Waitlist</h3>
+                <button type="button" class="btn-icon" data-close="modal-waitlist" aria-label="Close modal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <div class="modal-body p-6">
+                <!-- Form State -->
+                <form id="waitlist-form" class="form-grid gap-4">
+                    <div class="form-group">
+                        <label for="full-name" class="form-label">Full name</label>
+                        <input type="text" id="full-name" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city" class="form-label">City</label>
+                        <select id="city" class="form-input" required>
+                            <option value="">Select a city...</option>
+                            <option value="Cochabamba">Cochabamba</option>
+                            <option value="Santa Cruz">Santa Cruz</option>
+                            <option value="La Paz">La Paz</option>
+                            <option value="Oruro">Oruro</option>
+                            <option value="Sucre">Sucre</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="user-type" class="form-label">You are a...</label>
+                        <select id="user-type" class="form-input" required>
+                            <option value="">Select an option...</option>
+                            <option value="landlord">Landlord &mdash; I have property to rent</option>
+                            <option value="tenant">Tenant &mdash; I am looking to rent</option>
+                            <option value="agent">Agent &mdash; I represent properties</option>
+                            <option value="investor">Investor</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div id="landlord-fields" class="form-group" style="display: none;">
+                        <label for="properties-count" class="form-label">How many properties do you have?</label>
+                        <select id="properties-count" class="form-input">
+                            <option value="1">1</option>
+                            <option value="2-5">2 to 5</option>
+                            <option value="6-20">6 to 20</option>
+                            <option value="more-than-20">More than 20</option>
+                        </select>
+                    </div>
+
+                    <div id="tenant-fields" class="form-group" style="display: none;">
+                        <label for="budget" class="form-label">Ideal monthly budget?</label>
+                        <select id="budget" class="form-input">
+                            <option value="under-1500">Under Bs. 1,500</option>
+                            <option value="1500-3000">Bs. 1,500 to 3,000</option>
+                            <option value="3000-6000">Bs. 3,000 to 6,000</option>
+                            <option value="6000-plus">Bs. 6,000+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <button type="submit" class="btn btn-home w-full justify-center">Join the Waitlist</button>
+                    </div>
+                    
+                    <p class="text-xs text-tertiary text-center mt-2">One email when we launch. No spam. No sharing.</p>
+                </form>
+
+                <!-- Success State -->
+                <div id="waitlist-success" class="text-center py-8" style="display: none;">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/10 text-green-500 mb-4">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    </div>
+                    <h4 class="text-xl font-display mb-2">You are on the list</h4>
+                    <p class="text-secondary text-sm">Thank you for joining. We'll be in touch with updates as we get closer to launch.</p>
+                    <button type="button" class="btn btn-ghost mt-6" data-close="modal-waitlist">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="../../shared/js/core/nav.js" defer></script>
+    <script src="../../shared/js/core/scroll.js" defer></script>
+    
+    <!-- Page Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Modal Logic
+            const modals = document.querySelectorAll('.modal-overlay');
+            const triggers = document.querySelectorAll('[data-modal]');
+            const closeBtns = document.querySelectorAll('[data-close]');
+
+            function openModal(id) {
+                const modal = document.getElementById(id);
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeModal(id) {
+                const modal = document.getElementById(id);
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    openModal(trigger.getAttribute('data-modal'));
+                });
+            });
+
+            closeBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    closeModal(btn.getAttribute('data-close'));
+                });
+            });
+
+            modals.forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeModal(modal.id);
+                    }
+                });
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    modals.forEach(modal => closeModal(modal.id));
+                }
+            });
+
+            // Form Logic
+            const userTypeSelect = document.getElementById('user-type');
+            const landlordFields = document.getElementById('landlord-fields');
+            const tenantFields = document.getElementById('tenant-fields');
+
+            userTypeSelect.addEventListener('change', (e) => {
+                const val = e.target.value;
+                if (val === 'landlord') {
+                    landlordFields.style.display = 'block';
+                    tenantFields.style.display = 'none';
+                } else if (val === 'tenant') {
+                    landlordFields.style.display = 'none';
+                    tenantFields.style.display = 'block';
+                } else {
+                    landlordFields.style.display = 'none';
+                    tenantFields.style.display = 'none';
+                }
+            });
+
+            // Form Submit Stub
+            const waitlistForm = document.getElementById('waitlist-form');
+            const successState = document.getElementById('waitlist-success');
+
+            waitlistForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // In production, this would make an API call.
+                waitlistForm.style.display = 'none';
+                successState.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

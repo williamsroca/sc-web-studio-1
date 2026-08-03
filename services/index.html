@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — SC Web Studio</title>
+  <meta name="description" content="SC Web Studio builds custom software, process automation, SaaS products, and interfaces for professionals. Limited engagements per year. Based in Bolivia, clients worldwide.">
+  <link rel="canonical" href="https://scwebstudio.com/services/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://scwebstudio.com/services/">
+  <meta property="og:title" content="Services — SC Web Studio">
+  <meta property="og:description" content="Custom software, process automation, SaaS products, and interfaces for professionals. Limited engagements per year.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Services — SC Web Studio">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../shared/css/tokens.css">
+  <link rel="stylesheet" href="../shared/css/reset.css">
+  <link rel="stylesheet" href="../shared/css/typography.css">
+  <link rel="stylesheet" href="../shared/css/layout.css">
+  <link rel="stylesheet" href="../shared/css/utilities.css">
+  <link rel="stylesheet" href="../shared/css/components/nav.css">
+  <link rel="stylesheet" href="../shared/css/components/buttons.css">
+  <link rel="stylesheet" href="../shared/css/components/cards.css">
+  <link rel="stylesheet" href="../shared/css/components/badges.css">
+  <link rel="stylesheet" href="../shared/css/components/modals.css">
+  <link rel="stylesheet" href="../shared/css/components/forms.css">
+
+  <style>
+    /* ── Hero ──────────────────────────────────────────────────────── */
+    .services-hero {
+      padding: calc(var(--nav-height) + var(--space-20)) var(--space-6) var(--space-20);
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+    }
+    .services-hero-trust {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      color: var(--text-tertiary);
+      margin-top: var(--space-8);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Capability rows ────────────────────────────────────────────── */
+    .capability-list { margin-top: var(--space-12); }
+    .capability-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      padding: var(--space-10) 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .capability-row:first-child { border-top: 1px solid var(--border-subtle); }
+    @media (min-width: 1024px) {
+      .capability-row {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-16);
+        align-items: start;
+      }
+    }
+    .capability-num {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      font-weight: var(--weight-semibold);
+      color: var(--studio-500);
+      letter-spacing: 0.08em;
+      display: block;
+      margin-bottom: var(--space-4);
+    }
+    .capability-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-bold);
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: var(--space-4);
+    }
+    .capability-desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      max-width: 46ch;
+    }
+    .capability-deliverables {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      padding-top: var(--space-2);
+    }
+    .capability-deliverables li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+    }
+    .capability-deliverables li::before {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(85,104,255,0.08);
+      border: 1px solid rgba(85,104,255,0.2);
+      flex-shrink: 0;
+      margin-top: 2px;
+      position: relative;
+    }
+    .capability-deliverables li::after {
+      display: none;
+    }
+    .capability-deliverables-label {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      color: var(--text-tertiary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+
+    /* ── Process pipeline ───────────────────────────────────────────── */
+    .process-pipeline {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: var(--space-12);
+    }
+    .process-pipeline::before {
+      content: '';
+      position: absolute;
+      left: 23px;
+      top: 24px;
+      bottom: 24px;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--border-default) 10%,
+        var(--studio-glow, rgba(85,104,255,0.3)) 50%,
+        var(--border-default) 90%,
+        transparent
+      );
+    }
+    .process-step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: var(--space-6);
+      padding-block: var(--space-8);
+      position: relative;
+      opacity: 0;
+      transform: translateX(-16px);
+      transition:
+        opacity 600ms var(--ease-out),
+        transform 600ms var(--ease-out);
+    }
+    .process-step.is-active { opacity: 1; transform: translateX(0); }
+    .process-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--border-default);
+      background: var(--bg-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--text-tertiary);
+      flex-shrink: 0;
+      z-index: 1;
+      position: relative;
+      transition: all 600ms var(--ease-out);
+    }
+    .process-step.is-active .process-num {
+      background: rgba(85,104,255,0.1);
+      border-color: var(--studio-500);
+      color: var(--studio-400);
+    }
+    .process-body { padding-top: var(--space-3); }
+    .process-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+      letter-spacing: -0.015em;
+      margin-bottom: var(--space-3);
+    }
+    .process-desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      max-width: 44ch;
+    }
+
+    /* ── Not a fit ──────────────────────────────────────────────────── */
+    .not-fit-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+      margin-top: var(--space-10);
+    }
+    .not-fit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+    }
+    .not-fit-icon {
+      width: 20px;
+      height: 20px;
+      color: rgba(239,68,68,0.5);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── Final CTA ──────────────────────────────────────────────────── */
+    .final-cta-section {
+      padding: var(--space-24) var(--space-6);
+      text-align: center;
+    }
+    .final-cta-section .sh-heading {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://scwebstudio.com/services/#webpage",
+    "url": "https://scwebstudio.com/services/",
+    "name": "Services — SC Web Studio",
+    "description": "Custom software, process automation, SaaS products, and interface design for professionals.",
+    "isPartOf": { "@id": "https://scwebstudio.com/#website" },
+    "inLanguage": "en-US"
+  }
+  </script>
+</head>
+
+<body class="page-wrapper" data-base-path="../">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <div id="sc-header"></div>
+  <script src="../shared/js/core/shell.js" data-base="../"></script>
+
+  <main id="main-content" class="page-content">
+
+    <!-- ── §1 HERO ───────────────────────────────────────────────────── -->
+    <section aria-labelledby="services-heading" class="reveal">
+      <div class="services-hero">
+        <p class="sh-label">Services</p>
+        <h1 class="display" id="services-heading" style="max-width:16ch;">
+          We build what clients need.<br>We keep what we build.
+        </h1>
+        <p class="lead" style="margin-top:var(--space-6);max-width:54ch;">
+          Professional services engagements finance the continuous development of our own products. Every project gets the same engineering standards, the same design thinking, and the same long-term perspective.
+        </p>
+        <div style="display:flex;gap:var(--space-4);margin-top:var(--space-8);flex-wrap:wrap;align-items:center;">
+          <a href="../contact/" class="btn btn-primary btn-lg" id="hero-cta-services">Start a Project</a>
+        </div>
+        <p class="services-hero-trust">Limited engagements per year · Bolivia-based · Global clients · No outsourcing</p>
+      </div>
+    </section>
+
+    <!-- ── §2 CAPABILITIES ───────────────────────────────────────────── -->
+    <section class="section section-xl" id="capabilities" aria-labelledby="capabilities-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="sh-label">What We Build</p>
+          <h2 class="sh-heading" id="capabilities-heading">Four disciplines. One standard.</h2>
+          <p class="sh-lead">We don't do everything. We do these four things well — and we do each one with the same level of rigor.</p>
+        </div>
+
+        <div class="capability-list reveal-group">
+
+          <div class="capability-row reveal">
+            <div>
+              <span class="capability-num">01</span>
+              <h3 class="capability-title">Custom software for workflows that matter.</h3>
+              <p class="capability-desc">Internal tools, client-facing platforms, workflow automation, and anything in between. We write maintainable code for systems that need to last — not just launch. Case Assistant OS started as a client project.</p>
+            </div>
+            <div>
+              <p class="capability-deliverables-label">Typical deliverables</p>
+              <ul class="capability-deliverables">
+                <li>Working application with full test coverage</li>
+                <li>Source code, documentation, and architecture notes</li>
+                <li>Deployment and hosting setup</li>
+                <li>90-day post-launch support window</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="capability-row reveal">
+            <div>
+              <span class="capability-num">02</span>
+              <h3 class="capability-title">Eliminating repetitive work, systematically.</h3>
+              <p class="capability-desc">If a human is doing something a machine could do better — and should do better — we build the machine. From simple schedule automations to complex multi-system integrations that eliminate entire job functions.</p>
+            </div>
+            <div>
+              <p class="capability-deliverables-label">Typical deliverables</p>
+              <ul class="capability-deliverables">
+                <li>Automation architecture and system design</li>
+                <li>Integration builds and API connections</li>
+                <li>Testing, monitoring, and alerting</li>
+                <li>Handoff documentation and runbook</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="capability-row reveal">
+            <div>
+              <span class="capability-num">03</span>
+              <h3 class="capability-title">End-to-end product, from strategy to launch.</h3>
+              <p class="capability-desc">Strategy, architecture, design, engineering, and launch — handled by one team with one standard. No handoffs between agencies. No translation errors between design and code. No surprises at the end.</p>
+            </div>
+            <div>
+              <p class="capability-deliverables-label">Typical deliverables</p>
+              <ul class="capability-deliverables">
+                <li>Product strategy and technical specification</li>
+                <li>Full design system and component library</li>
+                <li>Working product with CI/CD pipeline</li>
+                <li>Launch plan and post-launch support</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="capability-row reveal">
+            <div>
+              <span class="capability-num">04</span>
+              <h3 class="capability-title">Interfaces for professionals under pressure.</h3>
+              <p class="capability-desc">We specialize in software used daily by people who cannot afford confusion. Case managers, operations leads, coordinators, paralegals. Clarity is not a nice-to-have in these contexts — it is the entire job. Every decision should reduce cognitive load.</p>
+            </div>
+            <div>
+              <p class="capability-deliverables-label">Typical deliverables</p>
+              <ul class="capability-deliverables">
+                <li>User research, flows, and journey maps</li>
+                <li>Component design system and guidelines</li>
+                <li>Interactive prototype for stakeholder review</li>
+                <li>Developer handoff with annotated specs</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── §3 HOW WE WORK ────────────────────────────────────────────── -->
+    <section class="section section-surface" id="process" aria-labelledby="process-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="sh-label">Our Process</p>
+          <h2 class="sh-heading" id="process-heading">No surprises. No scope creep.</h2>
+          <p class="sh-lead">We are explicit about how we work before we work together. The process is the product.</p>
+        </div>
+
+        <div class="process-pipeline" role="list">
+
+          <div class="process-step" role="listitem" aria-label="Step 1: Understand">
+            <div class="process-num" aria-hidden="true">01</div>
+            <div class="process-body">
+              <p class="process-title">Understand</p>
+              <p class="process-desc">Discovery call, brief review, and deep Q&amp;A. We ask the uncomfortable questions before we quote — timeline, scope, edge cases, politics. We'd rather surface a problem now than promise something we can't deliver.</p>
+            </div>
+          </div>
+
+          <div class="process-step" role="listitem" aria-label="Step 2: Scope">
+            <div class="process-num" aria-hidden="true">02</div>
+            <div class="process-body">
+              <p class="process-title">Scope</p>
+              <p class="process-desc">A clear scope document — fixed deliverables or a defined sprint structure, depending on the engagement. Agreed-upon communication cadence, decision-making protocol, and escalation path. You know what you're buying.</p>
+            </div>
+          </div>
+
+          <div class="process-step" role="listitem" aria-label="Step 3: Build">
+            <div class="process-num" aria-hidden="true">03</div>
+            <div class="process-body">
+              <p class="process-title">Build</p>
+              <p class="process-desc">Weekly progress updates. Async-first communication. You see everything as it happens — no big reveal at the end. If something needs to change, we flag it before it becomes a problem, not after.</p>
+            </div>
+          </div>
+
+          <div class="process-step" role="listitem" aria-label="Step 4: Deliver">
+            <div class="process-num" aria-hidden="true">04</div>
+            <div class="process-body">
+              <p class="process-title">Deliver</p>
+              <p class="process-desc">Full handoff with documentation. You own everything we build — source code, design files, deployment configurations, the works. Post-launch support window included. We don't disappear after go-live.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── §4 WHAT WE DON'T DO ───────────────────────────────────────── -->
+    <section class="section" id="not-a-fit" aria-labelledby="notfit-heading">
+      <div class="container" style="max-width: 720px;">
+        <div class="reveal">
+          <p class="sh-label">Honest Constraints</p>
+          <h2 class="sh-heading" id="notfit-heading">We're not the right team for everything.</h2>
+          <p class="sh-lead">Knowing when to say no is part of doing good work. These are genuine limits, not marketing.</p>
+        </div>
+
+        <div class="not-fit-list reveal">
+
+          <div class="not-fit-item">
+            <svg class="not-fit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            <p>We don't build without understanding. If you need execution before discovery — a quote before a conversation — we are not the right fit. We won't take a brief at face value without interrogating it first.</p>
+          </div>
+
+          <div class="not-fit-item">
+            <svg class="not-fit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            <p>We don't do template-based websites. WordPress, Wix, Squarespace — these are valid tools for valid use cases. We don't compete with them, and we're not the right team if that's what you need.</p>
+          </div>
+
+          <div class="not-fit-item">
+            <svg class="not-fit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            <p>We don't take on more than we can deliver. Our per-year capacity is intentionally limited. If we're at capacity when you reach out, we'll tell you — and we'll be honest about the wait.</p>
+          </div>
+
+          <div class="not-fit-item">
+            <svg class="not-fit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+            <p>We don't outsource. Everyone who touches your project is SC Web Studio. We will never subcontract your work to a third party without your knowledge and explicit agreement.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── §5 FINAL CTA ──────────────────────────────────────────────── -->
+    <section class="final-cta-section" id="get-started" aria-labelledby="cta-heading">
+      <div class="container" style="max-width:640px;">
+        <div class="reveal">
+          <p class="sh-label">Get Started</p>
+          <h2 class="sh-heading" id="cta-heading" style="text-align:center;margin-left:auto;margin-right:auto;">
+            Ready to talk about your project?
+          </h2>
+          <p class="sh-lead" style="text-align:center;margin:0 auto var(--space-8);">
+            Tell us about the problem. We'll tell you honestly if we can solve it.
+          </p>
+          <div class="cta-actions">
+            <a href="../contact/" class="btn btn-primary btn-lg" id="cta-services-project">Start a Project</a>
+            <a href="../products/" class="btn btn-text" id="cta-services-products">Or explore our products</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="sc-footer"></div>
+
+  <script src="../shared/js/core/nav.js" defer></script>
+  <script src="../shared/js/core/scroll.js" defer></script>
+
+  <script>
+  (function () {
+    'use strict';
+    /* ── Process step IntersectionObserver ──────────────────────────── */
+    var steps = document.querySelectorAll('.process-step');
+    if (steps.length > 0 && 'IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) e.target.classList.add('is-active');
+        });
+      }, { threshold: 0.2, rootMargin: '-5% 0px' });
+      steps.forEach(function (step, i) {
+        step.style.transitionDelay = (i * 100) + 'ms';
+        obs.observe(step);
+      });
+    }
+  }());
+  </script>
+
+</body>
+</html>

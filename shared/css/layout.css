@@ -1,0 +1,388 @@
+/**
+ * SC Web Studio — Layout System
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Containers, grid, sections, responsive breakpoints.
+ * Import order: 4 of 8 (after tokens, reset, typography)
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PAGE WRAPPER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.page-content {
+  flex: 1;
+}
+
+/* Nav spacer — accounts for fixed nav height */
+.nav-spacer {
+  height: 64px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CONTAINERS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin-inline: auto;
+  padding-inline: var(--container-pad-mobile);
+}
+
+.container-sm  { max-width: var(--container-sm); }
+.container-md  { max-width: var(--container-md); }
+.container-lg  { max-width: var(--container-lg); }
+.container-xl  { max-width: var(--container-xl); }  /* Default */
+.container-2xl { max-width: var(--container-2xl); }
+.container-full { max-width: 100%; padding-inline: 0; }
+
+/* Wider padding on larger screens */
+@media (min-width: 768px) {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg,
+  .container-xl,
+  .container-2xl {
+    padding-inline: var(--space-6);
+  }
+}
+
+@media (min-width: 1280px) {
+  .container,
+  .container-xl { padding-inline: var(--space-8); }
+  .container-2xl { padding-inline: var(--space-10); }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SECTIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Base section — full-width wrapper with vertical rhythm */
+.section {
+  padding-block: var(--space-16);
+  position: relative;
+}
+
+.section-sm  { padding-block: var(--space-10); }
+.section-md  { padding-block: var(--space-16); }
+.section-lg  { padding-block: var(--space-24); }
+.section-xl  { padding-block: var(--space-32); }
+.section-hero { padding-block: var(--space-32) var(--space-24); }
+
+@media (min-width: 768px) {
+  .section-md  { padding-block: var(--space-20); }
+  .section-lg  { padding-block: var(--space-24); }
+}
+
+@media (min-width: 1024px) {
+  .section     { padding-block: var(--space-20); }
+  .section-lg  { padding-block: var(--space-32); }
+  .section-xl  { padding-block: var(--space-40); }
+  .section-hero { padding-block: var(--space-40) var(--space-32); }
+}
+
+/* Surface variants */
+.section-surface {
+  background: var(--bg-surface);
+}
+
+.section-surface-raised {
+  background: var(--bg-surface-raised);
+}
+
+/* Section divider */
+.section + .section {
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Full-bleed background (overrides section's inline padding) */
+.section-full-bleed {
+  padding-inline: 0;
+}
+
+/* Manifesto section — full viewport height */
+.section-manifesto {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GRID SYSTEM — 12 Column
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+/* Responsive column presets */
+.grid-1 { grid-template-columns: 1fr; }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+/* Auto-fill responsive grids */
+.grid-auto-sm {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.grid-auto-md {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.grid-auto-lg {
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+}
+
+/* Responsive stacking grids */
+.grid-cols-2 {
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+.grid-cols-3 {
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .grid-cols-4 { grid-template-columns: repeat(2, 1fr); gap: var(--space-5); }
+}
+
+@media (min-width: 768px) {
+  .grid-cols-2 { grid-template-columns: repeat(2, 1fr); gap: var(--space-8); }
+  .grid-cols-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-cols-4 { grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+}
+
+@media (min-width: 1024px) {
+  .grid-cols-3 { grid-template-columns: repeat(3, 1fr); gap: var(--space-8); }
+}
+
+/* Specific product grid (3 products) */
+.grid-products {
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .grid-products { grid-template-columns: repeat(2, 1fr); gap: var(--space-8); }
+}
+
+@media (min-width: 1024px) {
+  .grid-products { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Asymmetric two-column (text + visual) */
+.grid-hero-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .grid-hero-split {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--space-16);
+  }
+}
+
+/* Gap modifiers */
+.gap-2  { gap: var(--space-2); }
+.gap-4  { gap: var(--space-4); }
+.gap-6  { gap: var(--space-6); }
+.gap-8  { gap: var(--space-8); }
+.gap-12 { gap: var(--space-12); }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FLEXBOX UTILITIES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.flex         { display: flex; }
+.flex-col     { flex-direction: column; }
+.flex-wrap    { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start  { align-items: flex-start; }
+.items-end    { align-items: flex-end; }
+.justify-center  { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-start   { justify-content: flex-start; }
+.justify-end     { justify-content: flex-end; }
+.flex-1       { flex: 1; }
+.flex-shrink-0 { flex-shrink: 0; }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   STACK & CLUSTER PATTERNS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Stack: vertical flow with gap */
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.stack-2  { gap: var(--space-2); }
+.stack-3  { gap: var(--space-3); }
+.stack-4  { gap: var(--space-4); }
+.stack-6  { gap: var(--space-6); }
+.stack-8  { gap: var(--space-8); }
+.stack-12 { gap: var(--space-12); }
+
+/* Cluster: horizontal flow, wraps */
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+/* Spacer — pushes content to opposite ends */
+.spacer { flex: 1; }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DIVIDERS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border-subtle);
+  margin-block: var(--space-8);
+}
+
+.divider-strong {
+  background: var(--border-default);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   AURORA BACKGROUND LAYER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Applied to hero sections — decorative ambient gradient */
+.aurora-bg {
+  position: relative;
+  isolation: isolate;
+}
+
+.aurora-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-below);
+  background: var(--gradient-mesh);
+  pointer-events: none;
+}
+
+/* Orbs — individual aurora blobs (animated via JS) */
+.aurora-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  will-change: opacity, transform;
+}
+
+.aurora-orb-studio {
+  background: radial-gradient(circle, var(--studio-glow-strong), transparent 70%);
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: aurora-pulse 12s ease-in-out infinite;
+}
+
+.aurora-orb-legal {
+  background: radial-gradient(circle, var(--legal-glow), transparent 70%);
+  width: 400px;
+  height: 400px;
+}
+
+.aurora-orb-home {
+  background: radial-gradient(circle, var(--home-glow), transparent 70%);
+  width: 350px;
+  height: 350px;
+}
+
+@keyframes aurora-pulse {
+  0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+  50%       { opacity: 1;   transform: translateX(-50%) scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-orb { animation: none; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   NOISE TEXTURE OVERLAY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.noise-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 128px;
+  opacity: 0.025;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   STICKY POSITION HELPERS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE VISIBILITY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.hide-mobile  { display: none; }
+.show-mobile  { display: block; }
+
+@media (min-width: 768px) {
+  .hide-mobile  { display: block; }
+  .show-mobile  { display: none; }
+}
+
+.hide-desktop { display: block; }
+.show-desktop { display: none; }
+
+@media (min-width: 1024px) {
+  .hide-desktop { display: none; }
+  .show-desktop { display: block; }
+}

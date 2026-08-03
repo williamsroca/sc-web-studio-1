@@ -1,0 +1,2140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── Primary SEO ────────────────────────────────────────────────────── -->
+  <title>SC Web Studio — Digital Product Studio</title>
+  <meta name="description" content="SC Web Studio is a Digital Product Studio based in Bolivia. We design and build software products, SaaS tools, and automation systems — while developing our own products in the industries that matter most.">
+  <meta name="keywords" content="digital product studio, software development, SaaS development, automation, Bolivia, Case Assistant OS, Project Home, SC Tech">
+  <meta name="author" content="SC Web Studio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://scwebstudio.com/">
+
+  <!-- ── Open Graph ──────────────────────────────────────────────────────── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://scwebstudio.com/">
+  <meta property="og:title"       content="SC Web Studio — Digital Product Studio">
+  <meta property="og:description" content="We build software that makes work simpler and creates opportunities. Three products. One mission. An expanding ecosystem.">
+  <meta property="og:site_name"   content="SC Web Studio">
+  <meta property="og:locale"      content="en_US">
+  <meta property="og:image"       content="https://scwebstudio.com/shared/assets/og/home.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"   content="SC Web Studio — Digital Product Studio">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:site"        content="@scwebstudio">
+  <meta name="twitter:title"       content="SC Web Studio — Digital Product Studio">
+  <meta name="twitter:description" content="We build software that makes work simpler and creates opportunities.">
+  <meta name="twitter:image"       content="https://scwebstudio.com/shared/assets/og/home.jpg">
+
+  <!-- ── PWA / App Shell ────────────────────────────────────────────────── -->
+  <meta name="theme-color"                       content="#060608">
+  <meta name="apple-mobile-web-app-capable"      content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title"        content="SC Web Studio">
+  <link rel="manifest"      href="/manifest.json">
+  <link rel="icon"          type="image/svg+xml" href="/shared/assets/favicons/favicon.svg">
+  <link rel="apple-touch-icon" href="/shared/assets/favicons/apple-touch-icon.png">
+
+  <!-- ── Font preconnect ────────────────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- ── Design System CSS (canonical import order) ─────────────────────── -->
+  <link rel="stylesheet" href="shared/css/tokens.css">
+  <link rel="stylesheet" href="shared/css/reset.css">
+  <link rel="stylesheet" href="shared/css/typography.css">
+  <link rel="stylesheet" href="shared/css/layout.css">
+  <link rel="stylesheet" href="shared/css/utilities.css">
+  <link rel="stylesheet" href="shared/css/components/nav.css">
+  <link rel="stylesheet" href="shared/css/components/buttons.css">
+  <link rel="stylesheet" href="shared/css/components/cards.css">
+  <link rel="stylesheet" href="shared/css/components/badges.css">
+  <link rel="stylesheet" href="shared/css/components/mockups.css">
+  <link rel="stylesheet" href="shared/css/components/modals.css">
+  <link rel="stylesheet" href="shared/css/components/forms.css">
+
+  <!-- ── Page-Specific Styles ───────────────────────────────────────────── -->
+  <style>
+    /* ────────────────────────────────────────────────────────────────────
+       HERO SECTION
+    ──────────────────────────────────────────────────────────────────── */
+    .hero-section {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      padding-bottom: var(--space-16);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    /* Aurora background gradient */
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(ellipse 100% 80% at 65% -10%, rgba(85, 104, 255, 0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 10% 80%,  rgba(85, 104, 255, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 90% 60%,  rgba(14, 165, 233, 0.05) 0%, transparent 60%);
+    }
+
+    /* Noise texture */
+    .hero-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+      background-size: 128px;
+      opacity: 0.02;
+      pointer-events: none;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .hero-layout { grid-template-columns: 46fr 54fr; gap: var(--space-12); }
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 5.5vw + 0.5rem, 4.25rem);
+      font-weight: var(--weight-bold);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+    }
+
+    .hero-h1-accent {
+      background: linear-gradient(135deg, #A0ADFF 0%, var(--studio-500) 60%, #3D4EE8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-lead {
+      font-size: clamp(var(--text-base), 1.5vw, var(--text-md));
+      line-height: var(--leading-relaxed);
+      color: var(--text-secondary);
+      max-width: 48ch;
+    }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+      flex-wrap: wrap;
+      padding-top: var(--space-2);
+    }
+
+    .hero-trust-sep {
+      color: var(--border-strong);
+    }
+
+    /* ── Hero Mockup ─────────────────────────────────────────────────── */
+    .hero-mockup-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 1023px) {
+      .hero-mockup-wrapper { display: none; }
+    }
+
+    .hero-mockup-frame {
+      width: 100%;
+      max-width: 660px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      background: var(--bg-surface);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 40px 120px rgba(0, 0, 0, 0.7),
+        0 0 80px rgba(85, 104, 255, 0.12);
+      transform: perspective(1100px) rotateY(-7deg) rotateX(3deg);
+      transition: transform var(--duration-slow) var(--ease-out);
+      will-change: transform;
+    }
+
+    .hero-mockup-frame:hover {
+      transform: perspective(1100px) rotateY(-3deg) rotateX(1.5deg);
+    }
+
+    .hero-mockup-glare {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, rgba(255,255,255,0.045) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 2;
+      border-radius: inherit;
+    }
+
+    /* Browser chrome bar */
+    .hero-browser-bar {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: 10px var(--space-4);
+      background: var(--bg-surface-raised);
+      border-bottom: 1px solid var(--border-subtle);
+      flex-shrink: 0;
+    }
+
+    .hero-dots {
+      display: flex;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .hero-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+
+    .hero-url-bar {
+      flex: 1;
+      height: 22px;
+      background: rgba(6, 6, 8, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding-inline: var(--space-3);
+    }
+
+    .hero-url-lock {
+      width: 10px;
+      height: 10px;
+      color: var(--color-success);
+      flex-shrink: 0;
+    }
+
+    .hero-url-text {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-tertiary);
+    }
+
+    /* Product UI inside the mockup */
+    .hero-product-ui {
+      display: grid;
+      grid-template-columns: 168px 1fr;
+      height: 360px;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .hero-sidebar {
+      background: var(--bg-surface-raised);
+      border-right: 1px solid var(--border-subtle);
+      padding: var(--space-4) var(--space-3);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      overflow: hidden;
+    }
+
+    .hero-sb-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: var(--space-2) var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+
+    .hero-sb-mark {
+      width: 18px;
+      height: 18px;
+      background: var(--legal-badge-bg);
+      border: 1px solid var(--legal-badge-border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .hero-sb-brand-text {
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .hero-sb-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 5px;
+      font-size: 11px;
+      font-family: var(--font-ui);
+      font-weight: 500;
+      color: var(--text-tertiary);
+    }
+
+    .hero-sb-item.is-active {
+      background: var(--legal-badge-bg);
+      color: var(--legal-400);
+      border: 1px solid var(--legal-badge-border);
+    }
+
+    .hero-sb-item svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+
+    .hero-sb-divider {
+      height: 1px;
+      background: var(--border-subtle);
+      margin-block: var(--space-2);
+    }
+
+    /* Main content */
+    .hero-main {
+      background: var(--bg-page);
+      padding: var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      overflow: hidden;
+    }
+
+    .hero-main-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-main-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.015em;
+    }
+
+    .hero-main-date {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-tertiary);
+    }
+
+    .hero-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-2);
+    }
+
+    .hero-kpi {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 7px;
+      padding: var(--space-3) var(--space-3);
+    }
+
+    .hero-kpi-val {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-kpi-lbl {
+      font-size: 9px;
+      color: var(--text-tertiary);
+      font-family: var(--font-ui);
+      margin-top: 3px;
+      line-height: 1.3;
+    }
+
+    .hero-kpi-trend {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--color-success);
+      margin-top: 4px;
+    }
+
+    .hero-cases-hdr {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-cases-lbl {
+      font-size: 10px;
+      font-weight: 600;
+      font-family: var(--font-ui);
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .hero-cases-filter {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-tertiary);
+    }
+
+    .hero-cases-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .hero-case-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 6px 9px;
+      border-radius: 5px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .hcr-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .hcr-dot-active   { background: var(--legal-500); }
+    .hcr-dot-medical  { background: var(--color-warning); }
+    .hcr-dot-attorney { background: var(--studio-400); }
+    .hcr-dot-done     { background: var(--color-success); }
+
+    .hcr-name {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-primary);
+      font-family: var(--font-ui);
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .hcr-tag {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-tertiary);
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      border-radius: 3px;
+      padding: 1px 5px;
+      white-space: nowrap;
+    }
+
+    .hcr-date {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-tertiary);
+      white-space: nowrap;
+    }
+
+    /* Floating accent cards around mockup */
+    .hero-float-card {
+      position: absolute;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    .hero-float-1 {
+      top: -16px;
+      left: -24px;
+      animation: hf1 7s ease-in-out infinite;
+    }
+
+    .hero-float-2 {
+      bottom: 24px;
+      right: -20px;
+      animation: hf2 9s ease-in-out infinite 1.5s;
+    }
+
+    @keyframes hf1 {
+      0%,100% { transform: translateY(0px) rotate(-1deg); }
+      50%      { transform: translateY(-8px) rotate(0deg); }
+    }
+
+    @keyframes hf2 {
+      0%,100% { transform: translateY(0px) rotate(1deg); }
+      50%      { transform: translateY(7px) rotate(0deg); }
+    }
+
+    .hero-accent-pill {
+      background: rgba(14, 15, 20, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-full);
+      padding: var(--space-2) var(--space-4);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      white-space: nowrap;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-accent-box {
+      background: rgba(14, 15, 20, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-xl);
+      padding: var(--space-3) var(--space-4);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-float-card { animation: none; }
+      .hero-mockup-frame { transform: none; }
+      .hero-mockup-frame:hover { transform: none; }
+    }
+
+    /* ────────────────────────────────────────────────────────────────────
+       IDENTITY STRIP
+    ──────────────────────────────────────────────────────────────────── */
+    .identity-strip {
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding-block: var(--space-6);
+    }
+
+    .identity-strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-8);
+      flex-wrap: wrap;
+    }
+
+    .identity-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--text-tertiary);
+      font-family: var(--font-ui);
+      white-space: nowrap;
+    }
+
+    .identity-item svg {
+      width: 16px;
+      height: 16px;
+      color: var(--studio-500);
+      flex-shrink: 0;
+    }
+
+    .identity-sep {
+      width: 1px;
+      height: 16px;
+      background: var(--border-subtle);
+      flex-shrink: 0;
+    }
+
+    /* ────────────────────────────────────────────────────────────────────
+       MANIFESTO SECTION
+    ──────────────────────────────────────────────────────────────────── */
+    .manifesto-wrap {
+      background: var(--bg-page);
+    }
+
+    .manifesto-statement {
+      min-height: 72vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-16) var(--space-6);
+      opacity: 0;
+      transform: translateY(36px);
+      transition:
+        opacity 900ms var(--ease-out),
+        transform 900ms var(--ease-out);
+    }
+
+    .manifesto-statement.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .manifesto-pre {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 3.5vw, 2.5rem);
+      font-weight: var(--weight-bold);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text-tertiary);
+    }
+
+    .manifesto-main {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 6.5vw, 5rem);
+      font-weight: var(--weight-bold);
+      line-height: 1.04;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-top: var(--space-3);
+      max-width: 18ch;
+    }
+
+    .manifesto-single {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 5vw, 3.75rem);
+      font-weight: var(--weight-bold);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      color: var(--text-secondary);
+      max-width: 24ch;
+    }
+
+    .manifesto-final .manifesto-main {
+      background: linear-gradient(135deg, #F0F1F5 0%, rgba(240,241,245,0.5) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .manifesto-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-subtle), transparent);
+    }
+
+    /* ────────────────────────────────────────────────────────────────────
+       SECTION HEADERS (reusable pattern)
+    ──────────────────────────────────────────────────────────────────── */
+    .sh-label {
+      font-family: var(--font-ui);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--studio-400);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+
+    .sh-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--studio-500);
+    }
+
+    .sh-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw + 0.5rem, 2.5rem);
+      font-weight: var(--weight-bold);
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: var(--space-4);
+    }
+
+    .sh-lead {
+      font-size: var(--text-md);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      max-width: 54ch;
+    }
+
+    /* ────────────────────────────────────────────────────────────────────
+       SERVICES SECTION
+    ──────────────────────────────────────────────────────────────────── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+      margin-top: var(--space-12);
+    }
+
+    @media (min-width: 640px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+    }
+
+    /* Service number accent */
+    .service-num {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      font-weight: var(--weight-semibold);
+      color: var(--studio-500);
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-5);
+      display: block;
+    }
+
+    /* ────────────────────────────────────────────────────────────────────
+       HOW WE WORK — PIPELINE
+    ──────────────────────────────────────────────────────────────────── */
+    .pipeline-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-16);
+      align-items: start;
+      margin-top: var(--space-12);
+    }
+
+    @media (min-width: 1024px) {
+      .pipeline-layout { grid-template-columns: 1fr 1fr; }
+    }
+
+    .pipeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pipeline::before {
+      content: '';
+      position: absolute;
+      left: 23px;
+      top: 24px;
+      bottom: 24px;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--border-default) 10%,
+        var(--studio-glow) 50%,
+        var(--border-default) 90%,
+        transparent
+      );
+    }
+
+    .pipeline-step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: var(--space-6);
+      padding-block: var(--space-8);
+      position: relative;
+      opacity: 0;
+      transform: translateX(-16px);
+      transition:
+        opacity var(--duration-slow) var(--ease-out),
+        transform var(--duration-slow) var(--ease-out);
+    }
+
+    .pipeline-step.is-active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .pipeline-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--border-default);
+      background: var(--bg-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--text-tertiary);
+      flex-shrink: 0;
+      z-index: 1;
+      position: relative;
+      transition:
+        background var(--duration-slow) var(--ease-out),
+        border-color var(--duration-slow) var(--ease-out),
+        color var(--duration-slow) var(--ease-out);
+    }
+
+    .pipeline-step.is-active .pipeline-num {
+      background: rgba(85, 104, 255, 0.1);
+      border-color: var(--studio-500);
+      color: var(--studio-400);
+    }
+
+    .pipeline-body {
+      padding-top: var(--space-3);
+    }
+
+    .pipeline-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+      letter-spacing: -0.015em;
+      margin-bottom: var(--space-3);
+      line-height: var(--leading-snug);
+    }
+
+    .pipeline-desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      max-width: 44ch;
+    }
+
+    /* Pipeline visual panel */
+    .pipeline-visual {
+      position: sticky;
+      top: 100px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+    }
+
+    .pipeline-visual-header {
+      padding: var(--space-5) var(--space-6);
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-surface-raised);
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+    }
+
+    .pipeline-phases {
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .phase-bar {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .phase-bar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .phase-bar-label {
+      font-size: var(--text-xs);
+      font-weight: var(--weight-medium);
+      color: var(--text-secondary);
+      font-family: var(--font-ui);
+    }
+
+    .phase-bar-pct {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+    }
+
+    .phase-bar-track {
+      height: 4px;
+      background: var(--bg-surface-overlay);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+
+    .phase-bar-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+      background: linear-gradient(90deg, var(--studio-700), var(--studio-400));
+      transition: width 1s var(--ease-out);
+    }
+
+    .pipeline-visual-footer {
+      padding: var(--space-5) var(--space-6);
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .pipeline-visual-status {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      color: var(--color-success);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .pipeline-visual-status::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-success);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%,100% { opacity: 1; }
+      50%      { opacity: 0.4; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .pipeline-visual-status::before { animation: none; }
+      @keyframes pulse-dot {}
+    }
+
+    /* ────────────────────────────────────────────────────────────────────
+       LABS TEASER
+    ──────────────────────────────────────────────────────────────────── */
+    .labs-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-10);
+    }
+
+    @media (min-width: 768px) {
+      .labs-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ────────────────────────────────────────────────────────────────────
+       STORIES TEASER
+    ──────────────────────────────────────────────────────────────────── */
+    .stories-list {
+      margin-top: var(--space-10);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* ────────────────────────────────────────────────────────────────────
+       FINAL CTA
+    ──────────────────────────────────────────────────────────────────── */
+    .final-cta-section {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      isolation: isolate;
+    }
+
+    .final-cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 100%, rgba(85,104,255,0.14) 0%, transparent 70%);
+    }
+
+    .final-cta-paths {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+      max-width: 560px;
+      margin-inline: auto;
+      margin-top: var(--space-10);
+    }
+
+    @media (min-width: 560px) {
+      .final-cta-paths { grid-template-columns: 1fr 1fr; }
+    }
+
+    .cta-path {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8) var(--space-6);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-3);
+      text-decoration: none;
+      text-align: left;
+      transition:
+        border-color var(--duration-base) var(--ease-out),
+        transform var(--duration-slow) var(--ease-spring),
+        box-shadow var(--duration-slow) var(--ease-out);
+    }
+
+    .cta-path:hover {
+      border-color: var(--border-default);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .cta-path-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cta-path-icon-primary {
+      background: rgba(85, 104, 255, 0.12);
+      border: 1px solid rgba(85, 104, 255, 0.25);
+    }
+
+    .cta-path-icon svg { width: 20px; height: 20px; color: var(--studio-400); }
+
+    .cta-path-label {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+      letter-spacing: -0.015em;
+    }
+
+    .cta-path-desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      max-width: none;
+    }
+
+    .cta-path-arrow {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--studio-400);
+      margin-top: auto;
+      padding-top: var(--space-3);
+      transition: gap var(--duration-fast) var(--ease-out);
+    }
+
+    .cta-path:hover .cta-path-arrow { gap: var(--space-3); }
+  </style>
+
+  <!-- ── Structured Data ─────────────────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://scwebstudio.com/#organization",
+        "name": "SC Web Studio",
+        "alternateName": "SC Web Studio Digital Product Studio",
+        "url": "https://scwebstudio.com",
+        "description": "SC Web Studio is a Digital Product Studio based in Bolivia. We build software products, SaaS tools, automation systems, and digital experiences.",
+        "foundingDate": "2020",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "BO"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "business inquiries",
+          "email": "hello@scwebstudio.com",
+          "availableLanguage": ["English", "Spanish"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://scwebstudio.com/#website",
+        "url": "https://scwebstudio.com",
+        "name": "SC Web Studio",
+        "publisher": { "@id": "https://scwebstudio.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://scwebstudio.com/#webpage",
+        "url": "https://scwebstudio.com",
+        "name": "SC Web Studio — Digital Product Studio",
+        "description": "We design and build software products, automation systems, and digital experiences that make work simpler.",
+        "isPartOf": { "@id": "https://scwebstudio.com/#website" },
+        "about": { "@id": "https://scwebstudio.com/#organization" },
+        "inLanguage": "en-US"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="page-wrapper" data-base-path="">
+
+  <!-- Accessibility skip link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Shell: nav + footer injected by shell.js -->
+  <div id="sc-header"></div>
+  <script src="shared/js/core/shell.js" data-base=""></script>
+
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       MAIN CONTENT
+  ════════════════════════════════════════════════════════════════════════ -->
+  <main id="main-content" class="page-content">
+
+
+    <!-- ════════════════════════════════════════
+         §1 — HERO
+    ═════════════════════════════════════════ -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-layout">
+
+          <!-- Left column: Text -->
+          <div class="hero-text">
+
+            <p class="sh-label reveal reveal-fade" id="hero-eyebrow">
+              Digital Product Studio
+            </p>
+
+            <h1 class="hero-h1 reveal" id="hero-heading">
+              Software designed<br>
+              to simplify the work<br>
+              <span class="hero-h1-accent">that matters.</span>
+            </h1>
+
+            <p class="hero-lead reveal">
+              We design and build software products, automation systems, and
+              digital experiences. Professional services finance the continuous
+              development of products we believe in.
+            </p>
+
+            <div class="btn-group reveal">
+              <a href="products/" class="btn btn-primary btn-lg" id="hero-cta-products">
+                Explore Our Products
+              </a>
+              <a href="contact/" class="btn btn-secondary btn-lg" id="hero-cta-project">
+                Start a Project
+              </a>
+            </div>
+
+            <div class="hero-trust reveal reveal-fade">
+              <span>Based in Bolivia</span>
+              <span class="hero-trust-sep">·</span>
+              <span>Serving clients globally</span>
+              <span class="hero-trust-sep">·</span>
+              <span>Building in public</span>
+            </div>
+
+          </div>
+
+          <!-- Right column: Floating product mockup -->
+          <div class="hero-mockup-wrapper" aria-hidden="true">
+
+            <!-- Floating accent: product badge -->
+            <div class="hero-float-card hero-float-1">
+              <div class="hero-accent-pill">
+                <span style="width:7px;height:7px;border-radius:50%;background:var(--color-success);flex-shrink:0;animation:pulse-dot 2s ease-in-out infinite;"></span>
+                <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-secondary);">Case Assistant OS</span>
+                <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-tertiary);">v1.5.0</span>
+              </div>
+            </div>
+
+            <!-- Floating accent: tech stack pill -->
+            <div class="hero-float-card hero-float-2">
+              <div class="hero-accent-box">
+                <span style="font-size:9px;font-family:var(--font-ui);font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;">Stack</span>
+                <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-secondary);">HTML · CSS · Vanilla JS</span>
+                <span style="font-family:var(--font-mono);font-size:10px;color:var(--studio-400);">Local-First Architecture</span>
+              </div>
+            </div>
+
+            <!-- Browser frame mockup -->
+            <div class="hero-mockup-frame">
+              <div class="hero-mockup-glare"></div>
+
+              <!-- Browser chrome -->
+              <div class="hero-browser-bar">
+                <div class="hero-dots">
+                  <div class="hero-dot" style="background:#FF5F57;"></div>
+                  <div class="hero-dot" style="background:#FEBC2E;"></div>
+                  <div class="hero-dot" style="background:#28C840;"></div>
+                </div>
+                <div class="hero-url-bar">
+                  <svg class="hero-url-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  <span class="hero-url-text">app.caseassistant.us</span>
+                </div>
+              </div>
+
+              <!-- Product UI -->
+              <div class="hero-product-ui">
+
+                <!-- Sidebar -->
+                <div class="hero-sidebar">
+                  <div class="hero-sb-brand">
+                    <div class="hero-sb-mark">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--legal-400)" stroke-width="2.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <span class="hero-sb-brand-text">Case Assistant</span>
+                  </div>
+
+                  <div class="hero-sb-item is-active">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                    Dashboard
+                  </div>
+                  <div class="hero-sb-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    Cases
+                  </div>
+                  <div class="hero-sb-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
+                    Medical
+                  </div>
+                  <div class="hero-sb-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+                    Attorney
+                  </div>
+                  <div class="hero-sb-divider"></div>
+                  <div class="hero-sb-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    Reports
+                  </div>
+                  <div class="hero-sb-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+                    Settings
+                  </div>
+                </div>
+
+                <!-- Main dashboard -->
+                <div class="hero-main">
+                  <div class="hero-main-header">
+                    <span class="hero-main-title">Case Dashboard</span>
+                    <span class="hero-main-date">Jul 26, 2026</span>
+                  </div>
+
+                  <div class="hero-kpi-grid">
+                    <div class="hero-kpi">
+                      <div class="hero-kpi-val">24</div>
+                      <div class="hero-kpi-lbl">Active Cases</div>
+                      <div class="hero-kpi-trend">↑ 3 this week</div>
+                    </div>
+                    <div class="hero-kpi">
+                      <div class="hero-kpi-val" style="color:var(--color-warning);">8</div>
+                      <div class="hero-kpi-lbl">Medical Pending</div>
+                    </div>
+                    <div class="hero-kpi">
+                      <div class="hero-kpi-val" style="color:var(--studio-400);">3</div>
+                      <div class="hero-kpi-lbl">Attorney Follow-up</div>
+                    </div>
+                    <div class="hero-kpi">
+                      <div class="hero-kpi-val" style="color:var(--text-tertiary);">127</div>
+                      <div class="hero-kpi-lbl">Resolved (90d)</div>
+                    </div>
+                  </div>
+
+                  <div class="hero-cases-hdr">
+                    <span class="hero-cases-lbl">Recent Cases</span>
+                    <span class="hero-cases-filter">This week ▾</span>
+                  </div>
+
+                  <div class="hero-cases-list">
+                    <div class="hero-case-row">
+                      <div class="hcr-dot hcr-dot-medical"></div>
+                      <span class="hcr-name">Martinez, Carlos A.</span>
+                      <span class="hcr-tag">Medical</span>
+                      <span class="hcr-date">Jul 28</span>
+                    </div>
+                    <div class="hero-case-row">
+                      <div class="hcr-dot hcr-dot-active"></div>
+                      <span class="hcr-name">Thompson, Sarah R.</span>
+                      <span class="hcr-tag">Active</span>
+                      <span class="hcr-date">Aug 02</span>
+                    </div>
+                    <div class="hero-case-row">
+                      <div class="hcr-dot hcr-dot-attorney"></div>
+                      <span class="hcr-name">Chen, David W.</span>
+                      <span class="hcr-tag">Attorney</span>
+                      <span class="hcr-date">Jul 30</span>
+                    </div>
+                    <div class="hero-case-row">
+                      <div class="hcr-dot hcr-dot-active"></div>
+                      <span class="hcr-name">Rivera, Ana M.</span>
+                      <span class="hcr-tag">Active</span>
+                      <span class="hcr-date">Aug 10</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div><!-- /hero-product-ui -->
+            </div><!-- /hero-mockup-frame -->
+
+          </div><!-- /hero-mockup-wrapper -->
+        </div><!-- /hero-layout -->
+      </div><!-- /container -->
+    </section><!-- /hero -->
+
+
+    <!-- ════════════════════════════════════════
+         §1.5 — IDENTITY STRIP
+    ═════════════════════════════════════════ -->
+    <div class="identity-strip" aria-hidden="true">
+      <div class="container">
+        <div class="identity-strip-inner">
+          <div class="identity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            Digital Product Studio
+          </div>
+          <div class="identity-sep"></div>
+          <div class="identity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Based in Bolivia
+          </div>
+          <div class="identity-sep"></div>
+          <div class="identity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Serving clients globally
+          </div>
+          <div class="identity-sep"></div>
+          <div class="identity-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Building in public
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════
+         §2 — MANIFESTO
+    ═════════════════════════════════════════ -->
+    <section class="manifesto-wrap manifesto-sequence" aria-label="Studio manifesto">
+
+      <div class="manifesto-statement" id="manifesto-1">
+        <p class="manifesto-pre">We don't build websites.</p>
+        <p class="manifesto-main">We build software.</p>
+      </div>
+
+      <div class="manifesto-divider"></div>
+
+      <div class="manifesto-statement" id="manifesto-2">
+        <p class="manifesto-pre">We don't work on projects.</p>
+        <p class="manifesto-main">We invest in problems worth solving.</p>
+      </div>
+
+      <div class="manifesto-divider"></div>
+
+      <div class="manifesto-statement" id="manifesto-3">
+        <p class="manifesto-single">
+          Professional services finance<br>the ideas we believe in.
+        </p>
+      </div>
+
+      <div class="manifesto-divider"></div>
+
+      <div class="manifesto-statement manifesto-final" id="manifesto-4">
+        <p class="manifesto-pre">Every product we ship began with</p>
+        <p class="manifesto-main">a problem we couldn't ignore.</p>
+      </div>
+
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+         §3 — OUR PRODUCTS
+    ═════════════════════════════════════════ -->
+    <section class="section section-lg" id="products" aria-labelledby="products-heading">
+      <div class="container">
+
+        <div class="reveal">
+          <p class="sh-label" id="products-eyebrow">Our Products</p>
+          <h2 class="sh-heading" id="products-heading">
+            Three products.<br>One mission.
+          </h2>
+          <p class="sh-lead">
+            We build in the industries we understand deeply. Each product is
+            a long-term investment — not a quick launch. Not a side project.
+            A commitment.
+          </p>
+        </div>
+
+        <!-- Product cards grid -->
+        <div class="grid-products reveal-group" style="margin-top: var(--space-12);">
+
+          <!-- Case Assistant OS -->
+          <article class="card-product reveal" data-product="case-assistant" aria-labelledby="prod-cao-title">
+            <div class="card-product-glow"></div>
+            <div class="card-product-header">
+              <div class="card-product-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--legal-500)" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <polyline points="10 9 9 9 8 9"/>
+                </svg>
+              </div>
+              <span class="badge badge-active-dev badge-dot badge-dot-pulse">Active Development</span>
+            </div>
+            <div class="card-product-body">
+              <h3 class="card-product-title product-name-legal" id="prod-cao-title">
+                Case Assistant <span class="accent">OS</span>
+              </h3>
+              <p class="card-product-description">
+                An intelligent workstation for Personal Injury case managers.
+                Automates follow-ups, tracks medical requests from submission to
+                settlement, and eliminates the spreadsheet — without changing
+                how your firm already works.
+              </p>
+            </div>
+            <div class="card-product-meta">
+              <div class="tech-stack">
+                <span class="tech-label">HTML5</span>
+                <span class="tech-label">Vanilla JS</span>
+                <span class="tech-label">Local-First</span>
+              </div>
+              <div class="card-product-footer">
+                <span class="badge badge-product badge-product-legal">U.S. Legal Market</span>
+                <a href="products/case-assistant-os/" class="btn btn-text btn-sm" id="cao-learn-more">
+                  View Product <span class="btn-arrow">→</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Home -->
+          <article class="card-product reveal" data-product="project-home" aria-labelledby="prod-ph-title">
+            <div class="card-product-glow"></div>
+            <div class="card-product-header">
+              <div class="card-product-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--home-500)" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+              </div>
+              <span class="badge badge-coming-soon badge-dot">Coming Soon</span>
+            </div>
+            <div class="card-product-body">
+              <h3 class="card-product-title product-name-home" id="prod-ph-title">
+                Project <span class="accent">Home</span>
+              </h3>
+              <p class="card-product-description">
+                A modern rental marketplace connecting landlords and long-term
+                tenants through a cleaner, faster, more transparent experience.
+                Bolivia's rental market has a trust and data problem.
+                We're building the solution.
+              </p>
+            </div>
+            <div class="card-product-meta">
+              <div class="tech-stack">
+                <span class="tech-label">React</span>
+                <span class="tech-label">Node.js</span>
+                <span class="tech-label">PostgreSQL</span>
+              </div>
+              <div class="card-product-footer">
+                <span class="badge badge-product badge-product-home">Bolivia-First</span>
+                <button class="btn btn-text btn-sm" id="ph-waitlist-btn"
+                        data-modal="modal-waitlist">
+                  Join Waitlist <span class="btn-arrow">→</span>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- SC Tech -->
+          <article class="card-product reveal" data-product="sc-tech" aria-labelledby="prod-sct-title">
+            <div class="card-product-glow"></div>
+            <div class="card-product-header">
+              <div class="card-product-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--tech-500)" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="2" y1="12" x2="22" y2="12"/>
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                </svg>
+              </div>
+              <span class="badge badge-live badge-dot badge-dot-pulse">Live</span>
+            </div>
+            <div class="card-product-body">
+              <h3 class="card-product-title product-name-tech" id="prod-sct-title">
+                SC <span class="accent">Tech</span>
+              </h3>
+              <p class="card-product-description">
+                An independent technology brand within the SC Web Studio
+                ecosystem. SC Tech serves clients and communities with
+                accessible technology solutions. Visit sctech.shop to explore
+                the current offerings.
+              </p>
+            </div>
+            <div class="card-product-meta">
+              <div class="card-product-footer">
+                <span class="badge badge-product badge-product-tech">Live Brand</span>
+                <a href="https://sctech.shop" target="_blank" rel="noopener noreferrer"
+                   class="btn btn-text btn-sm" id="sct-external">
+                  Visit sctech.shop ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /product grid -->
+
+        <!-- Ecosystem link -->
+        <div class="text-center reveal reveal-fade" style="margin-top: var(--space-10);">
+          <a href="ecosystem/" class="btn btn-ghost" id="ecosystem-link">
+            View the full ecosystem →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+         §4 — SERVICES
+    ═════════════════════════════════════════ -->
+    <section class="section section-lg section-surface" id="services" aria-labelledby="services-heading">
+      <div class="container">
+
+        <div class="grid-hero-split">
+
+          <!-- Left: text -->
+          <div class="reveal">
+            <p class="sh-label">Our Services</p>
+            <h2 class="sh-heading" id="services-heading">
+              We build what<br>clients need.<br>
+              <span style="color:var(--text-secondary);font-weight:var(--weight-semibold);">We keep what we build.</span>
+            </h2>
+            <p class="sh-lead" style="margin-top: var(--space-2);">
+              Client work finances the development of our own products.
+              Every engagement is a partnership — not a transaction. We bring
+              the same standards we apply to our own software to every project
+              we take on.
+            </p>
+            <div style="margin-top: var(--space-8);">
+              <a href="services/" class="btn btn-secondary" id="services-cta">
+                See how we work →
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: capability cards -->
+          <div class="services-grid reveal-group">
+
+            <div class="card-feature reveal" id="service-software">
+              <div class="card-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                </svg>
+              </div>
+              <span class="service-num">01</span>
+              <h3 class="card-feature-title">Software Development</h3>
+              <p class="card-feature-description">
+                From internal tools to client-facing platforms. We write clean,
+                maintainable code for systems that need to last. Not just ship.
+              </p>
+            </div>
+
+            <div class="card-feature reveal" id="service-automation">
+              <div class="card-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              </div>
+              <span class="service-num">02</span>
+              <h3 class="card-feature-title">Process Automation</h3>
+              <p class="card-feature-description">
+                If a human is doing something a system could do better, we
+                build the system. Repetitive work is a cost. We eliminate it.
+              </p>
+            </div>
+
+            <div class="card-feature reveal" id="service-saas">
+              <div class="card-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <span class="service-num">03</span>
+              <h3 class="card-feature-title">SaaS Development</h3>
+              <p class="card-feature-description">
+                End-to-end product development. Strategy, architecture, design,
+                engineering, and launch — handled by one team with one standard.
+              </p>
+            </div>
+
+            <div class="card-feature reveal" id="service-design">
+              <div class="card-feature-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <path d="M12 20h9"/>
+                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                </svg>
+              </div>
+              <span class="service-num">04</span>
+              <h3 class="card-feature-title">UX & Interface Design</h3>
+              <p class="card-feature-description">
+                Interfaces designed for complex, daily-use workflows. We
+                specialize in software used by professionals under pressure —
+                where clarity isn't optional.
+              </p>
+            </div>
+
+          </div><!-- /services-grid -->
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+         §5 — HOW WE WORK
+    ═════════════════════════════════════════ -->
+    <section class="section section-xl" id="how-we-work" aria-labelledby="hww-heading">
+      <div class="container">
+
+        <div class="reveal text-center" style="max-width: 640px; margin-inline: auto;">
+          <p class="sh-label" style="justify-content: center;">How We Work</p>
+          <h2 class="sh-heading" id="hww-heading">
+            Every great product starts<br>with a problem.
+          </h2>
+          <p class="sh-lead" style="margin-inline: auto;">
+            We don't quote before understanding. Discovery isn't a courtesy —
+            it's the most important step in building software that lasts.
+          </p>
+        </div>
+
+        <div class="pipeline-layout">
+
+          <!-- Pipeline steps -->
+          <div class="pipeline" role="list">
+
+            <div class="pipeline-step" role="listitem" id="step-understand">
+              <div class="pipeline-num" aria-hidden="true">01</div>
+              <div class="pipeline-body">
+                <h3 class="pipeline-title">Understand</h3>
+                <p class="pipeline-desc">
+                  We study the workflow, the user, and the failure modes before
+                  proposing anything. The best solution to a problem is rarely
+                  the first one that comes to mind. We take the time to find the
+                  right one.
+                </p>
+              </div>
+            </div>
+
+            <div class="pipeline-step" role="listitem" id="step-design">
+              <div class="pipeline-num" aria-hidden="true">02</div>
+              <div class="pipeline-body">
+                <h3 class="pipeline-title">Design</h3>
+                <p class="pipeline-desc">
+                  We design systems before we design interfaces. Architecture,
+                  data flow, and user journey come before visual choices.
+                  Structure is a design decision too — and often the most
+                  consequential one.
+                </p>
+              </div>
+            </div>
+
+            <div class="pipeline-step" role="listitem" id="step-build">
+              <div class="pipeline-num" aria-hidden="true">03</div>
+              <div class="pipeline-body">
+                <h3 class="pipeline-title">Build</h3>
+                <p class="pipeline-desc">
+                  Precision over speed. We prefer building something right once
+                  over patching something wrong twice. Our code is written to be
+                  read, maintained, and extended — not just to ship.
+                </p>
+              </div>
+            </div>
+
+            <div class="pipeline-step" role="listitem" id="step-iterate">
+              <div class="pipeline-num" aria-hidden="true">04</div>
+              <div class="pipeline-body">
+                <h3 class="pipeline-title">Iterate</h3>
+                <p class="pipeline-desc">
+                  Nothing ships and disappears. We track what matters, maintain
+                  what we build, and improve based on how people actually use it.
+                  Iteration is part of the work — not an afterthought.
+                </p>
+              </div>
+            </div>
+
+          </div><!-- /pipeline -->
+
+          <!-- Visual panel -->
+          <div class="pipeline-visual reveal reveal-right">
+            <div class="pipeline-visual-header">Case Assistant OS — Development Snapshot</div>
+            <div class="pipeline-phases">
+
+              <div class="phase-bar">
+                <div class="phase-bar-header">
+                  <span class="phase-bar-label">Core Case Engine</span>
+                  <span class="phase-bar-pct">100%</span>
+                </div>
+                <div class="phase-bar-track">
+                  <div class="phase-bar-fill" style="width:100%;background:var(--color-success);"></div>
+                </div>
+              </div>
+
+              <div class="phase-bar">
+                <div class="phase-bar-header">
+                  <span class="phase-bar-label">Medical Request Tracker</span>
+                  <span class="phase-bar-pct">100%</span>
+                </div>
+                <div class="phase-bar-track">
+                  <div class="phase-bar-fill" style="width:100%;background:var(--color-success);"></div>
+                </div>
+              </div>
+
+              <div class="phase-bar">
+                <div class="phase-bar-header">
+                  <span class="phase-bar-label">Attorney Communication Log</span>
+                  <span class="phase-bar-pct">87%</span>
+                </div>
+                <div class="phase-bar-track">
+                  <div class="phase-bar-fill" style="width:87%;"></div>
+                </div>
+              </div>
+
+              <div class="phase-bar">
+                <div class="phase-bar-header">
+                  <span class="phase-bar-label">Automated Follow-up System</span>
+                  <span class="phase-bar-pct">72%</span>
+                </div>
+                <div class="phase-bar-track">
+                  <div class="phase-bar-fill" style="width:72%;"></div>
+                </div>
+              </div>
+
+              <div class="phase-bar">
+                <div class="phase-bar-header">
+                  <span class="phase-bar-label">Settlement & Disbursement</span>
+                  <span class="phase-bar-pct">34%</span>
+                </div>
+                <div class="phase-bar-track">
+                  <div class="phase-bar-fill" style="width:34%;opacity:0.7;"></div>
+                </div>
+              </div>
+
+              <div class="phase-bar">
+                <div class="phase-bar-header">
+                  <span class="phase-bar-label">Reporting & Analytics</span>
+                  <span class="phase-bar-pct">18%</span>
+                </div>
+                <div class="phase-bar-track">
+                  <div class="phase-bar-fill" style="width:18%;opacity:0.55;"></div>
+                </div>
+              </div>
+
+            </div>
+            <div class="pipeline-visual-footer">
+              <span class="pipeline-visual-status">Active development</span>
+              <span class="version-label">v1.5.0-beta</span>
+            </div>
+          </div><!-- /pipeline-visual -->
+
+        </div><!-- /pipeline-layout -->
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+         §6 — SC LABS TEASER
+    ═════════════════════════════════════════ -->
+    <section class="section section-lg section-surface" id="labs" aria-labelledby="labs-heading">
+      <div class="container">
+
+        <div class="grid-hero-split" style="align-items: start;">
+
+          <div class="reveal">
+            <p class="sh-label">SC Labs</p>
+            <h2 class="sh-heading" id="labs-heading">
+              Where ideas become<br>experiments.
+            </h2>
+            <p class="sh-lead">
+              Not every idea is ready to be a product. SC Labs is where we
+              validate, prototype, and sometimes abandon ideas before they
+              consume real resources. This is the work before the work.
+            </p>
+            <div style="margin-top:var(--space-8);">
+              <a href="labs/" class="btn btn-secondary" id="labs-cta">
+                Enter the Lab →
+              </a>
+            </div>
+          </div>
+
+          <div class="labs-grid reveal-group">
+
+            <article class="card-lab reveal"
+                     data-status="prototyping"
+                     aria-labelledby="lab-legalrag-title">
+              <div class="card-lab-header">
+                <h3 class="card-lab-title" id="lab-legalrag-title">LegalRAG</h3>
+                <span class="badge badge-prototyping">Prototyping</span>
+              </div>
+              <p class="card-lab-problem">
+                Applying retrieval-augmented generation to U.S. personal injury
+                case law. Can AI surface relevant precedents for case managers
+                without replacing their judgment? That's the question we're
+                testing.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-label">Python</span>
+                <span class="tech-label">Vector DB</span>
+                <span class="tech-label">LLM Integration</span>
+              </div>
+            </article>
+
+            <article class="card-lab reveal"
+                     data-status="building"
+                     aria-labelledby="lab-atlas-title">
+              <div class="card-lab-header">
+                <h3 class="card-lab-title" id="lab-atlas-title">Atlas</h3>
+                <span class="badge badge-building">Building</span>
+              </div>
+              <p class="card-lab-problem">
+                Internal tooling for managing SC Web Studio's own client project
+                pipeline, invoicing, and deliverable tracking. A dogfood
+                product — we build it for ourselves first, and if it solves the
+                problem, it becomes a product.
+              </p>
+              <div class="tech-stack">
+                <span class="tech-label">Node.js</span>
+                <span class="tech-label">SQLite</span>
+                <span class="tech-label">Internal</span>
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+         §7 — STORIES TEASER
+    ═════════════════════════════════════════ -->
+    <section class="section section-lg" id="stories" aria-labelledby="stories-heading">
+      <div class="container">
+
+        <div class="flex justify-between items-start" style="flex-wrap: wrap; gap: var(--space-6);">
+          <div class="reveal">
+            <p class="sh-label">Stories</p>
+            <h2 class="sh-heading" id="stories-heading">Thinking in public.</h2>
+            <p class="sh-lead">
+              We write about the problems we're solving, the software we're
+              building, and what we've learned from trying. No thought
+              leadership. Just honest documentation of the work.
+            </p>
+          </div>
+          <div class="reveal reveal-fade" style="flex-shrink:0; padding-top: var(--space-8);">
+            <a href="stories/" class="btn btn-secondary" id="stories-all">
+              All Stories →
+            </a>
+          </div>
+        </div>
+
+        <div class="stories-list reveal-group">
+
+          <a href="stories/why-we-built-case-assistant-os-first/"
+             class="card-story reveal"
+             id="story-1"
+             aria-label="Read: Why we built Case Assistant OS before we built a landing page">
+            <div class="card-story-meta">
+              <span class="tag tag-design">Product Strategy</span>
+              <span class="card-story-read-time">8 min read</span>
+            </div>
+            <div class="card-story-content">
+              <h3 class="card-story-title">
+                Why we built Case Assistant OS before we built a landing page
+              </h3>
+              <p class="card-story-description">
+                Most studios build a website first. We built the product first.
+                Here's why that decision changed how we think about
+                everything — from marketing to architecture to what it means to
+                be a software studio.
+              </p>
+            </div>
+          </a>
+
+          <a href="stories/local-first-architecture-when-it-makes-sense/"
+             class="card-story reveal"
+             id="story-2"
+             aria-label="Read: Local-first architecture in 2025">
+            <div class="card-story-meta">
+              <span class="tag tag-engineering">Engineering</span>
+              <span class="card-story-read-time">6 min read</span>
+            </div>
+            <div class="card-story-content">
+              <h3 class="card-story-title">
+                Local-first architecture in 2025: when it makes sense and when it doesn't
+              </h3>
+              <p class="card-story-description">
+                We chose local-first for Case Assistant OS. That decision
+                touched every part of the system — data structure, sync
+                strategy, offline behavior, and how we think about user trust.
+                The tradeoffs were worth it. Here's the full picture.
+              </p>
+            </div>
+          </a>
+
+          <a href="stories/bolivias-rental-market-has-a-data-problem/"
+             class="card-story reveal"
+             id="story-3"
+             aria-label="Read: Bolivia's rental market has a data problem">
+            <div class="card-story-meta">
+              <span class="tag tag-design">Product</span>
+              <span class="card-story-read-time">5 min read</span>
+            </div>
+            <div class="card-story-content">
+              <h3 class="card-story-title">
+                Bolivia's rental market has a data problem. We're building the solution.
+              </h3>
+              <p class="card-story-description">
+                Landlords don't trust tenants. Tenants don't trust landlords.
+                Neither side has reliable data. This is the research that led
+                us to Project Home — and why we believe a marketplace alone
+                isn't enough.
+              </p>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
+         §8 — FINAL CTA
+    ═════════════════════════════════════════ -->
+    <section class="section final-cta-section section-xl" id="contact-cta" aria-labelledby="cta-heading">
+      <div class="container" style="max-width: var(--container-md);">
+
+        <div class="reveal">
+          <p class="sh-label" style="justify-content: center;">Get Started</p>
+          <h2 class="sh-heading" id="cta-heading" style="text-align:center; font-size: clamp(2rem, 5vw, 3rem);">
+            Ready to build something<br>that lasts?
+          </h2>
+          <p class="sh-lead" style="margin-inline: auto; text-align: center; margin-top: var(--space-2);">
+            We take on a limited number of client projects each year. If you
+            have a problem worth solving, we want to hear about it.
+          </p>
+        </div>
+
+        <div class="final-cta-paths reveal-group">
+
+          <a href="contact/?path=project" class="cta-path reveal" id="cta-start-project">
+            <div class="cta-path-icon cta-path-icon-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
+            <span class="cta-path-label">Start a Project</span>
+            <p class="cta-path-desc">
+              Tell us about your problem. We'll tell you honestly if we're the
+              right team to solve it.
+            </p>
+            <span class="cta-path-arrow">Book a discovery call →</span>
+          </a>
+
+          <a href="products/" class="cta-path reveal" id="cta-explore-products">
+            <div class="cta-path-icon" style="background:rgba(255,255,255,0.04);border:1px solid var(--border-subtle);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <span class="cta-path-label">Explore Products</span>
+            <p class="cta-path-desc">
+              See what we've built and what we're building. Case Assistant OS,
+              Project Home, and the ecosystem.
+            </p>
+            <span class="cta-path-arrow" style="color:var(--text-secondary);">View all products →</span>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main><!-- /main-content -->
+
+
+  <!-- Footer injected by shell.js -->
+  <div id="sc-footer"></div>
+
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       MODALS
+  ════════════════════════════════════════════════════════════════════════ -->
+
+  <!-- Project Home — Waitlist Modal -->
+  <div class="modal-overlay" id="modal-waitlist" role="dialog" aria-modal="true" aria-labelledby="waitlist-title">
+    <div class="modal modal-sm">
+      <div class="modal-header" style="background: linear-gradient(135deg, rgba(245,158,11,0.05) 0%, transparent 100%);">
+        <div>
+          <h2 class="modal-title" id="waitlist-title">Join the Project Home Waitlist</h2>
+          <p class="modal-subtitle">Be the first to know when we launch in Bolivia.</p>
+        </div>
+        <button class="modal-close" data-close="modal-waitlist" aria-label="Close waitlist modal" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="waitlist-form" class="form-stack" novalidate>
+          <div class="form-group">
+            <label class="form-label form-label-required" for="wl-name">Full name</label>
+            <input class="form-input" type="text" id="wl-name" name="name" placeholder="Your name" autocomplete="name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label form-label-required" for="wl-email">Email address</label>
+            <input class="form-input" type="email" id="wl-email" name="email" placeholder="you@email.com" autocomplete="email" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="wl-role">You are a…</label>
+            <select class="form-select" id="wl-role" name="role">
+              <option value="">Select your role</option>
+              <option value="landlord">Landlord / Property owner</option>
+              <option value="tenant">Tenant / Looking to rent</option>
+              <option value="agent">Real estate agent</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-submit-area">
+            <button type="submit" class="btn btn-home btn-full" id="wl-submit">Join the Waitlist</button>
+            <p class="form-privacy-note">No spam. No sharing. Just a single email when we launch.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       SCRIPTS — Core modules loaded deferred, non-blocking
+  ════════════════════════════════════════════════════════════════════════ -->
+  <script src="shared/js/core/nav.js"    defer></script>
+  <script src="shared/js/core/scroll.js" defer></script>
+
+  <!-- Page-level interactivity (modals, forms) — inline, minimal -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Modal system ───────────────────────────────────────────────────── */
+    function openModal(id) {
+      const overlay = document.getElementById(id);
+      if (!overlay) return;
+      overlay.classList.add('is-open');
+      document.body.classList.add('modal-open');
+      overlay.querySelector('[data-close]') &&
+        overlay.querySelector('[data-close]').focus();
+    }
+
+    function closeModal(id) {
+      const overlay = document.getElementById(id);
+      if (!overlay) return;
+      overlay.classList.remove('is-open');
+      document.body.classList.remove('modal-open');
+    }
+
+    // Open triggers (data-modal attribute)
+    document.querySelectorAll('[data-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        openModal(btn.getAttribute('data-modal'));
+      });
+    });
+
+    // Close triggers (data-close attribute)
+    document.querySelectorAll('[data-close]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        closeModal(btn.getAttribute('data-close'));
+      });
+    });
+
+    // Close on overlay click
+    document.querySelectorAll('.modal-overlay').forEach(function (overlay) {
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal(overlay.id);
+      });
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.is-open').forEach(function (o) {
+          closeModal(o.id);
+        });
+      }
+    });
+
+
+    /* ── Waitlist form (stub — replace with real endpoint) ──────────────── */
+    var wlForm = document.getElementById('waitlist-form');
+    if (wlForm) {
+      wlForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = document.getElementById('wl-submit');
+        btn.classList.add('is-loading');
+        btn.textContent = '';
+
+        // Replace this timeout with a real fetch() to your API endpoint
+        setTimeout(function () {
+          wlForm.innerHTML =
+            '<div style="text-align:center;padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-4);align-items:center;">' +
+            '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>' +
+            '<h3 style="font-family:var(--font-display);color:var(--text-primary);font-size:var(--text-xl);font-weight:600;">You\'re on the list.</h3>' +
+            '<p style="font-size:var(--text-sm);color:var(--text-secondary);max-width:none;">We\'ll send one email when Project Home launches in Bolivia. That\'s it.</p>' +
+            '</div>';
+        }, 1200);
+      });
+    }
+
+
+    /* ── Pipeline step observer (supplemental — scroll.js handles .reveal) ── */
+    var pipelineSteps = document.querySelectorAll('.pipeline-step');
+    if (pipelineSteps.length > 0 && 'IntersectionObserver' in window) {
+      var pObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-active');
+          }
+        });
+      }, { threshold: 0.25, rootMargin: '-5% 0px' });
+
+      pipelineSteps.forEach(function (step, i) {
+        step.style.transitionDelay = (i * 100) + 'ms';
+        pObs.observe(step);
+      });
+    }
+
+  }());
+  </script>
+
+</body>
+</html>

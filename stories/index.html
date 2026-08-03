@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── Primary SEO ────────────────────────────────────────────────────── -->
+  <title>Stories — SC Web Studio</title>
+  <meta name="description" content="SC Web Studio writes about the problems we are solving, the software we are building, and what we have learned from trying. No thought leadership. Just honest documentation.">
+  <meta name="keywords" content="SC Web Studio, software engineering, product strategy, local-first architecture, Vanilla JS, Bolivia rental market, case management software, startup R&D">
+  <meta name="author" content="SC Web Studio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://scwebstudio.com/stories/">
+
+  <!-- ── Open Graph ──────────────────────────────────────────────────────── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://scwebstudio.com/stories/">
+  <meta property="og:title"       content="Stories — SC Web Studio">
+  <meta property="og:description" content="SC Web Studio writes about the problems we are solving, the software we are building, and what we have learned from trying. No thought leadership. Just honest documentation.">
+  <meta property="og:site_name"   content="SC Web Studio">
+  <meta property="og:locale"      content="en_US">
+  <meta property="og:image"       content="https://scwebstudio.com/shared/assets/og/stories.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"   content="Stories — SC Web Studio">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:site"        content="@scwebstudio">
+  <meta name="twitter:title"       content="Stories — SC Web Studio">
+  <meta name="twitter:description" content="SC Web Studio writes about the problems we are solving, the software we are building, and what we have learned from trying.">
+  <meta name="twitter:image"       content="https://scwebstudio.com/shared/assets/og/stories.jpg">
+
+  <!-- ── PWA / App Shell ────────────────────────────────────────────────── -->
+  <meta name="theme-color"                       content="#060608">
+  <meta name="apple-mobile-web-app-capable"      content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title"        content="SC Web Studio">
+  <link rel="manifest"      href="../manifest.json">
+  <link rel="icon"          type="image/svg+xml" href="../shared/assets/favicons/favicon.svg">
+  <link rel="apple-touch-icon" href="../shared/assets/favicons/apple-touch-icon.png">
+
+  <!-- ── JSON-LD Schema ─────────────────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "SC Web Studio Stories",
+    "url": "https://scwebstudio.com/stories/",
+    "description": "Honest documentation of software engineering, product strategy, and market research from SC Web Studio.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SC Web Studio",
+      "url": "https://scwebstudio.com"
+    }
+  }
+  </script>
+
+  <!-- ── Font preconnect ────────────────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ── Design System CSS (canonical import order) ─────────────────────── -->
+  <link rel="stylesheet" href="../shared/css/tokens.css">
+  <link rel="stylesheet" href="../shared/css/reset.css">
+  <link rel="stylesheet" href="../shared/css/typography.css">
+  <link rel="stylesheet" href="../shared/css/layout.css">
+  <link rel="stylesheet" href="../shared/css/utilities.css">
+  <link rel="stylesheet" href="../shared/css/components/nav.css">
+  <link rel="stylesheet" href="../shared/css/components/buttons.css">
+  <link rel="stylesheet" href="../shared/css/components/cards.css">
+  <link rel="stylesheet" href="../shared/css/components/badges.css">
+  <link rel="stylesheet" href="../shared/css/components/mockups.css">
+  <link rel="stylesheet" href="../shared/css/components/modals.css">
+  <link rel="stylesheet" href="../shared/css/components/forms.css">
+
+  <!-- ── Page-Specific Styles ───────────────────────────────────────────── -->
+  <style>
+    /* Tag Business Variant */
+    .tag-business {
+      color: var(--text-secondary);
+      border-color: var(--border-default);
+      background: var(--bg-surface-raised);
+    }
+
+    /* Featured Story Card Overrides */
+    .featured-card {
+      padding: var(--space-8);
+      border-radius: var(--radius-2xl);
+      position: relative;
+      overflow: hidden;
+    }
+    @media (min-width: 768px) {
+      .featured-card {
+        padding: var(--space-12);
+      }
+    }
+    .featured-story-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: var(--weight-bold);
+      color: var(--text-primary);
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-snug);
+      margin-block: var(--space-4);
+    }
+
+    /* Filter Pills */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      align-items: center;
+    }
+    .filter-pill {
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-ui);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      cursor: pointer;
+      transition: background-color var(--duration-fast) var(--ease-out),
+                  border-color var(--duration-fast) var(--ease-out),
+                  color var(--duration-fast) var(--ease-out);
+    }
+    .filter-pill:hover {
+      border-color: var(--border-default);
+      color: var(--text-primary);
+      background: var(--bg-surface-raised);
+    }
+    .filter-pill.is-active {
+      background: var(--studio-500);
+      border-color: var(--studio-500);
+      color: #ffffff;
+    }
+
+    /* Story Grid Layout */
+    .stories-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+    @media (min-width: 768px) {
+      .stories-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-8);
+      }
+    }
+
+    /* Story Card Item */
+    .card-story-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      height: 100%;
+      text-decoration: none;
+      position: relative;
+      isolation: isolate;
+      transition: transform var(--duration-slow) var(--ease-spring),
+                  border-color var(--duration-base) var(--ease-out),
+                  box-shadow var(--duration-slow) var(--ease-out);
+    }
+    .card-story-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 15%;
+      right: 15%;
+      height: 1px;
+      background: var(--gradient-edge-studio);
+      opacity: 0;
+      transition: opacity var(--duration-base) var(--ease-out);
+      z-index: 1;
+    }
+    .card-story-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-default);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .card-story-item:hover::before {
+      opacity: 1;
+    }
+    .card-story-item-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-3);
+    }
+    .card-story-item-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+      line-height: var(--leading-snug);
+      letter-spacing: var(--tracking-snug);
+      transition: color var(--duration-fast) var(--ease-out);
+    }
+    .card-story-item:hover .card-story-item-title {
+      color: var(--studio-300);
+    }
+    .card-story-item-desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      flex: 1;
+    }
+    .card-story-item-footer {
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--border-subtle);
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Header Shell Container -->
+  <div id="sc-header"></div>
+  <script src="../shared/js/core/shell.js" data-base="../"></script>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- 1. HERO SECTION -->
+    <section class="section-lg" id="hero" aria-labelledby="stories-heading">
+      <div class="container reveal-group">
+        <p class="sh-label">Stories</p>
+        <h1 class="sh-heading" id="stories-heading">Thinking in public.</h1>
+        <p class="sh-lead">
+          We write about the problems we are solving, the software we are building, and what we have learned from trying. No thought leadership. Just honest documentation of the work.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. FEATURED STORY -->
+    <section class="section" id="featured" aria-labelledby="featured-heading">
+      <div class="container reveal">
+        <h2 id="featured-heading" class="sr-only">Featured Article</h2>
+        <div class="card-glass featured-card">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="tag tag-design">Product Strategy</span>
+            <span class="font-mono text-xs text-tertiary">8 min read</span>
+          </div>
+
+          <div class="featured-story-title">
+            Why we built Case Assistant OS before we built a landing page
+          </div>
+
+          <p class="text-secondary text-base max-w-3xl mb-8 leading-relaxed">
+            Most studios build a website first. We built the product first. Here is why that decision changed how we think about everything — from marketing to architecture to what it means to be a software studio.
+          </p>
+
+          <div class="flex items-center justify-between pt-6 border-t border-subtle flex-wrap gap-4">
+            <span class="font-mono text-xs text-tertiary">July 2026</span>
+            <a href="../stories/why-we-built-case-assistant-os-first/" class="btn btn-secondary btn-sm">
+              Read Story
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FILTERS SECTION -->
+    <section class="section" id="filters" aria-labelledby="filter-heading">
+      <div class="container reveal">
+        <h2 id="filter-heading" class="sr-only">Filter Stories by Topic</h2>
+        
+        <div class="filter-bar" role="tablist" aria-label="Filter stories by category">
+          <button class="filter-pill is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+          <button class="filter-pill" data-filter="strategy" role="tab" aria-selected="false">Product Strategy</button>
+          <button class="filter-pill" data-filter="engineering" role="tab" aria-selected="false">Engineering</button>
+          <button class="filter-pill" data-filter="design" role="tab" aria-selected="false">Design</button>
+          <button class="filter-pill" data-filter="research" role="tab" aria-selected="false">Research</button>
+          <button class="filter-pill" data-filter="business" role="tab" aria-selected="false">Business</button>
+        </div>
+
+        <p id="story-count" class="text-xs font-mono text-tertiary mt-4">Showing 6 stories</p>
+      </div>
+    </section>
+
+    <!-- 4. STORY GRID -->
+    <section class="section" id="story-grid" aria-labelledby="grid-heading">
+      <div class="container">
+        <h2 id="grid-heading" class="sr-only">Recent Articles</h2>
+
+        <div class="stories-grid reveal-group">
+
+          <!-- Card 1 (Engineering) -->
+          <article class="card-story-item reveal" data-category="engineering">
+            <div class="card-story-item-header">
+              <span class="tag tag-engineering">Engineering</span>
+              <span class="font-mono text-xs text-tertiary">6 min read</span>
+            </div>
+            <h3 class="card-story-item-title">
+              Local-first architecture in 2025: when it makes sense and when it does not
+            </h3>
+            <p class="card-story-item-desc">
+              We chose local-first for Case Assistant OS. That decision touched every part of the system. The tradeoffs were worth it. Here is the full picture.
+            </p>
+            <div class="card-story-item-footer">
+              <span class="font-mono text-xs text-tertiary">June 2026</span>
+              <span class="text-xs text-link font-medium inline-flex items-center gap-1">Read article &rarr;</span>
+            </div>
+          </article>
+
+          <!-- Card 2 (Design) -->
+          <article class="card-story-item reveal" data-category="design">
+            <div class="card-story-item-header">
+              <span class="tag tag-design">Design</span>
+              <span class="font-mono text-xs text-tertiary">5 min read</span>
+            </div>
+            <h3 class="card-story-item-title">
+              Bolivia rental market has a data problem. We are building the solution.
+            </h3>
+            <p class="card-story-item-desc">
+              Landlords do not trust tenants. Tenants do not trust landlords. Neither side has reliable data. This is the research that led us to Project Home.
+            </p>
+            <div class="card-story-item-footer">
+              <span class="font-mono text-xs text-tertiary">June 2026</span>
+              <span class="text-xs text-link font-medium inline-flex items-center gap-1">Read article &rarr;</span>
+            </div>
+          </article>
+
+          <!-- Card 3 (Engineering) -->
+          <article class="card-story-item reveal" data-category="engineering">
+            <div class="card-story-item-header">
+              <span class="tag tag-engineering">Engineering</span>
+              <span class="font-mono text-xs text-tertiary">4 min read</span>
+            </div>
+            <h3 class="card-story-item-title">
+              Why we chose Vanilla JS for a production case management tool in 2025
+            </h3>
+            <p class="card-story-item-desc">
+              Yes, in 2025. No framework. No build step. Just a browser and a problem. Here is the reasoning and what we would change.
+            </p>
+            <div class="card-story-item-footer">
+              <span class="font-mono text-xs text-tertiary">May 2026</span>
+              <span class="text-xs text-link font-medium inline-flex items-center gap-1">Read article &rarr;</span>
+            </div>
+          </article>
+
+          <!-- Card 4 (Business) -->
+          <article class="card-story-item reveal" data-category="business">
+            <div class="card-story-item-header">
+              <span class="tag tag-business">Business</span>
+              <span class="font-mono text-xs text-tertiary">7 min read</span>
+            </div>
+            <h3 class="card-story-item-title">
+              The studio model: how client work finances product development
+            </h3>
+            <p class="card-story-item-desc">
+              Professional services fund the runway for our own products. We write about why this works and where it does not.
+            </p>
+            <div class="card-story-item-footer">
+              <span class="font-mono text-xs text-tertiary">May 2026</span>
+              <span class="text-xs text-link font-medium inline-flex items-center gap-1">Read article &rarr;</span>
+            </div>
+          </article>
+
+          <!-- Card 5 (Research) -->
+          <article class="card-story-item reveal" data-category="research">
+            <div class="card-story-item-header">
+              <span class="tag tag-research">Research</span>
+              <span class="font-mono text-xs text-tertiary">6 min read</span>
+            </div>
+            <h3 class="card-story-item-title">
+              40 conversations with Bolivian landlords: what we learned about trust in rental markets
+            </h3>
+            <p class="card-story-item-desc">
+              We did not assume the problem. We went out and found it. 40 interviews with landlords and tenants in Cochabamba.
+            </p>
+            <div class="card-story-item-footer">
+              <span class="font-mono text-xs text-tertiary">April 2026</span>
+              <span class="text-xs text-link font-medium inline-flex items-center gap-1">Read article &rarr;</span>
+            </div>
+          </article>
+
+          <!-- Card 6 (Engineering) -->
+          <article class="card-story-item reveal" data-category="engineering">
+            <div class="card-story-item-header">
+              <span class="tag tag-engineering">Engineering</span>
+              <span class="font-mono text-xs text-tertiary">3 min read</span>
+            </div>
+            <h3 class="card-story-item-title">
+              Writing CSS design systems for the long term: our token architecture explained
+            </h3>
+            <p class="card-story-item-desc">
+              Every visual decision in the SC Web Studio ecosystem flows through a single CSS tokens file. Here is why and how we built it.
+            </p>
+            <div class="card-story-item-footer">
+              <span class="font-mono text-xs text-tertiary">April 2026</span>
+              <span class="text-xs text-link font-medium inline-flex items-center gap-1">Read article &rarr;</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. LOAD MORE SECTION -->
+    <section class="section" id="load-more" aria-labelledby="load-more-heading">
+      <div class="container text-center reveal">
+        <h2 id="load-more-heading" class="sr-only">More Content</h2>
+        <button class="btn btn-secondary" id="load-more-btn">Load more stories</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Shell Container -->
+  <div id="sc-footer"></div>
+
+  <!-- Core Scripts -->
+  <script src="../shared/js/core/nav.js" defer></script>
+  <script src="../shared/js/core/scroll.js" defer></script>
+
+  <!-- Inline Page Scripts -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Filter functionality
+      const filterPills = document.querySelectorAll('.filter-pill');
+      const storyCards = document.querySelectorAll('.card-story-item');
+      const countDisplay = document.getElementById('story-count');
+
+      filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          // Update active state
+          filterPills.forEach(p => {
+            p.classList.remove('is-active');
+            p.setAttribute('aria-selected', 'false');
+          });
+          pill.classList.add('is-active');
+          pill.setAttribute('aria-selected', 'true');
+
+          const filterValue = pill.getAttribute('data-filter');
+          let visibleCount = 0;
+
+          storyCards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            if (filterValue === 'all' || cardCategory === filterValue) {
+              card.style.display = 'flex';
+              visibleCount++;
+            } else {
+              card.style.display = 'none';
+            }
+          });
+
+          // Update story count text
+          if (countDisplay) {
+            countDisplay.textContent = `Showing ${visibleCount} ${visibleCount === 1 ? 'story' : 'stories'}`;
+          }
+        });
+      });
+
+      // Modal System Stub
+      window.openModal = function(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.classList.add('is-open');
+          document.body.classList.add('modal-open');
+        }
+      };
+
+      window.closeModal = function(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.classList.remove('is-open');
+          document.body.classList.remove('modal-open');
+        }
+      };
+    });
+  </script>
+</body>
+</html>

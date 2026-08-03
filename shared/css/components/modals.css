@@ -1,0 +1,254 @@
+/**
+ * SC Web Studio — Modal Component
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Modal overlay, dialog container, sizes, header/body/footer anatomy.
+ * State managed by JS; transitions handled via CSS classes.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   OVERLAY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+
+  background: rgba(6, 6, 8, 0.80);
+  backdrop-filter: blur(8px) saturate(150%);
+  -webkit-backdrop-filter: blur(8px) saturate(150%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+
+  /* Hidden state */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Trap focus inside modal when open */
+.modal-overlay.is-open .modal {
+  pointer-events: all;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MODAL CONTAINER
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  max-height: calc(100svh - var(--space-8));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  background: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-modal);
+
+  display: flex;
+  flex-direction: column;
+
+  /* Enter animation */
+  transform: translateY(16px) scale(0.97);
+  transition:
+    transform var(--duration-slow) var(--ease-spring),
+    opacity var(--duration-base) var(--ease-out);
+}
+
+.modal-overlay.is-open .modal {
+  transform: translateY(0) scale(1);
+}
+
+/* Size variants */
+.modal-sm  { max-width: 400px; }
+.modal-lg  { max-width: 680px; }
+.modal-xl  { max-width: 860px; }
+.modal-full { max-width: min(1040px, calc(100vw - var(--space-8))); }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MODAL ANATOMY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.modal-header {
+  padding: var(--space-6) var(--space-8);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-shrink: 0;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  letter-spacing: var(--tracking-snug);
+}
+
+.modal-subtitle {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-top: var(--space-1);
+  max-width: none;
+}
+
+.modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.modal-close:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-subtle);
+  color: var(--text-primary);
+}
+
+.modal-close svg { width: 16px; height: 16px; }
+
+.modal-body {
+  padding: var(--space-8);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.modal-footer {
+  padding: var(--space-6) var(--space-8);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.modal-footer-left {
+  justify-content: space-between;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MODAL TYPES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Waitlist modal — Project Home */
+.modal-waitlist .modal-header {
+  background: linear-gradient(135deg,
+    rgba(245, 158, 11, 0.05) 0%,
+    transparent 100%);
+}
+
+/* Demo request modal — Case Assistant OS */
+.modal-demo .modal-header {
+  background: linear-gradient(135deg,
+    rgba(14, 165, 233, 0.05) 0%,
+    transparent 100%);
+}
+
+/* Contact / Discovery modal */
+.modal-contact .modal-header {
+  background: linear-gradient(135deg,
+    rgba(85, 104, 255, 0.05) 0%,
+    transparent 100%);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TWO-PATH MODAL (Contact page)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.modal-path-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.modal-path-option {
+  padding: var(--space-6);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.modal-path-option:hover,
+.modal-path-option.is-selected {
+  background: var(--bg-hover);
+  border-color: var(--border-default);
+}
+
+.modal-path-option.is-selected {
+  border-color: var(--studio-500);
+  background: rgba(85, 104, 255, 0.05);
+}
+
+.modal-path-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-raised);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-path-label {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+}
+
+.modal-path-description {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  max-width: none;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCROLL LOCK (applied to body when modal is open)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+body.modal-open {
+  overflow: hidden;
+  padding-right: 8px; /* Prevent layout shift from scrollbar removal */
+}

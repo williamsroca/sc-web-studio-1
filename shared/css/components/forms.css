@@ -1,0 +1,370 @@
+/**
+ * SC Web Studio — Form Components
+ * ─────────────────────────────────────────────────────────────────────────────
+ * Form groups, labels, inputs, textareas, selects, validation states.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FORM GROUP
+   Wrapper for label + field + hint/error
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/* Stack multiple groups */
+.form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* Two column form layout */
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 480px) {
+  .form-grid-2 { grid-template-columns: 1fr 1fr; }
+}
+
+/* Full-width field in grid */
+.form-col-full {
+  grid-column: 1 / -1;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LABELS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-label {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+  line-height: var(--leading-normal);
+}
+
+/* Optional marker */
+.form-label-optional {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  font-weight: var(--weight-regular);
+  margin-left: var(--space-2);
+}
+
+/* Required marker */
+.form-label-required::after {
+  content: ' *';
+  color: var(--color-error);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE INPUT STYLES
+   Applied to input, textarea, select
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-input,
+.form-textarea,
+.form-select {
+  /* Layout */
+  display: block;
+  width: 100%;
+
+  /* Typography */
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  line-height: var(--leading-normal);
+
+  /* Appearance */
+  background: var(--bg-surface-raised);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+
+  /* Touch target */
+  min-height: 44px;
+
+  /* Behavior */
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+/* Placeholder */
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* Focus state */
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  border-color: var(--studio-500);
+  background: var(--bg-surface);
+  box-shadow: 0 0 0 3px rgba(85, 104, 255, 0.15);
+}
+
+/* Hover state (when not focused) */
+.form-input:hover:not(:focus),
+.form-textarea:hover:not(:focus),
+.form-select:hover:not(:focus) {
+  border-color: var(--border-strong);
+}
+
+/* Disabled */
+.form-input:disabled,
+.form-textarea:disabled,
+.form-select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Read-only */
+.form-input:read-only {
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: default;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TEXTAREA
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  padding-block: var(--space-3);
+  line-height: var(--leading-relaxed);
+}
+
+.form-textarea-fixed {
+  resize: none;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SELECT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-select {
+  cursor: pointer;
+  padding-right: var(--space-10);
+
+  /* Custom caret */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2352566A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--space-3) center;
+}
+
+/* Select option color (limited browser support) */
+.form-select option {
+  background: var(--bg-surface-raised);
+  color: var(--text-primary);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   INPUT WITH ICON
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-input-wrapper {
+  position: relative;
+}
+
+.form-input-icon-left,
+.form-input-icon-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.form-input-icon-left {
+  left: var(--space-3);
+}
+
+.form-input-icon-right {
+  right: var(--space-3);
+}
+
+.form-input-icon-left + .form-input {
+  padding-left: calc(var(--space-3) + 20px + var(--space-2));
+}
+
+.form-input.has-icon-right {
+  padding-right: calc(var(--space-3) + 20px + var(--space-2));
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HINT & ERROR TEXT
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-hint {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  line-height: var(--leading-normal);
+  max-width: none;
+}
+
+.form-error-text {
+  font-size: var(--text-xs);
+  color: var(--color-error);
+  line-height: var(--leading-normal);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  max-width: none;
+}
+
+.form-success-text {
+  font-size: var(--text-xs);
+  color: var(--color-success);
+  line-height: var(--leading-normal);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  max-width: none;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   VALIDATION STATES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Error state */
+.form-group.has-error .form-input,
+.form-group.has-error .form-textarea,
+.form-group.has-error .form-select {
+  border-color: var(--color-error);
+  background: var(--color-error-bg);
+}
+
+.form-group.has-error .form-input:focus,
+.form-group.has-error .form-textarea:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+}
+
+/* Success state */
+.form-group.has-success .form-input,
+.form-group.has-success .form-textarea {
+  border-color: var(--color-success);
+}
+
+.form-group.has-success .form-input:focus,
+.form-group.has-success .form-textarea:focus {
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RADIO & CHECKBOX
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-radio-group,
+.form-checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.form-radio-option,
+.form-checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  cursor: pointer;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: transparent;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.form-radio-option:hover,
+.form-checkbox-option:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-default);
+}
+
+.form-radio-option.is-selected,
+.form-checkbox-option.is-checked {
+  border-color: var(--studio-500);
+  background: rgba(85, 104, 255, 0.05);
+}
+
+/* Card-style role selector (used in Project Home waitlist) */
+.form-role-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.form-role-option {
+  padding: var(--space-5) var(--space-4);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  background: transparent;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.form-role-option:hover { background: var(--bg-hover); border-color: var(--border-default); }
+.form-role-option.is-selected { border-color: var(--studio-500); background: rgba(85, 104, 255, 0.05); }
+
+.form-role-icon { font-size: 24px; }
+.form-role-label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--text-primary);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SUBMIT AREA
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-submit-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.form-privacy-note {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  text-align: center;
+  max-width: none;
+}

@@ -1,0 +1,334 @@
+/**
+ * SC Web Studio — Button Components
+ * ─────────────────────────────────────────────────────────────────────────────
+ * All button variants, sizes, states, and product accent variants.
+ * Based on: design/buttons.md
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE BUTTON
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.btn {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+
+  /* Size (MD default) */
+  height: 42px;
+  padding: 0 var(--space-5);
+
+  /* Typography */
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+
+  /* Base style */
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+
+  /* Transition */
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    transform var(--duration-instant) var(--ease-elastic),
+    opacity var(--duration-fast) var(--ease-out);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 3px;
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Button icon sizing */
+.btn svg {
+  width: var(--icon-sm);
+  height: var(--icon-sm);
+  flex-shrink: 0;
+}
+
+.btn-lg svg { width: var(--icon-md); height: var(--icon-md); }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PRIMARY BUTTON
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.btn-primary {
+  background: var(--studio-500);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.btn-primary:hover {
+  background: var(--studio-600);
+  box-shadow: 0 0 24px var(--studio-glow), 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  background: var(--studio-700);
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SECONDARY BUTTON
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-default);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-strong);
+}
+
+.btn-secondary:active {
+  background: var(--bg-active);
+  transform: scale(0.98);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GHOST BUTTON
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border-color: transparent;
+}
+
+.btn-ghost:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+.btn-ghost:active {
+  background: var(--bg-active);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TEXT BUTTON (link-style)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.btn-text {
+  height: auto;
+  padding: 0;
+  background: transparent;
+  color: var(--text-link);
+  border: none;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0;
+}
+
+.btn-text:hover {
+  color: var(--text-link-hover);
+  transform: none;
+}
+
+/* Arrow animation on text buttons */
+.btn-text .btn-arrow {
+  transition: transform var(--duration-fast) var(--ease-out);
+  display: inline-flex;
+}
+
+.btn-text:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DESTRUCTIVE BUTTON
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.btn-destructive {
+  background: var(--color-error-bg);
+  color: var(--color-error);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.btn-destructive:hover {
+  background: var(--color-error);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SIZE VARIANTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.btn-xs {
+  height: 28px;
+  padding: 0 var(--space-3);
+  font-size: var(--text-xs);
+  border-radius: var(--radius-sm);
+}
+
+.btn-xs svg { width: 12px; height: 12px; }
+
+.btn-sm {
+  height: 36px;
+  padding: 0 var(--space-4);
+  font-size: var(--text-xs);
+  border-radius: var(--radius-md);
+}
+
+/* .btn = medium (default, defined above) */
+
+.btn-lg {
+  height: 52px;
+  padding: 0 var(--space-8);
+  font-size: var(--text-base);
+  border-radius: var(--radius-lg);
+  letter-spacing: -0.015em;
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* Icon-only square button */
+.btn-icon {
+  padding: 0;
+  width: 42px;
+  aspect-ratio: 1;
+}
+
+.btn-icon.btn-sm { width: 36px; }
+.btn-icon.btn-lg { width: 52px; }
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PRODUCT ACCENT BUTTONS
+   Used ONLY on individual product pages.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Case Assistant OS — Sky Blue */
+.btn-legal {
+  background: var(--legal-500);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.btn-legal:hover {
+  background: var(--legal-600);
+  box-shadow: 0 0 24px var(--legal-glow), 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-legal:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+}
+
+/* Project Home — Amber */
+.btn-home {
+  background: var(--home-500);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.btn-home:hover {
+  background: var(--home-600);
+  box-shadow: 0 0 24px var(--home-glow), 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.btn-home:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: none;
+}
+
+/* SC Tech — Emerald */
+.btn-tech {
+  background: var(--tech-500);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.btn-tech:hover {
+  background: var(--tech-600);
+  box-shadow: 0 0 24px var(--tech-glow), 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   LOADING STATE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.btn.is-loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.btn.is-loading::after {
+  content: '';
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: btn-spin 0.6s linear infinite;
+  margin-left: var(--space-2);
+}
+
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BUTTON GROUPS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Horizontal row of buttons */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+
+/* Stacked (mobile-first) */
+.btn-group-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+@media (min-width: 480px) {
+  .btn-group-stack {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

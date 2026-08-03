@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found — SC Web Studio</title>
+  <meta name="description" content="This page doesn't exist. But the studio does. Here's where you probably meant to go.">
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Favicon & Manifest -->
+  <link rel="icon" type="image/svg+xml" href="/shared/assets/favicons/favicon.svg">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#5568FF">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/shared/css/tokens.css">
+  <link rel="stylesheet" href="/shared/css/reset.css">
+  <link rel="stylesheet" href="/shared/css/typography.css">
+  <link rel="stylesheet" href="/shared/css/layout.css">
+  <link rel="stylesheet" href="/shared/css/utilities.css">
+  <link rel="stylesheet" href="/shared/css/components/nav.css">
+  <link rel="stylesheet" href="/shared/css/components/buttons.css">
+  <link rel="stylesheet" href="/shared/css/components/cards.css">
+
+  <style>
+    /* ── Page layout ────────────────────────────────────────────────── */
+    .error-page {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-12) var(--space-6);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* ── Aurora background ──────────────────────────────────────────── */
+    .error-aurora {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .error-aurora::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(
+        ellipse at center,
+        rgba(85, 104, 255, 0.07) 0%,
+        rgba(85, 104, 255, 0.03) 40%,
+        transparent 70%
+      );
+    }
+
+    /* ── 404 numeral ────────────────────────────────────────────────── */
+    .error-code {
+      font-family: var(--font-mono);
+      font-size: clamp(6rem, 20vw, 12rem);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: transparent;
+      background: linear-gradient(
+        135deg,
+        rgba(85, 104, 255, 0.15) 0%,
+        rgba(85, 104, 255, 0.06) 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      user-select: none;
+      position: relative;
+      z-index: 1;
+      margin-bottom: var(--space-2);
+    }
+    .error-code-inner {
+      position: relative;
+    }
+    /* Subtle outline version layered under */
+    .error-code-inner::before {
+      content: '404';
+      position: absolute;
+      inset: 0;
+      font-family: var(--font-mono);
+      font-size: inherit;
+      font-weight: 700;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(85,104,255,0.12);
+    }
+
+    /* ── Content ────────────────────────────────────────────────────── */
+    .error-content {
+      position: relative;
+      z-index: 1;
+      max-width: 480px;
+    }
+    .error-label {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--studio-500);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+    }
+    .error-label::before,
+    .error-label::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 32px;
+      background: var(--studio-500);
+      opacity: 0.4;
+    }
+    .error-heading {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      font-weight: var(--weight-bold);
+      color: var(--text-primary);
+      letter-spacing: -0.025em;
+      line-height: 1.15;
+      margin-bottom: var(--space-5);
+    }
+    .error-desc {
+      font-size: var(--text-md);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      margin-bottom: var(--space-10);
+    }
+
+    /* ── Navigation links ───────────────────────────────────────────── */
+    .error-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      justify-content: center;
+      margin-bottom: var(--space-12);
+    }
+
+    /* ── Quick links grid ───────────────────────────────────────────── */
+    .error-links {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3);
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    @media (min-width: 480px) {
+      .error-links { grid-template-columns: repeat(2, 1fr); }
+    }
+    .error-link-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5) var(--space-5);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      text-align: left;
+      transition:
+        border-color var(--duration-base) var(--ease-out),
+        transform var(--duration-slow) var(--ease-spring);
+    }
+    .error-link-card:hover {
+      border-color: var(--border-default);
+      transform: translateY(-2px);
+    }
+    .error-link-label {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      color: var(--text-tertiary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .error-link-title {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+    }
+
+    /* ── Noise texture ──────────────────────────────────────────────── */
+    .error-page::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ── Animations ─────────────────────────────────────────────────── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .error-code   { animation: fadeInUp 600ms var(--ease-out) 0ms   both; }
+    .error-label  { animation: fadeInUp 600ms var(--ease-out) 100ms both; }
+    .error-heading{ animation: fadeInUp 600ms var(--ease-out) 150ms both; }
+    .error-desc   { animation: fadeInUp 600ms var(--ease-out) 200ms both; }
+    .error-nav    { animation: fadeInUp 600ms var(--ease-out) 280ms both; }
+    .error-links  { animation: fadeInUp 600ms var(--ease-out) 360ms both; }
+  </style>
+</head>
+
+<body style="background:var(--bg-page);min-height:100dvh;">
+
+  <main id="main-content" class="error-page" role="main" aria-labelledby="error-heading">
+    <div class="error-aurora" aria-hidden="true"></div>
+
+    <!-- 404 numeral -->
+    <div class="error-code" aria-hidden="true">
+      <span class="error-code-inner">404</span>
+    </div>
+
+    <!-- Content -->
+    <div class="error-content">
+      <p class="error-label" aria-hidden="true">Page Not Found</p>
+      <h1 class="error-heading" id="error-heading">
+        This page doesn't exist.<br>The studio does.
+      </h1>
+      <p class="error-desc">
+        Whatever you were looking for isn't here. It may have moved, been removed, or the URL may have a typo. Here's where you probably meant to go.
+      </p>
+
+      <!-- Primary actions -->
+      <div class="error-nav">
+        <a href="/" class="btn btn-primary" id="error-home-btn">Go Home</a>
+        <a href="/contact/" class="btn btn-secondary" id="error-contact-btn">Get in Touch</a>
+      </div>
+
+      <!-- Quick links -->
+      <nav class="error-links" aria-label="Helpful pages">
+
+        <a href="/products/" class="error-link-card" id="error-link-products">
+          <span class="error-link-label">Products</span>
+          <span class="error-link-title">Case Assistant OS &amp; more</span>
+        </a>
+
+        <a href="/services/" class="error-link-card" id="error-link-services">
+          <span class="error-link-label">Services</span>
+          <span class="error-link-title">Start a project</span>
+        </a>
+
+        <a href="/labs/" class="error-link-card" id="error-link-labs">
+          <span class="error-link-label">SC Labs</span>
+          <span class="error-link-title">R&amp;D experiments</span>
+        </a>
+
+        <a href="/stories/" class="error-link-card" id="error-link-stories">
+          <span class="error-link-label">Stories</span>
+          <span class="error-link-title">Thinking in public</span>
+        </a>
+
+      </nav>
+    </div>
+  </main>
+
+  <script>
+  /* ── Redirect hint: check if URL is close to a known page ─────────── */
+  (function () {
+    var known = ['/', '/products/', '/services/', '/about/', '/contact/', '/labs/', '/stories/', '/ecosystem/',
+                 '/products/case-assistant-os/', '/products/project-home/'];
+    var path = window.location.pathname.toLowerCase().replace(/\/+$/, '') + '/';
+    var best = null, bestScore = 0;
+    known.forEach(function (p) {
+      var score = 0;
+      var minLen = Math.min(path.length, p.length);
+      for (var i = 0; i < minLen; i++) { if (path[i] === p[i]) score++; }
+      if (score > bestScore) { bestScore = score; best = p; }
+    });
+    if (best && bestScore >= 3 && best !== path) {
+      var hint = document.createElement('p');
+      hint.style.cssText = 'font-family:var(--font-mono);font-size:0.75rem;color:var(--text-tertiary);margin-top:1.5rem;';
+      hint.innerHTML = 'Did you mean: <a href="' + best + '" style="color:var(--studio-400);text-decoration:underline;">' + best + '</a>?';
+      document.querySelector('.error-content').appendChild(hint);
+    }
+  }());
+  </script>
+
+</body>
+</html>

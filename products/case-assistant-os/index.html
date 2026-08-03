@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Assistant OS — Intelligent Case Management for Personal Injury Firms — SC Web Studio</title>
+  <meta name="description" content="Case Assistant OS is a purpose-built workstation for Personal Injury case managers. Track medical requests, automate follow-ups, and manage deadlines without changing your workflow.">
+  <link rel="canonical" href="https://scwebstudio.com/products/case-assistant-os/">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Case Assistant OS — Intelligent Case Management for Personal Injury Firms">
+  <meta property="og:description" content="Case Assistant OS is a purpose-built workstation for Personal Injury case managers. Track medical requests, automate follow-ups, and manage deadlines without changing your workflow.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://scwebstudio.com/products/case-assistant-os/">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Case Assistant OS — Intelligent Case Management for Personal Injury Firms">
+  <meta name="twitter:description" content="Case Assistant OS is a purpose-built workstation for Personal Injury case managers. Track medical requests, automate follow-ups, and manage deadlines without changing your workflow.">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Case Assistant OS",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, Windows",
+    "description": "Intelligent case management workstation for U.S. Personal Injury law firms.",
+    "offers": { "@type": "Offer", "availability": "https://schema.org/PreOrder" },
+    "author": { "@type": "Organization", "name": "SC Web Studio", "url": "https://scwebstudio.com" }
+  }
+  </script>
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="../../shared/css/tokens.css">
+  <link rel="stylesheet" href="../../shared/css/reset.css">
+  <link rel="stylesheet" href="../../shared/css/typography.css">
+  <link rel="stylesheet" href="../../shared/css/layout.css">
+  <link rel="stylesheet" href="../../shared/css/utilities.css">
+  <link rel="stylesheet" href="../../shared/css/components/nav.css">
+  <link rel="stylesheet" href="../../shared/css/components/buttons.css">
+  <link rel="stylesheet" href="../../shared/css/components/cards.css">
+  <link rel="stylesheet" href="../../shared/css/components/badges.css">
+  <link rel="stylesheet" href="../../shared/css/components/mockups.css">
+  <link rel="stylesheet" href="../../shared/css/components/modals.css">
+  <link rel="stylesheet" href="../../shared/css/components/forms.css">
+
+  <!-- Page Specific CSS -->
+  <style>
+    /* Hero Aurora overrides for Legal (Sky Blue) */
+    .hero-aurora {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      z-index: -1;
+      opacity: 0.15;
+    }
+    .hero-aurora::before,
+    .hero-aurora::after {
+      content: '';
+      position: absolute;
+      width: 60vw;
+      height: 60vw;
+      border-radius: 50%;
+      filter: blur(100px);
+      animation: aurora-float 20s ease-in-out infinite alternate;
+    }
+    .hero-aurora::before {
+      background: radial-gradient(circle, rgba(14,165,233,0.8) 0%, rgba(14,165,233,0) 70%);
+      top: -20%;
+      left: -10%;
+    }
+    .hero-aurora::after {
+      background: radial-gradient(circle, rgba(14,165,233,0.6) 0%, rgba(14,165,233,0) 70%);
+      bottom: -20%;
+      right: -10%;
+      animation-delay: -10s;
+    }
+    @keyframes aurora-float {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(5%, 5%) scale(1.1); }
+      100% { transform: translate(-5%, -5%) scale(0.9); }
+    }
+
+    /* Mockup */
+    .hero-cao-mockup {
+      margin-top: var(--space-12);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      background-color: var(--bg-surface);
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .browser-bar {
+      display: flex;
+      align-items: center;
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid var(--border-subtle);
+      background-color: var(--bg-surface-raised);
+    }
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+      margin-right: var(--space-4);
+    }
+    .browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--text-tertiary);
+    }
+    .browser-url {
+      flex: 1;
+      background-color: var(--bg-page);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: var(--space-1) var(--space-3);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--text-secondary);
+      text-align: center;
+    }
+    .mockup-body {
+      display: flex;
+      height: 400px;
+    }
+    .mockup-sidebar {
+      width: 200px;
+      border-right: 1px solid var(--border-subtle);
+      padding: var(--space-4) 0;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .mockup-brand {
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--text-primary);
+      padding: 0 var(--space-4) var(--space-4);
+      margin-bottom: var(--space-4);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .mockup-nav-item {
+      padding: var(--space-2) var(--space-4);
+      color: var(--text-secondary);
+      font-size: var(--text-sm);
+    }
+    .mockup-nav-item.active {
+      color: var(--legal-500);
+      background-color: rgba(14,165,233,0.1);
+      border-right: 2px solid var(--legal-500);
+    }
+    .mockup-main {
+      flex: 1;
+      padding: var(--space-6);
+      background-color: var(--bg-page);
+    }
+    .mockup-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .mockup-table th {
+      text-align: left;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+    }
+    .mockup-table td {
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+    }
+    .mockup-table td:first-child { color: var(--text-primary); }
+
+    /* Pullquote */
+    .pullquote {
+      border-left: 2px solid var(--legal-500);
+      padding-left: var(--space-6);
+      margin: var(--space-8) 0;
+      font-size: var(--text-lg);
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+
+    /* Grids */
+    .features-grid {
+      display: grid;
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+    @media (min-width: 768px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .how-it-works-grid {
+      display: grid;
+      gap: var(--space-8);
+      margin-top: var(--space-8);
+    }
+    @media (min-width: 1024px) {
+      .how-it-works-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .audience-grid {
+      display: grid;
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+    @media (min-width: 1024px) {
+      .audience-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* Step Number */
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      line-height: 1;
+      font-weight: 700;
+      margin-bottom: var(--space-4);
+      background: linear-gradient(to right, var(--text-primary), var(--legal-500));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      opacity: 0.8;
+    }
+
+    /* Not for box */
+    .not-for-box {
+      background: rgba(239,68,68,0.04);
+      border: 1px solid rgba(239,68,68,0.12);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      margin-top: var(--space-8);
+      color: var(--text-secondary);
+    }
+
+    /* Progress Rows */
+    .progress-panel {
+      margin-top: var(--space-8);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+    }
+    .progress-row-item {
+      margin-bottom: var(--space-4);
+    }
+    .progress-row-item:last-child {
+      margin-bottom: 0;
+    }
+    .progress-label-wrap {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: var(--space-2);
+      font-size: var(--text-sm);
+    }
+    .progress-track {
+      height: 4px;
+      background: var(--bg-surface-raised);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: var(--legal-500);
+      border-radius: var(--radius-full);
+      width: 0%; /* JS will set this */
+      transition: width 1s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Shell Header -->
+  <div id="sc-header"></div>
+  <script src="../../shared/js/core/shell.js" data-base="../../"></script>
+
+  <main id="main-content">
+    
+    <!-- 1. HERO -->
+    <section class="section-xl" aria-labelledby="hero-heading">
+      <div class="hero-aurora" aria-hidden="true"></div>
+      <div class="container text-center reveal-group">
+        <p class="sh-label reveal">Case Assistant OS · U.S. Personal Injury</p>
+        <h1 class="display reveal" id="hero-heading">Every case managed. Nothing missed.</h1>
+        <p class="lead reveal" style="max-width: 800px; margin: 0 auto var(--space-8);">
+          An intelligent workstation for Personal Injury case managers. Track medical requests from submission to settlement, automate follow-ups, and close cases faster — without changing how your firm already works.
+        </p>
+        <div class="flex" style="justify-content: center; gap: var(--space-4); margin-bottom: var(--space-6);">
+          <button class="btn btn-legal btn-lg reveal" data-modal="modal-demo">Request a Demo</button>
+          <a href="#how-it-works" class="btn btn-ghost btn-lg reveal">See how it works</a>
+        </div>
+        <p class="reveal" style="font-family: var(--font-mono); font-size: var(--text-2xs); color: var(--text-tertiary);">
+          Built for U.S. Personal Injury firms · English-only · Local-first architecture · v1.5.0
+        </p>
+
+        <!-- CSS Mockup -->
+        <div class="hero-cao-mockup reveal reveal-fade">
+          <div class="browser-bar">
+            <div class="browser-dots">
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+            </div>
+            <div class="browser-url">case-assistant.app</div>
+          </div>
+          <div class="mockup-body">
+            <div class="mockup-sidebar">
+              <div class="mockup-brand">Case Assistant OS</div>
+              <div class="mockup-nav-item active">Dashboard</div>
+              <div class="mockup-nav-item">Cases</div>
+              <div class="mockup-nav-item">Medical</div>
+              <div class="mockup-nav-item">Attorney</div>
+              <div class="mockup-nav-item">Deadlines</div>
+            </div>
+            <div class="mockup-main">
+              <table class="mockup-table">
+                <thead>
+                  <tr>
+                    <th>Case No.</th>
+                    <th>Client</th>
+                    <th>Status</th>
+                    <th>Open Requests</th>
+                    <th>Next Deadline</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>CA-2601</td>
+                    <td>Smith, J.</td>
+                    <td><span class="badge badge-live">Discovery</span></td>
+                    <td>3 pending</td>
+                    <td>Oct 12</td>
+                  </tr>
+                  <tr>
+                    <td>CA-2602</td>
+                    <td>Johnson, M.</td>
+                    <td><span class="badge badge-active-dev">Med Records</span></td>
+                    <td>8 pending</td>
+                    <td>Nov 05</td>
+                  </tr>
+                  <tr>
+                    <td>CA-2603</td>
+                    <td>Davis, R.</td>
+                    <td><span class="badge badge-live">Negotiation</span></td>
+                    <td>0 pending</td>
+                    <td>Sep 30</td>
+                  </tr>
+                  <tr>
+                    <td>CA-2604</td>
+                    <td>Wilson, K.</td>
+                    <td><span class="badge badge-new">Intake</span></td>
+                    <td>1 pending</td>
+                    <td>Oct 15</td>
+                  </tr>
+                  <tr>
+                    <td>CA-2605</td>
+                    <td>Martinez, L.</td>
+                    <td><span class="badge badge-live">Discovery</span></td>
+                    <td>2 pending</td>
+                    <td>Oct 22</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. THE PROBLEM -->
+    <section class="section-surface" id="problem" aria-labelledby="problem-heading">
+      <div class="container reveal-group">
+        <div style="max-width: 800px; margin-bottom: var(--space-12);">
+          <p class="sh-label reveal">The Challenge</p>
+          <h2 class="sh-heading reveal" id="problem-heading">The Personal Injury pipeline is broken.</h2>
+          <p class="sh-lead reveal">
+            Case managers juggle 40+ active files. Medical offices miss faxes. Attorneys wait on records. Deadlines get buried in spreadsheets.
+          </p>
+        </div>
+
+        <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+          <div class="card card-feature reveal">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="9" y1="15" x2="15" y2="9"></line><line x1="15" y1="15" x2="9" y2="9"></line></svg>
+            </div>
+            <h3>Missing Records</h3>
+            <p class="text-secondary">Medical offices do not call back. Requests go unanswered for weeks. Cases stall while the clock runs.</p>
+          </div>
+          <div class="card card-feature reveal">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <h3>Buried Deadlines</h3>
+            <p class="text-secondary">Statute of limitations, discovery cutoffs, and settlement deadlines buried across dozens of open files and three spreadsheets.</p>
+          </div>
+          <div class="card card-feature reveal">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </div>
+            <h3>Manual Everything</h3>
+            <p class="text-secondary">Every update entered twice. Every follow-up logged manually. Every status check done by phone call.</p>
+          </div>
+        </div>
+
+        <blockquote class="pullquote reveal">
+          "We did not guess at these problems. We built Case Assistant OS inside an active PI law firm. Every feature exists because we witnessed a real failure mode."
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- 3. FEATURES -->
+    <section class="section-lg" id="features" aria-labelledby="features-heading">
+      <div class="container reveal-group">
+        <div style="max-width: 800px; margin-bottom: var(--space-12);">
+          <p class="sh-label reveal">Features</p>
+          <h2 class="sh-heading reveal" id="features-heading">Everything a case manager needs. Nothing they do not.</h2>
+          <p class="sh-lead reveal">
+            Case Assistant OS is purpose-built for one workflow. We did not add features to pad the list.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="card card-feature reveal">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            </div>
+            <h3>Intelligent Case Tracking</h3>
+            <p class="text-secondary">Every case in one place. Parties, status, timeline, and history instantly accessible. No switching between systems.</p>
+          </div>
+          
+          <div class="card card-feature reveal">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+            </div>
+            <h3>Medical Request Pipeline</h3>
+            <p class="text-secondary">Track every medical records request from submission to receipt. Set follow-up schedules. Never chase a fax again.</p>
+          </div>
+          
+          <div class="card card-feature reveal">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            </div>
+            <h3>Attorney Workflow</h3>
+            <p class="text-secondary">Route updates to the attorney team automatically. Every communication structured, timestamped, and documented.</p>
+          </div>
+          
+          <div class="card card-feature reveal">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            </div>
+            <h3>Automated Follow-ups</h3>
+            <p class="text-secondary">Set follow-up schedules and let the system send reminders. Your attention stays on the cases that need it.</p>
+          </div>
+          
+          <div class="card card-feature reveal">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </div>
+            <h3>Deadline Management</h3>
+            <p class="text-secondary">Statute of limitations, discovery deadlines, and settlement timelines — all tracked, all visible, all alerting before they matter.</p>
+          </div>
+          
+          <div class="card card-feature reveal">
+            <div class="card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <h3>Local-First, Always Available</h3>
+            <p class="text-secondary">No cloud dependency required. Your data stays on your machine. The system works when the internet does not.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. HOW IT WORKS -->
+    <section class="section-xl" id="how-it-works" aria-labelledby="how-heading">
+      <div class="container reveal-group">
+        <div style="max-width: 800px; margin-bottom: var(--space-12);">
+          <p class="sh-label reveal">How It Works</p>
+          <h2 class="sh-heading reveal" id="how-heading">Up and running in one afternoon.</h2>
+          <p class="sh-lead reveal">
+            No IT department required. No migration project. No training week.
+          </p>
+        </div>
+
+        <div class="how-it-works-grid">
+          <div class="reveal">
+            <div class="step-number">1</div>
+            <h3>Import your cases</h3>
+            <p class="text-secondary">CSV upload or manual entry. Set up your full caseload in under an hour. Your existing data, immediately organized.</p>
+          </div>
+          <div class="reveal">
+            <div class="step-number">2</div>
+            <h3>Track every request</h3>
+            <p class="text-secondary">Add parties, medical providers, and attorneys to each case. The system tracks every request and surfaces what needs attention.</p>
+          </div>
+          <div class="reveal">
+            <div class="step-number">3</div>
+            <h3>Let the system work</h3>
+            <p class="text-secondary">Automated follow-up schedules, deadline alerts, and status tracking. The system handles the routine so you handle the strategy.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. WHO IT IS FOR -->
+    <section class="section-surface" id="who-its-for" aria-labelledby="who-heading">
+      <div class="container reveal-group">
+        <div style="max-width: 800px; margin-bottom: var(--space-12);">
+          <p class="sh-label reveal">Who It Is For</p>
+          <h2 class="sh-heading reveal" id="who-heading">Built for the people managing cases, not just filing them.</h2>
+        </div>
+
+        <div class="audience-grid">
+          <div class="card reveal">
+            <h3>PI Case Managers</h3>
+            <p class="text-secondary">Manages 20-50+ active files. Coordinates between clients, medical providers, and attorneys. The primary user of Case Assistant OS.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Firm Paralegals</h3>
+            <p class="text-secondary">Supports multiple attorneys. Needs a single view of every outstanding request and upcoming deadline across the entire firm.</p>
+          </div>
+          <div class="card reveal">
+            <h3>Attorney Assistants</h3>
+            <p class="text-secondary">Manages the attorney workflow. Needs to know exactly where every case stands before the next client call.</p>
+          </div>
+        </div>
+
+        <div class="not-for-box reveal">
+          <p><strong>Note:</strong> Case Assistant OS is purpose-built for U.S. Personal Injury. It is NOT designed for criminal defense, family law, corporate litigation, or international markets.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. STATUS -->
+    <section class="section" id="status" aria-labelledby="status-heading">
+      <div class="container reveal-group">
+        <div style="max-width: 800px;">
+          <p class="sh-label reveal">Current Status</p>
+          <h2 class="sh-heading reveal" id="status-heading">Active development. Accepting early access requests.</h2>
+          <p class="sh-lead reveal">
+            We are working with a small group of PI firms to validate the core workflow before public release.
+          </p>
+        </div>
+
+        <div class="progress-panel reveal" id="progress-container">
+          <div class="progress-row-item">
+            <div class="progress-label-wrap">
+              <span>Core Case Engine</span>
+              <span>100%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" data-target="100"></div></div>
+          </div>
+          <div class="progress-row-item">
+            <div class="progress-label-wrap">
+              <span>Medical Request Tracker</span>
+              <span>100%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" data-target="100"></div></div>
+          </div>
+          <div class="progress-row-item">
+            <div class="progress-label-wrap">
+              <span>Attorney Communication Log</span>
+              <span>87%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" data-target="87"></div></div>
+          </div>
+          <div class="progress-row-item">
+            <div class="progress-label-wrap">
+              <span>Automated Follow-up System</span>
+              <span>72%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" data-target="72"></div></div>
+          </div>
+          <div class="progress-row-item">
+            <div class="progress-label-wrap">
+              <span>Settlement and Disbursement</span>
+              <span>34%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" data-target="34"></div></div>
+          </div>
+          <div class="progress-row-item">
+            <div class="progress-label-wrap">
+              <span>Reporting and Analytics</span>
+              <span>18%</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" data-target="18"></div></div>
+          </div>
+        </div>
+        
+        <p class="reveal" style="margin-top: var(--space-4); font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-tertiary);">
+          v1.5.0-beta · Active Development · Updated July 2026
+        </p>
+      </div>
+    </section>
+
+    <!-- 7. FINAL CTA -->
+    <section class="section-xl" id="get-access" aria-labelledby="cta-heading">
+      <div class="container text-center reveal-group">
+        <p class="sh-label reveal" style="justify-content: center; margin: 0 auto var(--space-4); max-width: max-content;">Get Early Access</p>
+        <h2 class="display reveal" id="cta-heading">Request a demo. See if it fits.</h2>
+        <p class="lead reveal" style="max-width: 600px; margin: 0 auto var(--space-8);">
+          We work with a limited number of firms. Request a demo to see how Case Assistant OS handles your specific workflow.
+        </p>
+        <button class="btn btn-legal btn-xl reveal" data-modal="modal-demo">Request a Demo</button>
+        <p class="reveal" style="margin-top: var(--space-6); font-size: var(--text-sm); color: var(--text-secondary);">
+          Free demo · No commitment · English-speaking team · Responds within 24 hours
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Shell Footer -->
+  <div id="sc-footer"></div>
+
+  <!-- DEMO MODAL -->
+  <div id="modal-demo" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-demo-title">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modal-demo-title">Request a Demo</h2>
+        <button class="btn btn-ghost" data-close="modal-demo" aria-label="Close modal">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="demo-form" class="form-grid">
+          <div class="form-group">
+            <label for="demo-name">Full name *</label>
+            <input type="text" id="demo-name" required class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="demo-email">Email address *</label>
+            <input type="email" id="demo-email" required class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="demo-firm">Firm name *</label>
+            <input type="text" id="demo-firm" required class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="demo-phone">Phone number</label>
+            <input type="tel" id="demo-phone" class="form-input">
+          </div>
+          <div class="form-group">
+            <label for="demo-cases">Number of active cases</label>
+            <select id="demo-cases" class="form-select">
+              <option value="">Select...</option>
+              <option value="Under 50">Under 50</option>
+              <option value="50-150">50-150</option>
+              <option value="150-500">150-500</option>
+              <option value="500+">500+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="demo-source">How did you hear about us?</label>
+            <select id="demo-source" class="form-select">
+              <option value="">Select...</option>
+              <option value="Search engine">Search engine</option>
+              <option value="Referral">Referral</option>
+              <option value="Social media">Social media</option>
+              <option value="Legal industry event">Legal industry event</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group" style="grid-column: 1 / -1;">
+            <label for="demo-challenge">Describe your biggest case management challenge</label>
+            <textarea id="demo-challenge" rows="3" class="form-textarea"></textarea>
+          </div>
+          <div style="grid-column: 1 / -1; margin-top: var(--space-4);">
+            <button type="submit" class="btn btn-legal btn-full">Schedule Your Demo</button>
+          </div>
+          <div style="grid-column: 1 / -1; margin-top: var(--space-2); text-align: center;">
+            <span class="text-xs text-tertiary">Your information is only used to prepare for your demo. We do not share or sell data.</span>
+          </div>
+        </form>
+        <div id="demo-success" style="display: none; text-align: center; padding: var(--space-8) 0;">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--legal-500)" stroke-width="2" style="margin: 0 auto var(--space-4);"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          <h3>Request Sent</h3>
+          <p class="text-secondary" style="margin-top: var(--space-2);">Thank you. We will be in touch within 24 hours to schedule your demo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Scripts -->
+  <script src="../../shared/js/core/nav.js" defer></script>
+  <script src="../../shared/js/core/scroll.js" defer></script>
+
+  <!-- Inline Scripts for this page -->
+  <script>
+    // Modal System
+    function openModal(id) {
+      document.getElementById(id).classList.add('is-open');
+      document.body.classList.add('modal-open');
+    }
+    
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('is-open');
+      document.body.classList.remove('modal-open');
+    }
+
+    // Modal Triggers
+    document.querySelectorAll('[data-modal]').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal(trigger.getAttribute('data-modal'));
+      });
+    });
+
+    document.querySelectorAll('[data-close]').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeModal(trigger.getAttribute('data-close'));
+      });
+    });
+
+    // Close on overlay click
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          closeModal(overlay.id);
+        }
+      });
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const openModal = document.querySelector('.modal-overlay.is-open');
+        if (openModal) {
+          closeModal(openModal.id);
+        }
+      }
+    });
+
+    // Form Submit Stub
+    const demoForm = document.getElementById('demo-form');
+    if (demoForm) {
+      demoForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        demoForm.style.display = 'none';
+        document.getElementById('demo-success').style.display = 'block';
+      });
+    }
+
+    // Progress Bar Animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const fills = entry.target.querySelectorAll('.progress-fill');
+            fills.forEach(fill => {
+              const target = fill.getAttribute('data-target');
+              fill.style.width = target + '%';
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      const progressContainer = document.getElementById('progress-container');
+      if (progressContainer) {
+        observer.observe(progressContainer);
+      }
+    });
+  </script>
+</body>
+</html>

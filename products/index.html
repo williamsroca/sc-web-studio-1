@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── Primary SEO ────────────────────────────────────────────────────── -->
+  <title>Products — SC Web Studio</title>
+  <meta name="description" content="Three products. One mission. Case Assistant OS for U.S. PI law firms, Project Home for Bolivia rental market, and SC Tech. Each a long-term investment in solving a real problem.">
+  <meta name="keywords" content="SC Web Studio, Case Assistant OS, Project Home, SC Tech, legal tech, personal injury software, Bolivia rental marketplace, e-commerce, digital products">
+  <meta name="author" content="SC Web Studio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://scwebstudio.com/products/">
+
+  <!-- ── Open Graph ──────────────────────────────────────────────────────── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://scwebstudio.com/products/">
+  <meta property="og:title"       content="Products — SC Web Studio">
+  <meta property="og:description" content="Three products. One mission. Case Assistant OS for U.S. PI law firms, Project Home for Bolivia rental market, and SC Tech. Each a long-term investment in solving a real problem.">
+  <meta property="og:site_name"   content="SC Web Studio">
+  <meta property="og:locale"      content="en_US">
+  <meta property="og:image"       content="https://scwebstudio.com/shared/assets/og/products.jpg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"   content="Products — SC Web Studio">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:site"        content="@scwebstudio">
+  <meta name="twitter:title"       content="Products — SC Web Studio">
+  <meta name="twitter:description" content="Three products. One mission. Case Assistant OS, Project Home, and SC Tech.">
+  <meta name="twitter:image"       content="https://scwebstudio.com/shared/assets/og/products.jpg">
+
+  <!-- ── PWA / App Shell ────────────────────────────────────────────────── -->
+  <meta name="theme-color"                       content="#060608">
+  <meta name="apple-mobile-web-app-capable"      content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title"        content="SC Web Studio">
+  <link rel="manifest"      href="../manifest.json">
+  <link rel="icon"          type="image/svg+xml" href="../shared/assets/favicons/favicon.svg">
+  <link rel="apple-touch-icon" href="../shared/assets/favicons/apple-touch-icon.png">
+
+  <!-- ── JSON-LD Schema ─────────────────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "SC Web Studio Products",
+    "url": "https://scwebstudio.com/products/",
+    "numberOfItems": 3,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Case Assistant OS",
+        "url": "https://scwebstudio.com/products/case-assistant-os/",
+        "description": "Intelligent case management workstation for U.S. Personal Injury law firms."
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Project Home",
+        "url": "https://scwebstudio.com/products/project-home/",
+        "description": "A modern rental marketplace for Bolivia connecting landlords and verified tenants."
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "SC Tech",
+        "url": "https://sctech.shop",
+        "description": "Independent technology brand in the SC Web Studio ecosystem."
+      }
+    ]
+  }
+  </script>
+
+  <!-- ── Font preconnect ────────────────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- ── Design System CSS (canonical import order) ─────────────────────── -->
+  <link rel="stylesheet" href="../shared/css/tokens.css">
+  <link rel="stylesheet" href="../shared/css/reset.css">
+  <link rel="stylesheet" href="../shared/css/typography.css">
+  <link rel="stylesheet" href="../shared/css/layout.css">
+  <link rel="stylesheet" href="../shared/css/utilities.css">
+  <link rel="stylesheet" href="../shared/css/components/nav.css">
+  <link rel="stylesheet" href="../shared/css/components/buttons.css">
+  <link rel="stylesheet" href="../shared/css/components/cards.css">
+  <link rel="stylesheet" href="../shared/css/components/badges.css">
+  <link rel="stylesheet" href="../shared/css/components/mockups.css">
+  <link rel="stylesheet" href="../shared/css/components/modals.css">
+  <link rel="stylesheet" href="../shared/css/components/forms.css">
+
+  <!-- ── Page-Specific Styles ───────────────────────────────────────────── -->
+  <style>
+    /* Expanded Product Cards (Horizontal layout inside full width card) */
+    .product-list-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-10);
+    }
+
+    .card-product-full {
+      width: 100%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      transition: transform var(--duration-slow) var(--ease-spring),
+                  box-shadow var(--duration-slow) var(--ease-out),
+                  border-color var(--duration-base) var(--ease-out);
+    }
+    @media (min-width: 768px) {
+      .card-product-full {
+        padding: var(--space-12);
+      }
+    }
+    .card-product-full::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      opacity: 0;
+      transition: opacity var(--duration-base) var(--ease-out);
+      z-index: 1;
+    }
+
+    .card-product-full[data-product="case-assistant"]:hover {
+      box-shadow: var(--shadow-card-legal-hover);
+      border-color: rgba(14, 165, 233, 0.3);
+      transform: translateY(-4px);
+    }
+    .card-product-full[data-product="case-assistant"]::before {
+      background: var(--gradient-edge-legal);
+    }
+
+    .card-product-full[data-product="project-home"]:hover {
+      box-shadow: var(--shadow-card-home-hover);
+      border-color: rgba(245, 158, 11, 0.3);
+      transform: translateY(-4px);
+    }
+    .card-product-full[data-product="project-home"]::before {
+      background: var(--gradient-edge-home);
+    }
+
+    .card-product-full[data-product="sc-tech"]:hover {
+      box-shadow: var(--shadow-card-tech-hover);
+      border-color: rgba(16, 185, 129, 0.3);
+      transform: translateY(-4px);
+    }
+    .card-product-full[data-product="sc-tech"]::before {
+      background: var(--gradient-edge-tech);
+    }
+
+    .card-product-full:hover::before {
+      opacity: 1;
+    }
+
+    .product-internal-layout {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-8);
+    }
+    @media (min-width: 1024px) {
+      .product-internal-layout {
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+        gap: var(--space-12);
+        align-items: center;
+      }
+    }
+
+    .product-info-column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .product-meta-column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+      padding: var(--space-6);
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+    }
+
+    .product-badge-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+
+    .product-title-large {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: var(--weight-bold);
+      color: var(--text-primary);
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-snug);
+    }
+
+    .product-actions-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin-top: var(--space-2);
+    }
+
+    /* Ecosystem Teaser Visual */
+    .eco-nodes-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+      margin-block: var(--space-8);
+      position: relative;
+    }
+    @media (min-width: 768px) {
+      .eco-nodes-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-6);
+      }
+    }
+
+    .eco-node {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      position: relative;
+      transition: border-color var(--duration-fast) var(--ease-out);
+    }
+    .eco-node:hover {
+      border-color: var(--border-default);
+    }
+    .eco-node-active {
+      border-color: var(--studio-500);
+      box-shadow: 0 0 20px var(--studio-glow);
+    }
+
+    /* Final CTA Grid */
+    .cta-paths-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      max-width: 800px;
+      margin: var(--space-8) auto 0;
+    }
+    @media (min-width: 640px) {
+      .cta-paths-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .cta-path-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+      text-decoration: none;
+      transition: transform var(--duration-slow) var(--ease-spring),
+                  border-color var(--duration-base) var(--ease-out);
+    }
+    .cta-path-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--studio-500);
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Header Shell Container -->
+  <div id="sc-header"></div>
+  <script src="../shared/js/core/shell.js" data-base="../"></script>
+
+  <!-- Main Content -->
+  <main id="main-content">
+
+    <!-- 1. HERO SECTION -->
+    <section class="section-lg" id="hero" aria-labelledby="products-heading">
+      <div class="container reveal-group">
+        <p class="sh-label">Products</p>
+        <h1 class="sh-heading" id="products-heading">Three products. One mission.</h1>
+        <p class="sh-lead">
+          We build in industries we understand deeply. Each product is a long-term investment — not a quick launch, not a side project. A commitment to solving a real problem for real people.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. ALL PRODUCTS SECTION -->
+    <section class="section-xl" id="product-list" aria-labelledby="catalog-heading">
+      <div class="container">
+        <h2 id="catalog-heading" class="sr-only">Our Product Suite</h2>
+
+        <div class="product-list-container reveal-group">
+
+          <!-- CARD 1: Case Assistant OS -->
+          <article class="card-product-full reveal" data-product="case-assistant">
+            <div class="product-internal-layout">
+              <!-- Left Column: Info & Extended Description -->
+              <div class="product-info-column">
+                <div class="product-badge-row">
+                  <span class="badge-product badge-product-legal">Case Assistant OS</span>
+                  <span class="badge badge-active-dev badge-dot">Active Development</span>
+                </div>
+
+                <h3 class="product-title-large">
+                  An intelligent workstation for Personal Injury case management.
+                </h3>
+
+                <p class="text-secondary text-base leading-relaxed">
+                  Manages the full case lifecycle from initial intake through medical records tracking, attorney coordination, and settlement. Built on a local-first architecture: your data stays on your machine, the system works offline, and nothing requires a cloud subscription.
+                </p>
+
+                <p class="text-secondary text-base leading-relaxed">
+                  Currently in active development with a small group of early-access PI firms. The goal: a system that fits the existing PI workflow without forcing firms to change how they operate.
+                </p>
+              </div>
+
+              <!-- Right Column: Tech Stack & Actions -->
+              <div class="product-meta-column">
+                <div>
+                  <span class="text-xs font-mono text-tertiary uppercase tracking-wider block mb-3">Target Market & Stack</span>
+                  <div class="tech-stack">
+                    <span class="tech-label">Vanilla JS</span>
+                    <span class="tech-label">SQLite</span>
+                    <span class="tech-label">Python</span>
+                    <span class="tech-label">Local-First</span>
+                  </div>
+                </div>
+
+                <div class="product-actions-row">
+                  <a href="./case-assistant-os/" class="btn btn-legal btn-sm">
+                    View Product
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                  <button type="button" class="btn btn-ghost btn-sm" data-modal="modal-demo">
+                    Request Demo
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card-product-glow" aria-hidden="true"></div>
+          </article>
+
+          <!-- CARD 2: Project Home -->
+          <article class="card-product-full reveal" data-product="project-home">
+            <div class="product-internal-layout">
+              <!-- Left Column: Info & Extended Description -->
+              <div class="product-info-column">
+                <div class="product-badge-row">
+                  <span class="badge-product badge-product-home">Project Home</span>
+                  <span class="badge badge-coming-soon badge-dot">Coming Soon</span>
+                </div>
+
+                <h3 class="product-title-large">
+                  A modern rental marketplace for Bolivia.
+                </h3>
+
+                <p class="text-secondary text-base leading-relaxed">
+                  Connects landlords with verified tenants through verified listings, digital lease agreements, and a transparent process that replaces the handshake economy.
+                </p>
+
+                <p class="text-secondary text-base leading-relaxed">
+                  Launching first in Cochabamba, then expanding to Santa Cruz and La Paz. Join the waitlist to be notified when we go live and to help shape the product through early feedback.
+                </p>
+              </div>
+
+              <!-- Right Column: Tech Stack & Actions -->
+              <div class="product-meta-column">
+                <div>
+                  <span class="text-xs font-mono text-tertiary uppercase tracking-wider block mb-3">Target Market & Stack</span>
+                  <div class="tech-stack">
+                    <span class="tech-label">React</span>
+                    <span class="tech-label">Node.js</span>
+                    <span class="tech-label">PostgreSQL</span>
+                    <span class="tech-label">Bolivia</span>
+                  </div>
+                </div>
+
+                <div class="product-actions-row">
+                  <a href="./project-home/" class="btn btn-home btn-sm">
+                    View Product
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                  </a>
+                  <button type="button" class="btn btn-ghost btn-sm" data-modal="modal-waitlist">
+                    Join Waitlist
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card-product-glow" aria-hidden="true"></div>
+          </article>
+
+          <!-- CARD 3: SC Tech -->
+          <article class="card-product-full reveal" data-product="sc-tech">
+            <div class="product-internal-layout">
+              <!-- Left Column: Info & Extended Description -->
+              <div class="product-info-column">
+                <div class="product-badge-row">
+                  <span class="badge-product badge-product-tech">SC Tech</span>
+                  <span class="badge badge-live badge-dot badge-dot-pulse">Live</span>
+                </div>
+
+                <h3 class="product-title-large">
+                  An independent technology brand in the SC Web Studio ecosystem.
+                </h3>
+
+                <p class="text-secondary text-base leading-relaxed">
+                  SC Tech operates as a separate consumer-facing brand with its own identity, its own market, and its own product lines. The SC Tech brand lives independently from the studio but shares the same engineering and design standards.
+                </p>
+              </div>
+
+              <!-- Right Column: Tech Stack & Actions -->
+              <div class="product-meta-column">
+                <div>
+                  <span class="text-xs font-mono text-tertiary uppercase tracking-wider block mb-3">Target Market & Stack</span>
+                  <div class="tech-stack">
+                    <span class="tech-label">E-commerce</span>
+                    <span class="tech-label">Bolivia</span>
+                    <span class="tech-label">Consumer</span>
+                  </div>
+                </div>
+
+                <div class="product-actions-row">
+                  <a href="https://sctech.shop" target="_blank" rel="noopener noreferrer" class="btn btn-tech btn-sm">
+                    Visit SC Tech
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="card-product-glow" aria-hidden="true"></div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ECOSYSTEM TEASER SECTION -->
+    <section class="section-surface" id="ecosystem-teaser" aria-labelledby="eco-teaser-heading">
+      <div class="container reveal-group">
+        <p class="sh-label">The Ecosystem</p>
+        <h2 class="sh-heading" id="eco-teaser-heading">Products, services, and experiments — connected.</h2>
+        <p class="sh-lead">
+          SC Web Studio is the studio. The products are the ecosystem. The labs are the future. They all connect.
+        </p>
+
+        <!-- Diagram visual -->
+        <div class="eco-nodes-grid reveal">
+          <div class="eco-node">
+            <span class="text-xs font-mono studio-500 uppercase tracking-widest block mb-2">Pillar 01</span>
+            <h4 class="font-display text-lg text-primary mb-1">Professional Services</h4>
+            <p class="text-xs text-secondary">Client engagements in software development, automation, and SaaS engineering that fund studio R&amp;D.</p>
+          </div>
+
+          <div class="eco-node eco-node-active">
+            <span class="text-xs font-mono studio-500 uppercase tracking-widest block mb-2">Pillar 02</span>
+            <h4 class="font-display text-lg text-primary mb-1">Products</h4>
+            <p class="text-xs text-secondary">Dedicated platforms built for specific markets: Case Assistant OS, Project Home, and SC Tech.</p>
+          </div>
+
+          <div class="eco-node">
+            <span class="text-xs font-mono studio-500 uppercase tracking-widest block mb-2">Pillar 03</span>
+            <h4 class="font-display text-lg text-primary mb-1">SC Labs</h4>
+            <p class="text-xs text-secondary">Experimental research, internal prototypes, and proof-of-concept AI and automation models.</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-8 reveal">
+          <a href="../ecosystem/" class="btn btn-secondary">Explore the Ecosystem</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FINAL CTA SECTION -->
+    <section class="section-xl" id="final-cta" aria-labelledby="cta-heading">
+      <div class="container reveal-group">
+        <h2 class="display text-center mb-4" id="cta-heading">See a product that fits your problem?</h2>
+        <p class="lead text-center max-w-xl mx-auto text-secondary mb-8">
+          Whether you want to test our existing products or start a custom build with our core engineering team, we are ready.
+        </p>
+
+        <div class="cta-paths-grid">
+          <a href="../contact/?path=demo" class="cta-path-card reveal">
+            <div class="w-12 h-12 rounded-full bg-studio-glow flex items-center justify-center border border-studio-500/30 text-studio-400">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </div>
+            <h3 class="font-display text-xl text-primary">Request a Demo</h3>
+            <p class="text-xs text-secondary">Get early access to Case Assistant OS or test our latest workflow tools.</p>
+            <span class="btn btn-secondary btn-sm mt-2">Get Started</span>
+          </a>
+
+          <a href="../contact/" class="cta-path-card reveal">
+            <div class="w-12 h-12 rounded-full bg-studio-glow flex items-center justify-center border border-studio-500/30 text-studio-400">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <h3 class="font-display text-xl text-primary">Start a Project</h3>
+            <p class="text-xs text-secondary">Work directly with SC Web Studio to build custom software or SaaS infrastructure.</p>
+            <span class="btn btn-primary btn-sm mt-2">Contact Us</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Shell Container -->
+  <div id="sc-footer"></div>
+
+  <!-- ── MODAL 1: REQUEST DEMO (Case Assistant OS) ────────────────────────── -->
+  <div class="modal-overlay" id="modal-demo" role="dialog" aria-modal="true" aria-labelledby="demo-title">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <span class="badge badge-active-dev mb-2">Case Assistant OS</span>
+          <h3 class="modal-title" id="demo-title">Request a Product Demo</h3>
+        </div>
+        <button type="button" class="btn btn-ghost btn-xs btn-icon" data-close="modal-demo" aria-label="Close modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="modal-body p-8">
+        <form id="demo-form" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="form-group">
+              <label for="demo-name" class="form-label">Full Name <span class="text-error">*</span></label>
+              <input type="text" id="demo-name" class="form-input" placeholder="Sarah Jenkins" required>
+            </div>
+            <div class="form-group">
+              <label for="demo-email" class="form-label">Work Email <span class="text-error">*</span></label>
+              <input type="email" id="demo-email" class="form-input" placeholder="s.jenkins@lawfirm.com" required>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="form-group">
+              <label for="demo-firm" class="form-label">Firm Name <span class="text-error">*</span></label>
+              <input type="text" id="demo-firm" class="form-input" placeholder="Jenkins &amp; Partners Law" required>
+            </div>
+            <div class="form-group">
+              <label for="demo-role" class="form-label">Your Role</label>
+              <select id="demo-role" class="form-select">
+                <option value="case-manager">Case Manager</option>
+                <option value="managing-partner">Managing Partner</option>
+                <option value="paralegal">Paralegal</option>
+                <option value="it-director">IT Director</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="demo-caseload" class="form-label">Active PI Case Volume</label>
+            <select id="demo-caseload" class="form-select">
+              <option value="1-50">1 - 50 active cases</option>
+              <option value="51-200">51 - 200 active cases</option>
+              <option value="201-500">201 - 500 active cases</option>
+              <option value="500+">500+ active cases</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-legal btn-full">Submit Demo Request</button>
+
+          <p class="text-2xs text-tertiary text-center">
+            Your information is used strictly to prepare your personalized walkthrough. No sales spam.
+          </p>
+        </form>
+
+        <div id="demo-success" style="display: none;" class="text-center py-8">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-legal-500/20 text-legal-500 mb-4 mx-auto">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h4 class="text-xl font-display text-primary mb-2">Demo Request Received</h4>
+          <p class="text-secondary text-sm max-w-sm mx-auto">
+            Thank you. Our product engineering team will contact you within 24 hours to coordinate your live workstation demo.
+          </p>
+          <button type="button" class="btn btn-ghost btn-sm mt-6" data-close="modal-demo">Close Window</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── MODAL 2: JOIN WAITLIST (Project Home) ──────────────────────────── -->
+  <div class="modal-overlay" id="modal-waitlist" role="dialog" aria-modal="true" aria-labelledby="waitlist-title">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <div>
+          <span class="badge badge-coming-soon mb-2">Project Home</span>
+          <h3 class="modal-title" id="waitlist-title">Join the Cochabamba Early Access List</h3>
+        </div>
+        <button type="button" class="btn btn-ghost btn-xs btn-icon" data-close="modal-waitlist" aria-label="Close modal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="modal-body p-8">
+        <form id="waitlist-form" class="space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="form-group">
+              <label for="wl-name" class="form-label">Full Name <span class="text-error">*</span></label>
+              <input type="text" id="wl-name" class="form-input" placeholder="Carlos Mendoza" required>
+            </div>
+            <div class="form-group">
+              <label for="wl-email" class="form-label">Email Address <span class="text-error">*</span></label>
+              <input type="email" id="wl-email" class="form-input" placeholder="carlos@example.com" required>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="form-group">
+              <label for="wl-role" class="form-label">I am a...</label>
+              <select id="wl-role" class="form-select">
+                <option value="landlord">Landlord / Property Owner</option>
+                <option value="tenant">Tenant / Renter</option>
+                <option value="agent">Real Estate Agent</option>
+                <option value="investor">Property Investor</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="wl-city" class="form-label">Primary City</label>
+              <select id="wl-city" class="form-select">
+                <option value="cochabamba">Cochabamba</option>
+                <option value="santa-cruz">Santa Cruz</option>
+                <option value="la-paz">La Paz</option>
+                <option value="other">Other City in Bolivia</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-home btn-full">Join Waitlist</button>
+
+          <p class="text-2xs text-tertiary text-center">
+            We respect your privacy. Early access members get priority onboarding and launch perks.
+          </p>
+        </form>
+
+        <div id="waitlist-success" style="display: none;" class="text-center py-8">
+          <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-home-500/20 text-home-500 mb-4 mx-auto">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h4 class="text-xl font-display text-primary mb-2">You are on the list!</h4>
+          <p class="text-secondary text-sm max-w-sm mx-auto">
+            Thank you for joining. We will notify you directly as we launch verified listings in Cochabamba.
+          </p>
+          <button type="button" class="btn btn-ghost btn-sm mt-6" data-close="modal-waitlist">Close Window</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Core Scripts -->
+  <script src="../shared/js/core/nav.js" defer></script>
+  <script src="../shared/js/core/scroll.js" defer></script>
+
+  <!-- Inline Modal & Form Logic -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Modal Logic
+      function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.classList.add('is-open');
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.classList.remove('is-open');
+          modal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      }
+
+      // Triggers
+      document.querySelectorAll('[data-modal]').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal(trigger.getAttribute('data-modal'));
+        });
+      });
+
+      document.querySelectorAll('[data-close]').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          closeModal(trigger.getAttribute('data-close'));
+        });
+      });
+
+      // Overlay click
+      document.querySelectorAll('.modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', (e) => {
+          if (e.target === overlay) {
+            closeModal(overlay.id);
+          }
+        });
+      });
+
+      // Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          document.querySelectorAll('.modal-overlay.is-open, .modal-overlay.active').forEach(modal => {
+            closeModal(modal.id);
+          });
+        }
+      });
+
+      // Demo Form Submit Stub
+      const demoForm = document.getElementById('demo-form');
+      if (demoForm) {
+        demoForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          demoForm.style.display = 'none';
+          document.getElementById('demo-success').style.display = 'block';
+        });
+      }
+
+      // Waitlist Form Submit Stub
+      const waitlistForm = document.getElementById('waitlist-form');
+      if (waitlistForm) {
+        waitlistForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          waitlistForm.style.display = 'none';
+          document.getElementById('waitlist-success').style.display = 'block';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

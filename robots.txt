@@ -1,0 +1,12 @@
+# robots.txt — SC Web Studio
+# https://scwebstudio.com
+
+User-agent: *
+Allow: /
+
+# Block shared build artifacts from indexing
+Disallow: /shared/css/
+Disallow: /shared/js/
+
+# Sitemap
+Sitemap: https://scwebstudio.com/sitemap.xml

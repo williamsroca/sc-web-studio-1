@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — SC Web Studio</title>
+  <meta name="description" content="Start a project or request a demo. We respond within 24 hours. Tell us about your problem and we will tell you honestly if we can solve it.">
+  <link rel="canonical" href="https://scwebstudio.com/contact/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://scwebstudio.com/contact/">
+  <meta property="og:title" content="Contact — SC Web Studio">
+  <meta property="og:description" content="Start a project or request a demo. We respond within 24 hours. Tell us about your problem and we will tell you honestly if we can solve it.">
+  <meta property="og:image" content="https://scwebstudio.com/shared/img/og-default.png">
+  <meta property="og:site_name" content="SC Web Studio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact — SC Web Studio">
+  <meta name="twitter:description" content="Start a project or request a demo. We respond within 24 hours. Tell us about your problem and we will tell you honestly if we can solve it.">
+  <meta name="twitter:image" content="https://scwebstudio.com/shared/img/og-default.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Contact — SC Web Studio",
+    "url": "https://scwebstudio.com/contact/",
+    "description": "Start a project or request a demo. We respond within 24 hours.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SC Web Studio",
+      "url": "https://scwebstudio.com",
+      "address": {"@type": "PostalAddress","addressCountry": "BO"}
+    }
+  }
+  </script>
+  <link rel="stylesheet" href="../shared/css/tokens.css">
+  <link rel="stylesheet" href="../shared/css/reset.css">
+  <link rel="stylesheet" href="../shared/css/typography.css">
+  <link rel="stylesheet" href="../shared/css/layout.css">
+  <link rel="stylesheet" href="../shared/css/utilities.css">
+  <link rel="stylesheet" href="../shared/css/components/nav.css">
+  <link rel="stylesheet" href="../shared/css/components/buttons.css">
+  <link rel="stylesheet" href="../shared/css/components/cards.css">
+  <link rel="stylesheet" href="../shared/css/components/badges.css">
+  <link rel="stylesheet" href="../shared/css/components/mockups.css">
+  <link rel="stylesheet" href="../shared/css/components/modals.css">
+  <link rel="stylesheet" href="../shared/css/components/forms.css">
+  <style>
+    .path-selector{display:grid;grid-template-columns:1fr;gap:var(--space-4);max-width:720px;margin:var(--space-10) auto 0;}
+    @media(min-width:768px){.path-selector{grid-template-columns:1fr 1fr;}}
+    .path-card{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-4);padding:var(--space-8);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-xl);background:var(--bg-surface);cursor:pointer;transition:border-color .2s ease,background .2s ease,box-shadow .2s ease;user-select:none;}
+    .path-card:hover{border-color:rgba(85,104,255,0.4);box-shadow:var(--shadow-md);}
+    .path-card.is-active{border-color:var(--studio-500);background:rgba(85,104,255,0.05);box-shadow:0 0 0 1px var(--studio-500);}
+    .path-card__icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-md);background:rgba(85,104,255,0.1);color:var(--studio-500);}
+    .path-card__label{font-family:var(--font-display);font-size:1.125rem;font-weight:600;color:var(--text-primary);margin:0;}
+    .path-card__desc{font-family:var(--font-ui);font-size:0.875rem;color:var(--text-secondary);margin:0;line-height:1.5;}
+    .form-area{max-width:600px;margin:var(--space-12) auto 0;}
+    .form-panel{display:none;}
+    .form-panel.is-visible{display:block;}
+    .form-success{display:none;text-align:center;padding:var(--space-12) var(--space-6);}
+    .form-success.is-visible{display:block;}
+    .form-success__icon{width:56px;height:56px;border-radius:var(--radius-full);background:rgba(85,104,255,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-6);color:var(--studio-500);}
+    .form-success__title{font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--text-primary);margin-bottom:var(--space-3);}
+    .form-success__lead{color:var(--text-secondary);font-size:0.9375rem;}
+    .steps-grid{display:grid;grid-template-columns:1fr;gap:var(--space-8);margin-top:var(--space-12);}
+    @media(min-width:1024px){.steps-grid{grid-template-columns:repeat(3,1fr);}}
+    .step-item{display:flex;flex-direction:column;gap:var(--space-4);}
+    .step-item__icon{width:48px;height:48px;border-radius:var(--radius-lg);background:rgba(85,104,255,0.08);border:1px solid rgba(85,104,255,0.15);display:flex;align-items:center;justify-content:center;color:var(--studio-500);}
+    .step-item__title{font-family:var(--font-display);font-size:1.0625rem;font-weight:600;color:var(--text-primary);margin:0;}
+    .step-item__desc{font-size:0.875rem;color:var(--text-secondary);line-height:1.65;margin:0;}
+    .faq-list{max-width:680px;margin:var(--space-12) auto 0;}
+    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);}
+    .faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding:var(--space-5) 0;background:transparent;border:none;cursor:pointer;text-align:left;font-family:var(--font-display);font-size:1rem;font-weight:500;color:var(--text-primary);transition:color .15s;}
+    .faq-question:hover{color:var(--studio-500);}
+    .faq-chevron{flex-shrink:0;width:18px;height:18px;color:var(--text-tertiary);transition:transform .25s ease;}
+    .faq-item.is-open .faq-chevron{transform:rotate(180deg);}
+    .faq-item.is-open .faq-question{color:var(--studio-500);}
+    .faq-answer{overflow:hidden;max-height:0;transition:max-height .3s ease;}
+    .faq-item.is-open .faq-answer{max-height:300px;}
+    .faq-answer p{padding-bottom:var(--space-5);color:var(--text-secondary);font-size:0.9375rem;line-height:1.7;margin:0;}
+    .field-group{display:flex;flex-direction:column;gap:var(--space-5);margin-bottom:var(--space-6);}
+    .field-row{display:grid;grid-template-columns:1fr;gap:var(--space-5);}
+    @media(min-width:640px){.field-row{grid-template-columns:1fr 1fr;}}
+    .field{display:flex;flex-direction:column;gap:var(--space-2);}
+    .field label{font-family:var(--font-ui);font-size:0.8125rem;font-weight:500;color:var(--text-secondary);letter-spacing:0.01em;}
+    .field label span.optional{color:var(--text-tertiary);font-weight:400;margin-left:4px;}
+    .btn-full{width:100%;}
+    .contact-hero{padding-top:calc(var(--space-24) + 60px);padding-bottom:var(--space-16);text-align:center;}
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <div id="sc-header"></div>
+  <script src="../shared/js/core/shell.js" data-base="../"></script>
+  <main id="main-content">
+
+    <section class="contact-hero section" aria-labelledby="contact-heading">
+      <div class="container" style="max-width:680px;">
+        <p class="sh-label reveal">Get in Touch</p>
+        <h1 class="display reveal" id="contact-heading" style="margin-bottom:var(--space-6);">Let us talk about what you are building.</h1>
+        <p class="lead reveal" style="margin:0 auto;">We take a limited number of client projects per year. If you have a problem worth solving, we want to understand it.</p>
+      </div>
+    </section>
+
+    <section class="section" id="contact-form-section" aria-labelledby="contact-path-heading" style="padding-top:0;">
+      <div class="container" style="max-width:720px;">
+        <h2 class="sr-only" id="contact-path-heading">Choose your path</h2>
+        <div class="path-selector reveal-group" role="group" aria-label="Choose contact type">
+          <div class="path-card is-active reveal" id="path-card-project" role="button" tabindex="0" aria-pressed="true" aria-controls="form-project" data-path="project">
+            <div class="path-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <p class="path-card__label">Start a Project</p>
+            <p class="path-card__desc">You have a problem. We build the solution.</p>
+          </div>
+          <div class="path-card reveal" id="path-card-demo" role="button" tabindex="0" aria-pressed="false" aria-controls="form-demo" data-path="demo">
+            <div class="path-card__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <p class="path-card__label">Request a Demo</p>
+            <p class="path-card__desc">See Case Assistant OS in action for your PI firm.</p>
+          </div>
+        </div>
+
+        <div class="form-area">
+          <div class="form-success" id="form-success" aria-live="polite" tabindex="-1">
+            <div class="form-success__icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <p class="form-success__title">Message sent.</p>
+            <p class="form-success__lead">We will review your brief and get back to you within 24 hours.</p>
+          </div>
+
+          <form class="form-panel is-visible" id="form-project" novalidate aria-label="Start a Project form">
+            <div class="field-group">
+              <div class="field-row">
+                <div class="field">
+                  <label for="project-name">Full Name <span aria-hidden="true">*</span></label>
+                  <input type="text" id="project-name" name="name" required autocomplete="name" placeholder="Your name">
+                </div>
+                <div class="field">
+                  <label for="project-email">Email Address <span aria-hidden="true">*</span></label>
+                  <input type="email" id="project-email" name="email" required autocomplete="email" placeholder="you@company.com">
+                </div>
+              </div>
+              <div class="field">
+                <label for="project-company">Company <span class="optional">optional</span></label>
+                <input type="text" id="project-company" name="company" autocomplete="organization" placeholder="Your company or organization">
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="project-type">Project Type <span aria-hidden="true">*</span></label>
+                  <select id="project-type" name="project-type" required>
+                    <option value="" disabled selected>Select a type</option>
+                    <option value="software-development">Software Development</option>
+                    <option value="process-automation">Process Automation</option>
+                    <option value="saas-product">SaaS Product</option>
+                    <option value="ui-ux-design">UI / UX Design</option>
+                    <option value="internal-tools">Internal Tools</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="project-timeline">Timeline <span aria-hidden="true">*</span></label>
+                  <select id="project-timeline" name="timeline" required>
+                    <option value="" disabled selected>Select timeline</option>
+                    <option value="asap">ASAP</option>
+                    <option value="1-3-months">1–3 months</option>
+                    <option value="3-6-months">3–6 months</option>
+                    <option value="6-plus-months">6+ months</option>
+                    <option value="not-sure">Not sure yet</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label for="project-message">Project Brief <span aria-hidden="true">*</span></label>
+                <textarea id="project-message" name="message" required rows="6" placeholder="Describe the problem you are trying to solve. The more context the better."></textarea>
+              </div>
+              <div class="field">
+                <label for="project-how-found">How did you find us? <span class="optional">optional</span></label>
+                <select id="project-how-found" name="how-found">
+                  <option value="" disabled selected>Select one</option>
+                  <option value="search">Search</option>
+                  <option value="referral">Referral</option>
+                  <option value="social-media">Social Media</option>
+                  <option value="direct">Direct</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" id="btn-submit-project" class="btn btn-primary btn-full btn-lg">Send Your Brief</button>
+          </form>
+
+          <form class="form-panel" id="form-demo" novalidate aria-label="Request a Demo form">
+            <div class="field-group">
+              <div class="field-row">
+                <div class="field">
+                  <label for="demo-name">Full Name <span aria-hidden="true">*</span></label>
+                  <input type="text" id="demo-name" name="name" required autocomplete="name" placeholder="Your name">
+                </div>
+                <div class="field">
+                  <label for="demo-email">Work Email <span aria-hidden="true">*</span></label>
+                  <input type="email" id="demo-email" name="email" required autocomplete="email" placeholder="you@yourfirm.com">
+                </div>
+              </div>
+              <div class="field">
+                <label for="demo-firm">Firm Name <span aria-hidden="true">*</span></label>
+                <input type="text" id="demo-firm" name="firm-name" required placeholder="Your personal injury law firm">
+              </div>
+              <div class="field">
+                <label for="demo-cases">Active Cases</label>
+                <select id="demo-cases" name="active-cases">
+                  <option value="" disabled selected>Select range</option>
+                  <option value="under-50">Under 50</option>
+                  <option value="50-150">50–150</option>
+                  <option value="150-500">150–500</option>
+                  <option value="500-plus">500+</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="demo-challenge">Biggest case management challenge <span class="optional">optional</span></label>
+                <textarea id="demo-challenge" name="challenge" rows="4" placeholder="What slows your team down the most today?"></textarea>
+              </div>
+            </div>
+            <button type="submit" id="btn-submit-demo" class="btn btn-legal btn-full btn-lg">Request My Demo</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-surface section" id="what-to-expect" aria-labelledby="expect-heading">
+      <div class="container" style="max-width:960px;text-align:center;">
+        <p class="sh-label reveal">What Happens Next</p>
+        <h2 class="sh-heading reveal" id="expect-heading">We respond within 24 hours.</h2>
+        <div class="steps-grid reveal-group">
+          <div class="step-item reveal">
+            <div class="step-item__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <p class="step-item__title">We read everything</p>
+            <p class="step-item__desc">Every brief is read by the team. We do not use auto-responders for first contact.</p>
+          </div>
+          <div class="step-item reveal">
+            <div class="step-item__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <p class="step-item__title">Discovery call</p>
+            <p class="step-item__desc">30 minutes. We ask questions. You ask questions. We figure out if there is a fit.</p>
+          </div>
+          <div class="step-item reveal">
+            <div class="step-item__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <p class="step-item__title">Clear proposal</p>
+            <p class="step-item__desc">If there is a fit, you receive a clear scope and timeline within 5 business days.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <p class="sh-label reveal" style="text-align:center;">Common Questions</p>
+        <h2 class="sh-heading reveal" id="faq-heading" style="text-align:center;">Before you write</h2>
+        <div class="faq-list reveal">
+          <div class="faq-item" id="faq-item-1">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1" id="faq-btn-1">Do you work with clients outside Bolivia?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-btn-1"><p>Yes. Our studio is based in Bolivia but we work with clients in the U.S., Europe, and Latin America. Case Assistant OS is built specifically for the U.S. legal market.</p></div>
+          </div>
+          <div class="faq-item" id="faq-item-2">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2" id="faq-btn-2">What is your minimum project size?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-btn-2"><p>We do not have a minimum. We have a standard. Every project we take on gets the same level of attention. If your project does not warrant a dedicated team, we will tell you honestly.</p></div>
+          </div>
+          <div class="faq-item" id="faq-item-3">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" id="faq-btn-3">Fixed-price or time-and-materials?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-btn-3"><p>Both, depending on the project. Short, well-scoped engagements are fixed-price. Longer, exploratory builds are time-and-materials with weekly reporting.</p></div>
+          </div>
+          <div class="faq-item" id="faq-item-4">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4" id="faq-btn-4">Can I see examples of your work?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
+            <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-btn-4"><p>We are a young studio. Our best current work is Case Assistant OS. For client work, we share case studies during the discovery call.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <div id="sc-footer"></div>
+  <script>
+  (function(){
+    var pathCards=document.querySelectorAll('.path-card');
+    var formProject=document.getElementById('form-project');
+    var formDemo=document.getElementById('form-demo');
+    var formSuccess=document.getElementById('form-success');
+    function activatePath(path){
+      pathCards.forEach(function(card){
+        var isThis=card.dataset.path===path;
+        card.classList.toggle('is-active',isThis);
+        card.setAttribute('aria-pressed',isThis?'true':'false');
+      });
+      formProject.classList.toggle('is-visible',path==='project');
+      formDemo.classList.toggle('is-visible',path==='demo');
+      formSuccess.classList.remove('is-visible');
+    }
+    pathCards.forEach(function(card){
+      card.addEventListener('click',function(){activatePath(card.dataset.path);});
+      card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();activatePath(card.dataset.path);}});
+    });
+    var params=new URLSearchParams(window.location.search);
+    if(params.get('path')==='demo'){activatePath('demo');}
+    function handleSubmit(e){
+      e.preventDefault();
+      var btn=e.currentTarget.querySelector('button[type="submit"]');
+      btn.disabled=true;btn.textContent='Sending\u2026';
+      setTimeout(function(){e.currentTarget.classList.remove('is-visible');formSuccess.classList.add('is-visible');formSuccess.focus();},900);
+    }
+    formProject.addEventListener('submit',handleSubmit);
+    formDemo.addEventListener('submit',handleSubmit);
+    document.querySelectorAll('.faq-item').forEach(function(item){
+      var btn=item.querySelector('.faq-question');
+      btn.addEventListener('click',function(){
+        var isOpen=item.classList.contains('is-open');
+        document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('is-open');i.querySelector('.faq-question').setAttribute('aria-expanded','false');});
+        if(!isOpen){item.classList.add('is-open');btn.setAttribute('aria-expanded','true');}
+      });
+    });
+  })();
+  </script>
+  <script src="../shared/js/core/nav.js" defer></script>
+  <script src="../shared/js/core/scroll.js" defer></script>
+</body>
+</html>

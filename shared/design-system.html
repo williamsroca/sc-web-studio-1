@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System — SC Web Studio</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Design System CSS (full stack) -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/utilities.css">
+  <link rel="stylesheet" href="css/components/buttons.css">
+  <link rel="stylesheet" href="css/components/cards.css">
+  <link rel="stylesheet" href="css/components/badges.css">
+  <link rel="stylesheet" href="css/components/nav.css">
+  <link rel="stylesheet" href="css/components/modals.css">
+  <link rel="stylesheet" href="css/components/forms.css">
+  <link rel="stylesheet" href="css/components/mockups.css">
+
+  <style>
+    /* ── Design System Page Layout ───────────────────────────────────────── */
+    .ds-layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .ds-sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      background: var(--bg-surface);
+      border-right: 1px solid var(--border-subtle);
+      padding: var(--space-8) var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    .ds-sidebar-logo {
+      font-family: var(--font-display);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+      padding: var(--space-3) var(--space-4);
+      margin-bottom: var(--space-4);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+
+    .ds-sidebar-logo span { color: var(--studio-500); }
+
+    .ds-sidebar-section {
+      font-size: var(--text-2xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      padding: var(--space-4) var(--space-4) var(--space-2);
+      margin-top: var(--space-3);
+    }
+
+    .ds-nav-link {
+      display: block;
+      padding: var(--space-2) var(--space-4);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: color var(--duration-fast) var(--ease-out), background var(--duration-fast) var(--ease-out);
+    }
+
+    .ds-nav-link:hover { color: var(--text-primary); background: var(--bg-hover); }
+
+    /* Content area */
+    .ds-content {
+      padding: var(--space-12) var(--space-12);
+      max-width: 1000px;
+    }
+
+    /* Section */
+    .ds-section {
+      padding-bottom: var(--space-16);
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: var(--space-16);
+    }
+
+    .ds-section:last-child { border-bottom: none; }
+
+    .ds-section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-bold);
+      color: var(--text-primary);
+      letter-spacing: var(--tracking-tighter);
+      margin-bottom: var(--space-2);
+    }
+
+    .ds-section-desc {
+      font-size: var(--text-sm);
+      color: var(--text-tertiary);
+      margin-bottom: var(--space-10);
+      max-width: none;
+    }
+
+    /* Sub-section */
+    .ds-subsection {
+      margin-bottom: var(--space-10);
+    }
+
+    .ds-subsection-title {
+      font-family: var(--font-ui);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: var(--tracking-widest);
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: var(--space-5);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    /* Token display */
+    .token-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .token-swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      flex-shrink: 0;
+    }
+
+    .token-name {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--studio-300);
+      flex: 1;
+    }
+
+    .token-value {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+    }
+
+    /* Color palette grid */
+    .color-palette {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: var(--space-3);
+      margin-bottom: var(--space-8);
+    }
+
+    .color-swatch {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .color-swatch-block {
+      height: 64px;
+    }
+
+    .color-swatch-info {
+      padding: var(--space-2) var(--space-3);
+      background: var(--bg-surface-raised);
+    }
+
+    .color-swatch-token {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--text-tertiary);
+      display: block;
+    }
+
+    .color-swatch-hex {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--text-secondary);
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* Typography specimen row */
+    .type-row {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-6);
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .type-meta {
+      width: 120px;
+      flex-shrink: 0;
+    }
+
+    .type-token {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-tertiary);
+      display: block;
+    }
+
+    .type-px {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--border-strong);
+      display: block;
+    }
+
+    .type-sample {
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    /* Preview panels */
+    .preview-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+    }
+
+    .preview-dark {
+      background: var(--bg-page);
+    }
+
+    /* Icon grid */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: var(--space-4);
+    }
+
+    .icon-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-4);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      background: var(--bg-surface);
+      font-size: 10px;
+      color: var(--text-tertiary);
+      text-align: center;
+    }
+
+    .icon-item svg { color: var(--text-secondary); }
+
+    /* Spacing visualization */
+    .spacing-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .spacing-bar {
+      background: var(--studio-glow);
+      border: 1px solid rgba(85, 104, 255, 0.3);
+      border-radius: 3px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="ds-layout">
+
+  <!-- ── Sidebar Navigation ──────────────────────────────────────────────── -->
+  <aside class="ds-sidebar">
+    <div class="ds-sidebar-logo">
+      <span>SC</span> Web Studio
+    </div>
+
+    <span class="ds-sidebar-section">Foundations</span>
+    <a href="#colors"      class="ds-nav-link">Colors</a>
+    <a href="#typography"  class="ds-nav-link">Typography</a>
+    <a href="#spacing"     class="ds-nav-link">Spacing</a>
+    <a href="#shadows"     class="ds-nav-link">Shadows</a>
+    <a href="#animations"  class="ds-nav-link">Animations</a>
+
+    <span class="ds-sidebar-section">Components</span>
+    <a href="#buttons"     class="ds-nav-link">Buttons</a>
+    <a href="#cards"       class="ds-nav-link">Cards</a>
+    <a href="#badges"      class="ds-nav-link">Badges</a>
+    <a href="#forms"       class="ds-nav-link">Forms</a>
+    <a href="#modals"      class="ds-nav-link">Modals</a>
+    <a href="#navigation"  class="ds-nav-link">Navigation</a>
+    <a href="#mockups"     class="ds-nav-link">Mockups</a>
+
+    <span class="ds-sidebar-section">Ecosystem</span>
+    <a href="#product-case-assistant" class="ds-nav-link">Case Assistant OS</a>
+    <a href="#product-project-home"   class="ds-nav-link">Project Home</a>
+    <a href="#product-sc-tech"        class="ds-nav-link">SC Tech</a>
+  </aside>
+
+  <!-- ── Main Content ────────────────────────────────────────────────────── -->
+  <main class="ds-content">
+
+    <!-- Page Header -->
+    <header style="margin-bottom: var(--space-16);">
+      <p class="eyebrow eyebrow-accent" style="margin-bottom: var(--space-4);">Internal Reference</p>
+      <h1 class="display" style="font-size: var(--text-4xl); margin-bottom: var(--space-4);">Design System</h1>
+      <p class="lead" style="max-width: 52ch;">The single source of truth for all visual decisions in the SC Web Studio ecosystem. Every component, token, and pattern lives here.</p>
+    </header>
+
+
+    <!-- ── COLORS ──────────────────────────────────────────────────────── -->
+    <section id="colors" class="ds-section">
+      <h2 class="ds-section-title">Colors</h2>
+      <p class="ds-section-desc">Semantic color system. Colors are defined by meaning, not by hex value.</p>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Studio Accent — Electric Indigo-Blue</div>
+        <div class="color-palette">
+          <div class="color-swatch">
+            <div class="color-swatch-block" style="background: var(--studio-300);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">--studio-300</span>
+              <span class="color-swatch-hex">#8E9EFF</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch-block" style="background: var(--studio-400);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">--studio-400</span>
+              <span class="color-swatch-hex">#7080FF</span>
+            </div>
+          </div>
+          <div class="color-swatch" style="border-color: var(--studio-500);">
+            <div class="color-swatch-block" style="background: var(--studio-500);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">--studio-500 ★</span>
+              <span class="color-swatch-hex">#5568FF</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch-block" style="background: var(--studio-600);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">--studio-600</span>
+              <span class="color-swatch-hex">#3D4EE8</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch-block" style="background: var(--studio-700);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">--studio-700</span>
+              <span class="color-swatch-hex">#2A37C4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Product Accents</div>
+        <div class="color-palette">
+          <div class="color-swatch">
+            <div class="color-swatch-block" style="background: var(--legal-500);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">--legal-500</span>
+              <span class="color-swatch-hex">#0EA5E9</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch-block" style="background: var(--home-500);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">--home-500</span>
+              <span class="color-swatch-hex">#F59E0B</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch-block" style="background: var(--tech-500);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">--tech-500</span>
+              <span class="color-swatch-hex">#10B981</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Surfaces & Backgrounds</div>
+        <div class="color-palette">
+          <div class="color-swatch">
+            <div class="color-swatch-block" style="background: var(--bg-page); border: 1px solid var(--border-subtle);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">--bg-page</span>
+              <span class="color-swatch-hex">#060608</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch-block" style="background: var(--bg-surface);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">--bg-surface</span>
+              <span class="color-swatch-hex">#0E0F14</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch-block" style="background: var(--bg-surface-raised);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">--bg-surface-raised</span>
+              <span class="color-swatch-hex">#151720</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch-block" style="background: var(--bg-surface-overlay);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">--bg-surface-overlay</span>
+              <span class="color-swatch-hex">#1A1D2B</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Text Hierarchy</div>
+        <div class="token-row">
+          <div class="token-swatch" style="background: var(--text-primary);"></div>
+          <span class="token-name">--text-primary</span>
+          <span class="token-value">#F0F1F5</span>
+        </div>
+        <div class="token-row">
+          <div class="token-swatch" style="background: var(--text-secondary);"></div>
+          <span class="token-name">--text-secondary</span>
+          <span class="token-value">#8B8FA8</span>
+        </div>
+        <div class="token-row">
+          <div class="token-swatch" style="background: var(--text-tertiary);"></div>
+          <span class="token-name">--text-tertiary</span>
+          <span class="token-value">#52566A</span>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Semantic States</div>
+        <div class="color-palette">
+          <div class="color-swatch">
+            <div class="color-swatch-block" style="background: var(--color-success);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">success</span>
+              <span class="color-swatch-hex">#10B981</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch-block" style="background: var(--color-warning);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">warning</span>
+              <span class="color-swatch-hex">#F59E0B</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch-block" style="background: var(--color-error);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">error</span>
+              <span class="color-swatch-hex">#EF4444</span>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="color-swatch-block" style="background: var(--color-info);"></div>
+            <div class="color-swatch-info">
+              <span class="color-swatch-token">info</span>
+              <span class="color-swatch-hex">#5568FF</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── TYPOGRAPHY ───────────────────────────────────────────────────── -->
+    <section id="typography" class="ds-section">
+      <h2 class="ds-section-title">Typography</h2>
+      <p class="ds-section-desc">Space Grotesk (Display) · Inter (UI/Body) · JetBrains Mono (Technical)</p>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Type Scale — Space Grotesk (Display)</div>
+        <div class="type-row">
+          <div class="type-meta"><span class="type-token">--text-7xl</span><span class="type-px">96px</span></div>
+          <div class="type-sample" style="font-family: var(--font-display); font-size: var(--text-7xl); font-weight: 700; letter-spacing: -0.03em; line-height: 1;">Aa</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="type-token">--text-6xl</span><span class="type-px">72px</span></div>
+          <div class="type-sample" style="font-family: var(--font-display); font-size: clamp(2.5rem, 4vw, var(--text-6xl)); font-weight: 700; letter-spacing: -0.025em;">Software designed to simplify work.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="type-token">--text-4xl</span><span class="type-px">48px</span></div>
+          <div class="type-sample" style="font-family: var(--font-display); font-size: var(--text-4xl); font-weight: 700; letter-spacing: -0.02em;">Case Assistant OS</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="type-token">--text-3xl</span><span class="type-px">36px</span></div>
+          <div class="type-sample" style="font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 600; letter-spacing: -0.02em;">Build with purpose.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="type-token">--text-2xl</span><span class="type-px">30px</span></div>
+          <div class="type-sample" style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 600; letter-spacing: -0.015em;">Every feature must justify its existence.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="type-token">--text-xl</span><span class="type-px">24px</span></div>
+          <div class="type-sample" style="font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; letter-spacing: -0.015em;">Intelligent Workflow Automation</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="type-token">--text-lg</span><span class="type-px">20px</span></div>
+          <div class="type-sample" style="font-family: var(--font-display); font-size: var(--text-lg); font-weight: 500;">Card Heading Title</div>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Body Copy — Inter</div>
+        <div class="type-row">
+          <div class="type-meta"><span class="type-token">--text-md</span><span class="type-px">18px Lead</span></div>
+          <div class="type-sample" style="font-size: var(--text-md); color: var(--text-secondary); line-height: 1.5;">We build software that works differently. Designed around the problem, built around the person.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="type-token">--text-base</span><span class="type-px">16px Body</span></div>
+          <div class="type-sample" style="font-size: var(--text-base); color: var(--text-secondary); line-height: 1.65;">Professional software development services finance the continuous development of our own products. Every product exists because we identified a real problem worth solving.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="type-token">--text-sm</span><span class="type-px">14px Small</span></div>
+          <div class="type-sample" style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.65;">Track medical requests from submission to settlement. Never miss a follow-up again.</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="type-token">--text-xs</span><span class="type-px">12px Micro</span></div>
+          <div class="type-sample" style="font-size: var(--text-xs); color: var(--text-tertiary);">Last updated · July 2026 · v1.5.0</div>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">JetBrains Mono</div>
+        <div class="type-row">
+          <div class="type-meta"><span class="type-token">Version</span></div>
+          <div class="type-sample" style="font-family: var(--font-mono); font-size: var(--text-sm); color: var(--text-tertiary);">v1.5.0 · ACTIVE DEVELOPMENT · case-assistant-os</div>
+        </div>
+        <div class="type-row">
+          <div class="type-meta"><span class="type-token">Code</span></div>
+          <code>automate(workflow).then(simplify).catch(rethink)</code>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Typographic Patterns</div>
+        <div class="preview-box" style="display: flex; flex-direction: column; gap: var(--space-8);">
+          <!-- Eyebrow + Heading -->
+          <div>
+            <p class="eyebrow eyebrow-accent" style="margin-bottom: var(--space-4);">Our Products</p>
+            <h2 style="font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 600; color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: var(--space-3);">Software that solves real-world problems.</h2>
+            <p class="lead">Three products. One mission. An expanding ecosystem built on purpose.</p>
+          </div>
+          <!-- Text gradient -->
+          <div>
+            <h2 class="text-gradient" style="font-family: var(--font-display); font-size: var(--text-4xl); font-weight: 700; letter-spacing: -0.02em;">Text Gradient Headline</h2>
+          </div>
+          <!-- Studio accent gradient -->
+          <div>
+            <h2 class="text-gradient-studio" style="font-family: var(--font-display); font-size: var(--text-3xl); font-weight: 700; letter-spacing: -0.02em;">Studio Accent Gradient</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── SPACING ───────────────────────────────────────────────────────── -->
+    <section id="spacing" class="ds-section">
+      <h2 class="ds-section-title">Spacing</h2>
+      <p class="ds-section-desc">8px base unit. All spacing tokens are multiples of this base.</p>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Spacing Scale</div>
+        <div class="spacing-row">
+          <div class="spacing-bar" style="width: 4px;"></div>
+          <span class="token-name">--space-1</span>
+          <span class="token-value">4px · 0.25rem</span>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar" style="width: 8px;"></div>
+          <span class="token-name">--space-2</span>
+          <span class="token-value">8px · 0.5rem</span>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar" style="width: 16px;"></div>
+          <span class="token-name">--space-4 ★ base</span>
+          <span class="token-value">16px · 1rem</span>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar" style="width: 24px;"></div>
+          <span class="token-name">--space-6</span>
+          <span class="token-value">24px · 1.5rem</span>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar" style="width: 32px;"></div>
+          <span class="token-name">--space-8</span>
+          <span class="token-value">32px · 2rem</span>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar" style="width: 48px;"></div>
+          <span class="token-name">--space-12</span>
+          <span class="token-value">48px · 3rem</span>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar" style="width: 64px;"></div>
+          <span class="token-name">--space-16</span>
+          <span class="token-value">64px · 4rem · section padding (mobile)</span>
+        </div>
+        <div class="spacing-row">
+          <div class="spacing-bar" style="width: 96px;"></div>
+          <span class="token-name">--space-24</span>
+          <span class="token-value">96px · 6rem · section padding (desktop)</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── SHADOWS ───────────────────────────────────────────────────────── -->
+    <section id="shadows" class="ds-section">
+      <h2 class="ds-section-title">Shadows</h2>
+      <p class="ds-section-desc">Elevation system for depth hierarchy.</p>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6);">
+        <div style="background: var(--bg-surface); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-sm);">
+          <p class="token-name" style="margin-bottom: var(--space-2);">--shadow-sm</p>
+          <p class="token-value">Subtle depth</p>
+        </div>
+        <div style="background: var(--bg-surface); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-md);">
+          <p class="token-name" style="margin-bottom: var(--space-2);">--shadow-md</p>
+          <p class="token-value">Component depth</p>
+        </div>
+        <div style="background: var(--bg-surface); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-lg);">
+          <p class="token-name" style="margin-bottom: var(--space-2);">--shadow-lg</p>
+          <p class="token-value">Elevated component</p>
+        </div>
+        <div style="background: var(--bg-surface); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-xl);">
+          <p class="token-name" style="margin-bottom: var(--space-2);">--shadow-xl</p>
+          <p class="token-value">Modals, overlays</p>
+        </div>
+        <div style="background: var(--bg-surface); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-card-hover);">
+          <p class="token-name" style="margin-bottom: var(--space-2);">--shadow-card-hover</p>
+          <p class="token-value">Studio glow + depth</p>
+        </div>
+        <div style="background: var(--bg-surface); border-radius: var(--radius-xl); padding: var(--space-6); box-shadow: var(--shadow-card-legal-hover);">
+          <p class="token-name" style="margin-bottom: var(--space-2);">--shadow-card-legal-hover</p>
+          <p class="token-value">Case Assistant glow</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── BUTTONS ───────────────────────────────────────────────────────── -->
+    <section id="buttons" class="ds-section">
+      <h2 class="ds-section-title">Buttons</h2>
+      <p class="ds-section-desc">One primary action per page. All variants and sizes below.</p>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Variants</div>
+        <div class="preview-box" style="display: flex; flex-wrap: wrap; gap: var(--space-4);">
+          <button class="btn btn-primary">Primary</button>
+          <button class="btn btn-secondary">Secondary</button>
+          <button class="btn btn-ghost">Ghost</button>
+          <button class="btn btn-text">Text Button <span class="btn-arrow">→</span></button>
+          <button class="btn btn-destructive">Destructive</button>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Sizes — Primary</div>
+        <div class="preview-box" style="display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4);">
+          <button class="btn btn-primary btn-xs">Extra Small</button>
+          <button class="btn btn-primary btn-sm">Small</button>
+          <button class="btn btn-primary">Medium (Default)</button>
+          <button class="btn btn-primary btn-lg">Large</button>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Product Accent Buttons (Product Pages Only)</div>
+        <div class="preview-box" style="display: flex; flex-wrap: wrap; gap: var(--space-4);">
+          <button class="btn btn-legal">Request Demo — Case Assistant OS</button>
+          <button class="btn btn-home">Join Waitlist — Project Home</button>
+          <button class="btn btn-tech">Visit SC Tech →</button>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">States</div>
+        <div class="preview-box" style="display: flex; flex-wrap: wrap; gap: var(--space-4);">
+          <button class="btn btn-primary">Default</button>
+          <button class="btn btn-primary is-loading">Loading</button>
+          <button class="btn btn-primary" disabled>Disabled</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── CARDS ────────────────────────────────────────────────────────── -->
+    <section id="cards" class="ds-section">
+      <h2 class="ds-section-title">Cards</h2>
+      <p class="ds-section-desc">7 card variants, each with a specific semantic purpose.</p>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Standard Card</div>
+        <div class="card" style="max-width: 360px;">
+          <h4 style="font-family: var(--font-display); color: var(--text-primary); margin-bottom: var(--space-3);">Workflow Automation</h4>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary);">Remove repetitive work. Reduce human error. Technology should work for people, not the other way around.</p>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Product Cards</div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-6);">
+          <!-- Case Assistant OS -->
+          <div class="card-product" data-product="case-assistant">
+            <div class="card-product-glow"></div>
+            <div class="card-product-header">
+              <div class="card-product-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--legal-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              </div>
+              <span class="badge badge-active-dev badge-dot badge-dot-pulse">Active Development</span>
+            </div>
+            <div class="card-product-body">
+              <h3 class="card-product-title product-name-legal">Case Assistant <span class="accent">OS</span></h3>
+              <p class="card-product-description">Intelligent workstation for Personal Injury case managers. Automates follow-ups, tracks requests, and eliminates the spreadsheet.</p>
+            </div>
+            <div class="card-product-meta">
+              <div class="tech-stack">
+                <span class="tech-label">HTML5</span>
+                <span class="tech-label">Vanilla JS</span>
+                <span class="tech-label">Local-First</span>
+              </div>
+              <div class="card-product-footer">
+                <span class="badge badge-product badge-product-legal">U.S. Legal Market</span>
+                <button class="btn btn-text btn-sm">View Product <span class="btn-arrow">→</span></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Home -->
+          <div class="card-product" data-product="project-home">
+            <div class="card-product-glow"></div>
+            <div class="card-product-header">
+              <div class="card-product-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--home-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              </div>
+              <span class="badge badge-coming-soon badge-dot">Coming Soon</span>
+            </div>
+            <div class="card-product-body">
+              <h3 class="card-product-title product-name-home">Project <span class="accent">Home</span></h3>
+              <p class="card-product-description">Modern rental marketplace connecting landlords and tenants through a cleaner, faster, more transparent experience.</p>
+            </div>
+            <div class="card-product-meta">
+              <div class="tech-stack">
+                <span class="tech-label">React</span>
+                <span class="tech-label">Node.js</span>
+                <span class="tech-label">PostgreSQL</span>
+              </div>
+              <div class="card-product-footer">
+                <span class="badge badge-product badge-product-home">Bolivia-First</span>
+                <button class="btn btn-text btn-sm">Join Waitlist <span class="btn-arrow">→</span></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SC Tech -->
+          <div class="card-product" data-product="sc-tech">
+            <div class="card-product-glow"></div>
+            <div class="card-product-header">
+              <div class="card-product-logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--tech-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <span class="badge badge-live badge-dot badge-dot-pulse">Live</span>
+            </div>
+            <div class="card-product-body">
+              <h3 class="card-product-title product-name-tech">SC <span class="accent">Tech</span></h3>
+              <p class="card-product-description">Independent technology brand within the SC Web Studio ecosystem. Serving clients and communities worldwide.</p>
+            </div>
+            <div class="card-product-meta">
+              <div class="card-product-footer">
+                <span class="badge badge-product badge-product-tech">Live Brand</span>
+                <a href="https://sctech.shop" target="_blank" rel="noopener" class="btn btn-text btn-sm">Visit sctech.shop ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Feature Card</div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5);">
+          <div class="card-feature">
+            <div class="card-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h4 class="card-feature-title">Automate</h4>
+            <p class="card-feature-description">Remove repetitive work. Reduce human error. Technology should work for people.</p>
+          </div>
+          <div class="card-feature">
+            <div class="card-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <h4 class="card-feature-title">Simplify</h4>
+            <p class="card-feature-description">Minimal interfaces. Clear workflows. Great software should feel invisible.</p>
+          </div>
+          <div class="card-feature">
+            <div class="card-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h4 class="card-feature-title">Create Opportunities</h4>
+            <p class="card-feature-description">Technology should empower individuals, entrepreneurs, and small businesses.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Glass Card</div>
+        <div class="card-glass" style="padding: var(--space-8); max-width: 400px;">
+          <h4 style="font-family: var(--font-display); color: var(--text-primary); margin-bottom: var(--space-3);">Glass Surface</h4>
+          <p style="font-size: var(--text-sm); color: var(--text-secondary);">Used for overlays, nav, and floating elements. Requires a background behind it to display correctly.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── BADGES ────────────────────────────────────────────────────────── -->
+    <section id="badges" class="ds-section">
+      <h2 class="ds-section-title">Badges & Tags</h2>
+      <p class="ds-section-desc">Status system, product badges, category tags, and tech labels.</p>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Product Status</div>
+        <div class="preview-box" style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+          <span class="badge badge-live badge-dot badge-dot-pulse">Live</span>
+          <span class="badge badge-active-dev badge-dot">Active Development</span>
+          <span class="badge badge-coming-soon badge-dot">Coming Soon</span>
+          <span class="badge badge-new">New</span>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Lab Status</div>
+        <div class="preview-box" style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+          <span class="badge badge-exploring">Exploring</span>
+          <span class="badge badge-prototyping">Prototyping</span>
+          <span class="badge badge-building">Building</span>
+          <span class="badge badge-incubating">Incubating</span>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Product Badges</div>
+        <div class="preview-box" style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+          <span class="badge badge-product badge-product-legal">U.S. Legal Market</span>
+          <span class="badge badge-product badge-product-home">Bolivia-First</span>
+          <span class="badge badge-product badge-product-tech">Live Brand</span>
+          <span class="badge badge-product badge-product-studio">SC Web Studio</span>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Category Tags</div>
+        <div class="preview-box" style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+          <span class="tag tag-ai">AI</span>
+          <span class="tag tag-automation">Automation</span>
+          <span class="tag tag-engineering">Engineering</span>
+          <span class="tag tag-design">Design</span>
+          <span class="tag tag-research">Research</span>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Tech Stack Labels</div>
+        <div class="preview-box">
+          <div class="tech-stack">
+            <span class="tech-label">HTML5</span>
+            <span class="tech-label">Vanilla JS</span>
+            <span class="tech-label">ES Modules</span>
+            <span class="tech-label">Local-First</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── FORMS ─────────────────────────────────────────────────────────── -->
+    <section id="forms" class="ds-section">
+      <h2 class="ds-section-title">Forms</h2>
+      <p class="ds-section-desc">Input components with full validation state support.</p>
+
+      <div class="preview-box">
+        <div class="form-stack" style="max-width: 480px;">
+          <div class="form-group">
+            <label class="form-label form-label-required" for="ds-name">Full Name</label>
+            <input class="form-input" type="text" id="ds-name" placeholder="Jane Smith">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label form-label-required" for="ds-email">Email Address</label>
+            <input class="form-input" type="email" id="ds-email" placeholder="jane@smithlaw.com">
+            <span class="form-hint">We'll send project updates to this address.</span>
+          </div>
+
+          <div class="form-group has-error">
+            <label class="form-label" for="ds-phone">Phone <span class="form-label-optional">Optional</span></label>
+            <input class="form-input" type="tel" id="ds-phone" value="invalid">
+            <span class="form-error-text">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Please enter a valid phone number.
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ds-type">Project Type</label>
+            <select class="form-select" id="ds-type">
+              <option value="">Select a project type...</option>
+              <option value="web">Website Development</option>
+              <option value="automation">Process Automation</option>
+              <option value="design">UX/UI Design</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="ds-message">Project Description</label>
+            <textarea class="form-textarea" id="ds-message" rows="4" placeholder="Tell us about your project..."></textarea>
+          </div>
+
+          <div class="form-submit-area">
+            <button class="btn btn-primary btn-full">Book a Discovery Call</button>
+            <p class="form-privacy-note">Your information is never shared. We respond within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── ANIMATIONS ─────────────────────────────────────────────────────── -->
+    <section id="animations" class="ds-section">
+      <h2 class="ds-section-title">Animation Tokens</h2>
+      <p class="ds-section-desc">Easing functions and duration scale used consistently across the system.</p>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Duration Scale</div>
+        <div class="token-row">
+          <span class="token-name">--duration-instant</span>
+          <span class="token-value">80ms — Color changes, immediate feedback</span>
+        </div>
+        <div class="token-row">
+          <span class="token-name">--duration-fast</span>
+          <span class="token-value">150ms — Hover states, focus rings</span>
+        </div>
+        <div class="token-row">
+          <span class="token-name">--duration-base</span>
+          <span class="token-value">250ms — Default UI transitions</span>
+        </div>
+        <div class="token-row">
+          <span class="token-name">--duration-slow</span>
+          <span class="token-value">400ms — Card entrance, modal open</span>
+        </div>
+        <div class="token-row">
+          <span class="token-name">--duration-deliberate</span>
+          <span class="token-value">600ms — Section reveal, hero</span>
+        </div>
+        <div class="token-row">
+          <span class="token-name">--duration-ambient</span>
+          <span class="token-value">800ms+ — Aurora, manifesto sequence</span>
+        </div>
+      </div>
+
+      <div class="ds-subsection">
+        <div class="ds-subsection-title">Reveal Demo</div>
+        <p style="font-size: var(--text-sm); color: var(--text-tertiary); margin-bottom: var(--space-6);">Elements below have .reveal class. Scroll down to trigger (if not already visible).</p>
+        <div class="reveal-group" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5);">
+          <div class="card reveal reveal-scale">
+            <h4 style="font-family: var(--font-display); color: var(--text-primary); margin-bottom: var(--space-2);">Reveal 1</h4>
+            <p style="font-size: var(--text-sm); color: var(--text-secondary);">Stagger delay: 0ms</p>
+          </div>
+          <div class="card reveal reveal-scale">
+            <h4 style="font-family: var(--font-display); color: var(--text-primary); margin-bottom: var(--space-2);">Reveal 2</h4>
+            <p style="font-size: var(--text-sm); color: var(--text-secondary);">Stagger delay: 80ms</p>
+          </div>
+          <div class="card reveal reveal-scale">
+            <h4 style="font-family: var(--font-display); color: var(--text-primary); margin-bottom: var(--space-2);">Reveal 3</h4>
+            <p style="font-size: var(--text-sm); color: var(--text-secondary);">Stagger delay: 160ms</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── PRODUCT ECOSYSTEM ──────────────────────────────────────────────── -->
+    <section id="product-case-assistant" class="ds-section">
+      <h2 class="ds-section-title">Case Assistant OS — Brand Spec</h2>
+      <p class="ds-section-desc">Product-level identity. Sky blue accent. U.S. Personal Injury legal market. English only.</p>
+
+      <div class="preview-box" style="background: linear-gradient(135deg, rgba(14,165,233,0.04) 0%, var(--bg-surface) 60%);">
+        <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+          <div style="display: flex; align-items: center; gap: var(--space-4);">
+            <div style="width: 56px; height: 56px; background: var(--legal-badge-bg); border: 1px solid var(--legal-badge-border); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--legal-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div>
+              <h3 style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 700; color: var(--text-primary);">Case Assistant <span style="color: var(--legal-500);">OS</span></h3>
+              <p style="font-size: var(--text-sm); color: var(--text-tertiary);">Active Development · v1.5.0 · U.S. Legal Market</p>
+            </div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+            <button class="btn btn-legal">Request Demo</button>
+            <button class="btn btn-secondary">Learn More</button>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+            <span class="badge badge-active-dev badge-dot">Active Development</span>
+            <span class="badge badge-product badge-product-legal">U.S. Personal Injury</span>
+            <span class="tag tag-engineering">Local-First Architecture</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="product-project-home" class="ds-section">
+      <h2 class="ds-section-title">Project Home — Brand Spec</h2>
+      <p class="ds-section-desc">Product-level identity. Amber accent. Bolivia-first rental marketplace.</p>
+
+      <div class="preview-box" style="background: linear-gradient(135deg, rgba(245,158,11,0.04) 0%, var(--bg-surface) 60%);">
+        <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+          <div style="display: flex; align-items: center; gap: var(--space-4);">
+            <div style="width: 56px; height: 56px; background: var(--home-badge-bg); border: 1px solid var(--home-badge-border); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--home-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div>
+              <h3 style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 700; color: var(--text-primary);">Project <span style="color: var(--home-500);">Home</span></h3>
+              <p style="font-size: var(--text-sm); color: var(--text-tertiary);">Coming Soon · Bolivia-First · Long-Term Rentals</p>
+            </div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+            <button class="btn btn-home">Join the Waitlist</button>
+            <button class="btn btn-secondary">Learn More</button>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+            <span class="badge badge-coming-soon badge-dot">Coming Soon</span>
+            <span class="badge badge-product badge-product-home">Bolivia-First</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="product-sc-tech" class="ds-section">
+      <h2 class="ds-section-title">SC Tech — Ecosystem Card Spec</h2>
+      <p class="ds-section-desc">External live brand. Emerald accent. Links to sctech.shop.</p>
+
+      <div class="preview-box" style="background: linear-gradient(135deg, rgba(16,185,129,0.04) 0%, var(--bg-surface) 60%);">
+        <div style="display: flex; flex-direction: column; gap: var(--space-6);">
+          <div style="display: flex; align-items: center; gap: var(--space-4);">
+            <div style="width: 56px; height: 56px; background: var(--tech-badge-bg); border: 1px solid var(--tech-badge-border); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--tech-500)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div>
+              <h3 style="font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 700; color: var(--text-primary);">SC <span style="color: var(--tech-500);">Tech</span></h3>
+              <p style="font-size: var(--text-sm); color: var(--text-tertiary);">Live · sctech.shop · Independent Brand</p>
+            </div>
+          </div>
+          <div>
+            <a href="https://sctech.shop" target="_blank" rel="noopener" class="btn btn-tech">Visit sctech.shop ↗</a>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: var(--space-3);">
+            <span class="badge badge-live badge-dot badge-dot-pulse">Live</span>
+            <span class="badge badge-product badge-product-tech">Independent Brand</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="padding-top: var(--space-12); border-top: 1px solid var(--border-subtle); text-align: center;">
+      <p style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-tertiary);">SC Web Studio Design System — Internal Reference · Not indexed · v1.0</p>
+    </footer>
+
+  </main>
+</div>
+
+<!-- JS: scroll reveal for demo section -->
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

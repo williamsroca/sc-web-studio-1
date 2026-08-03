@@ -223,7 +223,7 @@
   </style>
 </head>
 
-<body>
+<body class="page-wrapper">
   <!-- Accessibility Skip Link -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -235,7 +235,7 @@
   <script src="../shared/js/core/shell.js" data-base="../"></script>
 
   <!-- Main Content -->
-  <main id="main-content">
+  <main id="main-content" class="page-content">
 
     <!-- 1. HERO SECTION -->
     <section class="section-lg" id="hero" aria-labelledby="stories-heading">
@@ -266,12 +266,11 @@
             Most studios build a website first. We built the product first. Here is why that decision changed how we think about everything — from marketing to architecture to what it means to be a software studio.
           </p>
 
-          <div class="flex items-center justify-between pt-6 border-t border-subtle flex-wrap gap-4">
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:var(--space-6);border-top:1px solid var(--border-subtle);flex-wrap:wrap;gap:var(--space-4);">
             <span class="font-mono text-xs text-tertiary">July 2026</span>
-            <a href="../stories/why-we-built-case-assistant-os-first/" class="btn btn-secondary btn-sm">
-              Read Story
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </a>
+            <span class="btn btn-secondary btn-sm" style="opacity:0.5;cursor:default;" aria-disabled="true" title="Full article coming soon">
+              Coming Soon
+            </span>
           </div>
         </div>
       </div>
@@ -282,13 +281,13 @@
       <div class="container reveal">
         <h2 id="filter-heading" class="sr-only">Filter Stories by Topic</h2>
         
-        <div class="filter-bar" role="tablist" aria-label="Filter stories by category">
-          <button class="filter-pill is-active" data-filter="all" role="tab" aria-selected="true">All</button>
-          <button class="filter-pill" data-filter="strategy" role="tab" aria-selected="false">Product Strategy</button>
-          <button class="filter-pill" data-filter="engineering" role="tab" aria-selected="false">Engineering</button>
-          <button class="filter-pill" data-filter="design" role="tab" aria-selected="false">Design</button>
-          <button class="filter-pill" data-filter="research" role="tab" aria-selected="false">Research</button>
-          <button class="filter-pill" data-filter="business" role="tab" aria-selected="false">Business</button>
+        <div class="filter-bar" role="group" aria-label="Filter stories by category">
+          <button class="filter-pill is-active" data-filter="all" type="button" aria-pressed="true">All</button>
+          <button class="filter-pill" data-filter="strategy" type="button" aria-pressed="false">Product Strategy</button>
+          <button class="filter-pill" data-filter="engineering" type="button" aria-pressed="false">Engineering</button>
+          <button class="filter-pill" data-filter="design" type="button" aria-pressed="false">Design</button>
+          <button class="filter-pill" data-filter="research" type="button" aria-pressed="false">Research</button>
+          <button class="filter-pill" data-filter="business" type="button" aria-pressed="false">Business</button>
         </div>
 
         <p id="story-count" class="text-xs font-mono text-tertiary mt-4">Showing 6 stories</p>
@@ -444,10 +443,10 @@
           // Update active state
           filterPills.forEach(p => {
             p.classList.remove('is-active');
-            p.setAttribute('aria-selected', 'false');
+            p.setAttribute('aria-pressed', 'false');
           });
           pill.classList.add('is-active');
-          pill.setAttribute('aria-selected', 'true');
+          pill.setAttribute('aria-pressed', 'true');
 
           const filterValue = pill.getAttribute('data-filter');
           let visibleCount = 0;

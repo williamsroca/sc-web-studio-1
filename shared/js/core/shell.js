@@ -246,6 +246,18 @@
     addLink('icon',     'image/svg+xml', base + 'shared/assets/favicons/favicon.svg');
     addLink('manifest', null,            base + 'manifest.json');
     addMeta('theme-color', '#5568FF');
+
+    /* Google Fonts preconnect — applied on every page for font load performance */
+    function addPreconnect(href, crossorigin) {
+      if (document.querySelector('link[rel="preconnect"][href="' + href + '"]')) return;
+      var el = document.createElement('link');
+      el.rel  = 'preconnect';
+      el.href = href;
+      if (crossorigin) el.crossOrigin = 'anonymous';
+      document.head.insertBefore(el, document.head.firstChild);
+    }
+    addPreconnect('https://fonts.googleapis.com', false);
+    addPreconnect('https://fonts.gstatic.com', true);
   }());
 
   /* ── Inject header (synchronous — runs before page content renders) ─── */

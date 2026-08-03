@@ -67,7 +67,7 @@
       min-height: 100svh;
       display: flex;
       align-items: center;
-      padding-top: 80px;
+      padding-top: calc(var(--nav-height) + var(--space-8));
       padding-bottom: var(--space-16);
       position: relative;
       overflow: hidden;
@@ -81,9 +81,10 @@
       inset: 0;
       z-index: -2;
       background:
-        radial-gradient(ellipse 100% 80% at 65% -10%, rgba(85, 104, 255, 0.18) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 10% 80%,  rgba(85, 104, 255, 0.06) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 40% at 90% 60%,  rgba(14, 165, 233, 0.05) 0%, transparent 60%);
+        radial-gradient(ellipse 120% 90% at 75% -20%, rgba(85, 104, 255, 0.22) 0%, transparent 50%),
+        radial-gradient(ellipse 80% 60% at 5% 85%,  rgba(85, 104, 255, 0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 50% at 85% 70%,  rgba(14, 165, 233, 0.06) 0%, transparent 60%);
+      filter: blur(40px);
     }
 
     /* Noise texture */
@@ -94,7 +95,7 @@
       z-index: -1;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
       background-size: 128px;
-      opacity: 0.02;
+      opacity: 0.015;
       pointer-events: none;
     }
 
@@ -106,7 +107,7 @@
     }
 
     @media (min-width: 1024px) {
-      .hero-layout { grid-template-columns: 46fr 54fr; gap: var(--space-12); }
+      .hero-layout { grid-template-columns: 44fr 56fr; gap: var(--space-12); }
     }
 
     .hero-text {
@@ -169,300 +170,40 @@
 
     .hero-mockup-frame {
       width: 100%;
-      max-width: 660px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      max-width: 720px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius-2xl);
       overflow: hidden;
       background: var(--bg-surface);
       box-shadow:
         0 0 0 1px rgba(255, 255, 255, 0.04),
-        0 40px 120px rgba(0, 0, 0, 0.7),
-        0 0 80px rgba(85, 104, 255, 0.12);
-      transform: perspective(1100px) rotateY(-7deg) rotateX(3deg);
-      transition: transform var(--duration-slow) var(--ease-out);
+        0 60px 140px rgba(0, 0, 0, 0.8),
+        0 0 100px rgba(85, 104, 255, 0.15);
+      transform: perspective(1200px) rotateY(-8deg) rotateX(4deg) translateZ(0);
+      transform-style: preserve-3d;
+      transition: transform var(--duration-slow) cubic-bezier(0.22, 1, 0.36, 1);
       will-change: transform;
     }
 
     .hero-mockup-frame:hover {
-      transform: perspective(1100px) rotateY(-3deg) rotateX(1.5deg);
+      transform: perspective(1200px) rotateY(-2deg) rotateX(2deg) translateZ(20px);
     }
 
     .hero-mockup-glare {
       position: absolute;
       inset: 0;
-      background: linear-gradient(160deg, rgba(255,255,255,0.045) 0%, transparent 50%);
+      background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, transparent 40%);
       pointer-events: none;
       z-index: 2;
       border-radius: inherit;
     }
 
-    /* Browser chrome bar */
-    .hero-browser-bar {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      padding: 10px var(--space-4);
-      background: var(--bg-surface-raised);
-      border-bottom: 1px solid var(--border-subtle);
-      flex-shrink: 0;
-    }
-
-    .hero-dots {
-      display: flex;
-      gap: 5px;
-      flex-shrink: 0;
-    }
-
-    .hero-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-    }
-
-    .hero-url-bar {
-      flex: 1;
-      height: 22px;
-      background: rgba(6, 6, 8, 0.6);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-full);
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      padding-inline: var(--space-3);
-    }
-
-    .hero-url-lock {
-      width: 10px;
-      height: 10px;
-      color: var(--color-success);
-      flex-shrink: 0;
-    }
-
-    .hero-url-text {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--text-tertiary);
-    }
-
-    /* Product UI inside the mockup */
-    .hero-product-ui {
-      display: grid;
-      grid-template-columns: 168px 1fr;
-      height: 360px;
-      overflow: hidden;
-    }
-
-    /* Sidebar */
-    .hero-sidebar {
-      background: var(--bg-surface-raised);
-      border-right: 1px solid var(--border-subtle);
-      padding: var(--space-4) var(--space-3);
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      overflow: hidden;
-    }
-
-    .hero-sb-brand {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: var(--space-2) var(--space-3);
-      margin-bottom: var(--space-3);
-    }
-
-    .hero-sb-mark {
-      width: 18px;
-      height: 18px;
-      background: var(--legal-badge-bg);
-      border: 1px solid var(--legal-badge-border);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .hero-sb-brand-text {
-      font-family: var(--font-display);
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .hero-sb-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-      border-radius: 5px;
-      font-size: 11px;
-      font-family: var(--font-ui);
-      font-weight: 500;
-      color: var(--text-tertiary);
-    }
-
-    .hero-sb-item.is-active {
-      background: var(--legal-badge-bg);
-      color: var(--legal-400);
-      border: 1px solid var(--legal-badge-border);
-    }
-
-    .hero-sb-item svg {
-      width: 13px;
-      height: 13px;
-      flex-shrink: 0;
-    }
-
-    .hero-sb-divider {
-      height: 1px;
-      background: var(--border-subtle);
-      margin-block: var(--space-2);
-    }
-
-    /* Main content */
-    .hero-main {
-      background: var(--bg-page);
-      padding: var(--space-5);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-4);
-      overflow: hidden;
-    }
-
-    .hero-main-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .hero-main-title {
-      font-family: var(--font-display);
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text-primary);
-      letter-spacing: -0.015em;
-    }
-
-    .hero-main-date {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--text-tertiary);
-    }
-
-    .hero-kpi-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: var(--space-2);
-    }
-
-    .hero-kpi {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 7px;
-      padding: var(--space-3) var(--space-3);
-    }
-
-    .hero-kpi-val {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--text-primary);
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
-
-    .hero-kpi-lbl {
-      font-size: 9px;
-      color: var(--text-tertiary);
-      font-family: var(--font-ui);
-      margin-top: 3px;
-      line-height: 1.3;
-    }
-
-    .hero-kpi-trend {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      color: var(--color-success);
-      margin-top: 4px;
-    }
-
-    .hero-cases-hdr {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .hero-cases-lbl {
-      font-size: 10px;
-      font-weight: 600;
-      font-family: var(--font-ui);
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .hero-cases-filter {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      color: var(--text-tertiary);
-    }
-
-    .hero-cases-list {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-
-    .hero-case-row {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      padding: 6px 9px;
-      border-radius: 5px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-    }
-
-    .hcr-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    .hcr-dot-active   { background: var(--legal-500); }
-    .hcr-dot-medical  { background: var(--color-warning); }
-    .hcr-dot-attorney { background: var(--studio-400); }
-    .hcr-dot-done     { background: var(--color-success); }
-
-    .hcr-name {
-      font-size: 11px;
-      font-weight: 500;
-      color: var(--text-primary);
-      font-family: var(--font-ui);
-      flex: 1;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .hcr-tag {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      color: var(--text-tertiary);
-      background: var(--bg-surface-raised);
-      border: 1px solid var(--border-subtle);
-      border-radius: 3px;
-      padding: 1px 5px;
-      white-space: nowrap;
-    }
-
-    .hcr-date {
-      font-family: var(--font-mono);
-      font-size: 9px;
-      color: var(--text-tertiary);
-      white-space: nowrap;
+    .hero-mockup-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 16/9;
     }
 
     /* Floating accent cards around mockup */
@@ -1174,119 +915,7 @@
             <div class="hero-mockup-frame">
               <div class="hero-mockup-glare"></div>
 
-              <!-- Browser chrome -->
-              <div class="hero-browser-bar">
-                <div class="hero-dots">
-                  <div class="hero-dot" style="background:#FF5F57;"></div>
-                  <div class="hero-dot" style="background:#FEBC2E;"></div>
-                  <div class="hero-dot" style="background:#28C840;"></div>
-                </div>
-                <div class="hero-url-bar">
-                  <svg class="hero-url-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                  <span class="hero-url-text">app.caseassistant.us</span>
-                </div>
-              </div>
-
-              <!-- Product UI -->
-              <div class="hero-product-ui">
-
-                <!-- Sidebar -->
-                <div class="hero-sidebar">
-                  <div class="hero-sb-brand">
-                    <div class="hero-sb-mark">
-                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--legal-400)" stroke-width="2.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                    </div>
-                    <span class="hero-sb-brand-text">Case Assistant</span>
-                  </div>
-
-                  <div class="hero-sb-item is-active">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-                    Dashboard
-                  </div>
-                  <div class="hero-sb-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-                    Cases
-                  </div>
-                  <div class="hero-sb-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="8" width="18" height="13" rx="2"/><path d="M8 8V6a4 4 0 0 1 8 0v2"/></svg>
-                    Medical
-                  </div>
-                  <div class="hero-sb-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-                    Attorney
-                  </div>
-                  <div class="hero-sb-divider"></div>
-                  <div class="hero-sb-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-                    Reports
-                  </div>
-                  <div class="hero-sb-item">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-                    Settings
-                  </div>
-                </div>
-
-                <!-- Main dashboard -->
-                <div class="hero-main">
-                  <div class="hero-main-header">
-                    <span class="hero-main-title">Case Dashboard</span>
-                    <span class="hero-main-date">Jul 26, 2026</span>
-                  </div>
-
-                  <div class="hero-kpi-grid">
-                    <div class="hero-kpi">
-                      <div class="hero-kpi-val">24</div>
-                      <div class="hero-kpi-lbl">Active Cases</div>
-                      <div class="hero-kpi-trend">↑ 3 this week</div>
-                    </div>
-                    <div class="hero-kpi">
-                      <div class="hero-kpi-val" style="color:var(--color-warning);">8</div>
-                      <div class="hero-kpi-lbl">Medical Pending</div>
-                    </div>
-                    <div class="hero-kpi">
-                      <div class="hero-kpi-val" style="color:var(--studio-400);">3</div>
-                      <div class="hero-kpi-lbl">Attorney Follow-up</div>
-                    </div>
-                    <div class="hero-kpi">
-                      <div class="hero-kpi-val" style="color:var(--text-tertiary);">127</div>
-                      <div class="hero-kpi-lbl">Resolved (90d)</div>
-                    </div>
-                  </div>
-
-                  <div class="hero-cases-hdr">
-                    <span class="hero-cases-lbl">Recent Cases</span>
-                    <span class="hero-cases-filter">This week ▾</span>
-                  </div>
-
-                  <div class="hero-cases-list">
-                    <div class="hero-case-row">
-                      <div class="hcr-dot hcr-dot-medical"></div>
-                      <span class="hcr-name">Martinez, Carlos A.</span>
-                      <span class="hcr-tag">Medical</span>
-                      <span class="hcr-date">Jul 28</span>
-                    </div>
-                    <div class="hero-case-row">
-                      <div class="hcr-dot hcr-dot-active"></div>
-                      <span class="hcr-name">Thompson, Sarah R.</span>
-                      <span class="hcr-tag">Active</span>
-                      <span class="hcr-date">Aug 02</span>
-                    </div>
-                    <div class="hero-case-row">
-                      <div class="hcr-dot hcr-dot-attorney"></div>
-                      <span class="hcr-name">Chen, David W.</span>
-                      <span class="hcr-tag">Attorney</span>
-                      <span class="hcr-date">Jul 30</span>
-                    </div>
-                    <div class="hero-case-row">
-                      <div class="hcr-dot hcr-dot-active"></div>
-                      <span class="hcr-name">Rivera, Ana M.</span>
-                      <span class="hcr-tag">Active</span>
-                      <span class="hcr-date">Aug 10</span>
-                    </div>
-                  </div>
-                </div>
-
-              </div><!-- /hero-product-ui -->
+              <img src="shared/assets/mockups/home_ecosystem.jpg" alt="SC Web Studio Ecosystem Dashboard" class="hero-mockup-image" width="1280" height="720">
             </div><!-- /hero-mockup-frame -->
 
           </div><!-- /hero-mockup-wrapper -->

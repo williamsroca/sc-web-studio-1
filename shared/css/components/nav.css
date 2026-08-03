@@ -297,14 +297,15 @@
 
 .scroll-progress {
   position: fixed;
-  top: 64px;
+  top: var(--nav-height, 64px);
   left: 0;
-  height: 1px;
+  height: 2px;
   background: linear-gradient(90deg, var(--studio-500), var(--studio-400));
   z-index: calc(var(--z-sticky) + 1);
   width: 0%;
-  transition: width 0.05s linear;
+  transition: width 0.08s linear;
   transform-origin: left;
+  pointer-events: none;
 }
 
 

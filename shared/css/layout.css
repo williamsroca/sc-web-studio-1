@@ -80,9 +80,17 @@
 .section-xl  { padding-block: var(--space-32); }
 .section-hero { padding-block: var(--space-32) var(--space-24); }
 
+/* Nav-aware first section — accounts for fixed nav bar height */
+/* Use on first <section> of sub-pages (About, Services, Labs, etc.) */
+.section-page-hero {
+  padding-top: calc(var(--nav-height) + var(--space-16));
+  padding-bottom: var(--space-20);
+}
+
 @media (min-width: 768px) {
   .section-md  { padding-block: var(--space-20); }
   .section-lg  { padding-block: var(--space-24); }
+  .section-page-hero { padding-top: calc(var(--nav-height) + var(--space-24)); }
 }
 
 @media (min-width: 1024px) {
@@ -90,7 +98,9 @@
   .section-lg  { padding-block: var(--space-32); }
   .section-xl  { padding-block: var(--space-40); }
   .section-hero { padding-block: var(--space-40) var(--space-32); }
+  .section-page-hero { padding-top: calc(var(--nav-height) + var(--space-32)); }
 }
+
 
 /* Surface variants */
 .section-surface {
@@ -101,9 +111,21 @@
   background: var(--bg-surface-raised);
 }
 
-/* Section divider */
+/* Section divider — subtle rule between adjacent sections */
 .section + .section {
   border-top: 1px solid var(--border-subtle);
+}
+
+/* Surface sections already have a bg distinction — no need for border */
+.section-surface + .section,
+.section + .section-surface,
+.section-surface + .section-surface {
+  border-top: none;
+}
+
+.section-surface-raised + .section,
+.section + .section-surface-raised {
+  border-top: none;
 }
 
 /* Full-bleed background (overrides section's inline padding) */

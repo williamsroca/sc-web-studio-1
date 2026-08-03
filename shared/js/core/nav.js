@@ -165,7 +165,11 @@
         (linkPath !== '/' && currentPath.startsWith(linkPath));
 
       link.classList.toggle('is-active', isActive);
-      link.setAttribute('aria-current', isActive ? 'page' : 'false');
+      if (isActive) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
     });
   }
 

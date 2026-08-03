@@ -126,61 +126,13 @@
       color: var(--text-secondary);
       text-align: center;
     }
-    .mockup-body {
-      display: flex;
-      height: 400px;
-    }
-    .mockup-sidebar {
-      width: 200px;
-      border-right: 1px solid var(--border-subtle);
-      padding: var(--space-4) 0;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-2);
-    }
-    .mockup-brand {
-      font-family: var(--font-display);
-      font-weight: 600;
-      color: var(--text-primary);
-      padding: 0 var(--space-4) var(--space-4);
-      margin-bottom: var(--space-4);
-      border-bottom: 1px solid var(--border-subtle);
-    }
-    .mockup-nav-item {
-      padding: var(--space-2) var(--space-4);
-      color: var(--text-secondary);
-      font-size: var(--text-sm);
-    }
-    .mockup-nav-item.active {
-      color: var(--legal-500);
-      background-color: rgba(14,165,233,0.1);
-      border-right: 2px solid var(--legal-500);
-    }
-    .mockup-main {
-      flex: 1;
-      padding: var(--space-6);
-      background-color: var(--bg-page);
-    }
-    .mockup-table {
+    .hero-mockup-image {
       width: 100%;
-      border-collapse: collapse;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 16/9;
     }
-    .mockup-table th {
-      text-align: left;
-      font-size: var(--text-xs);
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      padding-bottom: var(--space-4);
-      border-bottom: 1px solid var(--border-subtle);
-      font-family: var(--font-mono);
-    }
-    .mockup-table td {
-      padding: var(--space-4) 0;
-      border-bottom: 1px solid var(--border-subtle);
-      font-size: var(--text-sm);
-      color: var(--text-secondary);
-    }
-    .mockup-table td:first-child { color: var(--text-primary); }
 
     /* Pullquote */
     .pullquote {
@@ -276,7 +228,7 @@
     }
   </style>
 </head>
-<body>
+<body class="page-wrapper">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
@@ -284,7 +236,7 @@
   <div id="sc-header"></div>
   <script src="../../shared/js/core/shell.js" data-base="../../"></script>
 
-  <main id="main-content">
+  <main id="main-content" class="page-content">
     
     <!-- 1. HERO -->
     <section class="section-xl" aria-labelledby="hero-heading">
@@ -303,8 +255,7 @@
           Built for U.S. Personal Injury firms · English-only · Local-first architecture · v1.5.0
         </p>
 
-        <!-- CSS Mockup -->
-        <div class="hero-cao-mockup reveal reveal-fade">
+        <div class="hero-cao-mockup reveal" style="transition-delay: 200ms;">
           <div class="browser-bar">
             <div class="browser-dots">
               <div class="browser-dot"></div>
@@ -312,67 +263,9 @@
               <div class="browser-dot"></div>
             </div>
             <div class="browser-url">case-assistant.app</div>
+            <div style="width: 46px;"></div> <!-- balance -->
           </div>
-          <div class="mockup-body">
-            <div class="mockup-sidebar">
-              <div class="mockup-brand">Case Assistant OS</div>
-              <div class="mockup-nav-item active">Dashboard</div>
-              <div class="mockup-nav-item">Cases</div>
-              <div class="mockup-nav-item">Medical</div>
-              <div class="mockup-nav-item">Attorney</div>
-              <div class="mockup-nav-item">Deadlines</div>
-            </div>
-            <div class="mockup-main">
-              <table class="mockup-table">
-                <thead>
-                  <tr>
-                    <th>Case No.</th>
-                    <th>Client</th>
-                    <th>Status</th>
-                    <th>Open Requests</th>
-                    <th>Next Deadline</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>CA-2601</td>
-                    <td>Smith, J.</td>
-                    <td><span class="badge badge-live">Discovery</span></td>
-                    <td>3 pending</td>
-                    <td>Oct 12</td>
-                  </tr>
-                  <tr>
-                    <td>CA-2602</td>
-                    <td>Johnson, M.</td>
-                    <td><span class="badge badge-active-dev">Med Records</span></td>
-                    <td>8 pending</td>
-                    <td>Nov 05</td>
-                  </tr>
-                  <tr>
-                    <td>CA-2603</td>
-                    <td>Davis, R.</td>
-                    <td><span class="badge badge-live">Negotiation</span></td>
-                    <td>0 pending</td>
-                    <td>Sep 30</td>
-                  </tr>
-                  <tr>
-                    <td>CA-2604</td>
-                    <td>Wilson, K.</td>
-                    <td><span class="badge badge-new">Intake</span></td>
-                    <td>1 pending</td>
-                    <td>Oct 15</td>
-                  </tr>
-                  <tr>
-                    <td>CA-2605</td>
-                    <td>Martinez, L.</td>
-                    <td><span class="badge badge-live">Discovery</span></td>
-                    <td>2 pending</td>
-                    <td>Oct 22</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <img src="../../shared/assets/mockups/case_assistant.jpg" alt="Case Assistant OS UI" class="hero-mockup-image" width="1280" height="720">
         </div>
       </div>
     </section>

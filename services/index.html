@@ -1,18 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services — SC Web Studio</title>
-  <meta name="description" content="SC Web Studio builds custom software, process automation, SaaS products, and interfaces for professionals. Limited engagements per year. Based in Bolivia, clients worldwide.">
-  <link rel="canonical" href="https://scwebstudio.com/services/">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://scwebstudio.com/services/">
-  <meta property="og:title" content="Services — SC Web Studio">
-  <meta property="og:description" content="Custom software, process automation, SaaS products, and interfaces for professionals. Limited engagements per year.">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Services — SC Web Studio">
 
+  <!-- ── Primary SEO ────────────────────────────────────────────────────── -->
+  <title>Servicios & Soluciones Digitales — SC Web Studio Bolivia</title>
+  <meta name="description" content="Ayudamos a empresas y emprendedores en Bolivia a conseguir más clientes, ahorrar tiempo y automatizar procesos con sitios web, tiendas online, software a medida e innovación 3D.">
+  <meta name="keywords" content="servicios desarrollo web Bolivia, tiendas online Bolivia, automatizacion de procesos, software a medida, prototipado 3D, desarrollo de software Bolivia, SC Web Studio">
+  <meta name="author" content="SC Web Studio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://scwebstudio.com/services/">
+
+  <!-- ── Open Graph ──────────────────────────────────────────────────────── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://scwebstudio.com/services/">
+  <meta property="og:title"       content="Servicios & Soluciones Digitales — SC Web Studio Bolivia">
+  <meta property="og:description" content="Tecnología diseñada para hacer crecer tu empresa: sitios web, tiendas virtuales, automatización y software a medida.">
+  <meta property="og:site_name"   content="SC Web Studio">
+  <meta property="og:locale"      content="es_BO">
+  <meta property="og:image"       content="https://scwebstudio.com/shared/assets/og/home.jpg">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Servicios & Soluciones Digitales — SC Web Studio Bolivia">
+  <meta name="twitter:description" content="Tecnología diseñada para hacer crecer tu empresa y simplificar tu trabajo diario.">
+
+  <!-- ── Fonts & CSS ────────────────────────────────────────────────────── -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -32,10 +46,18 @@
   <style>
     /* ── Hero ──────────────────────────────────────────────────────── */
     .services-hero {
-      padding: calc(var(--nav-height) + var(--space-20)) var(--space-6) var(--space-20);
+      padding: calc(var(--nav-height) + var(--space-16)) var(--space-6) var(--space-16);
       max-width: var(--max-width-content);
       margin: 0 auto;
     }
+
+    .hero-h1-accent {
+      background: linear-gradient(135deg, #A0ADFF 0%, var(--studio-500) 60%, #3D4EE8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
     .services-hero-trust {
       font-family: var(--font-mono);
       font-size: var(--text-2xs);
@@ -44,161 +66,241 @@
       letter-spacing: 0.04em;
     }
 
-    /* ── Capability rows ────────────────────────────────────────────── */
-    .capability-list { margin-top: var(--space-12); }
-    .capability-row {
+    /* ── Service Category Card Layout ──────────────────────────────── */
+    .services-cat-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: var(--space-8);
-      padding: var(--space-10) 0;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-    .capability-row:first-child { border-top: 1px solid var(--border-subtle); }
-    @media (min-width: 1024px) {
-      .capability-row {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-16);
-        align-items: start;
-      }
-    }
-    .capability-num {
-      font-family: var(--font-mono);
-      font-size: var(--text-2xs);
-      font-weight: var(--weight-semibold);
-      color: var(--studio-500);
-      letter-spacing: 0.08em;
-      display: block;
-      margin-bottom: var(--space-4);
-    }
-    .capability-title {
-      font-family: var(--font-display);
-      font-size: var(--text-2xl);
-      font-weight: var(--weight-bold);
-      color: var(--text-primary);
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-bottom: var(--space-4);
-    }
-    .capability-desc {
-      font-size: var(--text-sm);
-      color: var(--text-secondary);
-      line-height: var(--leading-relaxed);
-      max-width: 46ch;
-    }
-    .capability-deliverables {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-3);
-      padding-top: var(--space-2);
-    }
-    .capability-deliverables li {
-      display: flex;
-      align-items: flex-start;
-      gap: var(--space-3);
-      font-size: var(--text-sm);
-      color: var(--text-secondary);
-    }
-    .capability-deliverables li::before {
-      content: '';
-      display: block;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: rgba(85,104,255,0.08);
-      border: 1px solid rgba(85,104,255,0.2);
-      flex-shrink: 0;
-      margin-top: 2px;
-      position: relative;
-    }
-    .capability-deliverables li::after {
-      display: none;
-    }
-    .capability-deliverables-label {
-      font-family: var(--font-mono);
-      font-size: var(--text-2xs);
-      color: var(--text-tertiary);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: var(--space-4);
-    }
-
-    /* ── Process pipeline ───────────────────────────────────────────── */
-    .process-pipeline {
-      display: flex;
-      flex-direction: column;
-      position: relative;
       margin-top: var(--space-12);
     }
-    .process-pipeline::before {
-      content: '';
-      position: absolute;
-      left: 23px;
-      top: 24px;
-      bottom: 24px;
-      width: 1px;
-      background: linear-gradient(
-        to bottom,
-        transparent,
-        var(--border-default) 10%,
-        var(--studio-glow, rgba(85,104,255,0.3)) 50%,
-        var(--border-default) 90%,
-        transparent
-      );
+
+    @media (min-width: 768px) {
+      .services-cat-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
-    .process-step {
-      display: grid;
-      grid-template-columns: 48px 1fr;
-      gap: var(--space-6);
-      padding-block: var(--space-8);
-      position: relative;
-      opacity: 0;
-      transform: translateX(-16px);
-      transition:
-        opacity 600ms var(--ease-out),
-        transform 600ms var(--ease-out);
+
+    @media (min-width: 1200px) {
+      .services-cat-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
-    .process-step.is-active { opacity: 1; transform: translateX(0); }
-    .process-num {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid var(--border-default);
+
+    .card-cat-service {
       background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      transition:
+        transform var(--duration-slow) var(--ease-spring),
+        box-shadow var(--duration-slow) var(--ease-out),
+        border-color var(--duration-base) var(--ease-out);
+    }
+
+    .card-cat-service:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-default);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .card-cat-header {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
+    }
+
+    .card-cat-num {
       font-family: var(--font-mono);
       font-size: var(--text-xs);
       font-weight: var(--weight-semibold);
-      color: var(--text-tertiary);
-      flex-shrink: 0;
-      z-index: 1;
-      position: relative;
-      transition: all 600ms var(--ease-out);
-    }
-    .process-step.is-active .process-num {
-      background: rgba(85,104,255,0.1);
-      border-color: var(--studio-500);
-      color: var(--studio-400);
-    }
-    .process-body { padding-top: var(--space-3); }
-    .process-title {
-      font-family: var(--font-display);
-      font-size: var(--text-xl);
-      font-weight: var(--weight-semibold);
-      color: var(--text-primary);
-      letter-spacing: -0.015em;
-      margin-bottom: var(--space-3);
-    }
-    .process-desc {
-      font-size: var(--text-sm);
-      color: var(--text-secondary);
-      line-height: var(--leading-relaxed);
-      max-width: 44ch;
+      color: var(--studio-500);
+      letter-spacing: 0.08em;
     }
 
-    /* ── Not a fit ──────────────────────────────────────────────────── */
+    .card-cat-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-lg);
+      background: rgba(85, 104, 255, 0.08);
+      border: 1px solid rgba(85, 104, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--studio-400);
+      flex-shrink: 0;
+    }
+
+    .card-cat-icon svg { width: 22px; height: 22px; }
+
+    .card-cat-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-bold);
+      color: var(--text-primary);
+      letter-spacing: -0.015em;
+    }
+
+    .cat-block {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+    }
+
+    .cat-block-label {
+      font-family: var(--font-ui);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+    }
+
+    .cat-problem-text {
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+    }
+
+    .cat-solution-text {
+      color: var(--text-primary);
+      line-height: var(--leading-relaxed);
+    }
+
+    .cat-outcome-box {
+      background: rgba(85, 104, 255, 0.05);
+      border-left: 3px solid var(--studio-500);
+      padding: var(--space-3) var(--space-4);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      color: var(--text-primary);
+      line-height: var(--leading-relaxed);
+    }
+
+    .card-cat-footer {
+      margin-top: auto;
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* ── Industry Solution Cards ("¿Cómo podemos ayudarte?") ───────── */
+    .industry-solutions-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+    }
+
+    @media (min-width: 640px) {
+      .industry-solutions-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .industry-solutions-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .card-ind-solution {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      transition:
+        transform var(--duration-slow) var(--ease-spring),
+        box-shadow var(--duration-slow) var(--ease-out),
+        border-color var(--duration-base) var(--ease-out);
+    }
+
+    .card-ind-solution:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-default);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .card-ind-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .card-ind-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-md);
+      background: rgba(85, 104, 255, 0.08);
+      border: 1px solid rgba(85, 104, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--studio-400);
+      flex-shrink: 0;
+    }
+
+    .card-ind-icon svg { width: 20px; height: 20px; }
+
+    .card-ind-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+    }
+
+    .ind-badge-rec {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      color: var(--studio-400);
+      background: rgba(85, 104, 255, 0.1);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      width: fit-content;
+    }
+
+    /* ── Product Trust Section ──────────────────────────────────────── */
+    .product-trust-wrap {
+      background: linear-gradient(135deg, var(--bg-surface) 0%, rgba(85, 104, 255, 0.04) 100%);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-12) var(--space-8);
+      margin-top: var(--space-12);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .product-trust-wrap {
+        grid-template-columns: 55fr 45fr;
+        padding: var(--space-16) var(--space-12);
+      }
+    }
+
+    .product-pill-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .product-pill-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: var(--space-4) var(--space-5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* ── Not a Fit ──────────────────────────────────────────────────── */
     .not-fit-list {
       display: flex;
       flex-direction: column;
@@ -223,12 +325,8 @@
 
     /* ── Final CTA ──────────────────────────────────────────────────── */
     .final-cta-section {
-      padding: var(--space-24) var(--space-6);
+      padding: var(--space-20) var(--space-6);
       text-align: center;
-    }
-    .final-cta-section .sh-heading {
-      margin-left: auto;
-      margin-right: auto;
     }
     .cta-actions {
       display: flex;
@@ -240,169 +338,502 @@
     }
   </style>
 
+  <!-- ── Structured Data ─────────────────────────────────────────────────── -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": "https://scwebstudio.com/services/#webpage",
     "url": "https://scwebstudio.com/services/",
-    "name": "Services — SC Web Studio",
-    "description": "Custom software, process automation, SaaS products, and interface design for professionals.",
+    "name": "Servicios & Soluciones Digitales — SC Web Studio Bolivia",
+    "description": "Sitios web, tiendas online, automatización de procesos, software a medida e innovación 3D para empresas en Bolivia.",
     "isPartOf": { "@id": "https://scwebstudio.com/#website" },
-    "inLanguage": "en-US"
+    "inLanguage": "es-BO"
   }
   </script>
 </head>
 
 <body class="page-wrapper" data-base-path="../">
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
 
+  <!-- Header Shell -->
   <div id="sc-header"></div>
   <script src="../shared/js/core/shell.js" data-base="../"></script>
 
   <main id="main-content" class="page-content">
 
-    <!-- ── §1 HERO ───────────────────────────────────────────────────── -->
+    <!-- ════════════════════════════════════════
+         §1 HERO
+    ═════════════════════════════════════════ -->
     <section aria-labelledby="services-heading" class="reveal">
       <div class="services-hero">
-        <p class="sh-label">Services</p>
-        <h1 class="display" id="services-heading" style="max-width:16ch;">
-          We build what clients need.<br>We keep what we build.
+        <p class="sh-label">Servicios & Soluciones</p>
+        <h1 class="display" id="services-heading" style="max-width:18ch;">
+          No vendemos código.<br>
+          <span class="hero-h1-accent">Ayudamos a tu empresa a crecer.</span>
         </h1>
         <p class="lead" style="margin-top:var(--space-6);max-width:54ch;">
-          Professional services engagements finance the continuous development of our own products. Every project gets the same engineering standards, the same design thinking, and the same long-term perspective.
+          Sabemos que no estás buscando algoritmos o herramientas complejas. Buscas más clientes, ahorrar tiempo, reducir errores y trabajar con tranquilidad. Diseñamos tecnología enfocada en los resultados reales de tu negocio.
         </p>
         <div style="display:flex;gap:var(--space-4);margin-top:var(--space-8);flex-wrap:wrap;align-items:center;">
-          <a href="../contact/" class="btn btn-primary btn-lg" id="hero-cta-services">Start a Project</a>
+          <a href="../contact/" class="btn btn-primary btn-lg" id="hero-cta-services">Agenda una Consulta Gratuita</a>
+          <a href="#how-we-help" class="btn btn-secondary btn-lg">Ver Soluciones por Sector</a>
         </div>
-        <p class="services-hero-trust">Limited engagements per year · Bolivia-based · Global clients · No outsourcing</p>
+        <p class="services-hero-trust">Atención personalizada en Bolivia · Sin intermediarios · Calidad de software global</p>
       </div>
     </section>
 
-    <!-- ── §2 CAPABILITIES ───────────────────────────────────────────── -->
-    <section class="section section-xl" id="capabilities" aria-labelledby="capabilities-heading">
+    <!-- ════════════════════════════════════════
+         §2 CATEGORÍAS DE SERVICIOS
+    ═════════════════════════════════════════ -->
+    <section class="section section-xl" id="categories" aria-labelledby="categories-heading">
       <div class="container">
         <div class="reveal">
-          <p class="sh-label">What We Build</p>
-          <h2 class="sh-heading" id="capabilities-heading">Four disciplines. One standard.</h2>
-          <p class="sh-lead">We don't do everything. We do these four things well — and we do each one with the same level of rigor.</p>
+          <p class="sh-label">Lo Que Hacemos</p>
+          <h2 class="sh-heading" id="categories-heading">Seis soluciones. Resultados reales.</h2>
+          <p class="sh-lead">Cada categoría de servicio está orientada a resolver un problema concreto de tu operación cotidiana.</p>
         </div>
 
-        <div class="capability-list reveal-group">
+        <div class="services-cat-grid reveal-group">
 
-          <div class="capability-row reveal">
-            <div>
-              <span class="capability-num">01</span>
-              <h3 class="capability-title">Custom software for workflows that matter.</h3>
-              <p class="capability-desc">Internal tools, client-facing platforms, workflow automation, and anything in between. We write maintainable code for systems that need to last — not just launch. Case Assistant OS started as a client project.</p>
+          <!-- 1. Business Websites -->
+          <article class="card-cat-service reveal">
+            <div class="card-cat-header">
+              <span class="card-cat-num">01</span>
+              <div class="card-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
             </div>
-            <div>
-              <p class="capability-deliverables-label">Typical deliverables</p>
-              <ul class="capability-deliverables">
-                <li>Working application with full test coverage</li>
-                <li>Source code, documentation, and architecture notes</li>
-                <li>Deployment and hosting setup</li>
-                <li>90-day post-launch support window</li>
-              </ul>
+            <h3 class="card-cat-title">Sitios Web para Empresas</h3>
+            
+            <div class="cat-block">
+              <span class="cat-block-label">El Problema</span>
+              <p class="cat-problem-text">Tener una presencia web lenta, desactualizada o invisible que no transmite la seriedad de tu negocio ni genera consultas reales.</p>
             </div>
-          </div>
 
-          <div class="capability-row reveal">
-            <div>
-              <span class="capability-num">02</span>
-              <h3 class="capability-title">Eliminating repetitive work, systematically.</h3>
-              <p class="capability-desc">If a human is doing something a machine could do better — and should do better — we build the machine. From simple schedule automations to complex multi-system integrations that eliminate entire job functions.</p>
+            <div class="cat-block">
+              <span class="cat-block-label">Cómo lo resolvemos</span>
+              <p class="cat-solution-text">Diseñamos sitios institucionales ultrarrápidos, elegantes y optimizados para celulares que destacan tu propuesta de valor con claridad.</p>
             </div>
-            <div>
-              <p class="capability-deliverables-label">Typical deliverables</p>
-              <ul class="capability-deliverables">
-                <li>Automation architecture and system design</li>
-                <li>Integration builds and API connections</li>
-                <li>Testing, monitoring, and alerting</li>
-                <li>Handoff documentation and runbook</li>
-              </ul>
-            </div>
-          </div>
 
-          <div class="capability-row reveal">
-            <div>
-              <span class="capability-num">03</span>
-              <h3 class="capability-title">End-to-end product, from strategy to launch.</h3>
-              <p class="capability-desc">Strategy, architecture, design, engineering, and launch — handled by one team with one standard. No handoffs between agencies. No translation errors between design and code. No surprises at the end.</p>
+            <div class="cat-block">
+              <span class="cat-block-label">El Resultado</span>
+              <div class="cat-outcome-box">
+                <strong>Más credibilidad:</strong> Generas confianza inmediata ante tus clientes y conviertes visitantes en oportunidades reales de venta.
+              </div>
             </div>
-            <div>
-              <p class="capability-deliverables-label">Typical deliverables</p>
-              <ul class="capability-deliverables">
-                <li>Product strategy and technical specification</li>
-                <li>Full design system and component library</li>
-                <li>Working product with CI/CD pipeline</li>
-                <li>Launch plan and post-launch support</li>
-              </ul>
-            </div>
-          </div>
 
-          <div class="capability-row reveal">
-            <div>
-              <span class="capability-num">04</span>
-              <h3 class="capability-title">Interfaces for professionals under pressure.</h3>
-              <p class="capability-desc">We specialize in software used daily by people who cannot afford confusion. Case managers, operations leads, coordinators, paralegals. Clarity is not a nice-to-have in these contexts — it is the entire job. Every decision should reduce cognitive load.</p>
+            <div class="card-cat-footer">
+              <a href="../contact/?service=website" class="btn btn-text btn-sm">Diseñar mi Sitio Web <span class="btn-arrow">→</span></a>
             </div>
-            <div>
-              <p class="capability-deliverables-label">Typical deliverables</p>
-              <ul class="capability-deliverables">
-                <li>User research, flows, and journey maps</li>
-                <li>Component design system and guidelines</li>
-                <li>Interactive prototype for stakeholder review</li>
-                <li>Developer handoff with annotated specs</li>
-              </ul>
+          </article>
+
+          <!-- 2. Online Stores -->
+          <article class="card-cat-service reveal">
+            <div class="card-cat-header">
+              <span class="card-cat-num">02</span>
+              <div class="card-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                  <line x1="3" y1="6" x2="21" y2="6"/>
+                  <path d="M16 10a4 4 0 0 1-8 0"/>
+                </svg>
+              </div>
             </div>
-          </div>
+            <h3 class="card-cat-title">Tiendas Online & E-Commerce</h3>
+            
+            <div class="cat-block">
+              <span class="cat-block-label">El Problema</span>
+              <p class="cat-problem-text">Depender únicamente de responder mensajes por Instagram o WhatsApp, perdiendo ventas fuera de horario y gestionando pagos a mano.</p>
+            </div>
+
+            <div class="cat-block">
+              <span class="cat-block-label">Cómo lo resolvemos</span>
+              <p class="cat-solution-text">Desarrollamos tiendas virtuales completas con catálogo interactivo, cobros automatizados y sincronización inmediata de inventario.</p>
+            </div>
+
+            <div class="cat-block">
+              <span class="cat-block-label">El Resultado</span>
+              <div class="cat-outcome-box">
+                <strong>Ventas 24/7:</strong> Tu negocio recibe pedidos y pagos de manera automática las 24 horas del día, organizando tus despachos sin caos.
+              </div>
+            </div>
+
+            <div class="card-cat-footer">
+              <a href="../contact/?service=ecommerce" class="btn btn-text btn-sm">Lanzar mi Tienda Online <span class="btn-arrow">→</span></a>
+            </div>
+          </article>
+
+          <!-- 3. Business Automation -->
+          <article class="card-cat-service reveal">
+            <div class="card-cat-header">
+              <span class="card-cat-num">03</span>
+              <div class="card-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="card-cat-title">Automatización de Procesos</h3>
+            
+            <div class="cat-block">
+              <span class="cat-block-label">El Problema</span>
+              <p class="cat-problem-text">Perder valiosas horas semanales copiando datos entre planillas, enviando correos de seguimiento y realizando tareas administrativas repetitivas.</p>
+            </div>
+
+            <div class="cat-block">
+              <span class="cat-block-label">Cómo lo resolvemos</span>
+              <p class="cat-solution-text">Conectamos tus sistemas de trabajo para que la información fluya sola y las facturas, alertas y notificaciones se envíen automáticamente.</p>
+            </div>
+
+            <div class="cat-block">
+              <span class="cat-block-label">El Resultado</span>
+              <div class="cat-outcome-box">
+                <strong>Cero errores &amp; más tiempo:</strong> Eliminas fallas humanas y le devuelves a tu equipo decenas de horas operativas cada mes.
+              </div>
+            </div>
+
+            <div class="card-cat-footer">
+              <a href="../contact/?service=automation" class="btn btn-text btn-sm">Automatizar mi Negocio <span class="btn-arrow">→</span></a>
+            </div>
+          </article>
+
+          <!-- 4. Custom Software -->
+          <article class="card-cat-service reveal">
+            <div class="card-cat-header">
+              <span class="card-cat-num">04</span>
+              <div class="card-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <polyline points="16 18 22 12 16 6"/>
+                  <polyline points="8 6 2 12 8 18"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="card-cat-title">Software a Medida</h3>
+            
+            <div class="cat-block">
+              <span class="cat-block-label">El Problema</span>
+              <p class="cat-problem-text">Usar programas genéricos que no encajan con la forma real de trabajar de tu empresa o pagar mensualidades elevadas por funciones inútiles.</p>
+            </div>
+
+            <div class="cat-block">
+              <span class="cat-block-label">Cómo lo resolvemos</span>
+              <p class="cat-solution-text">Construimos paneles internos, portales de clientes y sistemas de gestión moldeados exactamente a los procesos de tu compañía.</p>
+            </div>
+
+            <div class="cat-block">
+              <span class="cat-block-label">El Resultado</span>
+              <div class="cat-outcome-box">
+                <strong>Operaciones fluidas:</strong> Total claridad del estado de tu empresa con software ágil, seguro y diseñado para escalar contigo.
+              </div>
+            </div>
+
+            <div class="card-cat-footer">
+              <a href="../contact/?service=custom-software" class="btn btn-text btn-sm">Desarrollar Software a Medida <span class="btn-arrow">→</span></a>
+            </div>
+          </article>
+
+          <!-- 5. Artificial Intelligence -->
+          <article class="card-cat-service reveal">
+            <div class="card-cat-header">
+              <span class="card-cat-num">05</span>
+              <div class="card-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 8v8"/>
+                  <path d="M8 12h8"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="card-cat-title">Inteligencia Artificial Aplicada</h3>
+            
+            <div class="cat-block">
+              <span class="cat-block-label">El Problema</span>
+              <p class="cat-problem-text">No dar abasto para responder preguntas frecuentes de clientes o tardar demasiado en procesar documentos e información compleja.</p>
+            </div>
+
+            <div class="cat-block">
+              <span class="cat-block-label">Cómo lo resolvemos</span>
+              <p class="cat-solution-text">Integramos asistentes inteligentes y sistemas RAG entrenados con la información oficial de tu empresa para responder al instante.</p>
+            </div>
+
+            <div class="cat-block">
+              <span class="cat-block-label">El Resultado</span>
+              <div class="cat-outcome-box">
+                <strong>Respuestas inmediatas:</strong> Multiplicas la velocidad de atención a clientes y procesamiento de datos sin aumentar tu nómina.
+              </div>
+            </div>
+
+            <div class="card-cat-footer">
+              <a href="../contact/?service=ai" class="btn btn-text btn-sm">Integrar Inteligencia Artificial <span class="btn-arrow">→</span></a>
+            </div>
+          </article>
+
+          <!-- 6. 3D Design & Printing -->
+          <article class="card-cat-service reveal">
+            <div class="card-cat-header">
+              <span class="card-cat-num">06</span>
+              <div class="card-cat-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="card-cat-title">Diseño &amp; Impresión 3D</h3>
+            
+            <div class="cat-block">
+              <span class="cat-block-label">El Problema</span>
+              <p class="cat-problem-text">La incertidumbre y el alto costo de mandar a fabricar productos físicos o piezas sin haber validado su forma y función previamente.</p>
+            </div>
+
+            <div class="cat-block">
+              <span class="cat-block-label">Cómo lo resolvemos</span>
+              <p class="cat-solution-text">Utilizamos prototipado rápido, modelado 3D de precisión e impresión tridimensional para transformar ideas en objetos tangibles.</p>
+            </div>
+
+            <div class="cat-block">
+              <span class="cat-block-label">El Resultado</span>
+              <div class="cat-outcome-box">
+                <strong>Innovación sin riesgo:</strong> Validas inventos, piezas o maquetas arquitectónicas físicamente antes de invertir en producción en masa.
+              </div>
+            </div>
+
+            <div class="card-cat-footer">
+              <a href="../contact/?service=3d" class="btn btn-text btn-sm">Prototipar mi Producto 3D <span class="btn-arrow">→</span></a>
+            </div>
+          </article>
 
         </div>
       </div>
     </section>
 
-    <!-- ── §3 HOW WE WORK ────────────────────────────────────────────── -->
+    <!-- ════════════════════════════════════════
+         §3 SOLUCIONES POR SECTOR ("¿Cómo podemos ayudarte?")
+    ═════════════════════════════════════════ -->
+    <section class="section section-lg section-surface" id="how-we-help" aria-labelledby="hwh-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="sh-label">¿Cómo podemos ayudarte?</p>
+          <h2 class="sh-heading" id="hwh-heading">Soluciones adaptadas a tu sector.</h2>
+          <p class="sh-lead">Selecciona la industria que mejor describe tu negocio para ver la combinación recomendada de tecnología.</p>
+        </div>
+
+        <div class="industry-solutions-grid reveal-group">
+
+          <!-- 1. Restaurantes -->
+          <article class="card-ind-solution reveal">
+            <div class="card-ind-header">
+              <div class="card-ind-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                  <line x1="6" y1="1" x2="6" y2="4"/>
+                  <line x1="10" y1="1" x2="10" y2="4"/>
+                  <line x1="14" y1="1" x2="14" y2="4"/>
+                </svg>
+              </div>
+              <h3 class="card-ind-title">Restaurantes &amp; Cafés</h3>
+            </div>
+            <p class="cat-problem-text"><strong>Desafío actual:</strong> Demora atendiendo pedidos por mensajes, menús desactualizados en PDF y pérdida de clientes en horas pico.</p>
+            <span class="ind-badge-rec">Sitio Web + Menú Digital + Sistema de Pedidos</span>
+            <div class="cat-outcome-box">
+              <strong>Resultado esperado:</strong> Tus clientes piden y reservan en segundos desde su celular. Tu personal se enfoca en la cocina y la atención presencial.
+            </div>
+          </article>
+
+          <!-- 2. Marcas de Ropa -->
+          <article class="card-ind-solution reveal">
+            <div class="card-ind-header">
+              <div class="card-ind-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <path d="M20.38 3.46L16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/>
+                </svg>
+              </div>
+              <h3 class="card-ind-title">Marcas de Ropa</h3>
+            </div>
+            <p class="cat-problem-text"><strong>Desafío actual:</strong> Depender de mensajes privados para vender, confirmaciones manuales de pago y descontrol de tallas en stock.</p>
+            <span class="ind-badge-rec">Tienda Online + Pasarela de Pago + Inventario</span>
+            <div class="cat-outcome-box">
+              <strong>Resultado esperado:</strong> Catálogo interactivo con cobro automático. Recibes la orden lista para empaquetar y despachar.
+            </div>
+          </article>
+
+          <!-- 3. Retail Store -->
+          <article class="card-ind-solution reveal">
+            <div class="card-ind-header">
+              <div class="card-ind-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+              </div>
+              <h3 class="card-ind-title">Comercio &amp; Tiendas</h3>
+            </div>
+            <p class="cat-problem-text"><strong>Desafío actual:</strong> Limitación de ventas solo al cliente presencial de la tienda física y falta de control centralizado.</p>
+            <span class="ind-badge-rec">E-Commerce Omnicanal + Automatización de Envíos</span>
+            <div class="cat-outcome-box">
+              <strong>Resultado esperado:</strong> Expansión de ventas a nivel nacional las 24 horas del día con control total del stock.
+            </div>
+          </article>
+
+          <!-- 4. Law Firm -->
+          <article class="card-ind-solution reveal">
+            <div class="card-ind-header">
+              <div class="card-ind-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+              </div>
+              <h3 class="card-ind-title">Bufetes de Abogados</h3>
+            </div>
+            <p class="cat-problem-text"><strong>Desafío actual:</strong> Expedientes traspapelados en planillas y llamadas constantes de clientes preguntando por el estado de su caso.</p>
+            <span class="ind-badge-rec">Sitio de Alta Firma + Portal de Clientes (Case Assistant OS)</span>
+            <div class="cat-outcome-box">
+              <strong>Resultado esperado:</strong> Máxima imagen de prestigio institucional y clientes que consultan sus avances de forma segura y autónoma.
+            </div>
+          </article>
+
+          <!-- 5. Clinic -->
+          <article class="card-ind-solution reveal">
+            <div class="card-ind-header">
+              <div class="card-ind-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+              </div>
+              <h3 class="card-ind-title">Salud &amp; Clínicas</h3>
+            </div>
+            <p class="cat-problem-text"><strong>Desafío actual:</strong> Teléfono de recepción saturado para agendar citas y ausentismo de pacientes por olvidos de horario.</p>
+            <span class="ind-badge-rec">Agendamiento Web + Recordatorios por WhatsApp/SMS</span>
+            <div class="cat-outcome-box">
+              <strong>Resultado esperado:</strong> Citas médicas reservadas de manera automática y reducción drástica de pacientes que faltan a sus consultas.
+            </div>
+          </article>
+
+          <!-- 6. Real Estate -->
+          <article class="card-ind-solution reveal">
+            <div class="card-ind-header">
+              <div class="card-ind-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <rect x="4" y="2" width="16" height="20" rx="2" ry="2"/>
+                  <line x1="9" y1="6" x2="9" y2="6.01"/>
+                  <line x1="15" y1="6" x2="15" y2="6.01"/>
+                  <line x1="9" y1="10" x2="9" y2="10.01"/>
+                  <line x1="15" y1="10" x2="15" y2="10.01"/>
+                  <line x1="9" y1="14" x2="9" y2="14.01"/>
+                  <line x1="15" y1="14" x2="15" y2="14.01"/>
+                </svg>
+              </div>
+              <h3 class="card-ind-title">Inmobiliarias</h3>
+            </div>
+            <p class="cat-problem-text"><strong>Desafío actual:</strong> Propiedades dispersas en archivos sin catálogo navegable y pérdida de prospectos compradores.</p>
+            <span class="ind-badge-rec">Portal Inmobiliario + Filtros de Búsqueda + CRM Leads</span>
+            <div class="cat-outcome-box">
+              <strong>Resultado esperado:</strong> Inmuebles presentados con elegancia y captación automática de prospectos calificados.
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         §4 TRUST SECTION (Nuestros propios productos)
+    ═════════════════════════════════════════ -->
+    <section class="section section-lg" id="product-trust" aria-labelledby="trust-heading">
+      <div class="container">
+        <div class="product-trust-wrap reveal">
+          <div>
+            <p class="sh-label">Nuestra Garantía de Calidad</p>
+            <h2 class="sh-heading" id="trust-heading" style="font-size:clamp(1.75rem,3.5vw,2.5rem);">
+              Construimos nuestros propios productos.<br>
+              <span style="color:var(--text-secondary);font-weight:var(--weight-semibold);">Tu empresa se beneficia de esa experiencia.</span>
+            </h2>
+            <p class="sh-lead" style="margin-top:var(--space-4);">
+              No somos una agencia que programa para terceros y desaparece. Diseñamos, lanzamos y operamos nuestras propias plataformas globales como <strong>Case Assistant OS</strong>, <strong>Project Home</strong> y <strong>SC Tech</strong>.
+            </p>
+            <p class="cat-problem-text" style="margin-top:var(--space-4);">
+              Gestionar nuestro propio software nos exige los estándares más altos de seguridad, arquitectura y usabilidad. Cuando trabajamos en tu proyecto, aplicamos exactamente el mismo rigor que usamos en nuestros productos.
+            </p>
+          </div>
+
+          <div class="product-pill-list">
+            <div class="product-pill-item">
+              <div>
+                <strong style="color:var(--text-primary);display:block;font-size:var(--text-md);">Case Assistant OS</strong>
+                <span style="font-size:var(--text-xs);color:var(--text-tertiary);">Sistema operativo legal inteligente</span>
+              </div>
+              <span class="badge badge-active-dev">En Vivo</span>
+            </div>
+
+            <div class="product-pill-item">
+              <div>
+                <strong style="color:var(--text-primary);display:block;font-size:var(--text-md);">Project Home</strong>
+                <span style="font-size:var(--text-xs);color:var(--text-tertiary);">Plataforma de alquileres en Bolivia</span>
+              </div>
+              <span class="badge badge-coming-soon">Próximamente</span>
+            </div>
+
+            <div class="product-pill-item">
+              <div>
+                <strong style="color:var(--text-primary);display:block;font-size:var(--text-md);">SC Tech</strong>
+                <span style="font-size:var(--text-xs);color:var(--text-tertiary);">Laboratorio de comercio digital</span>
+              </div>
+              <span class="badge badge-live">Laboratorio Vivo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         §5 PROCESO DE TRABAJO (Transparencia)
+    ═════════════════════════════════════════ -->
     <section class="section section-surface" id="process" aria-labelledby="process-heading">
       <div class="container">
         <div class="reveal">
-          <p class="sh-label">Our Process</p>
-          <h2 class="sh-heading" id="process-heading">No surprises. No scope creep.</h2>
-          <p class="sh-lead">We are explicit about how we work before we work together. The process is the product.</p>
+          <p class="sh-label">Cómo Trabajamos</p>
+          <h2 class="sh-heading" id="process-heading">Transparencia de inicio a fin.</h2>
+          <p class="sh-lead">Nuestra metodología elimina sorpresas y garantiza que recibas exactamente lo que tu negocio necesita.</p>
         </div>
 
         <div class="process-pipeline" role="list">
 
-          <div class="process-step" role="listitem" aria-label="Step 1: Understand">
+          <div class="process-step" role="listitem">
             <div class="process-num" aria-hidden="true">01</div>
             <div class="process-body">
-              <p class="process-title">Understand</p>
-              <p class="process-desc">Discovery call, brief review, and deep Q&amp;A. We ask the uncomfortable questions before we quote — timeline, scope, edge cases, politics. We'd rather surface a problem now than promise something we can't deliver.</p>
+              <p class="process-title">1. Diagnóstico &amp; Estrategia</p>
+              <p class="process-desc">Nos reunimos para entender tu negocio, tus cuellos de botella y tus metas. No enviamos presupuestos a ciegas; primero diagnosticamos la necesidad real.</p>
             </div>
           </div>
 
-          <div class="process-step" role="listitem" aria-label="Step 2: Scope">
+          <div class="process-step" role="listitem">
             <div class="process-num" aria-hidden="true">02</div>
             <div class="process-body">
-              <p class="process-title">Scope</p>
-              <p class="process-desc">A clear scope document — fixed deliverables or a defined sprint structure, depending on the engagement. Agreed-upon communication cadence, decision-making protocol, and escalation path. You know what you're buying.</p>
+              <p class="process-title">2. Propuesta Clara &amp; Alcance</p>
+              <p class="process-desc">Definimos un alcance transparente con entregables, plazos de entrega y costos fijos. Sabes exactamente qué estás adquiriendo sin sorpresas al final.</p>
             </div>
           </div>
 
-          <div class="process-step" role="listitem" aria-label="Step 3: Build">
+          <div class="process-step" role="listitem">
             <div class="process-num" aria-hidden="true">03</div>
             <div class="process-body">
-              <p class="process-title">Build</p>
-              <p class="process-desc">Weekly progress updates. Async-first communication. You see everything as it happens — no big reveal at the end. If something needs to change, we flag it before it becomes a problem, not after.</p>
+              <p class="process-title">3. Desarrollo &amp; Avances Semanales</p>
+              <p class="process-desc">Construimos la solución con reportes de avance periódicos. Ves el progreso real en tiempo real antes del lanzamiento oficial.</p>
             </div>
           </div>
 
-          <div class="process-step" role="listitem" aria-label="Step 4: Deliver">
+          <div class="process-step" role="listitem">
             <div class="process-num" aria-hidden="true">04</div>
             <div class="process-body">
-              <p class="process-title">Deliver</p>
-              <p class="process-desc">Full handoff with documentation. You own everything we build — source code, design files, deployment configurations, the works. Post-launch support window included. We don't disappear after go-live.</p>
+              <p class="process-title">4. Lanzamiento &amp; Acompañamiento</p>
+              <p class="process-desc">Realizamos la entrega con documentación y capacitación completa. Incluimos soporte post-lanzamiento para asegurar que la solución funcione impecablemente en tu equipo.</p>
             </div>
           </div>
 
@@ -410,55 +841,59 @@
       </div>
     </section>
 
-    <!-- ── §4 WHAT WE DON'T DO ───────────────────────────────────────── -->
+    <!-- ════════════════════════════════════════
+         §6 LO QUE NO HACEMOS (Límites Claros)
+    ═════════════════════════════════════════ -->
     <section class="section" id="not-a-fit" aria-labelledby="notfit-heading">
       <div class="container" style="max-width: 720px;">
         <div class="reveal">
-          <p class="sh-label">Honest Constraints</p>
-          <h2 class="sh-heading" id="notfit-heading">We're not the right team for everything.</h2>
-          <p class="sh-lead">Knowing when to say no is part of doing good work. These are genuine limits, not marketing.</p>
+          <p class="sh-label">Nuestros Principios</p>
+          <h2 class="sh-heading" id="notfit-heading">Lo que no hacemos.</h2>
+          <p class="sh-lead">Mantener límites claros nos permite ofrecer un trabajo responsable y duradero.</p>
         </div>
 
         <div class="not-fit-list reveal">
 
           <div class="not-fit-item">
             <svg class="not-fit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            <p>We don't build without understanding. If you need execution before discovery — a quote before a conversation — we are not the right fit. We won't take a brief at face value without interrogating it first.</p>
+            <p><strong>No competimos por precio bajo:</strong> No sacrificamos calidad ni entregamos proyectos frágiles. Competimos en valor, confiabilidad e ingeniería de primer nivel.</p>
           </div>
 
           <div class="not-fit-item">
             <svg class="not-fit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            <p>We don't do template-based websites. WordPress, Wix, Squarespace — these are valid tools for valid use cases. We don't compete with them, and we're not the right team if that's what you need.</p>
+            <p><strong>No entregamos sitios desechables:</strong> No usamos plantillas apresuradas destinadas a romperse en meses. Construimos infraestructura hecha para durar.</p>
           </div>
 
           <div class="not-fit-item">
             <svg class="not-fit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            <p>We don't take on more than we can deliver. Our per-year capacity is intentionally limited. If we're at capacity when you reach out, we'll tell you — and we'll be honest about the wait.</p>
+            <p><strong>No desarrollamos sin entender el negocio:</strong> Nunca escribimos una línea de código hasta comprender claramente el problema que necesita resolver tu empresa.</p>
           </div>
 
           <div class="not-fit-item">
             <svg class="not-fit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-            <p>We don't outsource. Everyone who touches your project is SC Web Studio. We will never subcontract your work to a third party without your knowledge and explicit agreement.</p>
+            <p><strong>No subcontratamos:</strong> Todo el trabajo es desarrollado directamente por SC Web Studio con comunicación transparente y directa.</p>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- ── §5 FINAL CTA ──────────────────────────────────────────────── -->
+    <!-- ════════════════════════════════════════
+         §7 FINAL CTA
+    ═════════════════════════════════════════ -->
     <section class="final-cta-section" id="get-started" aria-labelledby="cta-heading">
       <div class="container" style="max-width:640px;">
         <div class="reveal">
-          <p class="sh-label">Get Started</p>
+          <p class="sh-label">Cuéntanos Tu Proyecto</p>
           <h2 class="sh-heading" id="cta-heading" style="text-align:center;margin-left:auto;margin-right:auto;">
-            Ready to talk about your project?
+            Descubramos juntos la mejor solución.
           </h2>
           <p class="sh-lead" style="text-align:center;margin:0 auto var(--space-8);">
-            Tell us about the problem. We'll tell you honestly if we can solve it.
+            Sin presiones comerciales. Conversamos sobre tus ideas y te asesoramos con total honestidad.
           </p>
           <div class="cta-actions">
-            <a href="../contact/" class="btn btn-primary btn-lg" id="cta-services-project">Start a Project</a>
-            <a href="../products/" class="btn btn-text" id="cta-services-products">Or explore our products</a>
+            <a href="../contact/" class="btn btn-primary btn-lg" id="cta-services-project">Agenda una Reunión</a>
+            <a href="../products/" class="btn btn-text" id="cta-services-products">Conocer Nuestros Productos →</a>
           </div>
         </div>
       </div>
@@ -466,6 +901,7 @@
 
   </main>
 
+  <!-- Footer Shell -->
   <div id="sc-footer"></div>
 
   <script src="../shared/js/core/nav.js" defer></script>
@@ -474,7 +910,7 @@
   <script>
   (function () {
     'use strict';
-    /* ── Process step IntersectionObserver ──────────────────────────── */
+    /* ── Process step Observer ──────────────────────────────────────────── */
     var steps = document.querySelectorAll('.process-step');
     if (steps.length > 0 && 'IntersectionObserver' in window) {
       var obs = new IntersectionObserver(function (entries) {

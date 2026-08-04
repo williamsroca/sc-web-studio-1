@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — SC Web Studio</title>
-  <meta name="description" content="SC Web Studio is a Digital Product Studio based in Bolivia. We build software, SaaS, and automation. Learn who we are, how we operate, and what drives us.">
+
+  <!-- ── Primary SEO ────────────────────────────────────────────────────── -->
+  <title>Por qué SC Web Studio — Estudio de Productos Digitales en Bolivia</title>
+  <meta name="description" content="Descubre por qué SC Web Studio es diferente: un estudio de productos digitales que construye tecnología propia, automatiza procesos y crea soluciones duraderas para empresas en Bolivia.">
+  <meta name="keywords" content="por que elegir SC Web Studio, estudio de productos digitales Bolivia, desarrollo de software Bolivia, automatizacion de procesos, Case Assistant OS, Project Home, SC Tech">
+  <meta name="author" content="SC Web Studio">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://scwebstudio.com/about/">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://scwebstudio.com/about/">
-  <meta property="og:title" content="About — SC Web Studio">
-  <meta property="og:description" content="SC Web Studio is a Digital Product Studio based in Bolivia. We build software, SaaS, and automation. Learn who we are, how we operate, and what drives us.">
-  <meta property="og:image" content="https://scwebstudio.com/shared/img/og-default.png">
-  <meta property="og:site_name" content="SC Web Studio">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About — SC Web Studio">
-  <meta name="twitter:description" content="SC Web Studio is a Digital Product Studio based in Bolivia. We build software, SaaS, and automation.">
-  <meta name="twitter:image" content="https://scwebstudio.com/shared/img/og-default.png">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "About — SC Web Studio",
-    "url": "https://scwebstudio.com/about/",
-    "description": "SC Web Studio is a Digital Product Studio based in Bolivia.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "SC Web Studio",
-      "url": "https://scwebstudio.com",
-      "address": {"@type": "PostalAddress","addressCountry": "BO"}
-    }
-  }
-  </script>
+
+  <!-- ── Open Graph ──────────────────────────────────────────────────────── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://scwebstudio.com/about/">
+  <meta property="og:title"       content="Por qué SC Web Studio — Estudio de Productos Digitales en Bolivia">
+  <meta property="og:description" content="Más que una agencia. Un estudio que construye tecnología propia y ayuda a las empresas a trabajar mejor.">
+  <meta property="og:site_name"   content="SC Web Studio">
+  <meta property="og:locale"      content="es_BO">
+  <meta property="og:image"       content="https://scwebstudio.com/shared/assets/og/home.jpg">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Por qué SC Web Studio — Estudio de Productos Digitales en Bolivia">
+  <meta name="twitter:description" content="Un estudio que construye software propio y ayuda a las empresas a simplificar su trabajo y crecer.">
+
+  <!-- ── Fonts & CSS ────────────────────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="../shared/css/tokens.css">
   <link rel="stylesheet" href="../shared/css/reset.css">
   <link rel="stylesheet" href="../shared/css/typography.css">
@@ -40,208 +40,768 @@
   <link rel="stylesheet" href="../shared/css/components/buttons.css">
   <link rel="stylesheet" href="../shared/css/components/cards.css">
   <link rel="stylesheet" href="../shared/css/components/badges.css">
-  <link rel="stylesheet" href="../shared/css/components/mockups.css">
   <link rel="stylesheet" href="../shared/css/components/modals.css">
   <link rel="stylesheet" href="../shared/css/components/forms.css">
+
   <style>
-    .about-hero h1 { max-width: 760px; }
-    .hero-gradient-text {
-      background: linear-gradient(135deg, var(--text-primary) 30%, var(--studio-500) 100%);
+    /* ── Hero ──────────────────────────────────────────────────────── */
+    .why-hero {
+      padding: calc(var(--nav-height) + var(--space-16)) var(--space-6) var(--space-16);
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+    }
+
+    .hero-h1-accent {
+      background: linear-gradient(135deg, #A0ADFF 0%, var(--studio-500) 60%, #3D4EE8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      color: transparent;
     }
-    .identity-quote{font-family:var(--font-display);font-size:clamp(1.375rem,3vw,2rem);line-height:1.45;color:var(--text-secondary);max-width:720px;margin:0 auto;text-align:center;font-style:italic;}
-    .identity-separator{width:48px;height:2px;background:var(--studio-500);margin:var(--space-10) auto;opacity:0.5;}
-    .pillar-row{display:grid;grid-template-columns:1fr;gap:var(--space-6);margin-top:var(--space-10);}
-    @media(min-width:768px){.pillar-row{grid-template-columns:repeat(3,1fr);}}
-    .pillar{display:flex;flex-direction:column;gap:var(--space-3);align-items:center;text-align:center;padding:var(--space-6);}
-    .pillar__icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-lg);background:rgba(85,104,255,0.08);border:1px solid rgba(85,104,255,0.15);color:var(--studio-500);margin-bottom:var(--space-2);}
-    .pillar__title{font-family:var(--font-display);font-size:1.0625rem;font-weight:600;color:var(--text-primary);margin:0;}
-    .pillar__desc{font-size:0.875rem;color:var(--text-secondary);line-height:1.6;margin:0;}
-    .model-grid{display:grid;grid-template-columns:1fr;gap:var(--space-12);align-items:center;margin-top:var(--space-12);}
-    @media(min-width:1024px){.model-grid{grid-template-columns:1fr 1fr;}}
-    .model-diagram{display:flex;align-items:center;gap:var(--space-4);justify-content:center;}
-    .model-box{border:1px solid var(--studio-500);border-radius:var(--radius-lg);padding:var(--space-6) var(--space-8);text-align:center;min-width:160px;}
-    .model-box--filled{background:rgba(85,104,255,0.07);}
-    .model-box__label{font-family:var(--font-display);font-size:0.9375rem;font-weight:600;color:var(--text-primary);margin:0 0 var(--space-1);}
-    .model-box__sub{font-family:var(--font-mono);font-size:0.6875rem;color:var(--studio-500);text-transform:uppercase;letter-spacing:0.08em;margin:0;}
-    .model-arrow{font-size:1.5rem;color:var(--studio-500);flex-shrink:0;}
-    .model-text{font-size:0.9375rem;color:var(--text-secondary);line-height:1.7;}
-    .team-grid{display:grid;grid-template-columns:1fr;gap:var(--space-6);margin-top:var(--space-10);}
-    @media(min-width:640px){.team-grid{grid-template-columns:repeat(2,1fr);}}
-    .team-note{text-align:center;margin-top:var(--space-8);font-size:0.875rem;color:var(--text-tertiary);font-family:var(--font-mono);}
-    .role-badge{display:inline-block;font-family:var(--font-mono);font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--studio-500);border:1px solid rgba(85,104,255,0.3);border-radius:var(--radius-full);padding:2px 10px;margin-bottom:var(--space-4);}
-    .values-grid{display:grid;grid-template-columns:1fr;gap:var(--space-5);margin-top:var(--space-10);}
-    @media(min-width:640px){.values-grid{grid-template-columns:repeat(2,1fr);}}
-    @media(min-width:1024px){.values-grid{grid-template-columns:repeat(4,1fr);}}
-    .final-cta-section{padding:var(--space-24) 0;text-align:center;}
-    .cta-cards{display:grid;grid-template-columns:1fr;gap:var(--space-4);max-width:640px;margin:var(--space-10) auto 0;}
-    @media(min-width:640px){.cta-cards{grid-template-columns:1fr 1fr;}}
-    .cta-card{display:flex;flex-direction:column;gap:var(--space-3);padding:var(--space-7);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-xl);background:var(--bg-surface);text-decoration:none;transition:border-color .2s,box-shadow .2s;}
-    .cta-card:hover{border-color:rgba(85,104,255,0.4);box-shadow:var(--shadow-md);}
-    .cta-card__title{font-family:var(--font-display);font-size:1.0625rem;font-weight:600;color:var(--text-primary);}
-    .cta-card__arrow{color:var(--studio-500);font-size:1.25rem;margin-top:auto;}
+
+    .why-hero-trust {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      color: var(--text-tertiary);
+      margin-top: var(--space-8);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── 5 Pillars Layout ────────────────────────────────────────────── */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+    }
+
+    @media (min-width: 640px) {
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .pillars-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .card-pillar {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      transition:
+        transform var(--duration-slow) var(--ease-spring),
+        box-shadow var(--duration-slow) var(--ease-out),
+        border-color var(--duration-base) var(--ease-out);
+    }
+
+    .card-pillar:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-default);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .card-pillar-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-lg);
+      background: rgba(85, 104, 255, 0.08);
+      border: 1px solid rgba(85, 104, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--studio-400);
+      flex-shrink: 0;
+    }
+
+    .card-pillar-icon svg { width: 22px; height: 22px; }
+
+    .card-pillar-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+    }
+
+    .pillar-block-label {
+      font-family: var(--font-ui);
+      font-size: var(--text-2xs);
+      font-weight: var(--weight-semibold);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+      margin-top: var(--space-2);
+    }
+
+    .pillar-text {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+    }
+
+    .pillar-benefit-box {
+      background: rgba(85, 104, 255, 0.05);
+      border-left: 3px solid var(--studio-500);
+      padding: var(--space-3) var(--space-4);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: var(--text-sm);
+      color: var(--text-primary);
+      line-height: var(--leading-relaxed);
+      margin-top: auto;
+    }
+
+    /* ── How We Think Grid ───────────────────────────────────────────── */
+    .think-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-10);
+    }
+
+    @media (min-width: 640px) {
+      .think-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .think-card {
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .think-num {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--studio-400);
+      font-weight: var(--weight-semibold);
+    }
+
+    .think-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+    }
+
+    /* ── Timeline Steps (Cómo Trabajamos) ────────────────────────────── */
+    .timeline-pipeline {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: var(--space-12);
+    }
+
+    .timeline-pipeline::before {
+      content: '';
+      position: absolute;
+      left: 23px;
+      top: 24px;
+      bottom: 24px;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--border-default) 10%,
+        var(--studio-glow, rgba(85,104,255,0.3)) 50%,
+        var(--border-default) 90%,
+        transparent
+      );
+    }
+
+    .timeline-step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: var(--space-6);
+      padding-block: var(--space-8);
+      position: relative;
+      opacity: 0;
+      transform: translateX(-16px);
+      transition:
+        opacity 600ms var(--ease-out),
+        transform 600ms var(--ease-out);
+    }
+
+    .timeline-step.is-active { opacity: 1; transform: translateX(0); }
+
+    .timeline-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--border-default);
+      background: var(--bg-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--text-tertiary);
+      flex-shrink: 0;
+      z-index: 1;
+      position: relative;
+    }
+
+    .timeline-step.is-active .timeline-num {
+      background: rgba(85,104,255,0.1);
+      border-color: var(--studio-500);
+      color: var(--studio-400);
+    }
+
+    .timeline-body { padding-top: var(--space-3); }
+
+    .timeline-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+      margin-bottom: var(--space-3);
+    }
+
+    .timeline-desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      max-width: 48ch;
+    }
+
+    /* ── Commitments List ────────────────────────────────────────────── */
+    .commitments-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      margin-top: var(--space-10);
+    }
+
+    .commitment-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6) var(--space-8);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+    }
+
+    .commitment-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(85, 104, 255, 0.1);
+      border: 1px solid rgba(85, 104, 255, 0.3);
+      color: var(--studio-400);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .commitment-icon svg { width: 14px; height: 14px; }
+
+    /* ── Ideal Clients Grid ──────────────────────────────────────────── */
+    .clients-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-10);
+    }
+
+    @media (min-width: 640px) {
+      .clients-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .client-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    /* ── Final CTA ──────────────────────────────────────────────────── */
+    .final-cta-section {
+      padding: var(--space-20) var(--space-6);
+      text-align: center;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
   </style>
+
+  <!-- ── Structured Data ─────────────────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://scwebstudio.com/about/#webpage",
+    "url": "https://scwebstudio.com/about/",
+    "name": "Por qué SC Web Studio — Estudio de Productos Digitales en Bolivia",
+    "description": "Un estudio que construye tecnología propia, automatiza procesos y crea soluciones duraderas para empresas en Bolivia.",
+    "isPartOf": { "@id": "https://scwebstudio.com/#website" },
+    "inLanguage": "es-BO"
+  }
+  </script>
 </head>
-<body class="page-wrapper">
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+<body class="page-wrapper" data-base-path="../">
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Header Shell -->
   <div id="sc-header"></div>
   <script src="../shared/js/core/shell.js" data-base="../"></script>
+
   <main id="main-content" class="page-content">
 
-    <!-- HERO -->
-    <section class="section-page-hero section" aria-labelledby="about-heading">
-      <div class="container">
-        <p class="sh-label reveal">About SC Web Studio</p>
-        <h1 class="display reveal hero-gradient-text" id="about-heading" style="margin-bottom:var(--space-6);">We are a Digital Product Studio. Not a web agency.</h1>
-        <p class="lead reveal" style="max-width:600px;">The distinction matters. Agencies execute briefs. Studios build products. We do both — but only one of them is the mission.</p>
+    <!-- ════════════════════════════════════════
+         §1 HERO
+    ═════════════════════════════════════════ -->
+    <section aria-labelledby="why-hero-heading" class="reveal">
+      <div class="why-hero">
+        <p class="sh-label">Por qué SC Web Studio</p>
+        <h1 class="display" id="why-hero-heading" style="max-width:18ch;">
+          Más que una agencia.<br>
+          <span class="hero-h1-accent">Un estudio que construye tecnología.</span>
+        </h1>
+        <p class="lead" style="margin-top:var(--space-6);max-width:54ch;">
+          Creamos tecnología práctica que simplifica el trabajo, automatiza procesos y abre nuevas oportunidades. No somos una agencia tradicional que vende horas de desarrollo y desaparece; somos creadores que construyen software propio y aplican ese mismo rigor en cada proyecto de cliente.
+        </p>
+        <div style="display:flex;gap:var(--space-4);margin-top:var(--space-8);flex-wrap:wrap;align-items:center;">
+          <a href="../contact/" class="btn btn-primary btn-lg" id="hero-cta-why">Hablemos de tus Ideas</a>
+          <a href="#philosophy" class="btn btn-secondary btn-lg">Nuestra Filosofía</a>
+        </div>
+        <p class="why-hero-trust">Con sede en Bolivia · Desarrollo de software propio · Relaciones a largo plazo</p>
       </div>
     </section>
 
-    <!-- IDENTITY STATEMENT -->
-    <section class="section-xl section" id="identity" aria-labelledby="identity-heading" style="text-align:center;">
+    <!-- ════════════════════════════════════════
+         §2 NUESTRA FILOSOFÍA (5 PILARES)
+    ═════════════════════════════════════════ -->
+    <section class="section section-xl" id="philosophy" aria-labelledby="philosophy-heading">
       <div class="container">
-        <h2 class="sr-only" id="identity-heading">Identity Statement</h2>
-        <blockquote class="identity-quote reveal">
-          SC Web Studio exists to build software that makes work simpler and creates opportunities. Professional services finance the continuous development of our own products. The website, the client work, the studio — all of it serves one long-term vision.
-        </blockquote>
-        <div class="identity-separator reveal" aria-hidden="true"></div>
-        <div class="pillar-row reveal-group">
-          <div class="pillar reveal">
-            <div class="pillar__icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+        <div class="reveal">
+          <p class="sh-label">Nuestros Pilares</p>
+          <h2 class="sh-heading" id="philosophy-heading">La filosofía que guía todo lo que construimos.</h2>
+          <p class="sh-lead">Cinco principios fundamentales que definen la forma en que pensamos, trabajamos y ayudamos a nuestros clientes.</p>
+        </div>
+
+        <div class="pillars-grid reveal-group">
+
+          <!-- Pilar 1: Simplificar el Trabajo -->
+          <article class="card-pillar reveal">
+            <div class="card-pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M12 20h9"/>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+              </svg>
             </div>
-            <p class="pillar__title">Software-First</p>
-            <p class="pillar__desc">We think like product engineers, not project managers.</p>
-          </div>
-          <div class="pillar reveal">
-            <div class="pillar__icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <h3 class="card-pillar-title">1. Simplificar el Trabajo</h3>
+            
+            <p class="pillar-text"><strong>Qué significa:</strong> Eliminar la complejidad innecesaria en el software y diseñar herramientas limpias e intuitivas.</p>
+            <p class="pillar-text"><strong>Por qué importa:</strong> La tecnología debe reducir el estrés operativo de las personas, no aumentar la carga mental.</p>
+            
+            <div class="pillar-benefit-box">
+              <strong>Beneficio para el cliente:</strong> Herramientas claras que tu equipo aprende a usar en minutos sin requerir extensos manuales.
             </div>
-            <p class="pillar__title">Long-term</p>
-            <p class="pillar__desc">We build for the next 10 years, not the next sprint.</p>
-          </div>
-          <div class="pillar reveal">
-            <div class="pillar__icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </article>
+
+          <!-- Pilar 2: Automatizar Procesos -->
+          <article class="card-pillar reveal">
+            <div class="card-pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
             </div>
-            <p class="pillar__title">Independent</p>
-            <p class="pillar__desc">No VC. No investor pressure. No feature bloat.</p>
-          </div>
+            <h3 class="card-pillar-title">2. Automatizar Procesos</h3>
+            
+            <p class="pillar-text"><strong>Qué significa:</strong> Dejar que las máquinas se encarguen del trabajo mecánico y repetitivo de la empresa.</p>
+            <p class="pillar-text"><strong>Por qué importa:</strong> El tiempo de las personas es demasiado valioso para gastarlo copiando planillas y enviando correos uno a uno.</p>
+            
+            <div class="pillar-benefit-box">
+              <strong>Beneficio para el cliente:</strong> Reducción de errores a cero y decenas de horas libres cada mes para enfocarte en hacer crecer tu negocio.
+            </div>
+          </article>
+
+          <!-- Pilar 3: Crear Oportunidades -->
+          <article class="card-pillar reveal">
+            <div class="card-pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+            </div>
+            <h3 class="card-pillar-title">3. Crear Oportunidades</h3>
+            
+            <p class="pillar-text"><strong>Qué significa:</strong> Utilizar la infraestructura digital como un multiplicador de posibilidades para empresas locales.</p>
+            <p class="pillar-text"><strong>Por qué importa:</strong> Una buena solución web permite vender más, llegar a nuevos clientes y validar ideas innovadoras.</p>
+            
+            <div class="pillar-benefit-box">
+              <strong>Beneficio para el cliente:</strong> Expansión de tu canal de ventas y capacidad de competir con estándares de nivel internacional.
+            </div>
+          </article>
+
+          <!-- Pilar 4: Construir Productos -->
+          <article class="card-pillar reveal">
+            <div class="card-pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
+            </div>
+            <h3 class="card-pillar-title">4. Construir Productos</h3>
+            
+            <p class="pillar-text"><strong>Qué significa:</strong> Desarrollar, lanzar y operar nuestro propio software comercial de forma independiente.</p>
+            <p class="pillar-text"><strong>Por qué importa:</strong> Tener software propio nos obliga a mantener los estándares más altos de rendimiento, seguridad y usabilidad.</p>
+            
+            <div class="pillar-benefit-box">
+              <strong>Beneficio para el cliente:</strong> Tu proyecto recibe la misma calidad técnica y rigor de arquitectura que aplicamos en nuestro software global.
+            </div>
+          </article>
+
+          <!-- Pilar 5: Aprender Continuamente -->
+          <article class="card-pillar reveal">
+            <div class="card-pillar-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <h3 class="card-pillar-title">5. Aprender Continuamente</h3>
+            
+            <p class="pillar-text"><strong>Qué significa:</strong> Experimentar sin descanso en nuestro laboratorio (SC Labs) con nuevas tecnologías y metodologías.</p>
+            <p class="pillar-text"><strong>Por qué importa:</strong> La tecnología evoluciona rápido y el estancamiento es el enemigo directo de la calidad.</p>
+            
+            <div class="pillar-benefit-box">
+              <strong>Beneficio para el cliente:</strong> Accedes a soluciones modernas, probadas y vigentes a prueba del paso del tiempo.
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
 
-    <!-- THE MODEL -->
-    <section class="section-surface section" id="model" aria-labelledby="model-heading">
-      <div class="container" style="max-width:960px;">
-        <p class="sh-label reveal">How We Are Built</p>
-        <h2 class="sh-heading reveal" id="model-heading">Client work finances product development.</h2>
-        <p class="sh-lead reveal">This is intentional. Professional services engagements give us runway to build products we believe in, without investor pressure.</p>
-        <div class="model-grid reveal">
-          <div class="model-diagram">
-            <div class="model-box">
-              <p class="model-box__label">Professional Services</p>
-              <p class="model-box__sub">Revenue</p>
-            </div>
-            <div class="model-arrow" aria-hidden="true">&#8594;</div>
-            <div class="model-box model-box--filled">
-              <p class="model-box__label">Product R&amp;D</p>
-              <p class="model-box__sub">Mission</p>
-            </div>
+    <!-- ════════════════════════════════════════
+         §3 CÓMO PENSAMOS
+    ═════════════════════════════════════════ -->
+    <section class="section section-lg section-surface" id="how-we-think" aria-labelledby="think-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="sh-label">Nuestra Mentalidad</p>
+          <h2 class="sh-heading" id="think-heading">Cómo pensamos antes de escribir código.</h2>
+          <p class="sh-lead">Nuestra perspectiva distingue a SC Web Studio de las agencias tradicionales.</p>
+        </div>
+
+        <div class="think-grid reveal-group">
+
+          <div class="think-card reveal">
+            <span class="think-num">01 / Negocio Primero</span>
+            <h3 class="think-title">El negocio primero, la tecnología después.</h3>
+            <p class="pillar-text">No empezamos hablando de lenguajes ni de código. Empezamos hablando de tus ventas, tus costos, tus clientes y tu operación cotidiana.</p>
           </div>
-          <div>
-            <p class="model-text">We take on a limited number of client projects per year — software development, automation, SaaS builds, and design. The revenue funds the salaries and infrastructure needed to continuously develop Case Assistant OS, Project Home, and what comes next.</p>
-            <p class="model-text" style="margin-top:var(--space-4);">This is not a side project. This is the model.</p>
+
+          <div class="think-card reveal">
+            <span class="think-num">02 / Diagnóstico Honesto</span>
+            <h3 class="think-title">Entender antes de construir.</h3>
+            <p class="pillar-text">Las mejores soluciones no son las más complejas ni las más caras, sino las que resuelven el problema de raíz de la forma más simple posible.</p>
           </div>
+
+          <div class="think-card reveal">
+            <span class="think-num">03 / Diseño de Procesos</span>
+            <h3 class="think-title">Resolver antes de programar.</h3>
+            <p class="pillar-text">Un proceso bien diseñado evita escribir miles de líneas de código innecesarias. Optimizamos el flujo de trabajo antes de automatizarlo.</p>
+          </div>
+
+          <div class="think-card reveal">
+            <span class="think-num">04 / Relaciones Duraderas</span>
+            <h3 class="think-title">Relaciones a largo plazo.</h3>
+            <p class="pillar-text">No buscamos transacciones rápidas. Nos convertimos en los aliados tecnológicos de confianza de nuestros clientes a lo largo de los años.</p>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- TEAM -->
-    <section class="section-lg section" id="team" aria-labelledby="team-heading">
+    <!-- ════════════════════════════════════════
+         §4 POR QUÉ IMPORTAN NUESTROS PRODUCTOS
+    ═════════════════════════════════════════ -->
+    <section class="section section-lg" id="products-matter" aria-labelledby="products-trust-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="sh-label">Software Propio</p>
+          <h2 class="sh-heading" id="products-trust-heading">Por qué importan nuestros productos.</h2>
+          <p class="sh-lead">Desarrollamos y operamos plataformas reales. Las lecciones aprendidas en nuestro software mejoran cada proyecto de cliente.</p>
+        </div>
+
+        <div class="grid-products reveal-group">
+
+          <article class="card-product reveal" data-product="case-assistant">
+            <div class="card-product-header">
+              <h3 class="card-product-title product-name-legal">Case Assistant <span class="accent">OS</span></h3>
+              <span class="badge badge-live">🟢 En Vivo</span>
+            </div>
+            <p class="card-product-description">
+              Sistema operativo legal inteligente. Su desarrollo nos enseñó arquitectura <em>Local-First</em>, velocidad extrema y cifrado de información confidencial.
+            </p>
+          </article>
+
+          <article class="card-product reveal" data-product="project-home">
+            <div class="card-product-header">
+              <h3 class="card-product-title product-name-home">Project <span class="accent">Home</span></h3>
+              <span class="badge badge-coming-soon">🟡 En Desarrollo — Próximamente</span>
+            </div>
+            <p class="card-product-description">
+              Mercado de alquileres en Bolivia (En desarrollo para Santa Cruz de la Sierra). Nos enseña transparencia de mercado, diseño intuitivo e infraestructura escalable.
+            </p>
+          </article>
+
+          <article class="card-product reveal" data-product="sc-tech">
+            <div class="card-product-header">
+              <h3 class="card-product-title product-name-tech">SC <span class="accent">Tech</span></h3>
+              <span class="badge badge-live">🟢 En Vivo</span>
+            </div>
+            <p class="card-product-description">
+              Laboratorio vivo de e-commerce. Nos enseñó logística real, pasarelas de pago electrónicas y optimización de conversión en comercio digital.
+            </p>
+          </article>
+
+        </div>
+
+        <div class="pillar-benefit-box reveal" style="margin-top:var(--space-8);max-width:760px;margin-inline:auto;">
+          <strong>La Garantía para tu Empresa:</strong> Estos productos no son demostraciones comerciales. Son plataformas vivas que operamos todos los días. Todo lo que aprendemos manteniendo nuestros productos se traduce directamente en código más seguro y robusto para tu proyecto.
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         §5 CÓMO TRABAJAMOS (TIMELINE VISUAL)
+    ═════════════════════════════════════════ -->
+    <section class="section section-xl section-surface" id="how-we-work-timeline" aria-labelledby="timeline-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="sh-label">Nuestro Proceso</p>
+          <h2 class="sh-heading" id="timeline-heading">Cómo trabajamos: paso a paso.</h2>
+          <p class="sh-lead">Una metodología humana, clara y transparente para que disfrutes el proceso de construir tu tecnología.</p>
+        </div>
+
+        <div class="timeline-pipeline" role="list">
+
+          <div class="timeline-step" role="listitem">
+            <div class="timeline-num" aria-hidden="true">01</div>
+            <div class="timeline-body">
+              <h3 class="timeline-title">1. Descubrir</h3>
+              <p class="timeline-desc">Analizamos tu operación, tus metas y tus cuellos de botella mediante una conversación honesta. No hay cotizaciones a ciegas.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step" role="listitem">
+            <div class="timeline-num" aria-hidden="true">02</div>
+            <div class="timeline-body">
+              <h3 class="timeline-title">2. Diseñar</h3>
+              <p class="timeline-desc">Diseñamos la estructura, los flujos de datos y la interfaz antes de tocar una sola línea de código. Todo se valida previamente.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step" role="listitem">
+            <div class="timeline-num" aria-hidden="true">03</div>
+            <div class="timeline-body">
+              <h3 class="timeline-title">3. Construir</h3>
+              <p class="timeline-desc">Programación limpia, mantenible y probada. Te enviamos reportes de avance semanales para que veas el progreso en tiempo real.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step" role="listitem">
+            <div class="timeline-num" aria-hidden="true">04</div>
+            <div class="timeline-body">
+              <h3 class="timeline-title">4. Lanzar</h3>
+              <p class="timeline-desc">Despliegue seguro en producción, entrega de documentación y capacitación completa a tu equipo para operar con autonomía.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step" role="listitem">
+            <div class="timeline-num" aria-hidden="true">05</div>
+            <div class="timeline-body">
+              <h3 class="timeline-title">5. Evolucionar</h3>
+              <p class="timeline-desc">No nos vamos tras el lanzamiento. Acompañamos la herramienta, medimos su uso real y proponemos mejoras continuas.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         §6 APRENDIZAJE CONTINUO (SC LABS)
+    ═════════════════════════════════════════ -->
+    <section class="section section-lg" id="labs-learning" aria-labelledby="labs-learn-heading">
+      <div class="container">
+        <div class="reveal text-center" style="max-width:760px;margin-inline:auto;">
+          <p class="sh-label" style="justify-content:center;">Innovación Constante</p>
+          <h2 class="sh-heading" id="labs-learn-heading">Curiosidad, experimentación y SC Labs.</h2>
+          <p class="sh-lead" style="margin:var(--space-4) auto 0;">
+            <strong>SC Labs</strong> es nuestro espacio de investigación aplicada. Aquí probamos hipótesis sobre Inteligencia Artificial, nuevos lenguajes y prototipado físico 3D antes de llevarlos a proyectos reales.
+          </p>
+          <p class="pillar-text" style="margin:var(--space-4) auto 0;">
+            Esta mentalidad de constante curiosidad nos permite ofrecer a nuestros clientes soluciones modernas, eficientes y rigurosamente validadas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         §7 NUESTRO COMPROMISO
+    ═════════════════════════════════════════ -->
+    <section class="section section-lg section-surface" id="commitments" aria-labelledby="commitments-heading">
       <div class="container" style="max-width:800px;">
-        <p class="sh-label reveal">The Team</p>
-        <h2 class="sh-heading reveal" id="team-heading">Small by design.</h2>
-        <p class="sh-lead reveal">Small means focused. Small means every project matters. Small means no bureaucracy between an idea and its execution.</p>
-        <div class="team-grid reveal-group">
-          <div class="card reveal" style="padding:var(--space-7);">
-            <span class="role-badge">Studio Founder</span>
-            <p style="font-size:0.9375rem;color:var(--text-secondary);line-height:1.7;margin:0;">Product strategy, architecture, and client relationships. Building the studio and its ecosystem from the ground up.</p>
-          </div>
-          <div class="card reveal" style="padding:var(--space-7);">
-            <span class="role-badge">Design and Engineering</span>
-            <p style="font-size:0.9375rem;color:var(--text-secondary);line-height:1.7;margin:0;">Product design and front-end engineering across all studio products and client engagements.</p>
-          </div>
+        <div class="reveal">
+          <p class="sh-label">Garantía de Trabajo</p>
+          <h2 class="sh-heading" id="commitments-heading">Nuestro compromiso contigo.</h2>
+          <p class="sh-lead">En lugar de usar palabras vacías sobre calidad, asumimos compromisos concretos:</p>
         </div>
-        <p class="team-note reveal">We are based in Bolivia and work remotely with collaborators across Latin America.</p>
-      </div>
-    </section>
 
-    <!-- VALUES -->
-    <section class="section" id="values" aria-labelledby="values-heading">
-      <div class="container">
-        <p class="sh-label reveal">What We Believe</p>
-        <h2 class="sh-heading reveal" id="values-heading">Four things we do not compromise on.</h2>
-        <div class="values-grid reveal-group">
-          <div class="card card-feature reveal" style="padding:var(--space-6);">
-            <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-md);background:rgba(85,104,255,0.08);color:var(--studio-500);margin-bottom:var(--space-4);">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+        <div class="commitments-list reveal-group">
+
+          <div class="commitment-item reveal">
+            <div class="commitment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div>
+              <strong style="color:var(--text-primary);display:block;font-size:var(--text-base);">Respondemos con total honestidad</strong>
+              <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-top:2px;">Te diremos la verdad sobre costos, plazos y factibilidad, incluso si eso significa recomendarte no contratar nuestro servicio aún.</p>
             </div>
-            <p style="font-family:var(--font-display);font-size:0.9375rem;font-weight:600;color:var(--text-primary);margin-bottom:var(--space-2);">Every feature must justify its existence.</p>
-            <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.65;margin:0;">We do not build features to fill a spec. Every decision has a user behind it and a problem in front of it.</p>
           </div>
-          <div class="card card-feature reveal" style="padding:var(--space-6);">
-            <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-md);background:rgba(85,104,255,0.08);color:var(--studio-500);margin-bottom:var(--space-4);">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+
+          <div class="commitment-item reveal">
+            <div class="commitment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div>
+              <strong style="color:var(--text-primary);display:block;font-size:var(--text-base);">No prometemos lo que no podemos cumplir</strong>
+              <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-top:2px;">Limitamos la cantidad de proyectos que aceptamos al año para mantener una atención cercana y dedicada en cada uno.</p>
             </div>
-            <p style="font-family:var(--font-display);font-size:0.9375rem;font-weight:600;color:var(--text-primary);margin-bottom:var(--space-2);">Honest over impressive.</p>
-            <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.65;margin:0;">We tell clients what we think, not what they want to hear. We would rather lose a project than oversell a timeline.</p>
           </div>
-          <div class="card card-feature reveal" style="padding:var(--space-6);">
-            <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-md);background:rgba(85,104,255,0.08);color:var(--studio-500);margin-bottom:var(--space-4);">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+
+          <div class="commitment-item reveal">
+            <div class="commitment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div>
+              <strong style="color:var(--text-primary);display:block;font-size:var(--text-base);">No desaparecemos después del lanzamiento</strong>
+              <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-top:2px;">Incluimos soporte post-lanzamiento y nos mantenemos disponibles para respaldar el software que construimos.</p>
             </div>
-            <p style="font-family:var(--font-display);font-size:0.9375rem;font-weight:600;color:var(--text-primary);margin-bottom:var(--space-2);">Code that lasts.</p>
-            <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.65;margin:0;">We write software to be read, maintained, and extended — not just to ship. Every line has a standard.</p>
           </div>
-          <div class="card card-feature reveal" style="padding:var(--space-6);">
-            <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-md);background:rgba(85,104,255,0.08);color:var(--studio-500);margin-bottom:var(--space-4);">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+
+          <div class="commitment-item reveal">
+            <div class="commitment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div>
+              <strong style="color:var(--text-primary);display:block;font-size:var(--text-base);">Construimos pensando a largo plazo</strong>
+              <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-top:2px;">Escribimos código limpio, seguro y mantenible diseñado para durar años sin volverse obsoleto.</p>
             </div>
-            <p style="font-family:var(--font-display);font-size:0.9375rem;font-weight:600;color:var(--text-primary);margin-bottom:var(--space-2);">Technology should create opportunity.</p>
-            <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.65;margin:0;">We build for individuals, small businesses, and underserved markets. Technology should level the field, not entrench advantages.</p>
           </div>
+
+          <div class="commitment-item reveal">
+            <div class="commitment-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div>
+              <strong style="color:var(--text-primary);display:block;font-size:var(--text-base);">Nos importa el resultado real de tu negocio</strong>
+              <p style="font-size:var(--text-sm);color:var(--text-secondary);margin-top:2px;">Medimos nuestro éxito en el tiempo que le ahorras a tu equipo y en las ventas que genera tu empresa.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- FINAL CTA -->
-    <section class="final-cta-section" id="work-with-us" aria-labelledby="cta-heading">
+    <!-- ════════════════════════════════════════
+         §8 CON QUIÉNES NOS GUSTA TRABAJAR
+    ═════════════════════════════════════════ -->
+    <section class="section section-lg" id="ideal-clients" aria-labelledby="clients-heading">
       <div class="container">
-        <p class="sh-label reveal">Get in Touch</p>
-        <h2 class="sh-heading reveal" id="cta-heading" style="text-align:center;">Work with people who care about the craft.</h2>
-        <div class="cta-cards reveal-group">
-          <a href="../contact/" class="cta-card reveal">
-            <p class="cta-card__title">Start a Project</p>
-            <p style="font-size:0.875rem;color:var(--text-secondary);margin:0;">Tell us about your problem.</p>
-            <span class="cta-card__arrow" aria-hidden="true">&#8594;</span>
-          </a>
-          <a href="../products/" class="cta-card reveal">
-            <p class="cta-card__title">Explore Our Products</p>
-            <p style="font-size:0.875rem;color:var(--text-secondary);margin:0;">See what we are building.</p>
-            <span class="cta-card__arrow" aria-hidden="true">&#8594;</span>
-          </a>
+        <div class="reveal">
+          <p class="sh-label">Nuestros Clientes Ideales</p>
+          <h2 class="sh-heading" id="clients-heading">Con quiénes nos gusta trabajar.</h2>
+          <p class="sh-lead">Logramos los mejores resultados cuando colaboramos con personas y empresas que comparten nuestros valores:</p>
+        </div>
+
+        <div class="clients-grid reveal-group">
+
+          <div class="client-card reveal">
+            <strong style="color:var(--text-primary);font-size:var(--text-lg);font-family:var(--font-display);">Dueños de empresas que valoran la calidad</strong>
+            <p class="pillar-text">Personas que prefieren construir herramientas sólidas a la primera en lugar de parches improvisados.</p>
+          </div>
+
+          <div class="client-card reveal">
+            <strong style="color:var(--text-primary);font-size:var(--text-lg);font-family:var(--font-display);">Emprendedores con visión</strong>
+            <p class="pillar-text">Creadores e inventores que quieren validar ideas innovadoras de mercado mediante prototipos funcionales reales.</p>
+          </div>
+
+          <div class="client-card reveal">
+            <strong style="color:var(--text-primary);font-size:var(--text-lg);font-family:var(--font-display);">Empresas en crecimiento</strong>
+            <p class="pillar-text">Pymes que están superando sus procesos informales y necesitan control operativo profesional para escalar.</p>
+          </div>
+
+          <div class="client-card reveal">
+            <strong style="color:var(--text-primary);font-size:var(--text-lg);font-family:var(--font-display);">Personas resolviendo problemas reales</strong>
+            <p class="pillar-text">Líderes apasionados por ofrecer una mejor experiencia y servicio a sus propios clientes en Bolivia.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         §9 FINAL CTA
+    ═════════════════════════════════════════ -->
+    <section class="final-cta-section" id="get-started" aria-labelledby="cta-heading">
+      <div class="container" style="max-width:640px;">
+        <div class="reveal">
+          <p class="sh-label">Comienza la Conversación</p>
+          <h2 class="sh-heading" id="cta-heading" style="text-align:center;margin-left:auto;margin-right:auto;">
+            Hablemos de tus ideas.
+          </h2>
+          <p class="sh-lead" style="text-align:center;margin:0 auto var(--space-8);">
+            Sin presiones ni discursos comerciales. Conversamos sobre tu negocio y descubrimos cómo podemos ayudarte a trabajar mejor.
+          </p>
+          <div class="cta-actions">
+            <a href="../contact/" class="btn btn-primary btn-lg" id="cta-why-talk">Agendar una Conversación</a>
+            <a href="../industries/" class="btn btn-text" id="cta-why-industries">Ver Soluciones por Sector →</a>
+          </div>
         </div>
       </div>
     </section>
 
   </main>
+
+  <!-- Footer Shell -->
   <div id="sc-footer"></div>
+
   <script src="../shared/js/core/nav.js" defer></script>
   <script src="../shared/js/core/scroll.js" defer></script>
+
+  <script>
+  (function () {
+    'use strict';
+    /* ── Timeline Observer ─────────────────────────────────────────────── */
+    var steps = document.querySelectorAll('.timeline-step');
+    if (steps.length > 0 && 'IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) e.target.classList.add('is-active');
+        });
+      }, { threshold: 0.2, rootMargin: '-5% 0px' });
+      steps.forEach(function (step, i) {
+        step.style.transitionDelay = (i * 100) + 'ms';
+        obs.observe(step);
+      });
+    }
+  }());
+  </script>
+
 </body>
 </html>

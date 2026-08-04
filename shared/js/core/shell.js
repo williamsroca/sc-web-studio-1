@@ -1,16 +1,7 @@
 /**
- * SC Web Studio — Site Shell
+ * SC Web Studio — Site Shell (Bolivia Adaptation — Launch Hardened)
  * ─────────────────────────────────────────────────────────────────────────────
  * Injects the shared navigation header and footer into every page.
- *
- * Usage in every HTML page:
- *   <div id="sc-header"></div>
- *   <script src="[depth]/shared/js/core/shell.js" data-base="[depth]"></script>
- *
- * data-base: relative path from the HTML page back to the website root.
- *   Root page  (website/):                       data-base=""
- *   First-level (website/services/):             data-base="../"
- *   Second-level (website/products/case-x/):     data-base="../../"
  * ─────────────────────────────────────────────────────────────────────────────
  */
 (function () {
@@ -51,14 +42,13 @@
     ' stroke="currentColor" stroke-width="2" stroke-linecap="round"' +
     ' aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>';
 
-  /* ── Navigation items ────────────────────────────────────────────────── */
+  /* ── Navigation items (Spanish Bolivia Adaptation) ───────────────────── */
   var NAV_ITEMS = [
-    { href: 'products/',   label: 'Products',   id: 'products'  },
-    { href: 'ecosystem/',  label: 'Ecosystem',  id: 'ecosystem' },
-    { href: 'services/',   label: 'Services',   id: 'services'  },
-    { href: 'labs/',       label: 'Labs',       id: 'labs'      },
-    { href: 'stories/',    label: 'Stories',    id: 'stories'   },
-    { href: 'about/',      label: 'About',      id: 'about'     },
+    { href: 'services/',   label: 'Servicios',          id: 'services'  },
+    { href: 'industries/', label: 'Sectores',           id: 'industries'},
+    { href: 'about/',      label: 'Por qué SC',         id: 'about'     },
+    { href: 'products/',   label: 'Nuestro Ecosistema', id: 'products'  },
+    { href: 'contact/',    label: 'Contacto',           id: 'contact'   },
   ];
 
   function buildNavLinks() {
@@ -90,25 +80,25 @@
     '<header class="site-header" id="site-header" role="banner">' +
       '<div class="header-inner">' +
         '<a href="' + base + '" class="nav-logo"' +
-          ' aria-label="SC Web Studio \u2014 Return to home">' +
+          ' aria-label="SC Web Studio \u2014 Inicio">' +
           LOGOMARK +
           '<span class="nav-logo-wordmark">' +
             '<span class="logo-sc">SC</span> Web Studio' +
           '</span>' +
         '</a>' +
-        '<nav class="nav-links" role="navigation" aria-label="Primary navigation">' +
+        '<nav class="nav-links" role="navigation" aria-label="Navegación principal">' +
           buildNavLinks() +
         '</nav>' +
         '<div class="nav-cta-group">' +
           '<div class="nav-cta-desktop">' +
             '<a href="' + base + 'contact/"' +
               ' class="btn btn-secondary btn-sm"' +
-              ' id="nav-cta-project">Start a Project</a>' +
+              ' id="nav-cta-project">Iniciar Proyecto</a>' +
           '</div>' +
           '<button class="nav-mobile-toggle" id="mobile-menu-toggle"' +
             ' aria-controls="mobile-nav-menu"' +
             ' aria-expanded="false"' +
-            ' aria-label="Open navigation menu"' +
+            ' aria-label="Abrir menú de navegación"' +
             ' type="button">' +
             '<svg class="icon-menu" width="20" height="20" viewBox="0 0 24 24"' +
               ' fill="none" stroke="currentColor" stroke-width="2"' +
@@ -127,13 +117,13 @@
       '</div>' +
     '</header>' +
     '<nav class="mobile-menu" id="mobile-nav-menu"' +
-      ' role="navigation" aria-label="Mobile navigation">' +
+      ' role="navigation" aria-label="Navegación móvil">' +
       buildMobileLinks() +
       '<div class="mobile-menu-divider"></div>' +
       '<a href="' + base + 'contact/" class="btn btn-primary"' +
-        ' id="mnav-cta">Start a Project</a>' +
+        ' id="mnav-cta">Iniciar Proyecto</a>' +
       '<a href="' + base + 'products/" class="btn btn-secondary"' +
-        ' id="mnav-cta-products">Explore Products</a>' +
+        ' id="mnav-cta-products">Explorar Ecosistema</a>' +
     '</nav>';
 
   /* ── Footer HTML ─────────────────────────────────────────────────────── */
@@ -152,53 +142,53 @@
                 '<span class="logo-sc">SC</span> Web Studio' +
               '</span>' +
             '</a>' +
-            '<p>Building software that makes work simpler and creates opportunities.</p>' +
+            '<p>Tecnología práctica que simplifica el trabajo, automatiza procesos y ayuda a hacer crecer empresas en Bolivia.</p>' +
             '<p style="margin-top:var(--space-3);font-family:var(--font-mono);' +
               'font-size:var(--text-2xs);color:var(--border-strong);">' +
-              'hello@scwebstudio.com' +
+              'contacto@scwebstudio.net · Santa Cruz de la Sierra, Bolivia' +
             '</p>' +
           '</div>' +
 
-          /* Products nav */
-          '<nav aria-label="Products navigation">' +
-            '<p class="footer-nav-title">Products</p>' +
+          /* Productos nav */
+          '<nav aria-label="Navegación de productos">' +
+            '<p class="footer-nav-title">Nuestro Ecosistema</p>' +
             '<ul class="footer-nav-list">' +
-              '<li><a href="' + base + 'products/case-assistant-os/"' +
-                ' class="footer-nav-link" id="fnav-cao">Case Assistant OS</a></li>' +
-              '<li><a href="' + base + 'products/project-home/"' +
-                ' class="footer-nav-link" id="fnav-ph">Project Home</a></li>' +
+              '<li><a href="' + base + 'products/#case-assistant"' +
+                ' class="footer-nav-link" id="fnav-cao">Case Assistant OS <span style="font-size:10px;opacity:0.75;color:var(--color-success);">🟢 En Vivo</span></a></li>' +
+              '<li><a href="' + base + 'products/#project-home"' +
+                ' class="footer-nav-link" id="fnav-ph">Project Home <span style="font-size:10px;opacity:0.75;color:var(--color-warning);">🟡 En Desarrollo</span></a></li>' +
               '<li><a href="https://sctech.shop" target="_blank" rel="noopener noreferrer"' +
-                ' class="footer-nav-link" id="fnav-sct">SC Tech \u2197</a></li>' +
-              '<li><a href="' + base + 'labs/"' +
-                ' class="footer-nav-link" id="fnav-labs">SC Labs</a></li>' +
+                ' class="footer-nav-link" id="fnav-sct">SC Tech \u2197 <span style="font-size:10px;opacity:0.75;color:var(--color-success);">🟢 En Vivo</span></a></li>' +
+              '<li><a href="' + base + 'products/"' +
+                ' class="footer-nav-link" id="fnav-labs">SC Labs <span style="font-size:10px;opacity:0.75;color:var(--studio-400);">🔵 Investigación</span></a></li>' +
             '</ul>' +
           '</nav>' +
 
-          /* Studio nav */
-          '<nav aria-label="Studio navigation">' +
-            '<p class="footer-nav-title">Studio</p>' +
+          /* Estudio nav */
+          '<nav aria-label="Navegación del estudio">' +
+            '<p class="footer-nav-title">Estudio</p>' +
             '<ul class="footer-nav-list">' +
-              '<li><a href="' + base + 'about/"' +
-                ' class="footer-nav-link" id="fnav-about">About</a></li>' +
               '<li><a href="' + base + 'services/"' +
-                ' class="footer-nav-link" id="fnav-services">Services</a></li>' +
-              '<li><a href="' + base + 'ecosystem/"' +
-                ' class="footer-nav-link" id="fnav-ecosystem">Ecosystem</a></li>' +
-              '<li><a href="' + base + 'stories/"' +
-                ' class="footer-nav-link" id="fnav-stories">Stories</a></li>' +
+                ' class="footer-nav-link" id="fnav-services">Servicios</a></li>' +
+              '<li><a href="' + base + 'industries/"' +
+                ' class="footer-nav-link" id="fnav-industries">Sectores</a></li>' +
+              '<li><a href="' + base + 'about/"' +
+                ' class="footer-nav-link" id="fnav-about">Por qué SC Web Studio</a></li>' +
+              '<li><a href="' + base + 'products/"' +
+                ' class="footer-nav-link" id="fnav-ecosystem">Nuestro Ecosistema</a></li>' +
             '</ul>' +
           '</nav>' +
 
-          /* Contact nav */
-          '<nav aria-label="Contact navigation">' +
-            '<p class="footer-nav-title">Work with us</p>' +
+          /* Contacto nav */
+          '<nav aria-label="Navegación de contacto">' +
+            '<p class="footer-nav-title">Trabajemos juntos</p>' +
             '<ul class="footer-nav-list">' +
               '<li><a href="' + base + 'contact/"' +
-                ' class="footer-nav-link" id="fnav-contact">Start a Project</a></li>' +
-              '<li><a href="' + base + 'contact/?path=demo"' +
-                ' class="footer-nav-link" id="fnav-demo">Request a Demo</a></li>' +
-              '<li><a href="' + base + 'about/#team"' +
-                ' class="footer-nav-link" id="fnav-team">The Team</a></li>' +
+                ' class="footer-nav-link" id="fnav-contact">Solicitar Diagnóstico</a></li>' +
+              '<li><a href="' + base + 'contact/#faqs"' +
+                ' class="footer-nav-link" id="fnav-faqs">Preguntas Frecuentes</a></li>' +
+              '<li><a href="' + base + 'contact/#commitments"' +
+                ' class="footer-nav-link" id="fnav-commitments">Nuestra Promesa</a></li>' +
             '</ul>' +
           '</nav>' +
 
@@ -206,15 +196,12 @@
 
         '<div class="footer-bottom">' +
           '<p class="footer-copyright">' +
-            '\u00a9 2026 SC Web Studio. All rights reserved. Based in Bolivia.' +
+            '\u00a9 2026 SC Web Studio. Todos los derechos reservados. Santa Cruz de la Sierra, Bolivia.' +
           '</p>' +
           '<div class="cluster">' +
-            '<a href="' + base + 'privacy/"' +
+            '<a href="' + base + 'contact/"' +
               ' class="footer-nav-link"' +
-              ' style="font-size:var(--text-xs);" id="fnav-privacy">Privacy</a>' +
-            '<a href="' + base + 'terms/"' +
-              ' class="footer-nav-link"' +
-              ' style="font-size:var(--text-xs);" id="fnav-terms">Terms</a>' +
+              ' style="font-size:var(--text-xs);" id="fnav-privacy">Contacto Directo</a>' +
           '</div>' +
         '</div>' +
 
@@ -227,7 +214,7 @@
     if (!head) return;
 
     function addLink(rel, type, href, extra) {
-      if (document.querySelector('link[rel="' + rel + '"]')) return; // skip if already set
+      if (document.querySelector('link[rel="' + rel + '"]')) return;
       var el = document.createElement('link');
       el.rel  = rel;
       if (type)  el.type = type;
@@ -247,7 +234,6 @@
     addLink('manifest', null,            base + 'manifest.json');
     addMeta('theme-color', '#5568FF');
 
-    /* Google Fonts preconnect — applied on every page for font load performance */
     function addPreconnect(href, crossorigin) {
       if (document.querySelector('link[rel="preconnect"][href="' + href + '"]')) return;
       var el = document.createElement('link');

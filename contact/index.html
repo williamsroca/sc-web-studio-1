@@ -1,36 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact � SC Web Studio</title>
-  <meta name="description" content="Start a project or request a demo. We respond within 24 hours. Tell us about your problem and we will tell you honestly if we can solve it.">
+
+  <!-- Primary SEO -->
+  <title>Contacto — Hablemos de tu Proyecto — SC Web Studio Bolivia</title>
+  <meta name="description" content="Hablemos de tu empresa o idea. En SC Web Studio analizamos las necesidades de tu negocio y te recomendamos la solución adecuada. Respuesta en menos de 24 horas.">
+  <meta name="keywords" content="contacto SC Web Studio, cotizar sitio web Bolivia, diagnostico digital Bolivia, desarrollo de software Santa Cruz Bolivia, automatizacion empresas">
+  <meta name="author" content="SC Web Studio">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://scwebstudio.com/contact/">
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://scwebstudio.com/contact/">
-  <meta property="og:title" content="Contact � SC Web Studio">
-  <meta property="og:description" content="Start a project or request a demo. We respond within 24 hours. Tell us about your problem and we will tell you honestly if we can solve it.">
-  <meta property="og:image" content="https://scwebstudio.com/shared/img/og-default.png">
+  <meta property="og:title" content="Contacto — Hablemos de tu Proyecto — SC Web Studio Bolivia">
+  <meta property="og:description" content="Toda gran solución empieza con una conversación. Cuéntanos tu proyecto y te responderemos con total honestidad.">
   <meta property="og:site_name" content="SC Web Studio">
+  <meta property="og:locale" content="es_BO">
+  <meta property="og:image" content="https://scwebstudio.com/shared/assets/og/home.jpg">
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact � SC Web Studio">
-  <meta name="twitter:description" content="Start a project or request a demo. We respond within 24 hours. Tell us about your problem and we will tell you honestly if we can solve it.">
-  <meta name="twitter:image" content="https://scwebstudio.com/shared/img/og-default.png">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Contact � SC Web Studio",
-    "url": "https://scwebstudio.com/contact/",
-    "description": "Start a project or request a demo. We respond within 24 hours.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "SC Web Studio",
-      "url": "https://scwebstudio.com",
-      "address": {"@type": "PostalAddress","addressCountry": "BO"}
-    }
-  }
-  </script>
+  <meta name="twitter:title" content="Contacto — Hablemos de tu Proyecto — SC Web Studio Bolivia">
+  <meta name="twitter:description" content="Cuéntanos sobre tu negocio y descubramos juntos la mejor solución tecnológica.">
+
+  <!-- Fonts and CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="../shared/css/tokens.css">
   <link rel="stylesheet" href="../shared/css/reset.css">
   <link rel="stylesheet" href="../shared/css/typography.css">
@@ -40,290 +40,768 @@
   <link rel="stylesheet" href="../shared/css/components/buttons.css">
   <link rel="stylesheet" href="../shared/css/components/cards.css">
   <link rel="stylesheet" href="../shared/css/components/badges.css">
-  <link rel="stylesheet" href="../shared/css/components/mockups.css">
   <link rel="stylesheet" href="../shared/css/components/modals.css">
   <link rel="stylesheet" href="../shared/css/components/forms.css">
+
   <style>
-    .path-selector{display:grid;grid-template-columns:1fr;gap:var(--space-4);max-width:720px;margin:var(--space-10) auto 0;}
-    @media(min-width:768px){.path-selector{grid-template-columns:1fr 1fr;}}
-    .path-card{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-4);padding:var(--space-8);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-xl);background:var(--bg-surface);cursor:pointer;transition:border-color .2s ease,background .2s ease,box-shadow .2s ease;user-select:none;}
-    .path-card:hover{border-color:rgba(85,104,255,0.4);box-shadow:var(--shadow-md);}
-    .path-card.is-active{border-color:var(--studio-500);background:rgba(85,104,255,0.05);box-shadow:0 0 0 1px var(--studio-500);}
-    .path-card__icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-md);background:rgba(85,104,255,0.1);color:var(--studio-500);}
-    .path-card__label{font-family:var(--font-display);font-size:1.125rem;font-weight:600;color:var(--text-primary);margin:0;}
-    .path-card__desc{font-family:var(--font-ui);font-size:0.875rem;color:var(--text-secondary);margin:0;line-height:1.5;}
-    .form-area{max-width:600px;margin:var(--space-12) auto 0;}
-    .form-panel{display:none;}
-    .form-panel.is-visible{display:block;}
-    .form-success{display:none;text-align:center;padding:var(--space-12) var(--space-6);}
-    .form-success.is-visible{display:block;}
-    .form-success__icon{width:56px;height:56px;border-radius:var(--radius-full);background:rgba(85,104,255,0.12);display:flex;align-items:center;justify-content:center;margin:0 auto var(--space-6);color:var(--studio-500);}
-    .form-success__title{font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--text-primary);margin-bottom:var(--space-3);}
-    .form-success__lead{color:var(--text-secondary);font-size:0.9375rem;}
-    .steps-grid{display:grid;grid-template-columns:1fr;gap:var(--space-8);margin-top:var(--space-12);}
-    @media(min-width:1024px){.steps-grid{grid-template-columns:repeat(3,1fr);}}
-    .step-item{display:flex;flex-direction:column;gap:var(--space-4);}
-    .step-item__icon{width:48px;height:48px;border-radius:var(--radius-lg);background:rgba(85,104,255,0.08);border:1px solid rgba(85,104,255,0.15);display:flex;align-items:center;justify-content:center;color:var(--studio-500);}
-    .step-item__title{font-family:var(--font-display);font-size:1.0625rem;font-weight:600;color:var(--text-primary);margin:0;}
-    .step-item__desc{font-size:0.875rem;color:var(--text-secondary);line-height:1.65;margin:0;}
-    .faq-list{max-width:680px;margin:var(--space-12) auto 0;}
-    .faq-item{border-bottom:1px solid rgba(255,255,255,0.06);}
-    .faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding:var(--space-5) 0;background:transparent;border:none;cursor:pointer;text-align:left;font-family:var(--font-display);font-size:1rem;font-weight:500;color:var(--text-primary);transition:color .15s;}
-    .faq-question:hover{color:var(--studio-500);}
-    .faq-chevron{flex-shrink:0;width:18px;height:18px;color:var(--text-tertiary);transition:transform .25s ease;}
-    .faq-item.is-open .faq-chevron{transform:rotate(180deg);}
-    .faq-item.is-open .faq-question{color:var(--studio-500);}
-    .faq-answer{overflow:hidden;max-height:0;transition:max-height .3s ease;}
-    .faq-item.is-open .faq-answer{max-height:300px;}
-    .faq-answer p{padding-bottom:var(--space-5);color:var(--text-secondary);font-size:0.9375rem;line-height:1.7;margin:0;}
-    .field-group{display:flex;flex-direction:column;gap:var(--space-5);margin-bottom:var(--space-6);}
-    .field-row{display:grid;grid-template-columns:1fr;gap:var(--space-5);}
-    @media(min-width:640px){.field-row{grid-template-columns:1fr 1fr;}}
-    .field{display:flex;flex-direction:column;gap:var(--space-2);}
-    .field label{font-family:var(--font-ui);font-size:0.8125rem;font-weight:500;color:var(--text-secondary);letter-spacing:0.01em;}
-    .field label span.optional{color:var(--text-tertiary);font-weight:400;margin-left:4px;}
-    .btn-full{width:100%;}
-    .contact-hero{padding-top:calc(var(--space-24) + 60px);padding-bottom:var(--space-16);text-align:center;}
+    /* Hero */
+    .contact-hero {
+      padding: calc(var(--nav-height) + var(--space-16)) var(--space-6) var(--space-16);
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+    }
+
+    .hero-h1-accent {
+      background: linear-gradient(135deg, #A0ADFF 0%, var(--studio-500) 60%, #3D4EE8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-hero-trust {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      color: var(--text-tertiary);
+      margin-top: var(--space-8);
+      letter-spacing: 0.04em;
+    }
+
+    /* 2-Column Art Direction Layout for Questionnaire */
+    .contact-page-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      align-items: start;
+    }
+
+    @media (min-width: 1024px) {
+      .contact-page-grid {
+        grid-template-columns: 7fr 5fr;
+        gap: var(--space-12);
+      }
+    }
+
+    .contact-side-panel {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+      position: sticky;
+      top: calc(var(--nav-height) + var(--space-8));
+    }
+
+    .side-info-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform var(--duration-slow) var(--ease-spring), border-color var(--duration-base) var(--ease-out);
+    }
+
+    .side-info-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 15%;
+      right: 15%;
+      height: 1px;
+      background: var(--gradient-edge-studio);
+      opacity: 0.6;
+    }
+
+    .side-info-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-default);
+    }
+
+    .side-info-badge {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--color-success);
+    }
+
+    .side-info-title {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+    }
+
+    .side-info-desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* What Happens Next Timeline */
+    .next-pipeline {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: var(--space-10);
+    }
+
+    .next-pipeline::before {
+      content: '';
+      position: absolute;
+      left: 23px;
+      top: 24px;
+      bottom: 24px;
+      width: 1px;
+      background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--border-default) 10%,
+        rgba(85, 104, 255, 0.3) 50%,
+        var(--border-default) 90%,
+        transparent
+      );
+    }
+
+    .next-step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: var(--space-6);
+      padding-block: var(--space-6);
+      position: relative;
+      opacity: 0;
+      transform: translateX(-16px);
+      transition:
+        opacity 600ms var(--ease-out),
+        transform 600ms var(--ease-out);
+    }
+
+    .next-step.is-active { opacity: 1; transform: translateX(0); }
+
+    .next-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--border-default);
+      background: var(--bg-surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      font-weight: var(--weight-semibold);
+      color: var(--text-tertiary);
+      flex-shrink: 0;
+      z-index: 1;
+      position: relative;
+    }
+
+    .next-step.is-active .next-num {
+      background: rgba(85, 104, 255, 0.1);
+      border-color: var(--studio-500);
+      color: var(--studio-400);
+    }
+
+    .next-body { padding-top: var(--space-3); }
+
+    .next-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .next-desc {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+      max-width: 46ch;
+    }
+
+    /* Form Section */
+    .form-wrapper-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      box-shadow: var(--shadow-xl);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-wrapper-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: var(--gradient-edge-studio);
+    }
+
+    @media (min-width: 768px) {
+      .form-wrapper-card { padding: var(--space-10); }
+    }
+
+    .form-step-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+      padding-bottom: var(--space-8);
+      margin-bottom: var(--space-8);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .form-step-group:last-of-type {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .form-step-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .form-step-badge {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      color: var(--studio-400);
+      background: rgba(85, 104, 255, 0.1);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+    }
+
+    .form-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+    }
+
+    @media (min-width: 640px) {
+      .form-grid-2 { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* Reassurance Box */
+    .not-sure-box {
+      background: linear-gradient(135deg, rgba(85, 104, 255, 0.08) 0%, var(--bg-surface-raised) 100%);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-10) var(--space-8);
+      margin-top: var(--space-12);
+      text-align: center;
+    }
+
+    /* FAQ Cards */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+      margin-top: var(--space-10);
+    }
+
+    @media (min-width: 768px) {
+      .faq-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .card-faq {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-7);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      position: relative;
+      overflow: hidden;
+      transition: transform var(--duration-slow) var(--ease-spring), border-color var(--duration-base) var(--ease-out);
+    }
+
+    .card-faq:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-default);
+    }
+
+    .faq-q {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+    }
+
+    .faq-a {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+    }
+
+    /* Promises List */
+    .promises-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      margin-top: var(--space-10);
+    }
+
+    .promise-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5) var(--space-6);
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      transition: border-color var(--duration-base) var(--ease-out);
+    }
+
+    .promise-item:hover {
+      border-color: var(--border-default);
+    }
+
+    .promise-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(85, 104, 255, 0.1);
+      border: 1px solid rgba(85, 104, 255, 0.3);
+      color: var(--studio-400);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .promise-icon svg { width: 14px; height: 14px; }
+
+    /* Final CTA */
+    .final-cta-section {
+      padding: var(--space-20) var(--space-6);
+      text-align: center;
+    }
   </style>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://scwebstudio.com/contact/#webpage",
+    "url": "https://scwebstudio.com/contact/",
+    "name": "Contacto — Hablemos de tu Proyecto — SC Web Studio Bolivia",
+    "description": "Contacto y diagnostico digital para empresas y emprendedores en Bolivia. Sin presiones, atencion directa en menos de 24h.",
+    "isPartOf": { "@id": "https://scwebstudio.com/#website" },
+    "inLanguage": "es-BO"
+  }
+  </script>
 </head>
-<body class="page-wrapper">
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+<body class="page-wrapper" data-base-path="../">
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Header Shell -->
   <div id="sc-header"></div>
   <script src="../shared/js/core/shell.js" data-base="../"></script>
+
   <main id="main-content" class="page-content">
 
-    <section class="contact-hero section" aria-labelledby="contact-heading">
-      <div class="container" style="max-width:680px;">
-        <p class="sh-label reveal">Get in Touch</p>
-        <h1 class="display reveal" id="contact-heading" style="margin-bottom:var(--space-6);">Let us talk about what you are building.</h1>
-        <p class="lead reveal" style="margin:0 auto;">We take a limited number of client projects per year. If you have a problem worth solving, we want to understand it.</p>
+    <!-- HERO -->
+    <section aria-labelledby="contact-hero-heading" class="reveal">
+      <div class="contact-hero">
+        <p class="sh-label">Contacto &amp; Diagnóstico</p>
+        <h1 class="display" id="contact-hero-heading" style="max-width:18ch;">
+          Hablemos de tu proyecto.<br>
+          <span class="hero-h1-accent">El primer paso para hacer crecer tu negocio.</span>
+        </h1>
+        <p class="lead" style="margin-top:var(--space-6);max-width:54ch;">
+          Toda gran solución digital comienza con una conversación honesta. Cuéntanos sobre tu empresa, tus ideas o los cuellos de botella que quieres resolver. Te escucharemos y asesoraremos sin compromiso ni presión.
+        </p>
+        <p class="contact-hero-trust">Respuesta en menos de 24 horas · Sin presiones comerciales · Atención directa en Bolivia</p>
       </div>
     </section>
 
-    <section class="section" id="contact-form-section" aria-labelledby="contact-path-heading" style="padding-top:0;">
-      <div class="container" style="max-width:720px;">
-        <h2 class="sr-only" id="contact-path-heading">Choose your path</h2>
-        <div class="path-selector reveal-group" role="group" aria-label="Choose contact type">
-          <div class="path-card is-active reveal" id="path-card-project" role="button" tabindex="0" aria-pressed="true" aria-controls="form-project" data-path="project">
-            <div class="path-card__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-            </div>
-            <p class="path-card__label">Start a Project</p>
-            <p class="path-card__desc">You have a problem. We build the solution.</p>
-          </div>
-          <div class="path-card reveal" id="path-card-demo" role="button" tabindex="0" aria-pressed="false" aria-controls="form-demo" data-path="demo">
-            <div class="path-card__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            </div>
-            <p class="path-card__label">Request a Demo</p>
-            <p class="path-card__desc">See Case Assistant OS in action for your PI firm.</p>
-          </div>
+    <!-- WHAT HAPPENS NEXT -->
+    <section class="section section-lg section-surface" id="what-happens-next" aria-labelledby="next-heading">
+      <div class="container" style="max-width:800px;">
+        <div class="reveal">
+          <p class="sh-label">Un Proceso Tranquilo</p>
+          <h2 class="sh-heading" id="next-heading">¿Qué pasa después de escribirnos?</h2>
+          <p class="sh-lead">Queremos que te sientas seguro y respaldado desde el primer instante:</p>
         </div>
 
-        <div class="form-area">
-          <div class="form-success" id="form-success" aria-live="polite" tabindex="-1">
-            <div class="form-success__icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+        <div class="next-pipeline" role="list">
+
+          <div class="next-step" role="listitem">
+            <div class="next-num" aria-hidden="true">01</div>
+            <div class="next-body">
+              <h3 class="next-title">1. Nos conocemos</h3>
+              <p class="next-desc">Revisamos tu mensaje y agendamos una breve conversación (virtual o presencial) de 20 minutos para entender tus objetivos.</p>
             </div>
-            <p class="form-success__title">Message sent.</p>
-            <p class="form-success__lead">We will review your brief and get back to you within 24 hours.</p>
           </div>
 
-          <form class="form-panel is-visible" id="form-project" novalidate aria-label="Start a Project form">
-            <div class="field-group">
-              <div class="field-row">
-                <div class="field">
-                  <label for="project-name">Full Name <span aria-hidden="true">*</span></label>
-                  <input type="text" id="project-name" name="name" required autocomplete="name" placeholder="Your name">
-                </div>
-                <div class="field">
-                  <label for="project-email">Email Address <span aria-hidden="true">*</span></label>
-                  <input type="email" id="project-email" name="email" required autocomplete="email" placeholder="you@company.com">
-                </div>
-              </div>
-              <div class="field">
-                <label for="project-company">Company <span class="optional">optional</span></label>
-                <input type="text" id="project-company" name="company" autocomplete="organization" placeholder="Your company or organization">
-              </div>
-              <div class="field-row">
-                <div class="field">
-                  <label for="project-type">Project Type <span aria-hidden="true">*</span></label>
-                  <select id="project-type" name="project-type" required>
-                    <option value="" disabled selected>Select a type</option>
-                    <option value="software-development">Software Development</option>
-                    <option value="process-automation">Process Automation</option>
-                    <option value="saas-product">SaaS Product</option>
-                    <option value="ui-ux-design">UI / UX Design</option>
-                    <option value="internal-tools">Internal Tools</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="project-timeline">Timeline <span aria-hidden="true">*</span></label>
-                  <select id="project-timeline" name="timeline" required>
-                    <option value="" disabled selected>Select timeline</option>
-                    <option value="asap">ASAP</option>
-                    <option value="1-3-months">1�3 months</option>
-                    <option value="3-6-months">3�6 months</option>
-                    <option value="6-plus-months">6+ months</option>
-                    <option value="not-sure">Not sure yet</option>
-                  </select>
-                </div>
-              </div>
-              <div class="field">
-                <label for="project-message">Project Brief <span aria-hidden="true">*</span></label>
-                <textarea id="project-message" name="message" required rows="6" placeholder="Describe the problem you are trying to solve. The more context the better."></textarea>
-              </div>
-              <div class="field">
-                <label for="project-how-found">How did you find us? <span class="optional">optional</span></label>
-                <select id="project-how-found" name="how-found">
-                  <option value="" disabled selected>Select one</option>
-                  <option value="search">Search</option>
-                  <option value="referral">Referral</option>
-                  <option value="social-media">Social Media</option>
-                  <option value="direct">Direct</option>
-                </select>
-              </div>
+          <div class="next-step" role="listitem">
+            <div class="next-num" aria-hidden="true">02</div>
+            <div class="next-body">
+              <h3 class="next-title">2. Entendemos tu negocio</h3>
+              <p class="next-desc">Analizamos la realidad de tu empresa, tus procesos actuales y lo que necesitas mejorar antes de proponer cualquier tecnología.</p>
             </div>
-            <button type="submit" id="btn-submit-project" class="btn btn-primary btn-full btn-lg">Send Your Brief</button>
-          </form>
+          </div>
 
-          <form class="form-panel" id="form-demo" novalidate aria-label="Request a Demo form">
-            <div class="field-group">
-              <div class="field-row">
-                <div class="field">
-                  <label for="demo-name">Full Name <span aria-hidden="true">*</span></label>
-                  <input type="text" id="demo-name" name="name" required autocomplete="name" placeholder="Your name">
-                </div>
-                <div class="field">
-                  <label for="demo-email">Work Email <span aria-hidden="true">*</span></label>
-                  <input type="email" id="demo-email" name="email" required autocomplete="email" placeholder="you@yourfirm.com">
-                </div>
-              </div>
-              <div class="field">
-                <label for="demo-firm">Firm Name <span aria-hidden="true">*</span></label>
-                <input type="text" id="demo-firm" name="firm-name" required placeholder="Your personal injury law firm">
-              </div>
-              <div class="field">
-                <label for="demo-cases">Active Cases</label>
-                <select id="demo-cases" name="active-cases">
-                  <option value="" disabled selected>Select range</option>
-                  <option value="under-50">Under 50</option>
-                  <option value="50-150">50�150</option>
-                  <option value="150-500">150�500</option>
-                  <option value="500-plus">500+</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="demo-challenge">Biggest case management challenge <span class="optional">optional</span></label>
-                <textarea id="demo-challenge" name="challenge" rows="4" placeholder="What slows your team down the most today?"></textarea>
-              </div>
+          <div class="next-step" role="listitem">
+            <div class="next-num" aria-hidden="true">03</div>
+            <div class="next-body">
+              <h3 class="next-title">3. Proponemos una solución</h3>
+              <p class="next-desc">Te presentamos una propuesta transparente con alcances claros, cronograma de entregas y presupuesto fijo sin letras chicas.</p>
             </div>
-            <button type="submit" id="btn-submit-demo" class="btn btn-legal btn-full btn-lg">Request My Demo</button>
-          </form>
+          </div>
+
+          <div class="next-step" role="listitem">
+            <div class="next-num" aria-hidden="true">04</div>
+            <div class="next-body">
+              <h3 class="next-title">4. Construimos juntos</h3>
+              <p class="next-desc">Desarrollamos la solución con comunicación fluida y reportes semanales para que veas el avance en todo momento.</p>
+            </div>
+          </div>
+
+          <div class="next-step" role="listitem">
+            <div class="next-num" aria-hidden="true">05</div>
+            <div class="next-body">
+              <h3 class="next-title">5. Seguimos mejorando</h3>
+              <p class="next-desc">Tras el lanzamiento, acompañamos a tu equipo para asegurar que la herramienta cumpla su objetivo y evolucione con tu crecimiento.</p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <section class="section-surface section" id="what-to-expect" aria-labelledby="expect-heading">
-      <div class="container" style="max-width:960px;text-align:center;">
-        <p class="sh-label reveal">What Happens Next</p>
-        <h2 class="sh-heading reveal" id="expect-heading">We respond within 24 hours.</h2>
-        <div class="steps-grid reveal-group">
-          <div class="step-item reveal">
-            <div class="step-item__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <p class="step-item__title">We read everything</p>
-            <p class="step-item__desc">Every brief is read by the team. We do not use auto-responders for first contact.</p>
-          </div>
-          <div class="step-item reveal">
-            <div class="step-item__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <p class="step-item__title">Discovery call</p>
-            <p class="step-item__desc">30 minutes. We ask questions. You ask questions. We figure out if there is a fit.</p>
-          </div>
-          <div class="step-item reveal">
-            <div class="step-item__icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            </div>
-            <p class="step-item__title">Clear proposal</p>
-            <p class="step-item__desc">If there is a fit, you receive a clear scope and timeline within 5 business days.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="faq" aria-labelledby="faq-heading">
+    <!-- QUESTIONNAIRE FORM & SIDE PANEL (2-COLUMN ART DIRECTION COMPOSITION) -->
+    <section class="section section-xl" id="questionnaire" aria-labelledby="form-heading">
       <div class="container">
-        <p class="sh-label reveal" style="text-align:center;">Common Questions</p>
-        <h2 class="sh-heading reveal" id="faq-heading" style="text-align:center;">Before you write</h2>
-        <div class="faq-list reveal">
-          <div class="faq-item" id="faq-item-1">
-            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1" id="faq-btn-1">Do you work with clients outside Bolivia?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-            <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-btn-1"><p>Yes. Our studio is based in Bolivia but we work with clients in the U.S., Europe, and Latin America. Case Assistant OS is built specifically for the U.S. legal market.</p></div>
+        <div class="reveal text-center" style="margin-bottom:var(--space-12);">
+          <p class="sh-label" style="justify-content:center;">Formulario de Diagnóstico</p>
+          <h2 class="sh-heading" id="form-heading">Cuéntanos sobre tu proyecto</h2>
+          <p class="sh-lead" style="margin-inline:auto;">Tómate un par de minutos para responder estas breves preguntas. Nos ayudará a preparar nuestra primera reunión.</p>
+        </div>
+
+        <div class="contact-page-grid">
+          <!-- Col 1: Questionnaire Form -->
+          <div class="form-wrapper-card reveal">
+            <form id="contact-form" class="form-stack" novalidate>
+
+              <!-- Paso 1: Tus Datos -->
+              <fieldset class="form-step-group">
+                <legend class="form-step-title">
+                  <span class="form-step-badge">Paso 1</span> Tus Datos de Contacto
+                </legend>
+
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label class="form-label form-label-required" for="c-name">Nombre completo</label>
+                    <input class="form-input" type="text" id="c-name" name="name" placeholder="Ej. Carlos Mendoza" autocomplete="name" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label form-label-required" for="c-email">Correo electrónico</label>
+                    <input class="form-input" type="email" id="c-email" name="email" placeholder="carlos@empresa.com" autocomplete="email" required>
+                  </div>
+                </div>
+
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label class="form-label form-label-required" for="c-company">Nombre de tu empresa o proyecto</label>
+                    <input class="form-input" type="text" id="c-company" name="company" placeholder="Ej. Restaurante El Candil / Mi Marca" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="c-phone">Teléfono de contacto (Opcional)</label>
+                    <input class="form-input" type="tel" id="c-phone" name="phone" placeholder="+591 70000000" autocomplete="tel">
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- Paso 2: Tu Negocio & Objetivos -->
+              <fieldset class="form-step-group">
+                <legend class="form-step-title">
+                  <span class="form-step-badge">Paso 2</span> Tu Negocio &amp; Desafíos
+                </legend>
+
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label class="form-label form-label-required" for="c-industry">¿Qué tipo de negocio tienes?</label>
+                    <select class="form-select" id="c-industry" name="industry" required>
+                      <option value="">Selecciona una opción</option>
+                      <option value="restaurantes">Restaurante / Cafetería / Gastronomía</option>
+                      <option value="ropa">Marca de Ropa / Moda</option>
+                      <option value="retail">Comercio / Tienda Retail</option>
+                      <option value="abogados">Bufete Legal / Servicios Jurídicos</option>
+                      <option value="clinica">Clínica / Centro Médico / Odontología</option>
+                      <option value="inmobiliaria">Inmobiliaria / Bienes Raíces</option>
+                      <option value="emprendimiento">Emprendimiento / Startup / Idea de Producto</option>
+                      <option value="pyme">Empresa Local / Pyme en Crecimiento</option>
+                      <option value="otro">Otro sector</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="c-website-status">¿Ya tienes página web actualmente?</label>
+                    <select class="form-select" id="c-website-status" name="website_status">
+                      <option value="">Selecciona una opción</option>
+                      <option value="no">No, sería la primera vez</option>
+                      <option value="old">Sí, pero está desactualizada</option>
+                      <option value="no-sales">Sí, pero no genera ventas ni contactos</option>
+                      <option value="system">Necesitamos un software / dashboard interno</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label form-label-required" for="c-problem">¿Qué problema estás intentando resolver o qué te gustaría mejorar?</label>
+                  <textarea class="form-textarea" id="c-problem" name="problem" rows="4" placeholder="Ej. Queremos automatizar la toma de pedidos por WhatsApp, lanzar nuestra tienda online para vender a todo el país o crear un panel interno para gestionar citas..." required></textarea>
+                </div>
+              </fieldset>
+
+              <!-- Paso 3: Preferencias -->
+              <fieldset class="form-step-group">
+                <legend class="form-step-title">
+                  <span class="form-step-badge">Paso 3</span> Presupuesto &amp; Preferencias
+                </legend>
+
+                <div class="form-grid-2">
+                  <div class="form-group">
+                    <label class="form-label" for="c-budget">Presupuesto aproximado estimado (Opcional)</label>
+                    <select class="form-select" id="c-budget" name="budget">
+                      <option value="">Por definir tras el diagnóstico</option>
+                      <option value="b1">Menos de $500 USD</option>
+                      <option value="b2">$500 - $1.500 USD</option>
+                      <option value="b3">$1.500 - $3.000 USD</option>
+                      <option value="b4">Más de $3.000 USD</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="c-contact-pref">¿Cómo prefieres que te contactemos?</label>
+                    <select class="form-select" id="c-contact-pref" name="contact_pref">
+                      <option value="email">Por Correo Electrónico</option>
+                      <option value="whatsapp">Por WhatsApp</option>
+                      <option value="phone">Por Llamada Telefónica</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="form-submit-area" style="margin-top:var(--space-6);">
+                <button type="submit" class="btn btn-primary btn-lg btn-full" id="c-submit">Enviar Diagnóstico &amp; Iniciar Conversación</button>
+                <p class="form-privacy-note" style="text-align:center;margin-top:var(--space-3);">Cuidamos tus datos. Sin spam, sin llamadas comerciales molestas. Solo una respuesta transparente.</p>
+              </div>
+
+            </form>
           </div>
-          <div class="faq-item" id="faq-item-2">
-            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2" id="faq-btn-2">What is your minimum project size?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-            <div class="faq-answer" id="faq-answer-2" role="region" aria-labelledby="faq-btn-2"><p>We do not have a minimum. We have a standard. Every project we take on gets the same level of attention. If your project does not warrant a dedicated team, we will tell you honestly.</p></div>
+
+          <!-- Col 2: Floating Side Panel (Trust, Response & Availability) -->
+          <div class="contact-side-panel reveal">
+            <div class="side-info-card">
+              <div class="side-info-badge">
+                <span class="badge-dot badge-dot-pulse" style="background:var(--color-success);"></span>
+                <span>Respuesta Garantizada</span>
+              </div>
+              <h4 class="side-info-title">Atención en menos de 24 horas</h4>
+              <p class="side-info-desc">Revisamos personalmente cada proyecto. Te responderemos por el canal de tu preferencia sin mensajes automáticos genéricos.</p>
+            </div>
+
+            <div class="side-info-card">
+              <h4 class="side-info-title">Diagnóstico inicial de 20 minutos</h4>
+              <p class="side-info-desc">Conversamos de manera informal sobre tus operaciones, tus costos y tus prioridades. Sin compromisos ni presiones.</p>
+            </div>
+
+            <div class="side-info-card" style="background:var(--bg-surface-raised);border-color:var(--border-default);">
+              <span class="form-step-badge" style="width:fit-content;">Contacto Directo</span>
+              <p style="font-family:var(--font-mono);font-size:var(--text-sm);color:var(--studio-400);margin-top:var(--space-2);font-weight:600;">contacto@scwebstudio.net</p>
+              <p style="font-size:var(--text-xs);color:var(--text-tertiary);margin-top:2px;">Santa Cruz de la Sierra, Bolivia</p>
+            </div>
           </div>
-          <div class="faq-item" id="faq-item-3">
-            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3" id="faq-btn-3">Fixed-price or time-and-materials?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-            <div class="faq-answer" id="faq-answer-3" role="region" aria-labelledby="faq-btn-3"><p>Both, depending on the project. Short, well-scoped engagements are fixed-price. Longer, exploratory builds are time-and-materials with weekly reporting.</p></div>
+        </div>
+
+        <!-- Reassurance Box -->
+        <div class="not-sure-box reveal" id="not-sure">
+          <h3 class="sh-heading" style="font-size:var(--text-xl);margin-bottom:var(--space-3);">¿Aún no lo tienes claro?</h3>
+          <p class="sh-lead" style="margin-inline:auto;max-width:54ch;font-size:var(--text-sm);">
+            No te preocupes. Muchos de nuestros clientes nos contactan sabiendo que quieren mejorar sus procesos, pero sin tener claro el tipo exacto de tecnología. Nuestro trabajo en la primera reunión es ayudarte a descubrir la solución correcta.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQS -->
+    <section class="section section-lg section-surface" id="faqs" aria-labelledby="faqs-heading">
+      <div class="container">
+        <div class="reveal">
+          <p class="sh-label">Preguntas Frecuentes</p>
+          <h2 class="sh-heading" id="faqs-heading">Respuestas claras antes de empezar.</h2>
+          <p class="sh-lead">Resolvemos las dudas más habituales sobre cómo trabajamos:</p>
+        </div>
+
+        <div class="faq-grid reveal-group">
+
+          <article class="card-faq reveal">
+            <h3 class="faq-q">¿Cuánto cuesta un proyecto?</h3>
+            <p class="faq-a">El costo depende del alcance exacto que necesite tu empresa. Tras nuestra primera reunión de diagnóstico, te entregamos una propuesta con presupuesto fijo cerrado, sin costos ocultos ni sorpresas posteriores.</p>
+          </article>
+
+          <article class="card-faq reveal">
+            <h3 class="faq-q">¿Cuánto tiempo toma el desarrollo?</h3>
+            <p class="faq-a">Un sitio web corporativo o tienda virtual suele tomar entre 2 a 4 semanas. Proyectos de software a medida o automatizaciones complejas pueden requerir de 4 a 8 semanas, manteniendo reportes de avance semanales.</p>
+          </article>
+
+          <article class="card-faq reveal">
+            <h3 class="faq-q">¿Solo trabajan en Santa Cruz o Bolivia?</h3>
+            <p class="faq-a">Tenemos nuestra sede en Bolivia y trabajamos de manera remota con clientes en todo el país y también con empresas internacionales en Latinoamérica y EE.UU.</p>
+          </article>
+
+          <article class="card-faq reveal">
+            <h3 class="faq-q">¿Pueden mejorar una página web que ya tengo?</h3>
+            <p class="faq-a">Sí. Evaluamos tu sitio actual para detectar problemas de velocidad, diseño o conversión. En muchos casos rediseñamos y optimizamos la web para hacerla ultrarrápida y profesional.</p>
+          </article>
+
+          <article class="card-faq reveal">
+            <h3 class="faq-q">¿Pueden desarrollar software a medida y automatizaciones?</h3>
+            <p class="faq-a">Totalmente. Es una de nuestras especialidades principales: desde sistemas de gestión interna hasta integraciones automáticas entre WhatsApp, correo y bases de datos.</p>
+          </article>
+
+          <article class="card-faq reveal">
+            <h3 class="faq-q">¿Qué pasa si no sé por dónde empezar?</h3>
+            <p class="faq-a">Te ayudamos a diagnosticar las necesidades de tu empresa en nuestra primera conversación. No necesitas saber de tecnología; solo cuéntanos cómo opera tu negocio hoy.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMISES -->
+    <section class="section section-lg" id="commitments" aria-labelledby="commitments-heading">
+      <div class="container" style="max-width:800px;">
+        <div class="reveal">
+          <p class="sh-label">Nuestra Promesa</p>
+          <h2 class="sh-heading" id="commitments-heading">Lo que puedes esperar de nosotros.</h2>
+          <p class="sh-lead">Nuestra reputación se basa en la confianza y el trabajo bien hecho:</p>
+        </div>
+
+        <div class="promises-list reveal-group">
+
+          <div class="promise-item reveal">
+            <div class="promise-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span style="font-size:var(--text-sm);color:var(--text-primary);line-height:var(--leading-relaxed);">
+              <strong>Respondemos con total honestidad:</strong> Te aconsejaremos la mejor alternativa para tu presupuesto, incluso si implica empezar con algo pequeño.
+            </span>
           </div>
-          <div class="faq-item" id="faq-item-4">
-            <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-4" id="faq-btn-4">Can I see examples of your work?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></button>
-            <div class="faq-answer" id="faq-answer-4" role="region" aria-labelledby="faq-btn-4"><p>We are a young studio. Our best current work is Case Assistant OS. For client work, we share case studies during the discovery call.</p></div>
+
+          <div class="promise-item reveal">
+            <div class="promise-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span style="font-size:var(--text-sm);color:var(--text-primary);line-height:var(--leading-relaxed);">
+              <strong>Recomendamos solo lo que realmente necesitas:</strong> No te venderemos herramientas o licencias innecesarias que no agreguen valor real.
+            </span>
+          </div>
+
+          <div class="promise-item reveal">
+            <div class="promise-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span style="font-size:var(--text-sm);color:var(--text-primary);line-height:var(--leading-relaxed);">
+              <strong>Explicamos todo sin jerga técnica:</strong> Nos comunicamos en español claro y accesible enfocándonos en el impacto comercial de tu empresa.
+            </span>
+          </div>
+
+          <div class="promise-item reveal">
+            <div class="promise-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span style="font-size:var(--text-sm);color:var(--text-primary);line-height:var(--leading-relaxed);">
+              <strong>Cero presión comercial:</strong> Respetamos tus tiempos de decisión. No te acosaremos con llamadas o correos insistentes.
+            </span>
+          </div>
+
+          <div class="promise-item reveal">
+            <div class="promise-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <span style="font-size:var(--text-sm);color:var(--text-primary);line-height:var(--leading-relaxed);">
+              <strong>Construimos con visión de futuro:</strong> Todo nuestro software está diseñado para ser seguro, rápido y fácil de mantener con el paso del tiempo.
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta-section" id="get-started" aria-labelledby="cta-heading">
+      <div class="container" style="max-width:640px;">
+        <div class="reveal">
+          <p class="sh-label">Inicio</p>
+          <h2 class="sh-heading" id="cta-heading" style="text-align:center;margin-left:auto;margin-right:auto;">
+            Empecemos con una conversación.
+          </h2>
+          <p class="sh-lead" style="text-align:center;margin:0 auto var(--space-8);">
+            Sin compromisos. Escríbenos directamente o llena el formulario superior y te responderemos en breve.
+          </p>
+          <div style="display:flex;flex-direction:column;gap:var(--space-2);align-items:center;font-family:var(--font-mono);font-size:var(--text-xs);color:var(--text-tertiary);">
+            <span>Correo directo: <a href="mailto:contacto@scwebstudio.net" style="color:var(--studio-400);text-decoration:none;">contacto@scwebstudio.net</a></span>
+            <span>Santa Cruz de la Sierra, Bolivia</span>
           </div>
         </div>
       </div>
     </section>
 
   </main>
+
+  <!-- Footer Shell -->
   <div id="sc-footer"></div>
-  <script>
-  (function(){
-    var pathCards=document.querySelectorAll('.path-card');
-    var formProject=document.getElementById('form-project');
-    var formDemo=document.getElementById('form-demo');
-    var formSuccess=document.getElementById('form-success');
-    function activatePath(path){
-      pathCards.forEach(function(card){
-        var isThis=card.dataset.path===path;
-        card.classList.toggle('is-active',isThis);
-        card.setAttribute('aria-pressed',isThis?'true':'false');
-      });
-      formProject.classList.toggle('is-visible',path==='project');
-      formDemo.classList.toggle('is-visible',path==='demo');
-      formSuccess.classList.remove('is-visible');
-    }
-    pathCards.forEach(function(card){
-      card.addEventListener('click',function(){activatePath(card.dataset.path);});
-      card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();activatePath(card.dataset.path);}});
-    });
-    var params=new URLSearchParams(window.location.search);
-    if(params.get('path')==='demo'){activatePath('demo');}
-    function handleSubmit(e){
-      e.preventDefault();
-      var btn=e.currentTarget.querySelector('button[type="submit"]');
-      btn.disabled=true;btn.textContent='Sending\u2026';
-      setTimeout(function(){e.currentTarget.classList.remove('is-visible');formSuccess.classList.add('is-visible');formSuccess.focus();},900);
-    }
-    formProject.addEventListener('submit',handleSubmit);
-    formDemo.addEventListener('submit',handleSubmit);
-    document.querySelectorAll('.faq-item').forEach(function(item){
-      var btn=item.querySelector('.faq-question');
-      btn.addEventListener('click',function(){
-        var isOpen=item.classList.contains('is-open');
-        document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('is-open');i.querySelector('.faq-question').setAttribute('aria-expanded','false');});
-        if(!isOpen){item.classList.add('is-open');btn.setAttribute('aria-expanded','true');}
-      });
-    });
-  })();
-  </script>
+
   <script src="../shared/js/core/nav.js" defer></script>
   <script src="../shared/js/core/scroll.js" defer></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* Timeline Observer */
+    var steps = document.querySelectorAll('.next-step');
+    if (steps.length > 0 && 'IntersectionObserver' in window) {
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) e.target.classList.add('is-active');
+        });
+      }, { threshold: 0.2, rootMargin: '-5% 0px' });
+      steps.forEach(function (step, i) {
+        step.style.transitionDelay = (i * 100) + 'ms';
+        obs.observe(step);
+      });
+    }
+
+    /* Form Handler */
+    var form = document.getElementById('contact-form');
+    if (form) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var btn = document.getElementById('c-submit');
+        btn.classList.add('is-loading');
+        btn.textContent = 'Enviando...';
+
+        setTimeout(function () {
+          form.innerHTML =
+            '<div style="text-align:center;padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-4);align-items:center;">' +
+            '<svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>' +
+            '<h3 style="font-family:var(--font-display);color:var(--text-primary);font-size:var(--text-2xl);font-weight:600;">¡Gracias por escribirnos!</h3>' +
+            '<p style="font-size:var(--text-md);color:var(--text-secondary);max-width:44ch;line-height:1.6;">Hemos recibido los datos de tu proyecto. Revisaremos tu información y te responderemos en menos de 24 horas por el medio que seleccionaste.</p>' +
+            '</div>';
+        }, 1200);
+      });
+    }
+
+  }());
+  </script>
+
 </body>
 </html>

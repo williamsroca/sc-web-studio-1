@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ── Primary SEO ────────────────────────────────────────────────────── -->
+  <title>Soluciones por Sector e Industria — SC Web Studio Bolivia</title>
+  <meta name="description" content="Descubre cómo SC Web Studio adapta la tecnología a cada industria en Bolivia: restaurantes, tiendas retail, marcas de moda, clínicas, bufetes de abogados, inmobiliarias, emprendedores y empresas en crecimiento.">
+  <meta name="keywords" content="desarrollo web restaurantes Bolivia, e-commerce ropa Bolivia, software para clinicas, software para abogados Bolivia, portal inmobiliario Bolivia, prototipado 3D Bolivia, pymes Bolivia, SC Web Studio">
+  <meta name="author" content="SC Web Studio">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://scwebstudio.com/industries/">
+
+  <!-- ── Open Graph ──────────────────────────────────────────────────────── -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://scwebstudio.com/industries/">
+  <meta property="og:title"       content="Soluciones por Sector e Industria — SC Web Studio Bolivia">
+  <meta property="og:description" content="La tecnología se adapta a tu empresa, no tu empresa a la tecnología. Descubre soluciones personalizadas para tu sector.">
+  <meta property="og:site_name"   content="SC Web Studio">
+  <meta property="og:locale"      content="es_BO">
+  <meta property="og:image"       content="https://scwebstudio.com/shared/assets/og/home.jpg">
+
+  <!-- ── Twitter Card ───────────────────────────────────────────────────── -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Soluciones por Sector e Industria — SC Web Studio Bolivia">
+  <meta name="twitter:description" content="Tecnología personalizada para restaurantes, retail, marcas de moda, clínicas, abogados, inmobiliarias, emprendedores y empresas en crecimiento en Bolivia.">
+
+  <!-- ── Fonts & CSS ────────────────────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../shared/css/tokens.css">
+  <link rel="stylesheet" href="../shared/css/reset.css">
+  <link rel="stylesheet" href="../shared/css/typography.css">
+  <link rel="stylesheet" href="../shared/css/layout.css">
+  <link rel="stylesheet" href="../shared/css/utilities.css">
+  <link rel="stylesheet" href="../shared/css/components/nav.css">
+  <link rel="stylesheet" href="../shared/css/components/buttons.css">
+  <link rel="stylesheet" href="../shared/css/components/cards.css">
+  <link rel="stylesheet" href="../shared/css/components/badges.css">
+  <link rel="stylesheet" href="../shared/css/components/modals.css">
+  <link rel="stylesheet" href="../shared/css/components/forms.css">
+
+  <style>
+    /* ── Hero ──────────────────────────────────────────────────────── */
+    .ind-hero {
+      padding: calc(var(--nav-height) + var(--space-16)) var(--space-6) var(--space-16);
+      max-width: var(--max-width-content);
+      margin: 0 auto;
+    }
+
+    .hero-h1-accent {
+      background: linear-gradient(135deg, #A0ADFF 0%, var(--studio-500) 60%, #3D4EE8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .ind-hero-trust {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      color: var(--text-tertiary);
+      margin-top: var(--space-8);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Industry Mini Landing Sections ────────────────────────────── */
+    .industry-section {
+      padding: var(--space-20) 0;
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .industry-section-surface {
+      background: var(--bg-surface);
+    }
+
+    .industry-header {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-bottom: var(--space-10);
+    }
+
+    .ind-badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--studio-400);
+      background: rgba(85, 104, 255, 0.1);
+      border: 1px solid rgba(85, 104, 255, 0.2);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      width: fit-content;
+    }
+
+    .ind-grid-split {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-10);
+      align-items: start;
+    }
+
+    @media (min-width: 1024px) {
+      .ind-grid-split {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-16);
+      }
+    }
+
+    .ind-card-box {
+      background: var(--bg-surface-raised);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    .ind-list-bullet {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      list-style: none;
+    }
+
+    .ind-list-bullet li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+    }
+
+    .ind-bullet-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(85, 104, 255, 0.1);
+      border: 1px solid rgba(85, 104, 255, 0.25);
+      color: var(--studio-400);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .ind-bullet-icon svg { width: 12px; height: 12px; }
+
+    .ind-outcome-banner {
+      background: rgba(85, 104, 255, 0.06);
+      border-left: 4px solid var(--studio-500);
+      border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+      padding: var(--space-5) var(--space-6);
+      margin-top: var(--space-6);
+    }
+
+    .ind-outcome-banner h4 {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .ind-outcome-banner p {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+    }
+
+    .tech-pills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+
+    .tech-pill {
+      font-family: var(--font-mono);
+      font-size: var(--text-2xs);
+      color: var(--text-tertiary);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      padding: 3px 10px;
+      border-radius: var(--radius-md);
+    }
+
+    /* ── Visual Mockups Components ───────────────────────────────────── */
+    .ind-mockup-card {
+      background: var(--bg-surface-overlay);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+      backdrop-filter: blur(12px);
+    }
+
+    .ind-mockup-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: var(--space-3);
+    }
+
+    .ind-mockup-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .ind-mockup-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border-default);
+    }
+
+    .ind-mockup-title {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+    }
+
+    /* ── Special Section ("¿No estás seguro?") ──────────────────────── */
+    .not-sure-wrap {
+      background: linear-gradient(135deg, rgba(85, 104, 255, 0.1) 0%, var(--bg-surface) 100%);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-12) var(--space-8);
+      margin-block: var(--space-12);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+      align-items: center;
+    }
+
+    @media (min-width: 1024px) {
+      .not-sure-wrap {
+        grid-template-columns: 60fr 40fr;
+        padding: var(--space-16) var(--space-12);
+      }
+    }
+
+    /* ── Final CTA ──────────────────────────────────────────────────── */
+    .final-cta-section {
+      padding: var(--space-20) var(--space-6);
+      text-align: center;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+  </style>
+
+  <!-- ── Structured Data ─────────────────────────────────────────────────── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://scwebstudio.com/industries/#webpage",
+    "url": "https://scwebstudio.com/industries/",
+    "name": "Soluciones por Sector e Industria — SC Web Studio Bolivia",
+    "description": "Tecnología adaptada a restaurantes, retail, marcas de moda, clínicas, abogados, inmobiliarias, emprendedores y empresas en crecimiento en Bolivia.",
+    "isPartOf": { "@id": "https://scwebstudio.com/#website" },
+    "inLanguage": "es-BO"
+  }
+  </script>
+</head>
+
+<body class="page-wrapper" data-base-path="../">
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Header Shell -->
+  <div id="sc-header"></div>
+  <script src="../shared/js/core/shell.js" data-base="../"></script>
+
+  <main id="main-content" class="page-content">
+
+    <!-- ════════════════════════════════════════
+         §1 HERO
+    ═════════════════════════════════════════ -->
+    <section aria-labelledby="ind-hero-heading" class="reveal">
+      <div class="ind-hero">
+        <p class="sh-label">Sectores e Industrias</p>
+        <h1 class="display" id="ind-hero-heading" style="max-width:18ch;">
+          La tecnología se adapta a tu empresa.<br>
+          <span class="hero-h1-accent">No tu empresa a la tecnología.</span>
+        </h1>
+        <p class="lead" style="margin-top:var(--space-6);max-width:54ch;">
+          Cada sector enfrenta desafíos diarios diferentes. No creemos en programas genéricos ni en recetas idénticas. Diseñamos la combinación exacta de herramientas web, automatización y software que tu negocio necesita para trabajar mejor.
+        </p>
+        <div style="display:flex;gap:var(--space-4);margin-top:var(--space-8);flex-wrap:wrap;align-items:center;">
+          <a href="../contact/" class="btn btn-primary btn-lg" id="hero-cta-industries">Hablemos de tu Empresa</a>
+          <a href="#not-sure-start" class="btn btn-secondary btn-lg">¿Por dónde empezar?</a>
+        </div>
+        <p class="ind-hero-trust">Enfoque 100% personalizado · Soluciones para empresas en Bolivia · Resultados medibles</p>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         §1.5 NUEVA SECCIÓN — "¿NO ESTÁS SEGURO DE POR DÓNDE EMPEZAR?"
+    ═════════════════════════════════════════ -->
+    <section id="not-sure-start" class="container reveal">
+      <div class="not-sure-wrap">
+        <div>
+          <p class="sh-label">Diagnóstico &amp; Asesoría Gratuita</p>
+          <h2 class="sh-heading" style="font-size:clamp(1.8rem,4vw,2.5rem);">
+            ¿No estás seguro de por dónde empezar?
+          </h2>
+          <p class="sh-lead" style="margin-top:var(--space-4);">
+            Es completamente normal. La mayoría de los dueños de empresa saben que necesitan mejorar su presencia o sus sistemas, pero no tienen por qué saber exactamente qué herramientas implementar.
+          </p>
+          <p class="cat-problem-text" style="margin-top:var(--space-4);">
+            En SC Web Studio analizamos tu negocio, escuchamos tus objetivos y detectamos tus verdaderos cuellos de botella antes de escribir una sola línea de código. Sin presiones ni ventas forzadas: solo una conversación transparente sobre tu negocio.
+          </p>
+        </div>
+
+        <div class="ind-card-box" style="background:var(--bg-surface);border-color:var(--border-default);">
+          <strong style="color:var(--text-primary);font-size:var(--text-lg);display:block;font-family:var(--font-display);">
+            Primero entendemos tu operación. Luego recomendamos la tecnología.
+          </strong>
+          <p style="font-size:var(--text-sm);color:var(--text-secondary);line-height:var(--leading-relaxed);">
+            Sin compromisos. Agendamos una llamada de 20 minutos para responder tus dudas y diseñar la mejor hoja de ruta.
+          </p>
+          <div style="margin-top:var(--space-2);">
+            <a href="../contact/" class="btn btn-primary btn-full">Agenda una Conversación →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         §2 SECTORES DEDICADOS (8 TARGET INDUSTRIES)
+    ═════════════════════════════════════════ -->
+
+    <!-- 1. RESTAURANTES & CAFÉS -->
+    <section class="industry-section" id="restaurantes" aria-labelledby="ind-rest-heading">
+      <div class="container">
+        <div class="industry-header reveal">
+          <span class="ind-badge-tag">Gastronomía &amp; Restauración</span>
+          <h2 class="sh-heading" id="ind-rest-heading">Restaurantes, Cafés &amp; Gastronomía</h2>
+          <p class="sh-lead">Plataformas digitales y menús interactivos diseñados para agilizar la toma de pedidos y mejorar la experiencia de tus comensales.</p>
+        </div>
+
+        <div class="ind-grid-split">
+          <!-- Col 1: Desafíos & Oportunidades -->
+          <div class="reveal">
+            <!-- Mockup Widget -->
+            <div class="ind-mockup-card">
+              <div class="ind-mockup-header">
+                <div class="ind-mockup-dots"><div class="ind-mockup-dot"></div><div class="ind-mockup-dot"></div></div>
+                <span class="ind-mockup-title">Menú QR &amp; Pedidos en Vivo</span>
+              </div>
+              <div style="display:flex;justify-space-between;align-items:center;font-size:var(--text-xs);color:var(--text-secondary);">
+                <span>Mesa 04 — Pedido enviado</span>
+                <span class="badge badge-live">Confirmado</span>
+              </div>
+            </div>
+
+            <h3 class="card-feature-title" style="margin-bottom:var(--space-4);">Desafíos Habituales</h3>
+            <ul class="ind-list-bullet">
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Lentitud en WhatsApp:</strong> Perder pedidos en horas pico por no dar abasto respondiendo mensajes manualmente.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Menús incómodos en PDF:</strong> Clientes frustrados descargando archivos pesados y desactualizados en sus celulares.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Reservas desorganizadas:</strong> Confusiones en mesas asignadas y ausentismo sin previo aviso.</span>
+              </li>
+            </ul>
+
+            <div class="ind-outcome-banner">
+              <h4>Resultados Comerciales Esperados</h4>
+              <p>Ahorras más de 15 horas semanales en atención de mensajes. Atiendes el doble de pedidos en horas pico sin saturar a tu personal.</p>
+            </div>
+          </div>
+
+          <!-- Col 2: Soluciones & Tecnologías -->
+          <div class="ind-card-box reveal">
+            <h3 class="card-feature-title" style="color:var(--studio-400);">Soluciones Recomendadas</h3>
+            <ul class="ind-list-bullet">
+              <li><strong>Sitio Web para Restaurante:</strong> Muestra la esencia de tu cocina, horarios, ubicación y ambiente.</li>
+              <li><strong>Menú Digital Interactivo:</strong> Ágil, visual y accesible al instante con código QR sin descargar archivos.</li>
+              <li><strong>Sistema Automático de Pedidos &amp; Reservas:</strong> Los clientes seleccionan sus platos y confirman su mesa en segundos.</li>
+            </ul>
+
+            <div>
+              <span class="cat-block-label">Tecnologías Sugeridas</span>
+              <div class="tech-pills-list">
+                <span class="tech-pill">HTML5/CSS3</span>
+                <span class="tech-pill">WhatsApp API</span>
+                <span class="tech-pill">QR Engine</span>
+                <span class="tech-pill">Local Storage</span>
+              </div>
+            </div>
+
+            <div style="margin-top:var(--space-4);">
+              <a href="../contact/?industry=restaurantes" class="btn btn-primary">Solución para mi Restaurante →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. RETAIL STORES -->
+    <section class="industry-section industry-section-surface" id="retail" aria-labelledby="ind-retail-heading">
+      <div class="container">
+        <div class="industry-header reveal">
+          <span class="ind-badge-tag">Comercio &amp; Tiendas Retail</span>
+          <h2 class="sh-heading" id="ind-retail-heading">Tiendas &amp; Comercio Retail</h2>
+          <p class="sh-lead">Sistemas e-commerce omnicanal e integración de inventario para comercios que quieren vender tanto en su local como a nivel nacional.</p>
+        </div>
+
+        <div class="ind-grid-split">
+          <!-- Col 1: Soluciones Recomendadas -->
+          <div class="ind-card-box reveal">
+            <h3 class="card-feature-title" style="color:var(--studio-400);">Soluciones Recomendadas</h3>
+            <ul class="ind-list-bullet">
+              <li><strong>E-Commerce Retail Omnicanal:</strong> Catálogo organizado con filtros por categoría, marca y precio.</li>
+              <li><strong>Control de Stock en Tiempo Real:</strong> Sincronización automática de inventarios entre el local y la tienda web.</li>
+              <li><strong>Notificaciones de Despacho:</strong> Envíos automáticos del estado de la guía a tus clientes.</li>
+            </ul>
+
+            <div>
+              <span class="cat-block-label">Tecnologías Sugeridas</span>
+              <div class="tech-pills-list">
+                <span class="tech-pill">Node.js</span>
+                <span class="tech-pill">PostgreSQL</span>
+                <span class="tech-pill">Webhook API</span>
+                <span class="tech-pill">WebSockets</span>
+              </div>
+            </div>
+
+            <div style="margin-top:var(--space-4);">
+              <a href="../contact/?industry=retail" class="btn btn-primary">Impulsar mi Tienda de Retail →</a>
+            </div>
+          </div>
+
+          <!-- Col 2: Desafíos & Oportunidades -->
+          <div class="reveal">
+            <!-- Mockup Widget -->
+            <div class="ind-mockup-card">
+              <div class="ind-mockup-header">
+                <div class="ind-mockup-dots"><div class="ind-mockup-dot"></div><div class="ind-mockup-dot"></div></div>
+                <span class="ind-mockup-title">Inventario &amp; POS Sincronizado</span>
+              </div>
+              <div style="display:flex;justify-space-between;align-items:center;font-size:var(--text-xs);color:var(--text-secondary);">
+                <span>Stock Local: 14 unidades</span>
+                <span style="color:var(--color-success);">Web Sincronizada</span>
+              </div>
+            </div>
+
+            <h3 class="card-feature-title" style="margin-bottom:var(--space-4);">Desafíos Habituales</h3>
+            <ul class="ind-list-bullet">
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Ventas limitadas al local:</strong> No poder atender a compradores fuera de tu zona o ciudad.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Descoordinación de stock:</strong> Vender en la web artículos que ya se vendieron en el mostrador presencial.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Logística caótica:</strong> Perder tiempo avisando manualmente a cada comprador que su paquete fue enviado.</span>
+              </li>
+            </ul>
+
+            <div class="ind-outcome-banner">
+              <h4>Resultados Comerciales Esperados</h4>
+              <p>Expansión de tu canal de venta a nivel nacional. Cero duplicaciones de stock y seguimiento automatizado de envíos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. FASHION BRANDS -->
+    <section class="industry-section" id="fashion" aria-labelledby="ind-fashion-heading">
+      <div class="container">
+        <div class="industry-header reveal">
+          <span class="ind-badge-tag">Moda &amp; Calzado</span>
+          <h2 class="sh-heading" id="ind-fashion-heading">Marcas de Ropa &amp; Moda</h2>
+          <p class="sh-lead">Tiendas virtuales e-commerce con diseño editorial que destacan la identidad de tu marca y automatizan tus ventas.</p>
+        </div>
+
+        <div class="ind-grid-split">
+          <!-- Col 1: Desafíos & Oportunidades -->
+          <div class="reveal">
+            <!-- Mockup Widget -->
+            <div class="ind-mockup-card">
+              <div class="ind-mockup-header">
+                <div class="ind-mockup-dots"><div class="ind-mockup-dot"></div><div class="ind-mockup-dot"></div></div>
+                <span class="ind-mockup-title">Fashion Store &amp; Pagos QR</span>
+              </div>
+              <div style="display:flex;justify-space-between;align-items:center;font-size:var(--text-xs);color:var(--text-secondary);">
+                <span>Chaqueta Denim (Talla M)</span>
+                <span style="color:var(--studio-400);font-weight:600;">Pago QR Aprobado</span>
+              </div>
+            </div>
+
+            <h3 class="card-feature-title" style="margin-bottom:var(--space-4);">Desafíos Habituales</h3>
+            <ul class="ind-list-bullet">
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Ventas estancadas en DMs:</strong> Perder clientes por no responder de inmediato los mensajes en Instagram o Facebook.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Verificación manual de comprobantes:</strong> Perder horas revisando capturas de pantalla de transferencias bancarias.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Descontrol de tallas:</strong> Dificultad para mostrar qué prendas exactas quedan disponibles por talle o color.</span>
+              </li>
+            </ul>
+
+            <div class="ind-outcome-banner">
+              <h4>Resultados Comerciales Esperados</h4>
+              <p>Tu marca vende de forma autónoma las 24 horas del día. Recibes la orden pagada y lista para empaquetar y enviar.</p>
+            </div>
+          </div>
+
+          <!-- Col 2: Soluciones Recomendadas -->
+          <div class="ind-card-box reveal">
+            <h3 class="card-feature-title" style="color:var(--studio-400);">Soluciones Recomendadas</h3>
+            <ul class="ind-list-bullet">
+              <li><strong>Tienda Online de Moda:</strong> Catálogo editorial con selección de tallas y combinaciones de ropa.</li>
+              <li><strong>Cobro Automático por QR &amp; Tarjeta:</strong> Verificación de pagos al instante sin revisión manual.</li>
+              <li><strong>Guía de Talles Interactiva:</strong> Reduce devoluciones ofreciendo medidas claras para el comprador.</li>
+            </ul>
+
+            <div>
+              <span class="cat-block-label">Tecnologías Sugeridas</span>
+              <div class="tech-pills-list">
+                <span class="tech-pill">React</span>
+                <span class="tech-pill">Stripe / QR Pay</span>
+                <span class="tech-pill">Cloudinary CDN</span>
+                <span class="tech-pill">Inventory Sync</span>
+              </div>
+            </div>
+
+            <div style="margin-top:var(--space-4);">
+              <a href="../contact/?industry=fashion" class="btn btn-primary">Solución para mi Marca de Moda →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. REAL ESTATE -->
+    <section class="industry-section industry-section-surface" id="inmobiliarias" aria-labelledby="ind-inmo-heading">
+      <div class="container">
+        <div class="industry-header reveal">
+          <span class="ind-badge-tag">Bienes Raíces</span>
+          <h2 class="sh-heading" id="ind-inmo-heading">Inmobiliarias &amp; Bienes Raíces</h2>
+          <p class="sh-lead">Portales inmobiliarios modernos con buscadores avanzados para presentar propiedades con elegancia y captar compradores calificados.</p>
+        </div>
+
+        <div class="ind-grid-split">
+          <!-- Col 1: Soluciones Recomendadas -->
+          <div class="ind-card-box reveal">
+            <h3 class="card-feature-title" style="color:var(--studio-400);">Soluciones Recomendadas</h3>
+            <ul class="ind-list-bullet">
+              <li><strong>Portal Inmobiliario Interactivo:</strong> Catálogo con galería HD, mapa de ubicación y ficha técnica de cada propiedad.</li>
+              <li><strong>Buscador con Filtros Avanzados:</strong> Búsqueda rápida por presupuesto, ubicación, superficie y tipo de inmueble.</li>
+              <li><strong>Captación Automatizada de Leads:</strong> Formulario inteligente que califica al cliente antes de derivarlo al agente.</li>
+            </ul>
+
+            <div>
+              <span class="cat-block-label">Tecnologías Sugeridas</span>
+              <div class="tech-pills-list">
+                <span class="tech-pill">Next.js</span>
+                <span class="tech-pill">Mapbox API</span>
+                <span class="tech-pill">Image CDN</span>
+                <span class="tech-pill">CRM Webhooks</span>
+              </div>
+            </div>
+
+            <div style="margin-top:var(--space-4);">
+              <a href="../contact/?industry=inmobiliarias" class="btn btn-primary">Solución para mi Inmobiliaria →</a>
+            </div>
+          </div>
+
+          <!-- Col 2: Desafíos & Oportunidades -->
+          <div class="reveal">
+            <!-- Mockup Widget -->
+            <div class="ind-mockup-card">
+              <div class="ind-mockup-header">
+                <div class="ind-mockup-dots"><div class="ind-mockup-dot"></div><div class="ind-mockup-dot"></div></div>
+                <span class="ind-mockup-title">Portal Inmobiliario &amp; Lead Filter</span>
+              </div>
+              <div style="display:flex;justify-space-between;align-items:center;font-size:var(--text-xs);color:var(--text-secondary);">
+                <span>Depto Equipetrol — $120.000</span>
+                <span style="color:var(--color-success);">Lead Calificado</span>
+              </div>
+            </div>
+
+            <h3 class="card-feature-title" style="margin-bottom:var(--space-4);">Desafíos Habituales</h3>
+            <ul class="ind-list-bullet">
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Propiedades desordenadas:</strong> Fotos e información dispersa en grupos de WhatsApp o archivos de Excel.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Perder tiempo con curiosos:</strong> Agentes inmobiliarios dedicando horas a personas que no cumplen el perfil financiero.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Búsqueda dificultosa para el cliente:</strong> Falta de filtros claros por zona, precio y número de habitaciones.</span>
+              </li>
+            </ul>
+
+            <div class="ind-outcome-banner">
+              <h4>Resultados Comerciales Esperados</h4>
+              <p>Muestra profesional de tus inmuebles, respuesta inmediata a interesados y filtrado automático de compradores serios.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. LAW FIRMS -->
+    <section class="industry-section" id="abogados" aria-labelledby="ind-legal-heading">
+      <div class="container">
+        <div class="industry-header reveal">
+          <span class="ind-badge-tag">Servicios Legales</span>
+          <h2 class="sh-heading" id="ind-legal-heading">Bufetes de Abogados &amp; Servicios Jurídicos</h2>
+          <p class="sh-lead">Portales institucionales de alto prestigio y sistemas privados para la gestión organizada y confidencial de expedientes legales.</p>
+        </div>
+
+        <div class="ind-grid-split">
+          <!-- Col 1: Desafíos & Oportunidades -->
+          <div class="reveal">
+            <!-- Mockup Widget -->
+            <div class="ind-mockup-card">
+              <div class="ind-mockup-header">
+                <div class="ind-mockup-dots"><div class="ind-mockup-dot"></div><div class="ind-mockup-dot"></div></div>
+                <span class="ind-mockup-title">Case Assistant OS Snapshot</span>
+              </div>
+              <div style="display:flex;justify-space-between;align-items:center;font-size:var(--text-xs);color:var(--text-secondary);">
+                <span>Caso #2048 — Estado de Proceso</span>
+                <span class="badge badge-active-dev">Local-First Encrypted</span>
+              </div>
+            </div>
+
+            <h3 class="card-feature-title" style="margin-bottom:var(--space-4);">Desafíos Habituales</h3>
+            <ul class="ind-list-bullet">
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Desorden en planillas:</strong> Seguimiento de causas legales en archivos desorganizados con riesgo de traspapelar datos.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Llamadas constantes por estado de caso:</strong> Clientes ansiosos solicitando novedades por teléfono repetidamente.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Riesgo de vencimiento de plazos:</strong> Ausencia de alertas automáticas para audiencias y escritos.</span>
+              </li>
+            </ul>
+
+            <div class="ind-outcome-banner">
+              <h4>Resultados Comerciales Esperados</h4>
+              <p>Prestigio institucional imponente, clientes tranquilos consultando su propio estado y control total de plazos procesales.</p>
+            </div>
+          </div>
+
+          <!-- Col 2: Soluciones Recomendadas -->
+          <div class="ind-card-box reveal">
+            <h3 class="card-feature-title" style="color:var(--studio-400);">Soluciones Recomendadas</h3>
+            <ul class="ind-list-bullet">
+              <li><strong>Sitio Web de Alta Firma Legal:</strong> Diseño elegante y sobrio que refleja prestigio y trayectoria profesional.</li>
+              <li><strong>Portal Privado de Clientes:</strong> Consultas seguras de estado de caso sin necesidad de llamadas telefónicas.</li>
+              <li><strong>Case Assistant OS:</strong> Nuestro sistema operativo especializado para la gestión inteligente de casos y plazos.</li>
+            </ul>
+
+            <div>
+              <span class="cat-block-label">Tecnologías Sugeridas</span>
+              <div class="tech-pills-list">
+                <span class="tech-pill">Vanilla JS</span>
+                <span class="tech-pill">Local-First Storage</span>
+                <span class="tech-pill">AES Encryption</span>
+                <span class="tech-pill">Case Assistant Engine</span>
+              </div>
+            </div>
+
+            <div style="margin-top:var(--space-4);">
+              <a href="../contact/?industry=abogados" class="btn btn-primary">Solución para mi Bufete →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. HEALTHCARE -->
+    <section class="industry-section industry-section-surface" id="salud" aria-labelledby="ind-salud-heading">
+      <div class="container">
+        <div class="industry-header reveal">
+          <span class="ind-badge-tag">Salud &amp; Medicina</span>
+          <h2 class="sh-heading" id="ind-salud-heading">Clínicas, Centros Médicos &amp; Odontología</h2>
+          <p class="sh-lead">Plataformas de agendamiento web y sistemas de atención que organizan las consultas médicas y eliminan las esperas telefónicas.</p>
+        </div>
+
+        <div class="ind-grid-split">
+          <!-- Col 1: Soluciones Recomendadas -->
+          <div class="ind-card-box reveal">
+            <h3 class="card-feature-title" style="color:var(--studio-400);">Soluciones Recomendadas</h3>
+            <ul class="ind-list-bullet">
+              <li><strong>Portal Web Institucional:</strong> Presentación de especialidades, cuerpo médico, instalaciones y convenios.</li>
+              <li><strong>Agendamiento Web de Citas:</strong> Permite a los pacientes elegir especialidad, médico y horario disponible.</li>
+              <li><strong>Recordatorios Automatizados:</strong> Envíos automáticos por WhatsApp o SMS antes de la consulta.</li>
+            </ul>
+
+            <div>
+              <span class="cat-block-label">Tecnologías Sugeridas</span>
+              <div class="tech-pills-list">
+                <span class="tech-pill">React</span>
+                <span class="tech-pill">WhatsApp API</span>
+                <span class="tech-pill">Calendar Engine</span>
+                <span class="tech-pill">Encrypted DB</span>
+              </div>
+            </div>
+
+            <div style="margin-top:var(--space-4);">
+              <a href="../contact/?industry=salud" class="btn btn-primary">Solución para mi Clínica →</a>
+            </div>
+          </div>
+
+          <!-- Col 2: Desafíos & Oportunidades -->
+          <div class="reveal">
+            <!-- Mockup Widget -->
+            <div class="ind-mockup-card">
+              <div class="ind-mockup-header">
+                <div class="ind-mockup-dots"><div class="ind-mockup-dot"></div><div class="ind-mockup-dot"></div></div>
+                <span class="ind-mockup-title">Agendamiento Médico &amp; WhatsApp Reminder</span>
+              </div>
+              <div style="display:flex;justify-space-between;align-items:center;font-size:var(--text-xs);color:var(--text-secondary);">
+                <span>Cita Dr. Silva — 16:30 hrs</span>
+                <span style="color:var(--color-success);">Recordatorio Enviado</span>
+              </div>
+            </div>
+
+            <h3 class="card-feature-title" style="margin-bottom:var(--space-4);">Desafíos Habituales</h3>
+            <ul class="ind-list-bullet">
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Teléfono de recepción colapsado:</strong> Personal ocupado respondiendo llamadas para dar horarios en lugar de atender pacientes.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Ausentismo de pacientes:</strong> Consultas vacías debido a olvidos de cita sin recordatorios automáticos previa fecha.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Imagen web informal:</strong> Sitios web desactualizados que no proyectan el nivel tecnológico y médico de la clínica.</span>
+              </li>
+            </ul>
+
+            <div class="ind-outcome-banner">
+              <h4>Resultados Comerciales Esperados</h4>
+              <p>Recepciones descongestionadas, reducción del 40% en faltas de pacientes y fichas de atención médica centralizadas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. ENTREPRENEURS -->
+    <section class="industry-section" id="emprendedores" aria-labelledby="ind-start-heading">
+      <div class="container">
+        <div class="industry-header reveal">
+          <span class="ind-badge-tag">Innovación &amp; Prototipado</span>
+          <h2 class="sh-heading" id="ind-start-heading">Emprendedores, Creadores &amp; Startups</h2>
+          <p class="sh-lead">Prototipado rápido de software y productos físicos 3D para transformar ideas innovadoras en productos reales listos para el mercado.</p>
+        </div>
+
+        <div class="ind-grid-split">
+          <!-- Col 1: Desafíos & Oportunidades -->
+          <div class="reveal">
+            <!-- Mockup Widget -->
+            <div class="ind-mockup-card">
+              <div class="ind-mockup-header">
+                <div class="ind-mockup-dots"><div class="ind-mockup-dot"></div><div class="ind-mockup-dot"></div></div>
+                <span class="ind-mockup-title">Prototipo 3D CAD &amp; MVP Snapshot</span>
+              </div>
+              <div style="display:flex;justify-space-between;align-items:center;font-size:var(--text-xs);color:var(--text-secondary);">
+                <span>Modelo 3D — Versión v1.0</span>
+                <span class="badge badge-building">Prototipo Listo</span>
+              </div>
+            </div>
+
+            <h3 class="card-feature-title" style="margin-bottom:var(--space-4);">Desafíos Habituales</h3>
+            <ul class="ind-list-bullet">
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Ideas sin prototipo tangible:</strong> Dificultad para demostrar la valía de un proyecto ante socios o inversores.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Temor a malgastar capital:</strong> Invertir presupuestos elevados en desarrollo sin haber probado la aceptación real.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Falta de equipo técnico:</strong> No contar con un socio tecnológico para guiar las decisiones de arquitectura.</span>
+              </li>
+            </ul>
+
+            <div class="ind-outcome-banner">
+              <h4>Resultados Comerciales Esperados</h4>
+              <p>Prototipo funcional en semanas, validación real del interés de clientes y atracción de socios sin riesgos desmedidos.</p>
+            </div>
+          </div>
+
+          <!-- Col 2: Soluciones Recomendadas -->
+          <div class="ind-card-box reveal">
+            <h3 class="card-feature-title" style="color:var(--studio-400);">Soluciones Recomendadas</h3>
+            <ul class="ind-list-bullet">
+              <li><strong>Desarrollo de MVP (Producto Mínimo Viable):</strong> Creación de software funcional para salir rápido al mercado.</li>
+              <li><strong>Prototipado Físico 3D &amp; Impresión:</strong> Modelado tridimensional e impresión 3D para testear productos tangibles.</li>
+              <li><strong>Landing Page de Validación:</strong> Captación de primeros clientes e inversores interesados antes de producir en masa.</li>
+            </ul>
+
+            <div>
+              <span class="cat-block-label">Tecnologías Sugeridas</span>
+              <div class="tech-pills-list">
+                <span class="tech-pill">3D CAD Modeling</span>
+                <span class="tech-pill">Additive Manufacturing</span>
+                <span class="tech-pill">React / Vite</span>
+                <span class="tech-pill">Analytics</span>
+              </div>
+            </div>
+
+            <div style="margin-top:var(--space-4);">
+              <a href="../contact/?industry=emprendedores" class="btn btn-primary">Validar mi Idea de Negocio →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. GROWING COMPANIES (PYMES) -->
+    <section class="industry-section industry-section-surface" id="pymes" aria-labelledby="ind-pyme-heading">
+      <div class="container">
+        <div class="industry-header reveal">
+          <span class="ind-badge-tag">Empresas en Crecimiento</span>
+          <h2 class="sh-heading" id="ind-pyme-heading">Empresas en Crecimiento &amp; Pymes</h2>
+          <p class="sh-lead">Dashboards y herramientas de gestión a medida para empresas que han superado sus métodos informales y necesitan control total.</p>
+        </div>
+
+        <div class="ind-grid-split">
+          <!-- Col 1: Soluciones Recomendadas -->
+          <div class="ind-card-box reveal">
+            <h3 class="card-feature-title" style="color:var(--studio-400);">Soluciones Recomendadas</h3>
+            <ul class="ind-list-bullet">
+              <li><strong>Dashboard de Control Operativo:</strong> Vista unificada de ventas, tareas pendientes y métricas clave.</li>
+              <li><strong>Software de Gestión a Medida:</strong> Sistema interno diseñado exactamente alrededor del flujo de tu equipo.</li>
+              <li><strong>Automatización de Reportes:</strong> Envío periódico de informes ejecutivos a tu correo sin compilación manual.</li>
+            </ul>
+
+            <div>
+              <span class="cat-block-label">Tecnologías Sugeridas</span>
+              <div class="tech-pills-list">
+                <span class="tech-pill">Node.js</span>
+                <span class="tech-pill">REST / GraphQL</span>
+                <span class="tech-pill">Chart.js Dashboard</span>
+                <span class="tech-pill">Automated Pipelines</span>
+              </div>
+            </div>
+
+            <div style="margin-top:var(--space-4);">
+              <a href="../contact/?industry=pymes" class="btn btn-primary">Optimizar mi Empresa →</a>
+            </div>
+          </div>
+
+          <!-- Col 2: Desafíos & Oportunidades -->
+          <div class="reveal">
+            <!-- Mockup Widget -->
+            <div class="ind-mockup-card">
+              <div class="ind-mockup-header">
+                <div class="ind-mockup-dots"><div class="ind-mockup-dot"></div><div class="ind-mockup-dot"></div></div>
+                <span class="ind-mockup-title">Executive KPI Dashboard Widget</span>
+              </div>
+              <div style="display:flex;justify-space-between;align-items:center;font-size:var(--text-xs);color:var(--text-secondary);">
+                <span>Ventas del Mes: +28%</span>
+                <span style="color:var(--color-success);">142 Tareas Automatizadas</span>
+              </div>
+            </div>
+
+            <h3 class="card-feature-title" style="margin-bottom:var(--space-4);">Desafíos Habituales</h3>
+            <ul class="ind-list-bullet">
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Falta de claridad operativa:</strong> No tener reportes en tiempo real del estado de ventas, entregables o cobranzas.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Procesos desordenados por crecimiento:</strong> Trabajar con métodos informales que ya no resisten el volumen actual.</span>
+              </li>
+              <li>
+                <div class="ind-bullet-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span><strong>Dependencia excesiva del fundador:</strong> El negocio se traba si el dueño no está presente para autorizar cada tarea.</span>
+              </li>
+            </ul>
+
+            <div class="ind-outcome-banner">
+              <h4>Resultados Comerciales Esperados</h4>
+              <p>Visibilidad completa de tus operaciones en tiempo real. Libertad para que el fundador delegue y crecimiento sostenible.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         §3 TRUST SECTION ("No empezamos con software")
+    ═════════════════════════════════════════ -->
+    <section class="section section-lg" id="discovery-trust" aria-labelledby="disc-trust-heading">
+      <div class="container" style="max-width:800px;">
+        <div class="reveal text-center">
+          <p class="sh-label" style="justify-content:center;">Nuestra Metodología</p>
+          <h2 class="sh-heading" id="disc-trust-heading" style="font-size:clamp(1.8rem,4vw,2.75rem);">
+            No empezamos con software.<br>
+            <span style="color:var(--text-secondary);font-weight:var(--weight-semibold);">Empezamos con tu negocio.</span>
+          </h2>
+          <p class="sh-lead" style="margin:var(--space-4) auto 0;max-width:60ch;">
+            El error de muchas agencias es vender programas antes de entender cómo trabaja la empresa. En SC Web Studio, la consultoría siempre precede al desarrollo.
+          </p>
+          <p class="cat-problem-text" style="margin:var(--space-4) auto 0;max-width:60ch;">
+            Nos tomamos el tiempo para analizar tus procesos, conversar con tu equipo y detectar tus verdaderos cuellos de botella. Solo cuando tenemos una visión clara proponemos la tecnología adecuada.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════
+         §4 FINAL CTA
+    ═════════════════════════════════════════ -->
+    <section class="final-cta-section" id="get-started" aria-labelledby="cta-heading">
+      <div class="container" style="max-width:640px;">
+        <div class="reveal">
+          <p class="sh-label">Comienza la Conversación</p>
+          <h2 class="sh-heading" id="cta-heading" style="text-align:center;margin-left:auto;margin-right:auto;">
+            Hablemos de tu negocio.
+          </h2>
+          <p class="sh-lead" style="text-align:center;margin:0 auto var(--space-8);">
+            Cuéntanos los desafíos que enfrentas hoy. Sin compromiso ni jerga técnica. Conversemos sobre cómo la tecnología puede ayudarte a trabajar mejor.
+          </p>
+          <div class="cta-actions">
+            <a href="../contact/" class="btn btn-primary btn-lg" id="cta-ind-talk">Agendar una Conversación</a>
+            <a href="../services/" class="btn btn-text" id="cta-ind-services">Explorar Servicios →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Shell -->
+  <div id="sc-footer"></div>
+
+  <script src="../shared/js/core/nav.js" defer></script>
+  <script src="../shared/js/core/scroll.js" defer></script>
+
+</body>
+</html>

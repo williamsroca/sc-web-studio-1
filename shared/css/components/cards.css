@@ -1,7 +1,7 @@
 /**
- * SC Web Studio — Card Components
+ * SC Web Studio — Card Components (Art Direction Enhanced)
  * ─────────────────────────────────────────────────────────────────────────────
- * All 7 card variants: standard, product, feature, glass, story, lab, ecosystem.
+ * All card variants with enhanced depth, top-edge lighting, and refined easing.
  * Based on: design/cards.md
  * ─────────────────────────────────────────────────────────────────────────────
  */
@@ -19,6 +19,7 @@
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  box-shadow: var(--shadow-card);
   transition:
     transform var(--duration-slow) var(--ease-spring),
     box-shadow var(--duration-slow) var(--ease-out),
@@ -30,8 +31,8 @@
   content: '';
   position: absolute;
   top: 0;
-  left: 20%;
-  right: 20%;
+  left: 15%;
+  right: 15%;
   height: 1px;
   background: var(--gradient-edge-studio);
   opacity: 0;
@@ -70,6 +71,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
+  box-shadow: var(--shadow-card);
   transition:
     transform var(--duration-slow) var(--ease-spring),
     box-shadow var(--duration-slow) var(--ease-out),
@@ -95,7 +97,7 @@
 /* Case Assistant OS */
 .card-product[data-product="case-assistant"]:hover {
   box-shadow: var(--shadow-card-legal-hover);
-  border-color: rgba(14, 165, 233, 0.2);
+  border-color: rgba(14, 165, 233, 0.3);
 }
 .card-product[data-product="case-assistant"]::before {
   background: var(--gradient-edge-legal);
@@ -104,7 +106,7 @@
 /* Project Home */
 .card-product[data-product="project-home"]:hover {
   box-shadow: var(--shadow-card-home-hover);
-  border-color: rgba(245, 158, 11, 0.2);
+  border-color: rgba(245, 158, 11, 0.3);
 }
 .card-product[data-product="project-home"]::before {
   background: var(--gradient-edge-home);
@@ -113,7 +115,7 @@
 /* SC Tech */
 .card-product[data-product="sc-tech"]:hover {
   box-shadow: var(--shadow-card-tech-hover);
-  border-color: rgba(16, 185, 129, 0.2);
+  border-color: rgba(16, 185, 129, 0.3);
 }
 .card-product[data-product="sc-tech"]::before {
   background: var(--gradient-edge-tech);
@@ -220,21 +222,42 @@
 
 .card-feature {
   padding: var(--space-8);
-  border-radius: var(--radius-lg);
-  background: transparent;
+  border-radius: var(--radius-xl);
+  background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
   transition:
     background var(--duration-base) var(--ease-out),
-    border-color var(--duration-base) var(--ease-out);
+    border-color var(--duration-base) var(--ease-out),
+    transform var(--duration-slow) var(--ease-spring),
+    box-shadow var(--duration-slow) var(--ease-out);
+}
+
+.card-feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: var(--gradient-edge-studio);
+  opacity: 0;
+  transition: opacity var(--duration-base) var(--ease-out);
 }
 
 .card-feature:hover {
-  background: var(--bg-hover);
+  background: var(--bg-surface-raised);
   border-color: var(--border-default);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
 }
+
+.card-feature:hover::before { opacity: 0.8; }
 
 .card-feature-icon {
   width: 40px;
@@ -292,7 +315,7 @@
   background: rgba(14, 15, 20, 0.72);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-xl);
 }
@@ -304,7 +327,7 @@
 
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   5. STORY CARD (formerly Journal)
+   5. STORY CARD
    Used on /stories/ page. Minimal, typography-led.
    ═══════════════════════════════════════════════════════════════════════════ */
 
@@ -320,8 +343,7 @@
   transition: opacity var(--duration-fast) var(--ease-out);
 }
 
-.card-story:hover { opacity: 0.7; }
-
+.card-story:hover { opacity: 0.85; }
 .card-story:last-child { border-bottom: none; }
 
 .card-story-meta {
@@ -357,7 +379,6 @@
   white-space: nowrap;
 }
 
-/* Horizontal layout on larger screens */
 @media (min-width: 768px) {
   .card-story {
     grid-template-columns: 1fr auto;
@@ -432,7 +453,6 @@
   max-width: none;
 }
 
-/* Status-driven left border accent */
 .card-lab::after {
   content: '';
   position: absolute;
@@ -452,7 +472,6 @@
 
 /* ═══════════════════════════════════════════════════════════════════════════
    7. ECOSYSTEM NODE CARD
-   Used in /ecosystem/ and home ecosystem teaser.
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .card-ecosystem {
@@ -503,7 +522,6 @@
   letter-spacing: 0.05em;
 }
 
-/* Parent node (SC Web Studio itself) */
 .card-ecosystem.is-parent {
   border-color: var(--studio-glow);
   background: linear-gradient(135deg, var(--bg-surface), rgba(85, 104, 255, 0.05));
@@ -511,7 +529,7 @@
 
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   EMPTY STATE CARD
+   8. EMPTY STATE CARD
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .card-empty {

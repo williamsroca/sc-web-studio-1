@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- ── Primary SEO ────────────────────────────────────────────────────── -->
-  <title>SC Web Studio — Digital Product Studio</title>
-  <meta name="description" content="SC Web Studio is a Digital Product Studio based in Bolivia. We design and build software products, SaaS tools, and automation systems — while developing our own products in the industries that matter most.">
-  <meta name="keywords" content="digital product studio, software development, SaaS development, automation, Bolivia, Case Assistant OS, Project Home, SC Tech">
+  <title>SC Web Studio — Estudio de Productos Digitales en Bolivia</title>
+  <meta name="description" content="SC Web Studio es un Estudio de Productos Digitales en Bolivia. Diseñamos sitios web, tiendas virtuales, automatización de procesos y software a medida para impulsar empresas y emprendedores.">
+  <meta name="keywords" content="estudio de productos digitales, desarrollo de software, desarrollo web Bolivia, tiendas virtuales, automatización de procesos, software a medida, Bolivia, Case Assistant OS, Project Home, SC Tech">
   <meta name="author" content="SC Web Studio">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://scwebstudio.com/">
@@ -15,20 +15,20 @@
   <!-- ── Open Graph ──────────────────────────────────────────────────────── -->
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://scwebstudio.com/">
-  <meta property="og:title"       content="SC Web Studio — Digital Product Studio">
-  <meta property="og:description" content="We build software that makes work simpler and creates opportunities. Three products. One mission. An expanding ecosystem.">
+  <meta property="og:title"       content="SC Web Studio — Estudio de Productos Digitales en Bolivia">
+  <meta property="og:description" content="Construimos tecnología práctica que simplifica el trabajo, automatiza procesos y crea oportunidades para empresas en Bolivia.">
   <meta property="og:site_name"   content="SC Web Studio">
-  <meta property="og:locale"      content="en_US">
+  <meta property="og:locale"      content="es_BO">
   <meta property="og:image"       content="https://scwebstudio.com/shared/assets/og/home.jpg">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt"   content="SC Web Studio — Digital Product Studio">
+  <meta property="og:image:alt"   content="SC Web Studio — Estudio de Productos Digitales">
 
   <!-- ── Twitter Card ───────────────────────────────────────────────────── -->
   <meta name="twitter:card"        content="summary_large_image">
   <meta name="twitter:site"        content="@scwebstudio">
-  <meta name="twitter:title"       content="SC Web Studio — Digital Product Studio">
-  <meta name="twitter:description" content="We build software that makes work simpler and creates opportunities.">
+  <meta name="twitter:title"       content="SC Web Studio — Estudio de Productos Digitales en Bolivia">
+  <meta name="twitter:description" content="Construimos tecnología práctica que simplifica el trabajo y crea oportunidades.">
   <meta name="twitter:image"       content="https://scwebstudio.com/shared/assets/og/home.jpg">
 
   <!-- ── PWA / App Shell ────────────────────────────────────────────────── -->
@@ -310,6 +310,87 @@
     }
 
     /* ────────────────────────────────────────────────────────────────────
+       INDUSTRIES / WHO WE HELP SECTION
+    ──────────────────────────────────────────────────────────────────── */
+    .industries-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-12);
+    }
+
+    @media (min-width: 640px) {
+      .industries-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (min-width: 1024px) {
+      .industries-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .card-industry {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      transition:
+        transform var(--duration-slow) var(--ease-spring),
+        box-shadow var(--duration-slow) var(--ease-out),
+        border-color var(--duration-base) var(--ease-out);
+    }
+
+    .card-industry:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-default);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .card-industry-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-lg);
+      background: rgba(85, 104, 255, 0.08);
+      border: 1px solid rgba(85, 104, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--studio-400);
+      flex-shrink: 0;
+    }
+
+    .card-industry-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .card-industry-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+      color: var(--text-primary);
+      letter-spacing: -0.015em;
+    }
+
+    .card-industry-problem {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      line-height: var(--leading-relaxed);
+    }
+
+    .card-industry-outcome {
+      font-size: var(--text-sm);
+      color: var(--text-primary);
+      line-height: var(--leading-relaxed);
+      background: rgba(85, 104, 255, 0.05);
+      border-left: 2px solid var(--studio-500);
+      padding: var(--space-3) var(--space-4);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-top: auto;
+    }
+
+    /* ────────────────────────────────────────────────────────────────────
        MANIFESTO SECTION
     ──────────────────────────────────────────────────────────────────── */
     .manifesto-wrap {
@@ -317,7 +398,7 @@
     }
 
     .manifesto-statement {
-      min-height: 72vh;
+      min-height: 60vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -338,7 +419,7 @@
 
     .manifesto-pre {
       font-family: var(--font-display);
-      font-size: clamp(1.25rem, 3.5vw, 2.5rem);
+      font-size: clamp(1.25rem, 3.5vw, 2.25rem);
       font-weight: var(--weight-bold);
       line-height: 1.1;
       letter-spacing: -0.02em;
@@ -347,23 +428,23 @@
 
     .manifesto-main {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 6.5vw, 5rem);
+      font-size: clamp(2rem, 6vw, 4.5rem);
       font-weight: var(--weight-bold);
       line-height: 1.04;
       letter-spacing: -0.03em;
       color: var(--text-primary);
       margin-top: var(--space-3);
-      max-width: 18ch;
+      max-width: 20ch;
     }
 
     .manifesto-single {
       font-family: var(--font-display);
-      font-size: clamp(1.6rem, 5vw, 3.75rem);
+      font-size: clamp(1.6rem, 5vw, 3.5rem);
       font-weight: var(--weight-bold);
       line-height: 1.08;
       letter-spacing: -0.025em;
       color: var(--text-secondary);
-      max-width: 24ch;
+      max-width: 26ch;
     }
 
     .manifesto-final .manifesto-main {
@@ -434,7 +515,7 @@
     }
 
     @media (min-width: 1024px) {
-      .services-grid { grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+      .services-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
     }
 
     /* Service number accent */
@@ -444,7 +525,7 @@
       font-weight: var(--weight-semibold);
       color: var(--studio-500);
       letter-spacing: 0.08em;
-      margin-bottom: var(--space-5);
+      margin-bottom: var(--space-3);
       display: block;
     }
 
@@ -702,7 +783,7 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: var(--space-4);
-      max-width: 560px;
+      max-width: 600px;
       margin-inline: auto;
       margin-top: var(--space-10);
     }
@@ -791,7 +872,7 @@
         "name": "SC Web Studio",
         "alternateName": "SC Web Studio Digital Product Studio",
         "url": "https://scwebstudio.com",
-        "description": "SC Web Studio is a Digital Product Studio based in Bolivia. We build software products, SaaS tools, automation systems, and digital experiences.",
+        "description": "SC Web Studio es un Estudio de Productos Digitales basado en Bolivia. Construimos sitios web, comercio electrónico, herramientas de automatización y productos de software a medida.",
         "foundingDate": "2020",
         "address": {
           "@type": "PostalAddress",
@@ -799,9 +880,9 @@
         },
         "contactPoint": {
           "@type": "ContactPoint",
-          "contactType": "business inquiries",
-          "email": "hello@scwebstudio.com",
-          "availableLanguage": ["English", "Spanish"]
+          "contactType": "atención a empresas",
+          "email": "contacto@scwebstudio.net",
+          "availableLanguage": ["Spanish"]
         }
       },
       {
@@ -815,11 +896,11 @@
         "@type": "WebPage",
         "@id": "https://scwebstudio.com/#webpage",
         "url": "https://scwebstudio.com",
-        "name": "SC Web Studio — Digital Product Studio",
-        "description": "We design and build software products, automation systems, and digital experiences that make work simpler.",
+        "name": "SC Web Studio — Estudio de Productos Digitales en Bolivia",
+        "description": "Diseñamos y construimos tecnología práctica que simplifica el trabajo y crea oportunidades para empresas locales.",
         "isPartOf": { "@id": "https://scwebstudio.com/#website" },
         "about": { "@id": "https://scwebstudio.com/#organization" },
-        "inLanguage": "en-US"
+        "inLanguage": "es-BO"
       }
     ]
   }
@@ -829,7 +910,7 @@
 <body class="page-wrapper" data-base-path="">
 
   <!-- Accessibility skip link -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
   <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
@@ -856,36 +937,36 @@
           <div class="hero-text">
 
             <p class="sh-label reveal reveal-fade" id="hero-eyebrow">
-              Digital Product Studio
+              Estudio de Productos Digitales
             </p>
 
             <h1 class="hero-h1 reveal" id="hero-heading">
-              Software designed<br>
-              to simplify the work<br>
-              <span class="hero-h1-accent">that matters.</span>
+              Tecnología diseñada<br>
+              para hacer crecer<br>
+              <span class="hero-h1-accent">tu empresa.</span>
             </h1>
 
             <p class="hero-lead reveal">
-              We design and build software products, automation systems, and
-              digital experiences. Professional services finance the continuous
-              development of products we believe in.
+              Diseñamos sitios web, tiendas virtuales, automatizaciones de procesos
+              y software a medida para empresas en Bolivia. Nuestros servicios financian
+              el desarrollo de nuestros propios productos globales.
             </p>
 
             <div class="btn-group reveal">
-              <a href="products/" class="btn btn-primary btn-lg" id="hero-cta-products">
-                Explore Our Products
+              <a href="contact/" class="btn btn-primary btn-lg" id="hero-cta-project">
+                Solicitar Diagnóstico Digital
               </a>
-              <a href="contact/" class="btn btn-secondary btn-lg" id="hero-cta-project">
-                Start a Project
+              <a href="#services" class="btn btn-secondary btn-lg" id="hero-cta-products">
+                Ver Servicios
               </a>
             </div>
 
             <div class="hero-trust reveal reveal-fade">
-              <span>Based in Bolivia</span>
+              <span>Con sede en Bolivia</span>
               <span class="hero-trust-sep">·</span>
-              <span>Serving clients globally</span>
+              <span>Impulsando empresas locales</span>
               <span class="hero-trust-sep">·</span>
-              <span>Building in public</span>
+              <span>Desarrollo de alto nivel</span>
             </div>
 
           </div>
@@ -907,7 +988,7 @@
               <div class="hero-accent-box">
                 <span style="font-size:9px;font-family:var(--font-ui);font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.06em;">Stack</span>
                 <span style="font-family:var(--font-mono);font-size:10px;color:var(--text-secondary);">HTML · CSS · Vanilla JS</span>
-                <span style="font-family:var(--font-mono);font-size:10px;color:var(--studio-400);">Local-First Architecture</span>
+                <span style="font-family:var(--font-mono);font-size:10px;color:var(--studio-400);">Arquitectura Local-First</span>
               </div>
             </div>
 
@@ -915,7 +996,7 @@
             <div class="hero-mockup-frame">
               <div class="hero-mockup-glare"></div>
 
-              <img src="shared/assets/mockups/home_ecosystem.jpg" alt="SC Web Studio Ecosystem Dashboard" class="hero-mockup-image" width="1280" height="720">
+              <img src="shared/assets/mockups/home_ecosystem.jpg" alt="Ecosistema SC Web Studio Dashboard" class="hero-mockup-image" width="1280" height="720">
             </div><!-- /hero-mockup-frame -->
 
           </div><!-- /hero-mockup-wrapper -->
@@ -932,22 +1013,22 @@
         <div class="identity-strip-inner">
           <div class="identity-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            Digital Product Studio
+            Estudio de Productos Digitales
           </div>
           <div class="identity-sep"></div>
           <div class="identity-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            Based in Bolivia
+            Con sede en Bolivia
           </div>
           <div class="identity-sep"></div>
           <div class="identity-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Serving clients globally
+            Soluciones para empresas reales
           </div>
           <div class="identity-sep"></div>
           <div class="identity-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            Building in public
+            Desarrollo transparente
           </div>
         </div>
       </div>
@@ -955,55 +1036,183 @@
 
 
     <!-- ════════════════════════════════════════
+         §1.6 — WHO WE HELP (A QUIÉNES AYUDAMOS)
+    ═════════════════════════════════════════ -->
+    <section class="section section-lg" id="who-we-help" aria-labelledby="wwh-heading">
+      <div class="container">
+
+        <div class="reveal">
+          <p class="sh-label" id="wwh-eyebrow">A quiénes ayudamos</p>
+          <h2 class="sh-heading" id="wwh-heading">
+            Soluciones reales para<br>empresas en Bolivia.
+          </h2>
+          <p class="sh-lead">
+            Entendemos los desafíos diarios de operar un negocio local. Construimos la
+            infraestructura digital que tu empresa necesita para trabajar mejor y vender más.
+          </p>
+        </div>
+
+        <div class="industries-grid reveal-group">
+
+          <!-- Gastronomía & Restaurantes -->
+          <article class="card-industry reveal">
+            <div class="card-industry-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                <line x1="6" y1="1" x2="6" y2="4"/>
+                <line x1="10" y1="1" x2="10" y2="4"/>
+                <line x1="14" y1="1" x2="14" y2="4"/>
+              </svg>
+            </div>
+            <h3 class="card-industry-title">Gastronomía & Restaurantes</h3>
+            <p class="card-industry-problem">
+              <strong>Desafío:</strong> Depender de tomar pedidos manualmente por WhatsApp, menús desactualizados en PDF y reservas desorganizadas.
+            </p>
+            <div class="card-industry-outcome">
+              <strong>Resultado:</strong> Menús digitales interactivos y sistemas automáticos de pedidos y reservas que ahorran horas de atención manual.
+            </div>
+          </article>
+
+          <!-- Comercio & Marcas de Ropa -->
+          <article class="card-industry reveal">
+            <div class="card-industry-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+                <line x1="3" y1="6" x2="21" y2="6"/>
+                <path d="M16 10a4 4 0 0 1-8 0"/>
+              </svg>
+            </div>
+            <h3 class="card-industry-title">Comercio & Marcas de Ropa</h3>
+            <p class="card-industry-problem">
+              <strong>Desafío:</strong> Ventas atrapadas en mensajes privados de redes sociales, confirmaciones de pago manuales y descontrol de inventario.
+            </p>
+            <div class="card-industry-outcome">
+              <strong>Resultado:</strong> Tiendas online rápidas con pasarelas de pago y sincronización de stock funcionando las 24 horas del día.
+            </div>
+          </article>
+
+          <!-- Servicios Profesionales (Bufetes & Clínicas) -->
+          <article class="card-industry reveal">
+            <div class="card-industry-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+              </svg>
+            </div>
+            <h3 class="card-industry-title">Bufetes & Clínicas</h3>
+            <p class="card-industry-problem">
+              <strong>Desafío:</strong> Gestión manual de citas, información de pacientes o clientes traspapelada y una presencia web poco profesional.
+            </p>
+            <div class="card-industry-outcome">
+              <strong>Resultado:</strong> Portales web de alta credibilidad, portales de clientes y agendamiento automático sin llamadas.
+            </div>
+          </article>
+
+          <!-- Inmobiliarias & Bienes Raíces -->
+          <article class="card-industry reveal">
+            <div class="card-industry-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <h3 class="card-industry-title">Inmobiliarias & Bienes Raíces</h3>
+            <p class="card-industry-problem">
+              <strong>Desafío:</strong> Catálogos de propiedades desordenados en planillas de Excel y respuesta lenta a interesados en comprar o alquilar.
+            </p>
+            <div class="card-industry-outcome">
+              <strong>Resultado:</strong> Portales inmobiliarios con catálogo interactivo y captación automatizada de prospectos calificados.
+            </div>
+          </article>
+
+          <!-- Emprendedores & Creadores -->
+          <article class="card-industry reveal">
+            <div class="card-industry-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3.5z"/>
+              </svg>
+            </div>
+            <h3 class="card-industry-title">Emprendedores & Creadores</h3>
+            <p class="card-industry-problem">
+              <strong>Desafío:</strong> Grandes ideas de negocio o producto sin el equipo técnico para validarlas rápidamente o construirlas bien.
+            </p>
+            <div class="card-industry-outcome">
+              <strong>Resultado:</strong> Desarrollo de prototipos funcionales (MVPs), software a medida y prototipado físico en 3D para lanzar sus ideas.
+            </div>
+          </article>
+
+          <!-- Empresas Locales & Pymes -->
+          <article class="card-industry reveal">
+            <div class="card-industry-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+              </svg>
+            </div>
+            <h3 class="card-industry-title">Empresas Locales & Pymes</h3>
+            <p class="card-industry-problem">
+              <strong>Desafío:</strong> Procesos administrativos manuales, falta de claridad en las operaciones y sistemas genéricos que no encajan.
+            </p>
+            <div class="card-industry-outcome">
+              <strong>Resultado:</strong> Dashboards internos y software a medida que le otorgan al dueño control total y claridad sobre su negocio.
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ════════════════════════════════════════
          §2 — MANIFESTO
     ═════════════════════════════════════════ -->
-    <section class="manifesto-wrap manifesto-sequence" aria-label="Studio manifesto">
+    <section class="manifesto-wrap manifesto-sequence" aria-label="Manifiesto del estudio">
 
       <div class="manifesto-statement" id="manifesto-1">
-        <p class="manifesto-pre">We don't build websites.</p>
-        <p class="manifesto-main">We build software.</p>
+        <p class="manifesto-pre">No creamos sitios web desechables.</p>
+        <p class="manifesto-main">Construimos infraestructura digital.</p>
       </div>
 
       <div class="manifesto-divider"></div>
 
       <div class="manifesto-statement" id="manifesto-2">
-        <p class="manifesto-pre">We don't work on projects.</p>
-        <p class="manifesto-main">We invest in problems worth solving.</p>
+        <p class="manifesto-pre">No vendemos tecnología por vender.</p>
+        <p class="manifesto-main">Ayudamos a las empresas a trabajar mejor.</p>
       </div>
 
       <div class="manifesto-divider"></div>
 
       <div class="manifesto-statement" id="manifesto-3">
         <p class="manifesto-single">
-          Professional services finance<br>the ideas we believe in.
+          Los servicios profesionales financian<br>los productos en los que creemos.
         </p>
       </div>
 
       <div class="manifesto-divider"></div>
 
       <div class="manifesto-statement manifesto-final" id="manifesto-4">
-        <p class="manifesto-pre">Every product we ship began with</p>
-        <p class="manifesto-main">a problem we couldn't ignore.</p>
+        <p class="manifesto-pre">Cada producto que lanzamos nació para</p>
+        <p class="manifesto-main">resolver un problema real.</p>
       </div>
 
     </section>
 
 
     <!-- ════════════════════════════════════════
-         §3 — OUR PRODUCTS
+         §3 — OUR PRODUCTS (NUESTROS PRODUCTOS)
     ═════════════════════════════════════════ -->
     <section class="section section-lg" id="products" aria-labelledby="products-heading">
       <div class="container">
 
         <div class="reveal">
-          <p class="sh-label" id="products-eyebrow">Our Products</p>
+          <p class="sh-label" id="products-eyebrow">Nuestros Productos</p>
           <h2 class="sh-heading" id="products-heading">
-            Three products.<br>One mission.
+            Tres productos.<br>La prueba de lo que construimos.
           </h2>
           <p class="sh-lead">
-            We build in the industries we understand deeply. Each product is
-            a long-term investment — not a quick launch. Not a side project.
-            A commitment.
+            No solo programamos para clientes; diseñamos y operamos nuestras propias plataformas.
+            Las lecciones reales que aprendemos en nuestros productos benefician directamente a tu empresa.
           </p>
         </div>
 
@@ -1023,17 +1232,16 @@
                   <polyline points="10 9 9 9 8 9"/>
                 </svg>
               </div>
-              <span class="badge badge-active-dev badge-dot badge-dot-pulse">Active Development</span>
+              <span class="badge badge-live badge-dot badge-dot-pulse">🟢 En Vivo</span>
             </div>
             <div class="card-product-body">
               <h3 class="card-product-title product-name-legal" id="prod-cao-title">
                 Case Assistant <span class="accent">OS</span>
               </h3>
               <p class="card-product-description">
-                An intelligent workstation for Personal Injury case managers.
-                Automates follow-ups, tracks medical requests from submission to
-                settlement, and eliminates the spreadsheet — without changing
-                how your firm already works.
+                Un sistema operativo inteligente para la gestión de procesos legales y casos de lesiones personales.
+                Automatiza recordatorios, organiza solicitudes médicas de inicio a fin y elimina las planillas
+                manuales desordenadas en bufetes de abogados.
               </p>
             </div>
             <div class="card-product-meta">
@@ -1043,9 +1251,9 @@
                 <span class="tech-label">Local-First</span>
               </div>
               <div class="card-product-footer">
-                <span class="badge badge-product badge-product-legal">U.S. Legal Market</span>
+                <span class="badge badge-product badge-product-legal">Mercado Legal</span>
                 <a href="products/case-assistant-os/" class="btn btn-text btn-sm" id="cao-learn-more">
-                  View Product <span class="btn-arrow">→</span>
+                  Ver Producto <span class="btn-arrow">→</span>
                 </a>
               </div>
             </div>
@@ -1061,17 +1269,16 @@
                   <polyline points="9 22 9 12 15 12 15 22"/>
                 </svg>
               </div>
-              <span class="badge badge-coming-soon badge-dot">Coming Soon</span>
+              <span class="badge badge-coming-soon badge-dot">🟡 En Desarrollo — Próximamente (Santa Cruz)</span>
             </div>
             <div class="card-product-body">
               <h3 class="card-product-title product-name-home" id="prod-ph-title">
                 Project <span class="accent">Home</span>
               </h3>
               <p class="card-product-description">
-                A modern rental marketplace connecting landlords and long-term
-                tenants through a cleaner, faster, more transparent experience.
-                Bolivia's rental market has a trust and data problem.
-                We're building the solution.
+                Un mercado inmobiliario moderno que conecta a propietarios e inquilinos a largo plazo en Bolivia.
+                Aportamos transparencia, confianza y datos confiables a un mercado de alquileres tradicionalmente
+                informal y desorganizado.
               </p>
             </div>
             <div class="card-product-meta">
@@ -1081,10 +1288,10 @@
                 <span class="tech-label">PostgreSQL</span>
               </div>
               <div class="card-product-footer">
-                <span class="badge badge-product badge-product-home">Bolivia-First</span>
+                <span class="badge badge-product badge-product-home">Enfoque Bolivia</span>
                 <button class="btn btn-text btn-sm" id="ph-waitlist-btn"
                         data-modal="modal-waitlist">
-                  Join Waitlist <span class="btn-arrow">→</span>
+                  Lista de Espera <span class="btn-arrow">→</span>
                 </button>
               </div>
             </div>
@@ -1101,25 +1308,24 @@
                   <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
                 </svg>
               </div>
-              <span class="badge badge-live badge-dot badge-dot-pulse">Live</span>
+              <span class="badge badge-live badge-dot badge-dot-pulse">🟢 En Vivo</span>
             </div>
             <div class="card-product-body">
               <h3 class="card-product-title product-name-tech" id="prod-sct-title">
                 SC <span class="accent">Tech</span>
               </h3>
               <p class="card-product-description">
-                An independent technology brand within the SC Web Studio
-                ecosystem. SC Tech serves clients and communities with
-                accessible technology solutions. Visit sctech.shop to explore
-                the current offerings.
+                Nuestro laboratorio propio y marca independiente para el comercio digital. SC Tech es donde
+                probamos experiencias de compra, logística, gestión de inventario y pagos en tiempo real.
+                Visita sctech.shop para explorar las ofertas.
               </p>
             </div>
             <div class="card-product-meta">
               <div class="card-product-footer">
-                <span class="badge badge-product badge-product-tech">Live Brand</span>
+                <span class="badge badge-product badge-product-tech">Marca en Vivo</span>
                 <a href="https://sctech.shop" target="_blank" rel="noopener noreferrer"
                    class="btn btn-text btn-sm" id="sct-external">
-                  Visit sctech.shop ↗
+                  Visitar sctech.shop ↗
                 </a>
               </div>
             </div>
@@ -1130,7 +1336,7 @@
         <!-- Ecosystem link -->
         <div class="text-center reveal reveal-fade" style="margin-top: var(--space-10);">
           <a href="ecosystem/" class="btn btn-ghost" id="ecosystem-link">
-            View the full ecosystem →
+            Ver todo nuestro ecosistema →
           </a>
         </div>
 
@@ -1139,118 +1345,138 @@
 
 
     <!-- ════════════════════════════════════════
-         §4 — SERVICES
+         §4 — SERVICES (SERVICIOS)
     ═════════════════════════════════════════ -->
     <section class="section section-lg section-surface" id="services" aria-labelledby="services-heading">
       <div class="container">
 
-        <div class="grid-hero-split">
+        <div class="reveal" style="max-width: 680px;">
+          <p class="sh-label">Nuestros Servicios</p>
+          <h2 class="sh-heading" id="services-heading">
+            Construimos lo que tu empresa necesita.<br>
+            <span style="color:var(--text-secondary);font-weight:var(--weight-semibold);">Con la calidad de nuestro propio software.</span>
+          </h2>
+          <p class="sh-lead" style="margin-top: var(--space-2);">
+            No somos una agencia tradicional de marketing. Somos un estudio de producto.
+            Aplicamos el mismo rigor de ingeniería que usamos en nuestros propios sistemas para
+            crear soluciones duraderas en tu negocio.
+          </p>
+        </div>
 
-          <!-- Left: text -->
-          <div class="reveal">
-            <p class="sh-label">Our Services</p>
-            <h2 class="sh-heading" id="services-heading">
-              We build what<br>clients need.<br>
-              <span style="color:var(--text-secondary);font-weight:var(--weight-semibold);">We keep what we build.</span>
-            </h2>
-            <p class="sh-lead" style="margin-top: var(--space-2);">
-              Client work finances the development of our own products.
-              Every engagement is a partnership — not a transaction. We bring
-              the same standards we apply to our own software to every project
-              we take on.
-            </p>
-            <div style="margin-top: var(--space-8);">
-              <a href="services/" class="btn btn-secondary" id="services-cta">
-                See how we work →
-              </a>
+        <div class="services-grid reveal-group">
+
+          <!-- 01: Websites & Stores -->
+          <div class="card-feature reveal" id="service-web">
+            <div class="card-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <line x1="8" y1="21" x2="16" y2="21"/>
+                <line x1="12" y1="17" x2="12" y2="21"/>
+              </svg>
             </div>
+            <span class="service-num">01</span>
+            <h3 class="card-feature-title">Desarrollo Web & Tiendas Online</h3>
+            <p class="card-feature-description">
+              Sitios institucionales y tiendas virtuales de alta velocidad adaptadas a tu marca.
+              Transmiten confianza inmediata y permiten vender las 24 horas del día sin interrupciones.
+            </p>
           </div>
 
-          <!-- Right: capability cards -->
-          <div class="services-grid reveal-group">
-
-            <div class="card-feature reveal" id="service-software">
-              <div class="card-feature-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                  <polyline points="16 18 22 12 16 6"/>
-                  <polyline points="8 6 2 12 8 18"/>
-                </svg>
-              </div>
-              <span class="service-num">01</span>
-              <h3 class="card-feature-title">Software Development</h3>
-              <p class="card-feature-description">
-                From internal tools to client-facing platforms. We write clean,
-                maintainable code for systems that need to last. Not just ship.
-              </p>
+          <!-- 02: Business Automation -->
+          <div class="card-feature reveal" id="service-automation">
+            <div class="card-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
             </div>
+            <span class="service-num">02</span>
+            <h3 class="card-feature-title">Automatización de Procesos</h3>
+            <p class="card-feature-description">
+              Eliminamos tareas repetitivas y manuales. Conectamos tus herramientas para que las facturas,
+              correos y notificaciones se envíen solas, devolviendo tiempo valioso a tu equipo.
+            </p>
+          </div>
 
-            <div class="card-feature reveal" id="service-automation">
-              <div class="card-feature-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                </svg>
-              </div>
-              <span class="service-num">02</span>
-              <h3 class="card-feature-title">Process Automation</h3>
-              <p class="card-feature-description">
-                If a human is doing something a system could do better, we
-                build the system. Repetitive work is a cost. We eliminate it.
-              </p>
+          <!-- 03: Custom Software -->
+          <div class="card-feature reveal" id="service-software">
+            <div class="card-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <polyline points="16 18 22 12 16 6"/>
+                <polyline points="8 6 2 12 8 18"/>
+              </svg>
             </div>
+            <span class="service-num">03</span>
+            <h3 class="card-feature-title">Software a Medida</h3>
+            <p class="card-feature-description">
+              Dashboards internos, portales para clientes y sistemas de gestión diseñados exactamente para la forma en que trabaja tu empresa, sin pagar licencias por funciones inútiles.
+            </p>
+          </div>
 
-            <div class="card-feature reveal" id="service-saas">
-              <div class="card-feature-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                  <rect x="2" y="3" width="20" height="14" rx="2"/>
-                  <line x1="8" y1="21" x2="16" y2="21"/>
-                  <line x1="12" y1="17" x2="12" y2="21"/>
-                </svg>
-              </div>
-              <span class="service-num">03</span>
-              <h3 class="card-feature-title">SaaS Development</h3>
-              <p class="card-feature-description">
-                End-to-end product development. Strategy, architecture, design,
-                engineering, and launch — handled by one team with one standard.
-              </p>
+          <!-- 04: AI Integration -->
+          <div class="card-feature reveal" id="service-ai">
+            <div class="card-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 8v8"/>
+                <path d="M8 12h8"/>
+              </svg>
             </div>
+            <span class="service-num">04</span>
+            <h3 class="card-feature-title">Integración de IA</h3>
+            <p class="card-feature-description">
+              Asistentes virtuales y flujos inteligentes que responden consultas frecuentes de clientes al instante y procesan información sin multiplicar tus costos operativos.
+            </p>
+          </div>
 
-            <div class="card-feature reveal" id="service-design">
-              <div class="card-feature-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                  <path d="M12 20h9"/>
-                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-                </svg>
-              </div>
-              <span class="service-num">04</span>
-              <h3 class="card-feature-title">UX & Interface Design</h3>
-              <p class="card-feature-description">
-                Interfaces designed for complex, daily-use workflows. We
-                specialize in software used by professionals under pressure —
-                where clarity isn't optional.
-              </p>
+          <!-- 05: 3D Design & Prototyping -->
+          <div class="card-feature reveal" id="service-3d">
+            <div class="card-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              </svg>
             </div>
+            <span class="service-num">05</span>
+            <h3 class="card-feature-title">Diseño & Impresión 3D</h3>
+            <p class="card-feature-description">
+              Modelado 3D profesional y prototipado físico rápido. Permitimos a arquitectos, creadores y diseñadores validar productos e inventos antes de producirlos en masa.
+            </p>
+          </div>
 
-          </div><!-- /services-grid -->
-        </div>
+          <!-- 06: Future Innovation -->
+          <div class="card-feature reveal" id="service-innovation">
+            <div class="card-feature-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="2"/>
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+            </div>
+            <span class="service-num">06</span>
+            <h3 class="card-feature-title">Innovación Tecnológica</h3>
+            <p class="card-feature-description">
+              Investigación aplicada en nuevas tecnologías, integración de dispositivos IoT y sistemas avanzados para garantizar que tu empresa se mantenga a la vanguardia.
+            </p>
+          </div>
+
+        </div><!-- /services-grid -->
 
       </div>
     </section>
 
 
     <!-- ════════════════════════════════════════
-         §5 — HOW WE WORK
+         §5 — HOW WE WORK (NUESTRO PROCESO)
     ═════════════════════════════════════════ -->
     <section class="section section-xl" id="how-we-work" aria-labelledby="hww-heading">
       <div class="container">
 
         <div class="reveal text-center" style="max-width: 640px; margin-inline: auto;">
-          <p class="sh-label" style="justify-content: center;">How We Work</p>
+          <p class="sh-label" style="justify-content: center;">Cómo Trabajamos</p>
           <h2 class="sh-heading" id="hww-heading">
-            Every great product starts<br>with a problem.
+            Todo gran software empieza<br>entendiendo el problema.
           </h2>
           <p class="sh-lead" style="margin-inline: auto;">
-            We don't quote before understanding. Discovery isn't a courtesy —
-            it's the most important step in building software that lasts.
+            No enviamos cotizaciones a ciegas. Descubrir la realidad de tu empresa no es una cortesía,
+            es el paso más importante para construir tecnología que dure.
           </p>
         </div>
 
@@ -1262,12 +1488,10 @@
             <div class="pipeline-step" role="listitem" id="step-understand">
               <div class="pipeline-num" aria-hidden="true">01</div>
               <div class="pipeline-body">
-                <h3 class="pipeline-title">Understand</h3>
+                <h3 class="pipeline-title">Entender</h3>
                 <p class="pipeline-desc">
-                  We study the workflow, the user, and the failure modes before
-                  proposing anything. The best solution to a problem is rarely
-                  the first one that comes to mind. We take the time to find the
-                  right one.
+                  Estudiamos tu flujo de trabajo, tus clientes y tus puntos de dolor antes de proponer nada.
+                  La mejor solución rara vez es la primera que se ocurre; nos tomamos el tiempo para encontrar la correcta.
                 </p>
               </div>
             </div>
@@ -1275,12 +1499,10 @@
             <div class="pipeline-step" role="listitem" id="step-design">
               <div class="pipeline-num" aria-hidden="true">02</div>
               <div class="pipeline-body">
-                <h3 class="pipeline-title">Design</h3>
+                <h3 class="pipeline-title">Diseñar</h3>
                 <p class="pipeline-desc">
-                  We design systems before we design interfaces. Architecture,
-                  data flow, and user journey come before visual choices.
-                  Structure is a design decision too — and often the most
-                  consequential one.
+                  Diseñamos la estructura y la arquitectura del sistema antes de escribir código.
+                  Los flujos de datos y la facilidad de uso vienen antes que los adornos visuales.
                 </p>
               </div>
             </div>
@@ -1288,11 +1510,10 @@
             <div class="pipeline-step" role="listitem" id="step-build">
               <div class="pipeline-num" aria-hidden="true">03</div>
               <div class="pipeline-body">
-                <h3 class="pipeline-title">Build</h3>
+                <h3 class="pipeline-title">Construir</h3>
                 <p class="pipeline-desc">
-                  Precision over speed. We prefer building something right once
-                  over patching something wrong twice. Our code is written to be
-                  read, maintained, and extended — not just to ship.
+                  Priorizamos la precisión sobre las prisas. Preferimos hacer las cosas bien a la primera.
+                  Escribimos código limpio y mantenible, diseñado para durar años.
                 </p>
               </div>
             </div>
@@ -1300,11 +1521,10 @@
             <div class="pipeline-step" role="listitem" id="step-iterate">
               <div class="pipeline-num" aria-hidden="true">04</div>
               <div class="pipeline-body">
-                <h3 class="pipeline-title">Iterate</h3>
+                <h3 class="pipeline-title">Evolucionar</h3>
                 <p class="pipeline-desc">
-                  Nothing ships and disappears. We track what matters, maintain
-                  what we build, and improve based on how people actually use it.
-                  Iteration is part of the work — not an afterthought.
+                  No entregamos un sitio y desaparecemos. Acompañamos el lanzamiento, medimos su uso real
+                  y mejoramos la herramienta continuamente a medida que tu negocio crece.
                 </p>
               </div>
             </div>
@@ -1313,12 +1533,12 @@
 
           <!-- Visual panel -->
           <div class="pipeline-visual reveal reveal-right">
-            <div class="pipeline-visual-header">Case Assistant OS — Development Snapshot</div>
+            <div class="pipeline-visual-header">Snapshot de Desarrollo — Case Assistant OS</div>
             <div class="pipeline-phases">
 
               <div class="phase-bar">
                 <div class="phase-bar-header">
-                  <span class="phase-bar-label">Core Case Engine</span>
+                  <span class="phase-bar-label">Motor Principal de Casos</span>
                   <span class="phase-bar-pct">100%</span>
                 </div>
                 <div class="phase-bar-track">
@@ -1328,7 +1548,7 @@
 
               <div class="phase-bar">
                 <div class="phase-bar-header">
-                  <span class="phase-bar-label">Medical Request Tracker</span>
+                  <span class="phase-bar-label">Rastreador de Solicitudes Médicas</span>
                   <span class="phase-bar-pct">100%</span>
                 </div>
                 <div class="phase-bar-track">
@@ -1338,7 +1558,7 @@
 
               <div class="phase-bar">
                 <div class="phase-bar-header">
-                  <span class="phase-bar-label">Attorney Communication Log</span>
+                  <span class="phase-bar-label">Registro de Comunicación Legal</span>
                   <span class="phase-bar-pct">87%</span>
                 </div>
                 <div class="phase-bar-track">
@@ -1348,7 +1568,7 @@
 
               <div class="phase-bar">
                 <div class="phase-bar-header">
-                  <span class="phase-bar-label">Automated Follow-up System</span>
+                  <span class="phase-bar-label">Sistema de Seguimiento Automatizado</span>
                   <span class="phase-bar-pct">72%</span>
                 </div>
                 <div class="phase-bar-track">
@@ -1358,7 +1578,7 @@
 
               <div class="phase-bar">
                 <div class="phase-bar-header">
-                  <span class="phase-bar-label">Settlement & Disbursement</span>
+                  <span class="phase-bar-label">Módulo de Liquidaciones y Desembolsos</span>
                   <span class="phase-bar-pct">34%</span>
                 </div>
                 <div class="phase-bar-track">
@@ -1368,7 +1588,7 @@
 
               <div class="phase-bar">
                 <div class="phase-bar-header">
-                  <span class="phase-bar-label">Reporting & Analytics</span>
+                  <span class="phase-bar-label">Reportes y Métricas Operativas</span>
                   <span class="phase-bar-pct">18%</span>
                 </div>
                 <div class="phase-bar-track">
@@ -1378,7 +1598,7 @@
 
             </div>
             <div class="pipeline-visual-footer">
-              <span class="pipeline-visual-status">Active development</span>
+              <span class="pipeline-visual-status">Desarrollo activo</span>
               <span class="version-label">v1.5.0-beta</span>
             </div>
           </div><!-- /pipeline-visual -->
@@ -1399,16 +1619,15 @@
           <div class="reveal">
             <p class="sh-label">SC Labs</p>
             <h2 class="sh-heading" id="labs-heading">
-              Where ideas become<br>experiments.
+              Donde las ideas se convierten<br>en experimentos.
             </h2>
             <p class="sh-lead">
-              Not every idea is ready to be a product. SC Labs is where we
-              validate, prototype, and sometimes abandon ideas before they
-              consume real resources. This is the work before the work.
+              No toda idea está lista para ser un producto comercial. SC Labs es nuestro espacio
+              para prototipar, validar y probar hipótesis antes de invertir recursos a gran escala.
             </p>
             <div style="margin-top:var(--space-8);">
               <a href="labs/" class="btn btn-secondary" id="labs-cta">
-                Enter the Lab →
+                Conocer el Laboratorio →
               </a>
             </div>
           </div>
@@ -1420,18 +1639,16 @@
                      aria-labelledby="lab-legalrag-title">
               <div class="card-lab-header">
                 <h3 class="card-lab-title" id="lab-legalrag-title">LegalRAG</h3>
-                <span class="badge badge-prototyping">Prototyping</span>
+                <span class="badge badge-prototyping">Prototipando</span>
               </div>
               <p class="card-lab-problem">
-                Applying retrieval-augmented generation to U.S. personal injury
-                case law. Can AI surface relevant precedents for case managers
-                without replacing their judgment? That's the question we're
-                testing.
+                Aplicando generación aumentada por recuperación (RAG) a jurisprudencia. Probamos cómo la IA
+                puede sugerir precedentes relevantes a gestores de casos sin reemplazar su criterio profesional.
               </p>
               <div class="tech-stack">
                 <span class="tech-label">Python</span>
                 <span class="tech-label">Vector DB</span>
-                <span class="tech-label">LLM Integration</span>
+                <span class="tech-label">Integración LLM</span>
               </div>
             </article>
 
@@ -1440,18 +1657,16 @@
                      aria-labelledby="lab-atlas-title">
               <div class="card-lab-header">
                 <h3 class="card-lab-title" id="lab-atlas-title">Atlas</h3>
-                <span class="badge badge-building">Building</span>
+                <span class="badge badge-building">Construyendo</span>
               </div>
               <p class="card-lab-problem">
-                Internal tooling for managing SC Web Studio's own client project
-                pipeline, invoicing, and deliverable tracking. A dogfood
-                product — we build it for ourselves first, and if it solves the
-                problem, it becomes a product.
+                Herramienta interna para gestionar proyectos de clientes, entregables y facturación en el estudio.
+                Lo construimos para nosotros primero; si resuelve el problema, se convierte en producto.
               </p>
               <div class="tech-stack">
                 <span class="tech-label">Node.js</span>
                 <span class="tech-label">SQLite</span>
-                <span class="tech-label">Internal</span>
+                <span class="tech-label">Uso Interno</span>
               </div>
             </article>
 
@@ -1471,17 +1686,16 @@
 
         <div class="flex justify-between items-start" style="flex-wrap: wrap; gap: var(--space-6);">
           <div class="reveal">
-            <p class="sh-label">Stories</p>
-            <h2 class="sh-heading" id="stories-heading">Thinking in public.</h2>
+            <p class="sh-label">Historias & Aprendizajes</p>
+            <h2 class="sh-heading" id="stories-heading">Documentando el trabajo.</h2>
             <p class="sh-lead">
-              We write about the problems we're solving, the software we're
-              building, and what we've learned from trying. No thought
-              leadership. Just honest documentation of the work.
+              Escribimos con honestidad sobre los problemas que resolvemos, las herramientas
+              que construimos y lo que aprendemos en el camino.
             </p>
           </div>
           <div class="reveal reveal-fade" style="flex-shrink:0; padding-top: var(--space-8);">
             <a href="stories/" class="btn btn-secondary" id="stories-all">
-              All Stories →
+              Todas las Historias →
             </a>
           </div>
         </div>
@@ -1491,20 +1705,18 @@
           <a href="stories/why-we-built-case-assistant-os-first/"
              class="card-story reveal"
              id="story-1"
-             aria-label="Read: Why we built Case Assistant OS before we built a landing page">
+             aria-label="Leer: Por qué construimos Case Assistant OS antes de crear nuestra página web">
             <div class="card-story-meta">
-              <span class="tag tag-design">Product Strategy</span>
-              <span class="card-story-read-time">8 min read</span>
+              <span class="tag tag-design">Estrategia de Producto</span>
+              <span class="card-story-read-time">8 min lectura</span>
             </div>
             <div class="card-story-content">
               <h3 class="card-story-title">
-                Why we built Case Assistant OS before we built a landing page
+                Por qué construimos Case Assistant OS antes de crear nuestra página web
               </h3>
               <p class="card-story-description">
-                Most studios build a website first. We built the product first.
-                Here's why that decision changed how we think about
-                everything — from marketing to architecture to what it means to
-                be a software studio.
+                La mayoría de las agencias crean una web primero. Nosotros construimos el producto primero.
+                Esta decisión cambió la forma en que pensamos sobre todo: arquitectura, mercado y lo que significa ser un estudio.
               </p>
             </div>
           </a>
@@ -1512,20 +1724,18 @@
           <a href="stories/local-first-architecture-when-it-makes-sense/"
              class="card-story reveal"
              id="story-2"
-             aria-label="Read: Local-first architecture in 2025">
+             aria-label="Leer: Arquitectura local-first en 2025">
             <div class="card-story-meta">
-              <span class="tag tag-engineering">Engineering</span>
-              <span class="card-story-read-time">6 min read</span>
+              <span class="tag tag-engineering">Ingeniería</span>
+              <span class="card-story-read-time">6 min lectura</span>
             </div>
             <div class="card-story-content">
               <h3 class="card-story-title">
-                Local-first architecture in 2025: when it makes sense and when it doesn't
+                Arquitectura local-first en 2025: cuándo conviene y cuándo no
               </h3>
               <p class="card-story-description">
-                We chose local-first for Case Assistant OS. That decision
-                touched every part of the system — data structure, sync
-                strategy, offline behavior, and how we think about user trust.
-                The tradeoffs were worth it. Here's the full picture.
+                Elegimos arquitectura local-first para Case Assistant OS. Esa decisión impactó la estructura de datos,
+                la sincronización y la confianza del usuario. Aquí explicamos la visión completa.
               </p>
             </div>
           </a>
@@ -1533,20 +1743,18 @@
           <a href="stories/bolivias-rental-market-has-a-data-problem/"
              class="card-story reveal"
              id="story-3"
-             aria-label="Read: Bolivia's rental market has a data problem">
+             aria-label="Leer: El mercado de alquileres en Bolivia y la necesidad de datos transparentes">
             <div class="card-story-meta">
-              <span class="tag tag-design">Product</span>
-              <span class="card-story-read-time">5 min read</span>
+              <span class="tag tag-design">Producto</span>
+              <span class="card-story-read-time">5 min lectura</span>
             </div>
             <div class="card-story-content">
               <h3 class="card-story-title">
-                Bolivia's rental market has a data problem. We're building the solution.
+                El mercado de alquileres en Bolivia y la necesidad de datos transparentes
               </h3>
               <p class="card-story-description">
-                Landlords don't trust tenants. Tenants don't trust landlords.
-                Neither side has reliable data. This is the research that led
-                us to Project Home — and why we believe a marketplace alone
-                isn't enough.
+                Propietarios e inquilinos sufren de desconfianza por la falta de información clara.
+                Esta es la investigación que nos llevó a crear Project Home y por qué un simple portal no es suficiente.
               </p>
             </div>
           </a>
@@ -1564,13 +1772,13 @@
       <div class="container" style="max-width: var(--container-md);">
 
         <div class="reveal">
-          <p class="sh-label" style="justify-content: center;">Get Started</p>
+          <p class="sh-label" style="justify-content: center;">Comienza Hoy</p>
           <h2 class="sh-heading" id="cta-heading" style="text-align:center; font-size: clamp(2rem, 5vw, 3rem);">
-            Ready to build something<br>that lasts?
+            ¿Listo para hacer crecer tu empresa<br>con tecnología útil?
           </h2>
           <p class="sh-lead" style="margin-inline: auto; text-align: center; margin-top: var(--space-2);">
-            We take on a limited number of client projects each year. If you
-            have a problem worth solving, we want to hear about it.
+            Aceptamos un número limitado de proyectos al año para garantizar la máxima calidad.
+            Si tienes un desafío que vale la pena resolver, queremos escucharlo.
           </p>
         </div>
 
@@ -1582,12 +1790,12 @@
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
               </svg>
             </div>
-            <span class="cta-path-label">Start a Project</span>
+            <span class="cta-path-label">Solicitar Diagnóstico Digital</span>
             <p class="cta-path-desc">
-              Tell us about your problem. We'll tell you honestly if we're the
-              right team to solve it.
+              Cuéntanos sobre tu negocio. Te diremos con total honestidad cómo la tecnología
+              puede ayudarte a trabajar mejor y crecer.
             </p>
-            <span class="cta-path-arrow">Book a discovery call →</span>
+            <span class="cta-path-arrow">Hablemos de tu proyecto →</span>
           </a>
 
           <a href="products/" class="cta-path reveal" id="cta-explore-products">
@@ -1598,12 +1806,11 @@
                 <line x1="12" y1="17" x2="12" y2="21"/>
               </svg>
             </div>
-            <span class="cta-path-label">Explore Products</span>
+            <span class="cta-path-label">Conocer Nuestros Productos</span>
             <p class="cta-path-desc">
-              See what we've built and what we're building. Case Assistant OS,
-              Project Home, and the ecosystem.
+              Descubre lo que hemos construido y operado. Case Assistant OS, Project Home y nuestro ecosistema.
             </p>
-            <span class="cta-path-arrow" style="color:var(--text-secondary);">View all products →</span>
+            <span class="cta-path-arrow" style="color:var(--text-secondary);">Ver todos los productos →</span>
           </a>
 
         </div>
@@ -1627,36 +1834,36 @@
     <div class="modal modal-sm">
       <div class="modal-header" style="background: linear-gradient(135deg, rgba(245,158,11,0.05) 0%, transparent 100%);">
         <div>
-          <h2 class="modal-title" id="waitlist-title">Join the Project Home Waitlist</h2>
-          <p class="modal-subtitle">Be the first to know when we launch in Bolivia.</p>
+          <h2 class="modal-title" id="waitlist-title">Únete a la Lista de Espera de Project Home</h2>
+          <p class="modal-subtitle">Sé el primero en enterarte cuando lancemos en Bolivia.</p>
         </div>
-        <button class="modal-close" data-close="modal-waitlist" aria-label="Close waitlist modal" type="button">
+        <button class="modal-close" data-close="modal-waitlist" aria-label="Cerrar ventana" type="button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
       </div>
       <div class="modal-body">
         <form id="waitlist-form" class="form-stack" novalidate>
           <div class="form-group">
-            <label class="form-label form-label-required" for="wl-name">Full name</label>
-            <input class="form-input" type="text" id="wl-name" name="name" placeholder="Your name" autocomplete="name" required>
+            <label class="form-label form-label-required" for="wl-name">Nombre completo</label>
+            <input class="form-input" type="text" id="wl-name" name="name" placeholder="Tu nombre" autocomplete="name" required>
           </div>
           <div class="form-group">
-            <label class="form-label form-label-required" for="wl-email">Email address</label>
-            <input class="form-input" type="email" id="wl-email" name="email" placeholder="you@email.com" autocomplete="email" required>
+            <label class="form-label form-label-required" for="wl-email">Correo electrónico</label>
+            <input class="form-input" type="email" id="wl-email" name="email" placeholder="tu@correo.com" autocomplete="email" required>
           </div>
           <div class="form-group">
-            <label class="form-label" for="wl-role">You are a…</label>
+            <label class="form-label" for="wl-role">Eres un…</label>
             <select class="form-select" id="wl-role" name="role">
-              <option value="">Select your role</option>
-              <option value="landlord">Landlord / Property owner</option>
-              <option value="tenant">Tenant / Looking to rent</option>
-              <option value="agent">Real estate agent</option>
-              <option value="other">Other</option>
+              <option value="">Selecciona tu rol</option>
+              <option value="landlord">Propietario / Dueño de inmueble</option>
+              <option value="tenant">Inquilino / Buscando alquilar</option>
+              <option value="agent">Agente inmobiliario</option>
+              <option value="other">Otro</option>
             </select>
           </div>
           <div class="form-submit-area">
-            <button type="submit" class="btn btn-home btn-full" id="wl-submit">Join the Waitlist</button>
-            <p class="form-privacy-note">No spam. No sharing. Just a single email when we launch.</p>
+            <button type="submit" class="btn btn-home btn-full" id="wl-submit">Unirme a la Lista de Espera</button>
+            <p class="form-privacy-note">Sin spam. Cuidamos tus datos. Solo recibirás un aviso al lanzar.</p>
           </div>
         </form>
       </div>
@@ -1732,20 +1939,19 @@
         btn.classList.add('is-loading');
         btn.textContent = '';
 
-        // Replace this timeout with a real fetch() to your API endpoint
         setTimeout(function () {
           wlForm.innerHTML =
             '<div style="text-align:center;padding:var(--space-8);display:flex;flex-direction:column;gap:var(--space-4);align-items:center;">' +
             '<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>' +
-            '<h3 style="font-family:var(--font-display);color:var(--text-primary);font-size:var(--text-xl);font-weight:600;">You\'re on the list.</h3>' +
-            '<p style="font-size:var(--text-sm);color:var(--text-secondary);max-width:none;">We\'ll send one email when Project Home launches in Bolivia. That\'s it.</p>' +
+            '<h3 style="font-family:var(--font-display);color:var(--text-primary);font-size:var(--text-xl);font-weight:600;">Ya estás en la lista.</h3>' +
+            '<p style="font-size:var(--text-sm);color:var(--text-secondary);max-width:none;">Te enviaremos un correo cuando Project Home esté disponible en Bolivia.</p>' +
             '</div>';
         }, 1200);
       });
     }
 
 
-    /* ── Pipeline step observer (supplemental — scroll.js handles .reveal) ── */
+    /* ── Pipeline step observer ────────────────────────────────────────── */
     var pipelineSteps = document.querySelectorAll('.pipeline-step');
     if (pipelineSteps.length > 0 && 'IntersectionObserver' in window) {
       var pObs = new IntersectionObserver(function (entries) {
